@@ -149,8 +149,7 @@
             "scrollX": true,
             "scrollY": "400px",
             "fixedColumns": {
-                leftColumns: 2,
-                heightMatch: 'none'
+                leftColumns: 2
             },
             "ajax": {
                 dataSrc: '',

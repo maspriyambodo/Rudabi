@@ -1,16 +1,3 @@
-<style>
-    .DTFC_ScrollWrapper{
-        height:auto !important;
-    }
-    th, td { white-space: nowrap; }
-    .dataTables_wrapper .dataTable {
-        width: 100% !important;
-        border-collapse: initial !important;
-        border-spacing: 0 !important;
-        margin:0 !important;
-        border-radius: .42rem;
-    }
-</style>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
@@ -22,7 +9,7 @@
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('PAI/Dakwah/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?= base_url('PAI/Ormas/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
@@ -32,38 +19,23 @@
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
                     <tr>
-                        <th rowspan="2">kabupaten</th>
-                        <th rowspan="2">jumlah<br>dakwah</th>
-                        <th colspan="4">status tanah</th>
+                        <th rowspan="2">kota/kabupaten</th>
+                        <th rowspan="2">jumlah<br>ormas islam</th>
+                        <th colspan="4">status milik</th>
                         <th rowspan="2">lt</th>
                         <th rowspan="2">lb</th>
-                        <th colspan="2">jumlah pengurus</th>
                     </tr>
                     <tr>
-                        <th>
-                            sekolah
-                        </th>
-                        <th>
-                            wakaf
-                        </th>
-                        <th>
-                            yayasan
-                        </th>
-                        <th>
-                            pemerintah
-                        </th>
-                        <th>
-                            laki-laki
-                        </th>
-                        <th>
-                            perempuan
-                        </th>
+                        <th>sekolah</th>
+                        <th>wakaf</th>
+                        <th>yayasan</th>
+                        <th>pemerintah</th>
                     </tr>
                 </thead>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th>jumlah</th>
-                        <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                        <th>total</th>
+                        <th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                     </tr>
                 </tfoot>
             </table>
@@ -72,7 +44,7 @@
 </div>
 <script>
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/dakwah?province_id=<?= $id; ?>";
+        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/ormas?province_id=<?= $id; ?>";
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
@@ -93,13 +65,13 @@
 
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
             valueAxis.renderer.minWidth = 100;
-            valueAxis.title.text = "Jumlah Lembaga Dakwah";
+            valueAxis.title.text = "Jumlah Ormas Islam";
             valueAxis.title.fontWeight = 800;
             var series = chart.series.push(new am4charts.ColumnSeries());
             series.sequencedInterpolation = true;
-            series.dataFields.valueY = "jum_dakwah";
+            series.dataFields.valueY = "jum_ormas";
             series.dataFields.categoryX = "city_title";
-            series.tooltipText = "Total Lembaga Dakwah \r\n{city_title}: [{categoryX}: bold]{valueY}[/]";
+            series.tooltipText = "Total Ormas Islam \r\n{city_title}: [{categoryX}: bold]{valueY}[/]";
             series.columns.template.strokeWidth = 0;
             series.tooltip.pointerOrientation = "vertical";
 
@@ -132,9 +104,6 @@
                 async: false,
                 url: url
             },
-            "fixedColumns": {
-                leftColumns: 2
-            },
             columns: [
                 {
                     data: null,
@@ -143,23 +112,21 @@
                         a = data.city_id;
                         b = data.city_title;
                         c = b.replace(' ', '_');
-                        return '<a href="<?= base_url('PAI/Dakwah/Kabupaten/'); ?>' + a + "/" + c + '">' + b + '</a>';
+                        return '<a href="<?= base_url('PAI/Ormas/Kabupaten/'); ?>' + a + "/" + c + '">' + b + '</a>';
                     }
                 },
-                {data: "jum_dakwah", className: "text-center sum_dak"},
+                {data: "jum_ormas", className: "text-center sum_orm"},
                 {data: "milik_sekolah", className: "text-center sum_sek"},
                 {data: "milik_wakaf", className: "text-center sum_wak"},
                 {data: "milik_yayasan", className: "text-center sum_yay"},
                 {data: "milik_pemerintah", className: "text-center sum_pem"},
-                {data: "luas_tanah", className: "text-center sum_tan"},
-                {data: "luas_bangunan", className: "text-center sum_bang"},
-                {data: "jum_pngrs_laki", className: "text-center sum_lak"},
-                {data: "jum_pngrs_perempuan", className: "text-center sum_per"}
+                {data: "luas_tanah", className: "text-center sum_lt"},
+                {data: "luas_bangunan", className: "text-center sum_lb"}
             ],
             footerCallback: function () {
                 var api = this.api();
                 var numFormat = $.fn.dataTable.render.number('\.', '', 0, '').display;
-                api.columns('.sum_dak', {page: 'current'}).every(function () {
+                api.columns('.sum_orm', {page: 'current'}).every(function () {
                     var sum = this
                             .data()
                             .reduce(function (a, b) {
@@ -209,7 +176,7 @@
                             }, 0);
                     $(this.footer()).html(numFormat(sum));
                 });
-                api.columns('.sum_tan', {page: 'current'}).every(function () {
+                api.columns('.sum_lt', {page: 'current'}).every(function () {
                     var sum = this
                             .data()
                             .reduce(function (a, b) {
@@ -219,27 +186,7 @@
                             }, 0);
                     $(this.footer()).html(numFormat(sum));
                 });
-                api.columns('.sum_bang', {page: 'current'}).every(function () {
-                    var sum = this
-                            .data()
-                            .reduce(function (a, b) {
-                                var x = parseFloat(a) || 0;
-                                var y = parseFloat(b) || 0;
-                                return x + y;
-                            }, 0);
-                    $(this.footer()).html(numFormat(sum));
-                });
-                api.columns('.sum_lak', {page: 'current'}).every(function () {
-                    var sum = this
-                            .data()
-                            .reduce(function (a, b) {
-                                var x = parseFloat(a) || 0;
-                                var y = parseFloat(b) || 0;
-                                return x + y;
-                            }, 0);
-                    $(this.footer()).html(numFormat(sum));
-                });
-                api.columns('.sum_per', {page: 'current'}).every(function () {
+                api.columns('.sum_lb', {page: 'current'}).every(function () {
                     var sum = this
                             .data()
                             .reduce(function (a, b) {

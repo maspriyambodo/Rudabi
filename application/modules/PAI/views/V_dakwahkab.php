@@ -132,8 +132,7 @@
                 url: url
             },
             "fixedColumns": {
-                leftColumns: 3,
-                heightMatch: 'none'
+                leftColumns: 3
             },
             columns: [
                 {data: "lembaga_nama", className: "text-wrap"},
@@ -164,9 +163,9 @@
                         visi = data.lembaga_visi;
                         misi = data.lembaga_misi;
                         return visi + "<br>" + misi;
-                    }}
+                    }
+                }
             ]
         });
-        table.columns.adjust().draw();
     };
 </script>

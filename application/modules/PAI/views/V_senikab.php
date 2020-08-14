@@ -43,13 +43,10 @@
                             status
                         </th>
                         <th colspan="6">
-                            sarana &AMP; prasarana
+                            sarana &amp; prasarana
                         </th>
                         <th rowspan="2">
-                            visi
-                        </th>
-                        <th rowspan="2">
-                            misi
+                            visi &amp; misi
                         </th>
                     </tr>
                     <tr>
@@ -121,8 +118,7 @@
         "scrollX": true,
         "scrollY": "400px",
         "fixedColumns": {
-            leftColumns: 2,
-            heightMatch: 'none'
+            leftColumns: 2
         },
         "ajax": {
             dataSrc: '',
@@ -148,8 +144,15 @@
             {data: "lembaga_seni_alas", className: "text-center"},
             {data: "lembaga_seni_komputer", className: "text-center"},
             {data: "lembaga_seni_plang", className: "text-center"},
-            {data: "lembaga_seni_visi", className: "text-center"},
-            {data: "lembaga_seni_misi", className: "text-center"}
+            {
+                data: null, className: "text-center",
+                render: function (data) {
+                    var visi, misi;
+                    visi = data.lembaga_seni_visi;
+                    misi = data.lembaga_seni_misi;
+                    return '<b>VISI</b><br>' + visi + "<br>" + '<b>MISI</b><br>' + misi;
+                }
+            }
         ]
     });
 </script>
