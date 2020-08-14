@@ -78,6 +78,7 @@
             ],
             footerCallback: function () {
                 var api = this.api();
+                var numFormat = $.fn.dataTable.render.number('\.', '', 0, '').display;
                 api.columns('.sum_penyuluh', {page: 'current'}).every(function () {
                     var sum = this
                             .data()
@@ -86,7 +87,7 @@
                                 var y = parseFloat(b) || 0;
                                 return x + y;
                             }, 0);
-                    $(this.footer()).html(sum);
+                    $(this.footer()).html(numFormat(sum));
                 });
                 api.columns('.sum_on', {page: 'current'}).every(function () {
                     var sum = this
@@ -96,7 +97,7 @@
                                 var y = parseFloat(b) || 0;
                                 return x + y;
                             }, 0);
-                    $(this.footer()).html(sum);
+                    $(this.footer()).html(numFormat(sum));
                 });
             }
         });

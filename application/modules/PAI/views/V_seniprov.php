@@ -91,6 +91,7 @@
         ],
         footerCallback: function () {
             var api = this.api();
+            var numFormat = $.fn.dataTable.render.number( '\.', '', 0, '' ).display;
             api.columns('.sum_lsi', {page: 'current'}).every(function () {
                 var sum = this
                         .data()
@@ -99,7 +100,7 @@
                             var y = parseFloat(b) || 0;
                             return x + y;
                         }, 0);
-                $(this.footer()).html(sum);
+                $(this.footer()).html(numFormat(sum));
             });
             api.columns('.sum_pap', {page: 'current'}).every(function () {
                 var sum = this
@@ -109,7 +110,7 @@
                             var y = parseFloat(b) || 0;
                             return x + y;
                         }, 0);
-                $(this.footer()).html(sum);
+                $(this.footer()).html(numFormat(sum));
             });
             api.columns('.sum_lem', {page: 'current'}).every(function () {
                 var sum = this
@@ -119,7 +120,7 @@
                             var y = parseFloat(b) || 0;
                             return x + y;
                         }, 0);
-                $(this.footer()).html(sum);
+                $(this.footer()).html(numFormat(sum));
             });
             api.columns('.sum_mej', {page: 'current'}).every(function () {
                 var sum = this
@@ -129,7 +130,7 @@
                             var y = parseFloat(b) || 0;
                             return x + y;
                         }, 0);
-                $(this.footer()).html(sum);
+                $(this.footer()).html(numFormat(sum));
             });
             api.columns('.sum_als', {page: 'current'}).every(function () {
                 var sum = this
@@ -139,7 +140,7 @@
                             var y = parseFloat(b) || 0;
                             return x + y;
                         }, 0);
-                $(this.footer()).html(sum);
+                $(this.footer()).html(numFormat(sum));
             });
             api.columns('.sum_kom', {page: 'current'}).every(function () {
                 var sum = this
@@ -149,7 +150,7 @@
                             var y = parseFloat(b) || 0;
                             return x + y;
                         }, 0);
-                $(this.footer()).html(sum);
+                $(this.footer()).html(numFormat(sum));
             });
             api.columns('.sum_bank', {page: 'current'}).every(function () {
                 var sum = this
@@ -159,7 +160,7 @@
                             var y = parseFloat(b) || 0;
                             return x + y;
                         }, 0);
-                $(this.footer()).html(sum);
+                $(this.footer()).html(numFormat(sum));
             });
             api.columns('.sum_plang', {page: 'current'}).every(function () {
                 var sum = this
@@ -169,7 +170,7 @@
                             var y = parseFloat(b) || 0;
                             return x + y;
                         }, 0);
-                $(this.footer()).html(sum);
+                $(this.footer()).html(numFormat(sum));
             });
         }
     });

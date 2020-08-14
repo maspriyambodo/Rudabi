@@ -34,4 +34,26 @@ class Lptq extends CI_Controller {
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
+    public function Provinsi($id, $prov) {
+        $data = [
+            'title' => 'Lembaga Pembinaan Tilawatil Quran (LPTQ) | RUDABI SYSTEM OF KEMENAG RI',
+            'username' => $this->Authentication[0]->uname,
+            'id' => $id,
+            'provinsi' => str_replace('_', ' ', $prov)
+        ];
+        $data['content'] = $this->parser->parse('PAI/V_lptqprov', $data, true);
+        return $this->parser->parse('Dashboard/Template', $data);
+    }
+
+    public function Kabupaten($id, $kab) {
+        $data = [
+            'title' => 'Lembaga Pembinaan Tilawatil Quran (LPTQ) | RUDABI SYSTEM OF KEMENAG RI',
+            'username' => $this->Authentication[0]->uname,
+            'id' => $id,
+            'provinsi' => str_replace('_', ' ', $kab)
+        ];
+        $data['content'] = $this->parser->parse('PAI/V_lptqkab', $data, true);
+        return $this->parser->parse('Dashboard/Template', $data);
+    }
+
 }

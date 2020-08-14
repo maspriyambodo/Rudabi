@@ -5,5 +5,23 @@
         <data xmlns="http://www.netbeans.org/ns/php-project/1">
             <name>Rudabi</name>
         </data>
+        <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>geografi</word>
+            <word>kabupaten</word>
+            <word>komputer</word>
+            <word>laki</word>
+            <word>lembaga</word>
+            <word>milik</word>
+            <word>papan</word>
+            <word>pembinaan</word>
+            <word>pemerintah</word>
+            <word>pengurus</word>
+            <word>quran</word>
+            <word>sertifikat</word>
+            <word>tanah</word>
+            <word>transportasi</word>
+            <word>wakaf</word>
+            <word>yayasan</word>
+        </spellchecker-wordlist>
     </configuration>
 </project>

@@ -109,6 +109,7 @@
         ],
         footerCallback: function () {
             var api = this.api();
+            var numFormat = $.fn.dataTable.render.number( '\.', '', 0, '' ).display;
             api.columns('.sum_ls', {page: 'current'}).every(function () {
                 var sum = this
                         .data()
@@ -117,7 +118,8 @@
                             var y = parseFloat(b) || 0;
                             return x + y;
                         }, 0);
-                $(this.footer()).html(sum);
+                        
+                $(this.footer()).html(numFormat(sum));
             });
             api.columns('.sum_topdar', {page: 'current'}).every(function () {
                 var sum = this
@@ -127,7 +129,7 @@
                             var y = parseFloat(b) || 0;
                             return x + y;
                         }, 0);
-                $(this.footer()).html(sum);
+                $(this.footer()).html(numFormat(sum));
             });
             api.columns('.sum_toplaut', {page: 'current'}).every(function () {
                 var sum = this
@@ -137,7 +139,7 @@
                             var y = parseFloat(b) || 0;
                             return x + y;
                         }, 0);
-                $(this.footer()).html(sum);
+                $(this.footer()).html(numFormat(sum));
             });
             api.columns('.sum_geokot', {page: 'current'}).every(function () {
                 var sum = this
@@ -147,7 +149,7 @@
                             var y = parseFloat(b) || 0;
                             return x + y;
                         }, 0);
-                $(this.footer()).html(sum);
+                $(this.footer()).html(numFormat(sum));
             });
             api.columns('.sum_geodes', {page: 'current'}).every(function () {
                 var sum = this
@@ -157,7 +159,7 @@
                             var y = parseFloat(b) || 0;
                             return x + y;
                         }, 0);
-                $(this.footer()).html(sum);
+                $(this.footer()).html(numFormat(sum));
             });
             api.columns('.sum_geopel', {page: 'current'}).every(function () {
                 var sum = this
@@ -167,7 +169,7 @@
                             var y = parseFloat(b) || 0;
                             return x + y;
                         }, 0);
-                $(this.footer()).html(sum);
+                $(this.footer()).html(numFormat(sum));
             });
             api.columns('.sum_geoter', {page: 'current'}).every(function () {
                 var sum = this
@@ -177,7 +179,7 @@
                             var y = parseFloat(b) || 0;
                             return x + y;
                         }, 0);
-                $(this.footer()).html(sum);
+                $(this.footer()).html(numFormat(sum));
             });
         }
     });
