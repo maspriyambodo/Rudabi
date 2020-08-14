@@ -10,6 +10,10 @@
         margin:0 !important;
         border-radius: .42rem;
     }
+    .text-wrap{
+        white-space:normal !important;
+        width:400px;
+    }
 </style>
 <div class="card card-custom">
     <div class="card-header">
@@ -23,7 +27,7 @@
                 <thead class="text-center text-uppercase">
                     <tr>
                         <th colspan="4">
-                            lembaga pembinaan tilawatil quran
+                            lembaga dakwah
                         </th>
                         <th rowspan="2">
                             akta
@@ -132,27 +136,27 @@
                 heightMatch: 'none'
             },
             columns: [
-                {data: "lembaga_nama", className: "namatxt"},
-                {data: "lembaga_ketua"},
-                {data: "lembaga_thn_berdiri"},
-                {data: "lembaga_alamat"},
-                {data: "lembaga_no_akte"},
-                {data: "lembaga_izin_opr"},
-                {data: "lembaga_topography"},
-                {data: "lembaga_geography"},
-                {data: "lembaga_transportasi"},
-                {data: "lembaga_status_tanah"},
-                {data: "lembaga_no_sertifikat"},
-                {data: "lembaga_luas_tanah"},
-                {data: "lembaga_luas_bangunan"},
-                {data: "lembaga_pengurus_laki"},
-                {data: "lembaga_pengurus_perempuan"},
-                {data: "lembaga_papan"},
-                {data: "lembaga_lemari"},
-                {data: "lembaga_meja"},
-                {data: "lembaga_alas"},
-                {data: "lembaga_komputer"},
-                {data: "lembaga_plang"},
+                {data: "lembaga_nama", className: "text-wrap"},
+                {data: "lembaga_ketua", className: "text-center"},
+                {data: "lembaga_thn_berdiri", className: "text-center"},
+                {data: "lembaga_alamat", className: "text-center"},
+                {data: "lembaga_no_akte", className: "text-center"},
+                {data: "lembaga_izin_opr", className: "text-center"},
+                {data: "lembaga_topography", className: "text-center"},
+                {data: "lembaga_geography", className: "text-center"},
+                {data: "lembaga_transportasi", className: "text-center"},
+                {data: "lembaga_status_tanah", className: "text-center"},
+                {data: "lembaga_no_sertifikat", className: "text-center"},
+                {data: "lembaga_luas_tanah", className: "text-center"},
+                {data: "lembaga_luas_bangunan", className: "text-center"},
+                {data: "lembaga_pengurus_laki", className: "text-center"},
+                {data: "lembaga_pengurus_perempuan", className: "text-center"},
+                {data: "lembaga_papan", className: "text-center"},
+                {data: "lembaga_lemari", className: "text-center"},
+                {data: "lembaga_meja", className: "text-center"},
+                {data: "lembaga_alas", className: "text-center"},
+                {data: "lembaga_komputer", className: "text-center"},
+                {data: "lembaga_plang", className: "text-center"},
                 {
                     data: null, className: "text-center",
                     render: function (data) {

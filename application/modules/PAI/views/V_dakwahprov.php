@@ -14,7 +14,7 @@
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">data lptq provinsi {provinsi}</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">data lembaga dakwah provinsi {provinsi}</h5>
         </div>
     </div>
 </div>
@@ -22,7 +22,7 @@
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('PAI/Lptq/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?= base_url('PAI/Dakwah/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
@@ -33,7 +33,7 @@
                 <thead class="text-center text-uppercase">
                     <tr>
                         <th rowspan="2">kabupaten</th>
-                        <th rowspan="2">jumlah<br>lptq</th>
+                        <th rowspan="2">jumlah<br>dakwah</th>
                         <th colspan="4">status tanah</th>
                         <th rowspan="2">lt</th>
                         <th rowspan="2">lb</th>
@@ -93,13 +93,13 @@
 
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
             valueAxis.renderer.minWidth = 100;
-            valueAxis.title.text = "Jumlah LPTQ";
+            valueAxis.title.text = "Jumlah Lembaga Dakwah";
             valueAxis.title.fontWeight = 800;
             var series = chart.series.push(new am4charts.ColumnSeries());
             series.sequencedInterpolation = true;
             series.dataFields.valueY = "jum_dakwah";
             series.dataFields.categoryX = "city_title";
-            series.tooltipText = "Total LPTQ \r\n{city_title}: [{categoryX}: bold]{valueY}[/]";
+            series.tooltipText = "Total Lembaga Dakwah \r\n{city_title}: [{categoryX}: bold]{valueY}[/]";
             series.columns.template.strokeWidth = 0;
             series.tooltip.pointerOrientation = "vertical";
 
@@ -144,7 +144,7 @@
                         a = data.city_id;
                         b = data.city_title;
                         c = b.replace(' ', '_');
-                        return '<a href="<?= base_url('PAI/Lptq/Kabupaten/'); ?>' + a + "/" + c + '">' + b + '</a>';
+                        return '<a href="<?= base_url('PAI/Dakwah/Kabupaten/'); ?>' + a + "/" + c + '">' + b + '</a>';
                     }
                 },
                 {data: "jum_dakwah", className: "text-center sum_dak"},

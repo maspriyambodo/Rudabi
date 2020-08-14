@@ -1,7 +1,7 @@
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Lembaga Pembinaan Tilawatil Quran (LPTQ)</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Lembaga Dakwah</h5>
         </div>
     </div>
 </div>
@@ -10,7 +10,7 @@
     <div class="card-header">
         <div class="card-title">
             <div class="text-uppercase">
-                data lptq per provinsi
+                data lembaga dakwah per provinsi
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@
                             provinsi
                         </th>
                         <th rowspan="2">
-                            jumlah<br>lptq
+                            jumlah<br>dakwah
                         </th>
                         <th colspan="2">
                             topografi
@@ -101,7 +101,7 @@
                         a = data.province_id;
                         b = data.province_title;
                         c = b.replace(' ', '_');
-                        return '<a href="<?= base_url('PAI/Lptq/Provinsi/'); ?>' + a + "/" + c + '">' + b + '</a>';
+                        return '<a href="<?= base_url('PAI/Dakwah/Provinsi/'); ?>' + a + "/" + c + '">' + b + '</a>';
                     }
                 },
                 {data: "jum_dakwah", className: "text-center sum_dak"},
@@ -205,13 +205,13 @@
             categoryAxis.renderer.minHeight = 110;
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
             valueAxis.renderer.minWidth = 100;
-            valueAxis.title.text = "Jumlah LPTQ";
+            valueAxis.title.text = "Jumlah Lembaga Dakwah";
             valueAxis.title.fontWeight = 800;
             var series = chart.series.push(new am4charts.ColumnSeries());
             series.dataFields.valueY = "jum_dakwah";
             series.dataFields.categoryX = "province_title";
             series.clustered = false;
-            series.tooltipText = "Jumlah LPTQ di {categoryX}: [bold]{valueY}[/]";
+            series.tooltipText = "Jumlah Lembaga Dakwah di {categoryX}: [bold]{valueY}[/]";
             var hoverState = series.columns.template.column.states.create("hover");
             hoverState.properties.cornerRadiusTopLeft = 0;
             hoverState.properties.cornerRadiusTopRight = 0;
