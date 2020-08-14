@@ -39,7 +39,7 @@ class Ormas extends CI_Controller {
             'title' => 'Ormas Islam | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'id' => $id,
-            'provinsi' => str_replace('_', ' ', $prov)
+            'provinsi' => str_replace(['%20', '_'], ' ', $prov)
         ];
         $data['content'] = $this->parser->parse('PAI/V_ormasprov', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -50,7 +50,7 @@ class Ormas extends CI_Controller {
             'title' => 'Ormas Islam | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'id' => $id,
-            'kabupaten' => str_replace('_', ' ', $kab)
+            'kabupaten' => str_replace(['%20', '_'], ' ', $kab)
         ];
         $data['content'] = $this->parser->parse('PAI/V_ormaskab', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
