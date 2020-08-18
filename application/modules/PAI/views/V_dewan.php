@@ -24,8 +24,8 @@
                     <tr>
                         <th rowspan="2">provinsi</th>
                         <th rowspan="2">jumlah<br>dewan</th>
-                        <th colspan="5">dewan<br>indonesia</th>
-                        <th colspan="3">dewan<br>asing</th>
+                        <th colspan="5">dewan indonesia</th>
+                        <th colspan="3">dewan asing</th>
                     </tr>
                     <tr>
                         <th>

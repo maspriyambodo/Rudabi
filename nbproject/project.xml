@@ -22,6 +22,7 @@
             <word>kelamin</word>
             <word>ketua</word>
             <word>komputer</word>
+            <word>lahir</word>
             <word>laki</word>
             <word>lembaga</word>
             <word>milik</word>
@@ -38,8 +39,10 @@
             <word>smp</word>
             <word>sulawesi</word>
             <word>tanah</word>
+            <word>tempat</word>
             <word>topologi</word>
             <word>transportasi</word>
+            <word>usia</word>
             <word>wakaf</word>
             <word>yayasan</word>
         </spellchecker-wordlist>
