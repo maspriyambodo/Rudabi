@@ -13,11 +13,11 @@ defined('BASEPATH')OR exit('No direct script access allowed');
  */
 
 /**
- * Description of Lptq
+ * Description of Dewan
  *
  * @author centos
  */
-class Dakwah extends CI_Controller {
+class Dewan extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -27,32 +27,32 @@ class Dakwah extends CI_Controller {
 
     public function index() {
         $data = [
-            'title' => 'Lembaga Dakwah | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Dewan Hakim | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname
         ];
-        $data['content'] = $this->parser->parse('PAI/V_dakwah', $data, true);
+        $data['content'] = $this->parser->parse('PAI/V_dewan', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
     public function Provinsi($id, $prov) {
         $data = [
-            'title' => 'Lembaga Dakwah | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Dewan Hakim | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'id' => $id,
-            'provinsi' => str_replace(['_', '%20'], ' ', $prov)
+            'provinsi' => str_replace('_', ' ', $prov)
         ];
-        $data['content'] = $this->parser->parse('PAI/V_dakwahprov', $data, true);
+        $data['content'] = $this->parser->parse('PAI/V_dewanprov', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
     public function Kabupaten($id, $kab) {
         $data = [
-            'title' => 'Lembaga Dakwah | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Dewan Hakim | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'id' => $id,
-            'kabupaten' => str_replace(['_', '%20'], ' ', $kab)
+            'kabupaten' => str_replace('_', ' ', $kab)
         ];
-        $data['content'] = $this->parser->parse('PAI/V_dakwahkab', $data, true);
+        $data['content'] = $this->parser->parse('PAI/V_dewankab', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 

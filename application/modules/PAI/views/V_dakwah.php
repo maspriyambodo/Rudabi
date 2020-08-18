@@ -114,7 +114,7 @@
             ],
             footerCallback: function () {
                 var api = this.api();
-                var numFormat = $.fn.dataTable.render.number( '\.', '', 0, '' ).display;
+                var numFormat = $.fn.dataTable.render.number('\.', '', 0, '').display;
                 api.columns('.sum_dak', {page: 'current'}).every(function () {
                     var sum = this
                             .data()
