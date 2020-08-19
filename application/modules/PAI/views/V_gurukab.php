@@ -18,7 +18,7 @@
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">data dewan hakim {kabupaten}</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">data guru ngaji {kabupaten}</h5>
         </div>
     </div>
 </div>
@@ -64,7 +64,7 @@
         alert(id);
     }
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/dewan?city_id=<?= $id; ?>";
+        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/tokoh?city_id=<?= $id; ?>";
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],
@@ -83,20 +83,20 @@
                 url: url
             },
             columns: [
-                {data: "dewan_nama"},
-                {data: "dewan_jenis_kelamin", className: "text-center"},
-                {data: "dewan_tmp_lahir", className: "text-center"},
-                {data: "dewan_tgl_lahir", className: "text-center"},
+                {data: "tokoh_nama"},
+                {data: "tokoh_jenis_kelamin", className: "text-center"},
+                {data: "tokoh_tempat_lahir", className: "text-center"},
+                {data: "tokoh_tgl_lahir", className: "text-center"},
                 {
                     data: null, className: "text-center",
                     render: function (data) {
-                        var dob = data.dewan_tgl_lahir;
+                        var dob = data.tokoh_tgl_lahir;
                         var age = moment().diff(moment(dob, 'YYYY-MM-DD'), 'years');
                         return age;
                     }
                 },
-                {data: "dewan_status_kawin", className: "text-center"},
-                {data: "dewan_pendidikan", className: "text-center"}
+                {data: "tokoh_status_kawin", className: "text-center"},
+                {data: "tokoh_pendidikan", className: "text-center"}
             ]
         });
     };

@@ -234,6 +234,11 @@
                                                     <span class="menu-text">Dewan Hakim</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('PAI/Guru_ngaji/index/'); ?>" class="menu-link menu-toggle">
+                                                    <span class="menu-text">Guru Ngaji</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>
