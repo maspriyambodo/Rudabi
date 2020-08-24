@@ -27,7 +27,7 @@ class LPTQ extends CI_Controller {
 
     public function index() {
         $data = [
-            'title' => 'Guru Ngaji | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'LPTQ | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname
         ];
         $data['content'] = $this->parser->parse('PAI/V_lptq', $data, true);
@@ -36,7 +36,7 @@ class LPTQ extends CI_Controller {
 
     public function Provinsi($id, $prov) {
         $data = [
-            'title' => 'Guru Ngaji | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'LPTQ | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'id' => $id,
             'provinsi' => str_replace(['_', '%20'], ' ', $prov)
@@ -47,7 +47,7 @@ class LPTQ extends CI_Controller {
 
     public function Kabupaten($id, $kab) {
         $data = [
-            'title' => 'Guru Ngaji | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'LPTQ | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'id' => $id,
             'kabupaten' => str_replace(['_', '%20'], ' ', $kab)
