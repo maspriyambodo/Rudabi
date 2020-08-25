@@ -60,9 +60,6 @@
     function Back() {
         window.history.back();
     }
-    function Detail(id) {
-        alert(id);
-    }
     window.onload = function () {
         var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/tokoh?city_id=<?= $id; ?>";
         $('table').dataTable({

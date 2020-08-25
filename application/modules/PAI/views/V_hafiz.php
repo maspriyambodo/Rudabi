@@ -1,9 +1,5 @@
 <style type="text/css">
-    #chartdiv{
-        width:100%;
-        height:650px;
-    }
-    #chartdiv_b{
+    #chartdiv, #chartdiv_b{
         width:100%;
         height:650px;
     }
@@ -11,7 +7,7 @@
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data LPTQ tahun <?= date('Y'); ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Hafidz & Hafidzah tahun <?= date('Y'); ?></h5>
         </div>
     </div>
 </div>
@@ -20,12 +16,12 @@
     <div class="card-header">
         <div class="card-title">
             <div class="text-uppercase">
-                data LPTQ per provinsi
+                data Hafidz & Hafidzah per provinsi
             </div>
         </div>
     </div>
     <div class="card-body">
-        <div id="jumlah_lptq" class="text-center"></div>
+        <div id="jumlah_hafiz" class="text-center"></div>
         <div id="chartdiv"></div>
         <hr style="margin:5% 0px;">
         <div id="chartdiv_b"></div>
@@ -36,72 +32,34 @@
                     <tr>
                         <th rowspan="2">provinsi</th>
                         <th rowspan="2">jumlah</th>
-                        <th colspan="2">tipologi</th>
-                        <th colspan="4">geografi</th>
+                        <th colspan="2">hafidz</th>
+                        <th colspan="2">status kawin</th>
                     </tr>
                     <tr>
-                        <th>daratan</th>
-                        <th>lautan</th>
-                        <th>kota</th>
-                        <th>desa</th>
-                        <th>pelosok</th>
-                        <th>terisolir</th>
+                        <th>pria</th>
+                        <th>wanita</th>
+                        <th>kawin</th>
+                        <th>belum</th>
                     </tr>
                 </thead>
                 <tfoot class="text-center text-uppercase">
                     <tr>
                         <th>jumlah</th>
-                        <th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                        <th></th><th></th><th></th><th></th><th></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
-<input type="hidden" name="jmltxt"/>
-<input type="hidden" name="dartxt"/>
-<input type="hidden" name="lautxt"/>
-<input type="hidden" name="kotatxt"/>
-<input type="hidden" name="desatxt"/>
-<input type="hidden" name="peltxt"/>
-<input type="hidden" name="tertxt"/>
+<input type="hidden" name="jumtxt"/>
+<input type="hidden" name="priatxt"/>
+<input type="hidden" name="wantxt"/>
+<input type="hidden" name="kawintxt"/>
+<input type="hidden" name="blmtxt"/>
 <script>
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lsmislam";
-        am4core.ready(function () {
-            am4core.useTheme(am4themes_animated);
-            var chart = am4core.create("chartdiv", am4charts.XYChart);
-            chart.scrollbarX = new am4core.Scrollbar();
-            chart.dataSource.url = url;
-            var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-            categoryAxis.title.fontWeight = 800;
-            categoryAxis.title.text = 'Daerah Tingkat Provinsi';
-            categoryAxis.dataFields.category = "province_title";
-            categoryAxis.renderer.grid.template.location = 0;
-            categoryAxis.renderer.minGridDistance = 30;
-            categoryAxis.renderer.labels.template.horizontalCenter = "right";
-            categoryAxis.renderer.labels.template.verticalCenter = "middle";
-            categoryAxis.renderer.labels.template.rotation = 270;
-            categoryAxis.tooltip.disabled = true;
-            categoryAxis.renderer.minHeight = 110;
-            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-            valueAxis.renderer.minWidth = 100;
-            valueAxis.title.text = "Jumlah LPTQ";
-            valueAxis.title.fontWeight = 800;
-            var series = chart.series.push(new am4charts.ColumnSeries());
-            series.dataFields.valueY = "jum_lsmislam";
-            series.dataFields.categoryX = "province_title";
-            series.clustered = false;
-            series.tooltipText = "Jumlah LPTQ di {categoryX}: [bold]{valueY}[/]";
-            var hoverState = series.columns.template.column.states.create("hover");
-            hoverState.properties.cornerRadiusTopLeft = 0;
-            hoverState.properties.cornerRadiusTopRight = 0;
-            hoverState.properties.fillOpacity = 1;
-            series.columns.template.adapter.add("fill", function (fill, target) {
-                return chart.colors.getIndex(target.dataItem.index);
-            });
-            chart.cursor = new am4charts.XYCursor();
-        });
+        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/hafiz";
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],
@@ -127,21 +85,19 @@
                         a = data.province_id;
                         b = data.province_title;
                         c = b.replace(' ', '_');
-                        return '<a href="<?= base_url('PAI/LPTQ/Provinsi/'); ?>' + a + "/" + c + '">' + b + '</a>';
+                        return '<a href="<?= base_url('PAI/Hafiz/Provinsi/'); ?>' + a + "/" + c + '">' + b + '</a>';
                     }
                 },
-                {data: "jum_lsmislam", className: "text-center sum_lptq"},
-                {data: "topo_daratan", className: "text-center sum_dar"},
-                {data: "topo_lautan", className: "text-center sum_laut"},
-                {data: "geo_kota", className: "text-center sum_kot"},
-                {data: "geo_desa", className: "text-center sum_desa"},
-                {data: "geo_pelosok", className: "text-center sum_pel"},
-                {data: "geo_pelosok_terisolir", className: "text-center sum_ter"}
+                {data: "jum_hafiz", className: "text-center sum_haf"},
+                {data: "hafiz_pria", className: "text-center sum_pria"},
+                {data: "hafiz_perempuan", className: "text-center sum_wan"},
+                {data: "hafiz_kawin", className: "text-center hafiz_kawin"},
+                {data: "hafiz_belum_kawin", className: "text-center hafiz_blmkawin"}
             ],
             footerCallback: function () {
                 var api = this.api();
                 var numFormat = $.fn.dataTable.render.number('\.', '', 0, '').display;
-                api.columns('.sum_lptq', {page: 'all'}).every(function () {
+                api.columns('.sum_haf', {page: 'all'}).every(function () {
                     var sum = this
                             .data()
                             .reduce(function (a, b) {
@@ -149,11 +105,11 @@
                                 var y = parseFloat(b) || 0;
                                 return x + y;
                             }, 0);
-                    $('input[name=jmltxt]').val(numFormat(sum));
-                    document.getElementById('jumlah_lptq').innerHTML = "<b>Jumlah LPTQ " + numFormat(sum) + "</b>";
+                    $('input[name=jumtxt]').val(numFormat(sum));
+                    document.getElementById('jumlah_hafiz').innerHTML = "<b>Jumlah Hafidz " + numFormat(sum) + "</b>";
                     $(this.footer()).html(numFormat(sum));
                 });
-                api.columns('.sum_dar', {page: 'all'}).every(function () {
+                api.columns('.sum_pria', {page: 'all'}).every(function () {
                     var sum = this
                             .data()
                             .reduce(function (a, b) {
@@ -161,10 +117,10 @@
                                 var y = parseFloat(b) || 0;
                                 return x + y;
                             }, 0);
-                    $('input[name=dartxt]').val(numFormat(sum));
+                    $('input[name=priatxt]').val(numFormat(sum));
                     $(this.footer()).html(numFormat(sum));
                 });
-                api.columns('.sum_laut', {page: 'all'}).every(function () {
+                api.columns('.sum_wan', {page: 'all'}).every(function () {
                     var sum = this
                             .data()
                             .reduce(function (a, b) {
@@ -172,10 +128,10 @@
                                 var y = parseFloat(b) || 0;
                                 return x + y;
                             }, 0);
-                    $('input[name=lautxt]').val(numFormat(sum));
+                    $('input[name=wantxt]').val(numFormat(sum));
                     $(this.footer()).html(numFormat(sum));
                 });
-                api.columns('.sum_kot', {page: 'all'}).every(function () {
+                api.columns('.hafiz_kawin', {page: 'all'}).every(function () {
                     var sum = this
                             .data()
                             .reduce(function (a, b) {
@@ -183,10 +139,10 @@
                                 var y = parseFloat(b) || 0;
                                 return x + y;
                             }, 0);
-                    $('input[name=kotatxt]').val(numFormat(sum));
+                    $('input[name=kawintxt]').val(numFormat(sum));
                     $(this.footer()).html(numFormat(sum));
                 });
-                api.columns('.sum_desa', {page: 'all'}).every(function () {
+                api.columns('.hafiz_blmkawin', {page: 'all'}).every(function () {
                     var sum = this
                             .data()
                             .reduce(function (a, b) {
@@ -194,42 +150,52 @@
                                 var y = parseFloat(b) || 0;
                                 return x + y;
                             }, 0);
-                    $('input[name=desatxt]').val(numFormat(sum));
-                    $(this.footer()).html(numFormat(sum));
-                });
-                api.columns('.sum_pel', {page: 'all'}).every(function () {
-                    var sum = this
-                            .data()
-                            .reduce(function (a, b) {
-                                var x = parseFloat(a) || 0;
-                                var y = parseFloat(b) || 0;
-                                return x + y;
-                            }, 0);
-                    $('input[name=peltxt]').val(numFormat(sum));
-                    $(this.footer()).html(numFormat(sum));
-                });
-                api.columns('.sum_ter', {page: 'all'}).every(function () {
-                    var sum = this
-                            .data()
-                            .reduce(function (a, b) {
-                                var x = parseFloat(a) || 0;
-                                var y = parseFloat(b) || 0;
-                                return x + y;
-                            }, 0);
-                    $('input[name=tertxt]').val(numFormat(sum));
+                    $('input[name=blmtxt]').val(numFormat(sum));
                     $(this.footer()).html(numFormat(sum));
                 });
             }
         });
+        var a, b, c, d, e;
+        a = $('input[name=jumtxt]').val();
+        b = $('input[name=priatxt]').val();
+        c = $('input[name=wantxt]').val();
+        d = $('input[name=kawintxt]').val();
+        e = $('input[name=blmtxt]').val();
         am4core.ready(function () {
-            var a, b, c, d, e, f, g;
-            a = $('input[name=jmltxt]').val();
-            b = $('input[name=dartxt]').val();
-            c = $('input[name=lautxt]').val();
-            d = $('input[name=kotatxt]').val();
-            e = $('input[name=desatxt]').val();
-            f = $('input[name=peltxt]').val();
-            g = $('input[name=tertxt]').val();
+            am4core.useTheme(am4themes_animated);
+            var chart = am4core.create("chartdiv", am4charts.XYChart);
+            chart.scrollbarX = new am4core.Scrollbar();
+            chart.dataSource.url = url;
+            var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+            categoryAxis.title.fontWeight = 800;
+            categoryAxis.title.text = 'Daerah Tingkat Provinsi';
+            categoryAxis.dataFields.category = "province_title";
+            categoryAxis.renderer.grid.template.location = 0;
+            categoryAxis.renderer.minGridDistance = 30;
+            categoryAxis.renderer.labels.template.horizontalCenter = "right";
+            categoryAxis.renderer.labels.template.verticalCenter = "middle";
+            categoryAxis.renderer.labels.template.rotation = 270;
+            categoryAxis.tooltip.disabled = true;
+            categoryAxis.renderer.minHeight = 110;
+            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            valueAxis.renderer.minWidth = 100;
+            valueAxis.title.text = "Jumlah Hafidz";
+            valueAxis.title.fontWeight = 800;
+            var series = chart.series.push(new am4charts.ColumnSeries());
+            series.dataFields.valueY = "jum_hafiz";
+            series.dataFields.categoryX = "province_title";
+            series.clustered = false;
+            series.tooltipText = "Jumlah Hafidz di {categoryX}: [bold]{valueY}[/]";
+            var hoverState = series.columns.template.column.states.create("hover");
+            hoverState.properties.cornerRadiusTopLeft = 0;
+            hoverState.properties.cornerRadiusTopRight = 0;
+            hoverState.properties.fillOpacity = 1;
+            series.columns.template.adapter.add("fill", function (fill, target) {
+                return chart.colors.getIndex(target.dataItem.index);
+            });
+            chart.cursor = new am4charts.XYCursor();
+        });
+        am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var data = [
                 {
@@ -241,28 +207,20 @@
                     "strokeDasharray": "4,4"
                 },
                 {
-                    city_title: "Daratan",
+                    city_title: "Pria",
                     jumlah: b
                 },
                 {
-                    city_title: "Lautan",
+                    city_title: "Wanita",
                     jumlah: c
                 },
                 {
-                    city_title: "Kota",
+                    city_title: "Kawin",
                     jumlah: d
                 },
                 {
-                    city_title: "Desa",
+                    city_title: "Belum Kawin",
                     jumlah: e
-                },
-                {
-                    city_title: "Pelosok",
-                    jumlah: f
-                },
-                {
-                    city_title: "Terisolir",
-                    jumlah: g
                 }
             ];
             var container = am4core.create("chartdiv_b", am4core.Container);
