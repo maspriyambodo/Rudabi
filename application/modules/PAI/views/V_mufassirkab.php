@@ -18,7 +18,7 @@
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">data Hafiz Kabupaten {kabupaten}</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">data Mufassir Kabupaten {kabupaten}</h5>
         </div>
     </div>
 </div>
@@ -42,7 +42,7 @@
                         <th rowspan="2">jenis kelamin</th>
                         <th rowspan="2">alamat</th>
                         <th rowspan="2">status</th>
-                        <th rowspan="2">pendidikan</th>
+                        <th rowspan="2">etnis</th>
                         <th rowspan="2">pekerjaan</th>
                     </tr>
                     <tr>
@@ -60,7 +60,7 @@
         window.history.back();
     }
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/hafiz?city_id=<?= $id; ?>";
+        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/mufassir?city_id=<?= $id; ?>";
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],
@@ -82,24 +82,24 @@
                 url: url
             },
             columns: [
-                {data: "hafiz_nama"},
+                {data: "mufassir_nama"},
                 {
                     data: null, className: "text-center",
                     render: function (data) {
-                        var a = data.hafiz_tempat_lahir;
+                        var a = data.mufassir_tempat_lahir;
                         if (a === null || a === '-') {
                             a = 'TIDAK ADA DATA';
                         } else {
-                            a = data.hafiz_tempat_lahir;
+                            a = data.mufassir_tempat_lahir;
                         }
                         return a;
                     }
                 },
-                {data: "hafiz_tgl_lahir", className: "text-center"},
+                {data: "mufassir_tgl_lahir", className: "text-center"},
                 {
                     data: null, className: "text-center",
                     render: function (data) {
-                        var dob = data.hafiz_tgl_lahir;
+                        var dob = data.mufassir_tgl_lahir;
                         var age = moment().diff(moment(dob, 'YYYY-MM-DD'), 'years');
                         return age;
                     }
@@ -107,11 +107,11 @@
                 {
                     data: null, className: "text-center",
                     render: function (data) {
-                        var a = data.hafiz_nama_ayah;
+                        var a = data.mufassir_nama_ayah;
                         if (a === null || a === '-') {
                             a = 'TIDAK ADA DATA';
                         } else {
-                            a = data.hafiz_nama_ayah;
+                            a = data.mufassir_nama_ayah;
                         }
                         return a;
                     }
@@ -119,11 +119,11 @@
                 {
                     data: null, className: "text-center",
                     render: function (data) {
-                        var a = data.hafiz_nama_ibu;
-                        if (a === null || a === '-') {
+                        var a = data.mufassir_nama_ibu;
+                        if (a === null || a === '-' || a === '--') {
                             a = 'TIDAK ADA DATA';
                         } else {
-                            a = data.hafiz_nama_ibu;
+                            a = data.mufassir_nama_ibu;
                         }
                         return a;
                     }
@@ -131,23 +131,23 @@
                 {
                     data: null, className: "text-center",
                     render: function (data) {
-                        var a = data.hafiz_nama_istri_suami;
+                        var a = data.mufassir_nama_istri_suami;
                         if (a === null || a === '-') {
                             a = 'TIDAK ADA DATA';
                         } else {
-                            a = data.hafiz_nama_istri_suami;
+                            a = data.mufassir_nama_istri_suami;
                         }
                         return a;
                     }
                 },
-                {data: "hafiz_jenis_kelamin", className: "text-center"},
-                {data: "hafiz_alamat"},
-                {data: "hafiz_status_kawin", className: "text-center"},
-                {data: "hafiz_pendidikan", className: "text-center"},
+                {data: "mufassir_jenis_kelamin", className: "text-center"},
+                {data: "mufassir_alamat"},
+                {data: "mufassir_status_kawin", className: "text-center"},
+                {data: "mufassir_etnis", className: "text-center"},
                 {
                     data: null, className: "text-center",
                     render: function (data) {
-                        var a = data.hafiz_pekerjaan;
+                        var a = data.mufassir_pekerjaan;
                         if (a === null) {
                             return 'TIDAK ADA DATA';
                         } else {
