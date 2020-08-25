@@ -246,7 +246,12 @@
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('PAI/Hafiz/index/'); ?>" class="menu-link menu-toggle">
-                                                    <span class="menu-text">Hafidz/Hafidzah</span><span class="menu-label"></span>
+                                                    <span class="menu-text">Hafidz</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('PAI/Qari/index/'); ?>" class="menu-link menu-toggle">
+                                                    <span class="menu-text">Qari</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                         </ul>
