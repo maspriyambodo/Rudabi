@@ -203,7 +203,6 @@
 
             createSeries("luas_tanah", "Luas Tanah");
             createSeries("luas_bangunan", "Luas Bangunan");
-
         });
     };
 </script>
