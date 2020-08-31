@@ -124,7 +124,7 @@
                                 </li>
                                 <div class="separator separator-dashed"></div>
                                 <li class="menu-item menu-item-active" aria-haspopup="true" title="Sistem Informasi Hisab Rukyat">
-                                    <a href="#" class="menu-link">
+                                    <a href="<?= base_url('Binsyar/Sihat/index/'); ?>" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-toolbox"></i>
                                         </span>

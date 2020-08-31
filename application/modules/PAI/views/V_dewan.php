@@ -100,6 +100,7 @@
                 return chart.colors.getIndex(target.dataItem.index);
             });
             chart.cursor = new am4charts.XYCursor();
+            categoryAxis.sortBySeries = series;
         });
         $('table').dataTable({
             "ServerSide": true,
