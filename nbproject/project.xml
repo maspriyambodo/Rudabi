@@ -19,6 +19,7 @@
             <word>hafidz</word>
             <word>Hafidzah</word>
             <word>indonesia</word>
+            <word>jangkauan</word>
             <word>jawa</word>
             <word>jenis</word>
             <word>kabupaten</word>
@@ -42,12 +43,16 @@
             <word>pemerintah</word>
             <word>pendidikan</word>
             <word>pengurus</word>
+            <word>penyiar</word>
             <word>pesantren</word>
+            <word>pukul</word>
             <word>Qari</word>
             <word>Qariah</word>
             <word>quran</word>
+            <word>sejarah</word>
             <word>Seniman</word>
             <word>sertifikat</word>
+            <word>siaran</word>
             <word>smp</word>
             <word>sulawesi</word>
             <word>tanah</word>
@@ -56,6 +61,7 @@
             <word>transportasi</word>
             <word>usia</word>
             <word>wakaf</word>
+            <word>waktu</word>
             <word>yayasan</word>
         </spellchecker-wordlist>
     </configuration>
