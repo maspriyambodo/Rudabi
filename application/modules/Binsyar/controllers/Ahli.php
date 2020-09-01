@@ -13,11 +13,11 @@ defined('BASEPATH')OR exit('No direct script access allowed');
  */
 
 /**
- * Description of Sihat
+ * Description of Ahli
  *
  * @author centos
  */
-class Sihat extends CI_Controller {
+class Ahli extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -27,21 +27,21 @@ class Sihat extends CI_Controller {
 
     public function index() {
         $data = [
-            'title' => 'Hisab Rukyat | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Tenaga Ahli | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname
         ];
-        $data['content'] = $this->parser->parse('Binsyar/V_sihat', $data, true);
+        $data['content'] = $this->parser->parse('Binsyar/V_tenaga', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
     public function Provinsi($id, $prov) {
         $data = [
-            'title' => 'Hisab Rukyat | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Tenaga Ahli | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'id' => $id,
             'provinsi' => str_replace(['_', '%20'], ' ', $prov)
         ];
-        $data['content'] = $this->parser->parse('Binsyar/V_sihatprov', $data, true);
+        $data['content'] = $this->parser->parse('Binsyar/V_tenagaprov', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
