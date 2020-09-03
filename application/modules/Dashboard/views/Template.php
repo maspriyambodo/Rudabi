@@ -156,6 +156,11 @@
                                                     <span class="menu-text">Hisab Lokasi</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('Binsyar/Laporan/index/'); ?>" class="menu-link menu-toggle">
+                                                    <span class="menu-text">Hisab Laporan</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>
