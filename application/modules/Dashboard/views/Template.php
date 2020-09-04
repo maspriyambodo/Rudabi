@@ -198,22 +198,12 @@
                                     <h4 class="menu-text text-info user-select-none">Bina KUA & Keluarga Sakinah</h4>
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                 </li>
-<<<<<<< HEAD
-                                <div class="separator separator-dashed"></div>
-                                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                    <a href="javascript:;" class="menu-link menu-toggle">
-                                        <span class="svg-icon menu-icon">
-                                            <i class="fas fa-toolbox"></i>
-                                        </span>
-                                        <span class="menu-text">SIHAT</span><i class="menu-arrow"></i>
-=======
                                 <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                     <a href="javascript:;" class="menu-link menu-toggle">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-ring"></i>
                                         </span>
                                         <span class="menu-text">BIMWIN</span><i class="menu-arrow"></i>
->>>>>>> 65227350711a21098a48065fa05ee83cfd6411fc
                                     </a>
                                     <div class="menu-submenu" style="" kt-hidden-height="360">
                                         <i class="menu-arrow"></i>
@@ -223,11 +213,7 @@
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('KUA/Bimwin/index/'); ?>" class="menu-link menu-toggle">
-<<<<<<< HEAD
-                                                    <span class="menu-text">Target CATIN</span><span class="menu-label"></span>
-=======
                                                     <span class="menu-text">Target Catin</span><span class="menu-label"></span>
->>>>>>> 65227350711a21098a48065fa05ee83cfd6411fc
                                                 </a>
                                             </li>
                                         </ul>
