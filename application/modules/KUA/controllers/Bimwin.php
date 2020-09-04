@@ -27,10 +27,10 @@ class Bimwin extends CI_Controller {
 
     public function index() {
         $data = [
-            'title' => 'Bimwin Target Catin | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Target Catin Pusat | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname
         ];
-        $data['content'] = $this->parser->parse('Binsyar/V_bimwin', $data, true);
+        $data['content'] = $this->parser->parse('KUA/Bimwin/V_Tcatinpusat', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 

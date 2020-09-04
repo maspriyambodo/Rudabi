@@ -198,6 +198,7 @@
                                     <h4 class="menu-text text-info user-select-none">Bina KUA & Keluarga Sakinah</h4>
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                 </li>
+<<<<<<< HEAD
                                 <div class="separator separator-dashed"></div>
                                 <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                     <a href="javascript:;" class="menu-link menu-toggle">
@@ -205,6 +206,14 @@
                                             <i class="fas fa-toolbox"></i>
                                         </span>
                                         <span class="menu-text">SIHAT</span><i class="menu-arrow"></i>
+=======
+                                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                    <a href="javascript:;" class="menu-link menu-toggle">
+                                        <span class="svg-icon menu-icon">
+                                            <i class="fas fa-ring"></i>
+                                        </span>
+                                        <span class="menu-text">BIMWIN</span><i class="menu-arrow"></i>
+>>>>>>> 65227350711a21098a48065fa05ee83cfd6411fc
                                     </a>
                                     <div class="menu-submenu" style="" kt-hidden-height="360">
                                         <i class="menu-arrow"></i>
@@ -214,7 +223,11 @@
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('KUA/Bimwin/index/'); ?>" class="menu-link menu-toggle">
+<<<<<<< HEAD
                                                     <span class="menu-text">Target CATIN</span><span class="menu-label"></span>
+=======
+                                                    <span class="menu-text">Target Catin</span><span class="menu-label"></span>
+>>>>>>> 65227350711a21098a48065fa05ee83cfd6411fc
                                                 </a>
                                             </li>
                                         </ul>
@@ -454,11 +467,10 @@
                         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
                         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
                         <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.21/af-2.3.5/b-1.6.2/b-colvis-1.6.2/b-flash-1.6.2/b-html5-1.6.2/b-print-1.6.2/cr-1.5.2/fc-3.3.1/fh-3.1.7/kt-2.5.2/r-2.2.5/rg-1.1.2/rr-1.2.7/sc-2.0.2/sp-1.1.1/sl-1.3.1/datatables.min.js"></script>
-                        <!--<script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.3.1/js/dataTables.fixedColumns.min.js"></script>-->
                         <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
                         <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
                         <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
-                        <div class="d-flex flex-column-fluid"><div class="container">{content}</div></div>
+                        <div class="d-flex flex-column-fluid"><div class="container-fluid">{content}</div></div>
                     </div>
                     <div class="footer bg-white py-4 d-flex flex-lg-column" id="kt_footer">
                         <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
