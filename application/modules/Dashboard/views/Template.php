@@ -162,7 +162,7 @@
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
-                                                <a href="<?= base_url('Binsyar/Laporan/index/'); ?>" class="menu-link menu-toggle">
+                                                <a href="<?= base_url('Binsyar/Lintang/index/'); ?>" class="menu-link menu-toggle">
                                                     <span class="menu-text">Lintang Kota</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
@@ -199,6 +199,27 @@
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                 </li>
                                 <div class="separator separator-dashed"></div>
+                                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                    <a href="javascript:;" class="menu-link menu-toggle">
+                                        <span class="svg-icon menu-icon">
+                                            <i class="fas fa-toolbox"></i>
+                                        </span>
+                                        <span class="menu-text">SIHAT</span><i class="menu-arrow"></i>
+                                    </a>
+                                    <div class="menu-submenu" style="" kt-hidden-height="360">
+                                        <i class="menu-arrow"></i>
+                                        <ul class="menu-subnav">
+                                            <li class="menu-item menu-item-parent" aria-haspopup="true">
+                                                <span class="menu-link"><span class="menu-text">BIMWIN</span></span>
+                                            </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('KUA/Bimwin/index/'); ?>" class="menu-link menu-toggle">
+                                                    <span class="menu-text">Target CATIN</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
                                 <li class="menu-item menu-item-active" aria-haspopup="true" title="sistem informasi kepenghuluan">
                                     <a href="#" class="menu-link">
                                         <span class="svg-icon menu-icon">

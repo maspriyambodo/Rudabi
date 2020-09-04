@@ -1,4 +1,8 @@
 <style>
+    .amcharts-amexport-menu-level-0.amcharts-amexport-top {
+        top: -20px;
+        bottom: auto;
+    }
     #chartdiv{
         width:100%;
         height:650px;
@@ -56,6 +60,27 @@
             "scrollCollapse": true,
             "scrollX": true,
             "scrollY": "400px",
+            dom: `<'row'<'col-sm-6 text-left'f><'col-sm-6 text-right'B>>
+                        <'row'<'col-sm-12'tr>>
+                        <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
+
+            buttons: [
+                'print',
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                {
+                    extend: 'pdfHtml5',
+                    customize: function (doc) {
+                        doc.styles.title = {
+                            display: 'none'
+                        };
+                    },
+                    exportOptions: {
+                        columns: [0, 1]
+                    }
+                }
+            ],
             "ajax": {
                 dataSrc: '',
                 method: "GET",
@@ -97,6 +122,7 @@
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
+            chart.exporting.menu = new am4core.ExportMenu();
             chart.scrollbarX = new am4core.Scrollbar();
             chart.dataSource.url = url;
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
