@@ -19,7 +19,7 @@
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <h3 class="text-uppercase">data pernikahan penyuluh agama islam pns</h3>
+            <h3 class="text-uppercase">data status nikah penyuluh agama islam pns</h3>
         </div>
     </div>
     <div class="card-body">
