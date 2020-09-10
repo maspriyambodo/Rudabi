@@ -63,11 +63,15 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
         width:100%;
         height:650px;
     }
+    .amcharts-amexport-menu-level-0.amcharts-amexport-top {
+        top: -20px;
+        bottom: auto;
+    }
 </style>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Target CATIN Pusat</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Bina KUA & Keluarga Sakinah</h5>
         </div>
     </div>
 </div>
@@ -85,6 +89,9 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
         </div>
         <div id="chartdiv"></div>
         <hr style="margin:5% 0px;">
+        <div class="text-center">
+            <b>Jumlah Target dan Realisasi</b>
+        </div>
         <div id="chartdiv_a"></div>
         <hr style="margin:5% 0px;">
         <div class="table-responsive">
@@ -176,6 +183,7 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
             chart.dataSource.url = url;
+            chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
             categoryAxis.title.text = 'Daerah Tingkat Provinsi';
@@ -218,7 +226,7 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
             var chart = am4core.create("chartdiv_a", am4charts.PieChart);
 
             chart.innerRadius = am4core.percent(40);
-
+            chart.exporting.menu = new am4core.ExportMenu();
             var pieSeries = chart.series.push(new am4charts.PieSeries());
             pieSeries.dataFields.value = "value";
             pieSeries.dataFields.category = "category";
