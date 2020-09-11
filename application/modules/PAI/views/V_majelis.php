@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="card-body">
-        <div id="chartdiv" style="width:100%;height:600px;"></div>
+        <div id="chartdiv" class="chartdivs"></div>
         <div class="clear" style="margin:5% 0px;"></div>
         <div class="table-responsive">
             <table id="t_majelis" class="table table-bordered table-hover table-striped" style="width:100%;">

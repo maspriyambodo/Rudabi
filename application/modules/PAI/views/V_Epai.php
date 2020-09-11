@@ -1,12 +1,6 @@
-<style>
-    .amcharts-amexport-menu-level-0.amcharts-amexport-top {
-        top: -20px;
-        bottom: auto;
-    }
-</style>
 <div class="card card-custom">
     <div class="card-body">
-        <div id="chartdiv" style="width:100%;height:600px;"></div>
+        <div id="chartdiv" class="chartdivs"></div>
     </div>
 </div>
 <div class="clear" style="margin:5% 0px;"></div>

@@ -1,11 +1,3 @@
-<style>
-    #chartdiv{
-        width:100%;height:650px;        
-    }
-    #chartdiv_b{
-        width:100%;height:650px;        
-    }
-</style>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
@@ -13,7 +5,6 @@
         </div>
     </div>
 </div>
-<div class="clear" style="margin:5% 0px;"></div>
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
@@ -22,9 +13,9 @@
     </div>
     <div class="card-body">
         <div id="jumlah_lptq" class="text-center"></div>
-        <div id="chartdiv"></div>
+        <div id="chartdiv" class="chartdivs"></div>
         <hr style="margin:5% 0px;">
-        <div id="chartdiv_b"></div>
+        <div id="chartdiv_b" class="chartdivs"></div>
         <hr style="margin:5% 0px;">
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped" style="width:100%;">

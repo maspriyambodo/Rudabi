@@ -5,7 +5,6 @@
         </div>
     </div>
 </div>
-<div class="clear" style="margin:5% 0px;"></div>
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
@@ -15,7 +14,7 @@
         </div>
     </div>
     <div class="card-body">
-        <div id="chartdiv" style="width: 100%;height:700px;"></div>
+        <div id="chartdiv" class="chartdivs"></div>
         <hr style="margin:5% 0px;">
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped">

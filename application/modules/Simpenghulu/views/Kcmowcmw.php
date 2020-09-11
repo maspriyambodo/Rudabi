@@ -1,9 +1,3 @@
-<style>
-    #chartdiv {
-        width: 100%;
-        height: 600px;
-    }
-</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 <div class="card">
     <div class="card-body">

@@ -23,6 +23,7 @@
         <link href="https://cdn.maspriyambodo.com/Metronic/assets/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css" />
         <link href="https://cdn.maspriyambodo.com/Metronic/assets/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
         <link href="https://cdn.maspriyambodo.com/Metronic/assets/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
+        <link href="https://cdn.maspriyambodo.com/css/custom.kemenag.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="https://kemenag.go.id/public/images/icon.png" />
         <title>{title}</title>
     </head>
@@ -69,7 +70,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item menu-item-active" aria-haspopup="true" title="e-Planning Surat Berharga Syariah Negara">
-                                    <a href="#" class="menu-link">
+                                    <a href="<?= base_url('Sekertariat/Esbsn/index/'); ?>" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-file-invoice-dollar"></i>
                                         </span>
@@ -214,6 +215,11 @@
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('KUA/Bimwin/index/'); ?>" class="menu-link menu-toggle">
                                                     <span class="menu-text">Target Catin</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('KUA/Catin/index/' . date("Y") . ''); ?>" class="menu-link menu-toggle">
+                                                    <span class="menu-text">Data Catin</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                         </ul>

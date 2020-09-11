@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="card-body">
-        <div id="chartdiv" style="width:100%;height:500px;"></div>
+        <div id="chartdiv" class="chartdivs"></div>
         <div class="clear" style="margin:5% 0px;"></div>
         <div class="row">
             <div class="col-md-4">

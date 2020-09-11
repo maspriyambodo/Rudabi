@@ -1,20 +1,3 @@
-<style>
-    .DTFC_ScrollWrapper{
-        height:auto !important;
-    }
-    th, td { white-space: nowrap; }
-    .dataTables_wrapper .dataTable {
-        width: 100% !important;
-        border-collapse: initial !important;
-        border-spacing: 0 !important;
-        margin:0 !important;
-        border-radius: .42rem;
-    }
-    #chartdiv {
-        width: 100%;
-        height: 600px;
-    }
-</style>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
@@ -24,7 +7,7 @@
 </div>
 <div class="card">
     <div class="card-body">
-        <div id="chartdiv"></div>
+        <div id="chartdiv" class="chartdivs"></div>
         <div class="clear" style="margin:5% 0px;"></div>
         <hr>
         <div class="clear" style="margin:5% 0px;"></div>

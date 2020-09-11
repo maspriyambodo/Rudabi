@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="card-body">
-        <div id="chartdiv" style="width:100%;height:600px;"></div>
+        <div id="chartdiv" class="chartdivs"></div>
     </div>
 </div>
 <div class="clear" style="margin:5% 0px;"></div>
@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="card-body">
-        <div id="chartdivs" style="width:100%;height:600px;"></div>
+        <div id="chartdivs" class="chartdivs"></div>
     </div>
 </div>
 <div class="clear" style="margin:5% 0px;"></div>

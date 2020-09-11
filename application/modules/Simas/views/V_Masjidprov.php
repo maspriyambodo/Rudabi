@@ -5,7 +5,6 @@
         </div>
     </div>
 </div>
-<div class="clear" style="margin:5% 0px;"></div>
 <div class="card">
     <div class="card-body">
         <div class="table-responsive">

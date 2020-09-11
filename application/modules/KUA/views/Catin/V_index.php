@@ -1,122 +1,66 @@
+<?php
+$target_pusat = str_replace(',', '', $catin[0]->target_pusat);
+$jumlah_catin = str_replace(',', '', $catin[0]->jumlah_catin);
+$hadir_suami = str_replace(',', '', $catin[0]->hadir_suami);
+$nonhadir_istri = str_replace(',', '', $catin[0]->nonhadir_istri);
+?>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5"> Data Penyuluh Non-PNS <?= date('Y'); ?> </h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data CATIN Tahun <?= $datedex; ?></h5>
         </div>
     </div>
 </div>
-<div class="card">
+<div class="card card-custom">
     <div class="card-body">
-        <div class="form-group">
-            <div class="text-right">
-                <a href="<?= base_url('PAI/Simpenais/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Pilih Tahun</label>
+            <div class="col-4">
+                <select name="tahun" class="form-control form-control-solid" onchange="Tahun()">
+                    <?php
+                    foreach ($data as $value) {
+                        if ($datedex == $value->tahun_target_pusat) {
+                            $selected = 'selected=""';
+                        } else {
+                            $selected = null;
+                        }
+                        echo '<option value="' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt($value->tahun_target_pusat)) . '" ' . $selected . '>' . $value->tahun_target_pusat . '</option>';
+                    }
+                    ?>
+                </select>
             </div>
         </div>
+        <hr>
         <div id="chartdiv" class="chartdivs"></div>
     </div>
 </div>
-<div class="clear" style="margin:5% 0px;"></div>
-<div class="card">
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped">
-                <thead class="text-center text-uppercase">
-                    <tr>
-                        <th rowspan="2">
-                            nama
-                        </th>
-                        <th rowspan="2">
-                            jenis<br>kelamin
-                        </th>
-                        <th colspan="2">
-                            lahir
-                        </th>
-                        <th rowspan="2">
-                            Status<br>kawin
-                        </th>
-                        <th rowspan="2">
-                            alamat
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>
-                            tempat
-                        </th>
-                        <th>
-                            tanggal
-                        </th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-    </div>
-</div>
 <script>
-    var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss?penyuluh_nonpns_provinsi=<?= $id; ?>";
-    window.onload = function () {
-        $('table').dataTable({
-            "ServerSide": true,
-            "order": [[0, "asc"]],
-            "paging": false,
-            "ordering": true,
-            "info": true,
-            "processing": true,
-            "deferRender": true,
-            "scrollCollapse": true,
-            "scrollX": true,
-            "scrollY": "400px",
-            "ajax": {
-                dataSrc: '',
-                method: "GET",
-                async: false,
-                url: url
-            },
-            columns: [
-                {data: "penyuluh_nonpns_nama"},
-                {data: "penyuluh_nonpns_jenis_kelamin", className: "text-center"},
-                {data: "penyuluh_nonpns_tempat_lahir", className: "text-center"},
-                {data: "penyuluh_nonpns_tgl_lahir", className: "text-center"},
-                {data: "penyuluh_nonpns_status_kawin", className: "text-center"},
-                {data: "penyuluh_nonpns_alamat"}
-            ]
-        });
-    };
+    function Tahun() {
+        var a = $('select[name=tahun]').val();
+        return window.location.href = "KUA/Catin/index/" + a;
+    }
     am4core.ready(function () {
-
         am4core.useTheme(am4themes_animated);
-
         var data = [
             {
                 "country": "Dummy",
                 "disabled": true,
-                "litres": 1000,
+                "litres": <?= $target_pusat; ?>,
                 "color": am4core.color("#dadada"),
                 "opacity": 0.3,
                 "strokeDasharray": "4,4"
             },
             {
-                country: "Laki-Laki",
-                litres: 501.9
+                "country": "Jumlah Catin",
+                "litres": <?= $jumlah_catin; ?>
             },
             {
-                country: "Perempuan",
-                litres: 301.9
+                "country": "Hadir Suami",
+                "litres": <?= $hadir_suami; ?>
             },
             {
-                country: "Menikah",
-                litres: 201.1
-            },
-            {
-                country: "Belum Menikah",
-                litres: 165.8
-            },
-            {
-                country: "Laki-Laki Menikah",
-                litres: 139.9
-            },
-            {
-                country: "Perempuan Menikah",
-                litres: 128.3
+                "country": "Nonhadir Istri",
+                "litres": <?= $nonhadir_istri; ?>
             }
         ];
 
@@ -164,7 +108,6 @@
 
         sliceTemplate1.events.on("down", function (event) {
             event.target.toFront();
-
             var series = event.target.dataItem.component;
             series.chart.zIndex = zIndex++;
         });
@@ -176,7 +119,6 @@
         sliceTemplate1.events.on("dragstop", function (event) {
             handleDragStop(event);
         });
-
         var separatorLine = container.createChild(am4core.Line);
         separatorLine.x1 = 0;
         separatorLine.y2 = 300;
@@ -185,8 +127,9 @@
         separatorLine.valign = "middle";
         separatorLine.strokeDasharray = "5,5";
 
+
         var dragText = container.createChild(am4core.Label);
-        dragText.text = "Geser Untuk Melihat Perbandingan";
+        dragText.text = "Drag slices over the line";
         dragText.rotation = 90;
         dragText.valign = "middle";
         dragText.align = "center";
@@ -231,6 +174,7 @@
                 slice2 = targetSlice;
             }
 
+
             dataItem1 = slice1.dataItem;
             dataItem2 = slice2.dataItem;
 
@@ -248,13 +192,7 @@
 
                     dataItem1.hide();
 
-                    var animation = slice1.animate(
-                            [
-                                {property: "x", to: series2CenterConverted.x},
-                                {property: "y", to: series2CenterConverted.y},
-                            ],
-                            400
-                            );
+                    var animation = slice1.animate([{property: "x", to: series2CenterConverted.x}, {property: "y", to: series2CenterConverted.y}], 400);
                     animation.events.on("animationprogress", function (event) {
                         slice1.hideTooltip();
                     });
@@ -264,28 +202,17 @@
 
                     dataItem2.show();
                 } else {
-                    slice1.animate(
-                            [
-                                {property: "x", to: 0},
-                                {property: "y", to: 0}
-                            ],
-                            400
-                            );
+                    slice1.animate([{property: "x", to: 0}, {property: "y", to: 0}], 400);
                 }
             }
             if (targetSlice == slice2) {
                 if (targetSlicePoint.x < container.pixelWidth / 2) {
+
                     var value = dataItem2.value;
 
                     dataItem2.hide();
 
-                    var animation = slice2.animate(
-                            [
-                                {property: "x", to: series1CenterConverted.x},
-                                {property: "y", to: series1CenterConverted.y}
-                            ],
-                            400
-                            );
+                    var animation = slice2.animate([{property: "x", to: series1CenterConverted.x}, {property: "y", to: series1CenterConverted.y}], 400);
                     animation.events.on("animationprogress", function (event) {
                         slice2.hideTooltip();
                     });
@@ -294,13 +221,7 @@
                     slice1.y = 0;
                     dataItem1.show();
                 } else {
-                    slice2.animate(
-                            [
-                                {property: "x", to: 0},
-                                {property: "y", to: 0}
-                            ],
-                            400
-                            );
+                    slice2.animate([{property: "x", to: 0}, {property: "y", to: 0}], 400);
                 }
             }
 
@@ -329,6 +250,7 @@
         }
 
         series2.events.on("datavalidated", function () {
+
             var dummyDataItem = series2.dataItems.getIndex(0);
             dummyDataItem.show(0);
             dummyDataItem.slice.draggable = false;
@@ -345,5 +267,6 @@
             dummyDataItem.slice.draggable = false;
             dummyDataItem.slice.tooltipText = undefined;
         });
+
     });
 </script>

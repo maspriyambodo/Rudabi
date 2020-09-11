@@ -59,16 +59,6 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
     $suffix_realisasi = 'Triliun+';
 }
 ?>
-<style>
-    #chartdiv,#chartdiv_a{
-        width:100%;
-        height:650px;
-    }
-    .amcharts-amexport-menu-level-0.amcharts-amexport-top {
-        top: -20px;
-        bottom: auto;
-    }
-</style>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
@@ -86,12 +76,12 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
         <div class="text-center">
             <b>Target CATIN Perwilayah</b>
         </div>
-        <div id="chartdiv"></div>
+        <div id="chartdiv" class="chartdivs"></div>
         <hr style="margin:5% 0px;">
         <div class="text-center">
             <b>Jumlah Target dan Realisasi</b>
         </div>
-        <div id="chartdiv_a"></div>
+        <div id="chartdiv_a" class="chartdivs"></div>
         <hr style="margin:5% 0px;">
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped" style="width:100%;">

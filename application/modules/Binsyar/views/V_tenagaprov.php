@@ -6,7 +6,6 @@
         </div>
     </div>
 </div>
-<div class="clear" style="margin:5% 0px;"></div>
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">

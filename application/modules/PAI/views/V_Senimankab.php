@@ -1,19 +1,3 @@
-<style>
-    .DTFC_ScrollWrapper{
-        height:auto !important;
-    }
-    th, td { white-space: nowrap; }
-    .dataTables_wrapper .dataTable {
-        width: 100% !important;
-        border-collapse: initial !important;
-        border-spacing: 0 !important;
-        margin:0 !important;
-        border-radius: .42rem;
-    }
-    .DTFC_LeftFootWrapper{
-        top:16px !important;
-    }
-</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
@@ -22,7 +6,6 @@
         </div>
     </div>
 </div>
-<div class="clear" style="margin:5% 0px;"></div>
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">

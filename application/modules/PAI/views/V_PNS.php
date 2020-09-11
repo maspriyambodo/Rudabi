@@ -12,7 +12,7 @@
                 <a href="<?= base_url('PAI/Simpenais/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
             </div>
         </div>
-        <div id="chartdiv" style="width:100%;height:600px;"></div>
+        <div id="chartdiv" class="chartdivs"></div>
     </div>
 </div>
 <div class="clear" style="margin:5% 0px;"></div>
