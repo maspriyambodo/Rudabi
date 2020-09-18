@@ -21,7 +21,6 @@ class Catin extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->library("encryption");
         $this->load->model('M_Bimwin');
         $this->Authentication = $this->M_Bimwin->Auth();
     }

@@ -69,13 +69,31 @@
                                         <span class="menu-text">EBI</span>
                                     </a>
                                 </li>
-                                <li class="menu-item menu-item-active" aria-haspopup="true" title="e-Planning Surat Berharga Syariah Negara">
-                                    <a href="<?= base_url('Sekertariat/Esbsn/index/'); ?>" class="menu-link">
+                                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                    <a href="javascript:;" class="menu-link menu-toggle">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-file-invoice-dollar"></i>
                                         </span>
-                                        <span class="menu-text">e-SBSN</span>
+                                        <span class="menu-text">e-SBSN</span><i class="menu-arrow"></i>
                                     </a>
+                                    <div class="menu-submenu" style="" kt-hidden-height="360">
+                                        <i class="menu-arrow"></i>
+                                        <ul class="menu-subnav">
+                                            <li class="menu-item menu-item-parent" aria-haspopup="true">
+                                                <span class="menu-link"><span class="menu-text">e-SBSN</span></span>
+                                            </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('Sekertariat/Satker/index/'); ?>" class="menu-link menu-toggle">
+                                                    <span class="menu-text">SATKER</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('Sekertariat/Usulan/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="menu-link menu-toggle">
+                                                    <span class="menu-text">Usulan Triwulan</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
                                 <li class="menu-item menu-item-active" aria-haspopup="true" title="sistem informasi capaian kinerja">
                                     <a href="#" class="menu-link">

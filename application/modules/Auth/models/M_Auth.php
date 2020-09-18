@@ -93,7 +93,7 @@ class M_Auth extends CI_Model {
     function Management_save($data) {
         $this->db->trans_begin();
         $this->db->insert('auth', $data);
-        if ($this->db->trans_status() === FALSE) {
+        if ($this->db->trans_status() === false) {
             $this->db->trans_rollback();
             return false;
         } else {
@@ -133,7 +133,7 @@ class M_Auth extends CI_Model {
     function SU() {
         $exec = $this->db->select('auth.id')
                 ->from('auth')
-                ->where('auth.id', $this->session->userdata('id'), false)
+                ->where('`auth`.`id`', $this->session->userdata('id'), false)
                 ->get()
                 ->result();
         return $exec;
