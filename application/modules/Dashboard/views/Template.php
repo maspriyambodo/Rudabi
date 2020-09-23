@@ -97,6 +97,11 @@
                                                     <span class="menu-text">Input Triwulan</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('Sekertariat/Approved/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="menu-link menu-toggle">
+                                                    <span class="menu-text">Approved Usulan</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>
