@@ -82,7 +82,7 @@ if ($msg == false) {
                         <tr>
                             <td>
                                 <?php
-                                $url = str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?propinsi_nama=' . $approved->propinsi_nama . '&usul_tahun=' . $tahun . '&usul_propinsi=' . $approved->usul_propinsi));
+                                $url = str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $approved->propinsi_nama . '&b=' . $tahun . '&c=' . $approved->usul_propinsi));
                                 echo '<a href=' . base_url('Sekertariat/Approved/Provinsi?key=' . $url) . '>' . $approved->propinsi_nama . '</a>';
                                 ?>
                             </td>

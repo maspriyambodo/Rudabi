@@ -20,23 +20,16 @@ class Approved extends CI_Controller {
         $this->Authentication = $this->M_Sekertariat->Auth();
     }
 
-    private function Dec($enc) {
-        $encrypt = str_replace(['-', '_', '~'], ['+', '/', '='], $enc);
-        $dec = $this->encryption->decrypt($encrypt);
-        return $dec;
-    }
-
     public function index($year) {
-        $tahun = $this->Dec($year);
         $data = [
             'title' => 'Data Approved Usulan | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'tahun' => $tahun,
+            'tahun' => $this->bodo->Dec($year),
             'pertahun' => read_file("https://simas.kemenag.go.id/rudabi/datapi/esbsnn/pertahun", true),
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/approveusulan?usul_tahun=' . $tahun, true)
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/approveusulan?usul_tahun=' . $this->bodo->Dec($year), true)
         ];
         if ($data['data'] == false) {
-            $data['msg'] = "Data Approved Usulan Tahun " . $tahun . " Tidak tersedia!";
+            $data['msg'] = "Data Approved Usulan Tahun " . $this->bodo->Dec($year) . " Tidak tersedia!";
         } else {
             $data['msg'] = false;
         }
@@ -45,20 +38,30 @@ class Approved extends CI_Controller {
     }
 
     public function Provinsi() {
-        $param = $this->input->post_get('key');
-        $dec = $this->Dec($param);
-        $approve = str_replace(['?propinsi_nama=', '&usul_tahun=', '&usul_propinsi='], ['', ',', ','], $dec);
-        $approved = explode(',', $approve);
-        //output approved = Array ( [0] => Jawa Timur [1] => 2020 [2] => 16 )
+        $param = $this->bodo->Url($this->input->post_get('key'));
         $data = [
-            'title' => 'Data Approved Usulan Provinsi ' . $approved[0] . ' | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Data Approved Usulan Provinsi ' . $param[0] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'provinsi' => $approved[0],
-            'tahun' => $approved[1],
+            'provinsi' => $param[0],
+            'tahun' => $param[1],
+            'id_provinsi' => $param[2],
             'pertahun' => read_file("https://simas.kemenag.go.id/rudabi/datapi/esbsnn/pertahun", true),
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/approveusulan?usul_tahun=' . $approved[1] . '&usul_propinsi=' . $approved[2] . '', true)
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/approveusulan?usul_tahun=' . $param[1] . '&usul_propinsi=' . $param[2] . '', true)
         ];
         $data['content'] = $this->parser->parse('Sekertariat/Approved/Approved_Provinsi', $data, true);
+        return $this->parser->parse('Dashboard/Template', $data);
+    }
+
+    public function Kabupaten() {
+        $kabupaten = $this->bodo->Url($this->input->post_get('key'));
+        $data = [
+            'title' => 'Data Approved Usulan ' . $kabupaten[3] . ' | RUDABI SYSTEM OF KEMENAG RI',
+            'username' => $this->Authentication[0]->uname,
+            'param' => $kabupaten,
+            'pertahun' => read_file("https://simas.kemenag.go.id/rudabi/datapi/esbsnn/pertahun", true),
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/approveusulan?usul_tahun=' . $kabupaten[0] . '&usul_propinsi=' . $kabupaten[1] . '&usul_kabupaten=' . $kabupaten[2] . '', true)
+        ];
+        $data['content'] = $this->parser->parse('Sekertariat/Approved/Approved_Kabupaten', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
