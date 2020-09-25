@@ -105,13 +105,26 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <li class="menu-item menu-item-active" aria-haspopup="true" title="sistem informasi capaian kinerja">
-                                    <a href="#" class="menu-link">
+                                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                    <a href="javascript:;" class="menu-link menu-toggle">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-chart-line"></i>
                                         </span>
-                                        <span class="menu-text">SICAKEP</span>
+                                        <span class="menu-text">SICAKEP</span><i class="menu-arrow"></i>
                                     </a>
+                                    <div class="menu-submenu" style="" kt-hidden-height="360">
+                                        <i class="menu-arrow"></i>
+                                        <ul class="menu-subnav">
+                                            <li class="menu-item menu-item-parent" aria-haspopup="true">
+                                                <span class="menu-link"><span class="menu-text">SICAKEP</span></span>
+                                            </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('Sekertariat/Sicakep/Pegawai/index'); ?>" class="menu-link menu-toggle">
+                                                    <span class="menu-text">Data Pegawai</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
                                 <li class="menu-item menu-item-active" aria-haspopup="true" title="Sistem Informasi Persuratan Bimas Islam">
                                     <a href="#" class="menu-link">
