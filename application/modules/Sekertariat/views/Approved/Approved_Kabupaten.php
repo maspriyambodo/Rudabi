@@ -1,4 +1,7 @@
-<?php $approved = json_decode($data); ?>
+<?php
+$totnilai_dipa = 0;
+$approved = json_decode($data);
+?>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
@@ -15,7 +18,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped" style="width:100% 0px;">
+            <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
                     <tr>
                         <th>kua</th>
@@ -28,16 +31,27 @@
                     <?php foreach ($approved as $value) { ?>
                         <tr>
                             <td>
-                                <!--=========================================-->
-                                lanjut disini
-                                <!--=========================================-->
+                                <?= $value->usul_nama_kua; ?>
                             </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td class="text-center text-wrap">
+                                <?= $value->usul_alamat_kua; ?>
+                            </td>
+                            <td class="text-center"><?= $value->usul_status_tanah; ?></td>
+                            <td class="text-center">
+                                <?php
+                                $nilai_dipa = str_replace(',', '', $value->nilai_dipa);
+                                $totnilai_dipa += $nilai_dipa;
+                                echo $value->nilai_dipa;
+                                ?>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>
+                <tfoot class="text-center text-uppercase">
+                    <tr>
+                        <th colspan="4">Total Nilai Dipa Rp. <?= number_format($totnilai_dipa); ?></th>
+                    </tr>
+                </tfoot>
             </table>
         </div>
     </div>
