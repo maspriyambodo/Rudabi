@@ -167,7 +167,6 @@ $tottanpa_agama = 0;
             chart.cursor = new am4charts.XYCursor();
             categoryAxis.sortBySeries = series;
         });
-        
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],

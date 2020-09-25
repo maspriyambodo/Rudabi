@@ -1,12 +1,14 @@
 <?php
 
+//'username' => 'root',
+//'password' => 'Masdatin@2020!',
 defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = true;
 $db['default'] = ['dsn' => '',
     'hostname' => 'localhost',
-    'username' => 'root',
-    'password' => 'Masdatin@2020!',
+    'username' => 'admin',
+    'password' => 'priyambodo',
     'database' => 'rudabi',
     'dbdriver' => 'mysqli',
     'dbprefix' => '',
