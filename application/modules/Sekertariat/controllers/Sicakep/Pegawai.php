@@ -48,7 +48,7 @@ class Pegawai extends CI_Controller {
     }
 
     public function Kabupaten() {
-        $param = $this->bodo->Url($this->input->post_get('key')); //output param Array ( [0] => Jakarta Selatan [1] => 124 )
+        $param = $this->bodo->Url($this->input->post_get('key')); //output param Array ( [0] => Jakarta Pusat [1] => 126 [2] => DKI Jakarta [3] => 12 )
         $data = [
             'title' => 'Data Pegawai ' . $param[0] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
@@ -60,7 +60,7 @@ class Pegawai extends CI_Controller {
     }
 
     public function Detail() {
-        $param = $this->bodo->Url($this->input->post_get('key'));
+        $param = $this->bodo->Url($this->input->post_get('key'));//output param Array ( [0] => 182 [1] => Ade Suryana [2] => Jakarta Pusat [3] => 126 [4] => DKI Jakarta [5] => 12 )
         $data = [
             'title' => 'Detail ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,

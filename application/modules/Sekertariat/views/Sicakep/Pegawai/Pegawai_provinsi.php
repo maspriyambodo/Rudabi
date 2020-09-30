@@ -68,7 +68,7 @@ $tottanpa_agama = 0;
                         <tr>
                             <td>
                                 <?php
-                                $url = str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $pegawai->kab_nama . '&b=' . $pegawai->peg_kabupaten));
+                                $url = str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $pegawai->kab_nama . '&b=' . $pegawai->peg_kabupaten . '&c=' . $param[0] . '&d=' . $param[1]));
                                 echo '<a href="' . base_url('Sekertariat/Sicakep/Pegawai/Kabupaten?key=' . $url) . '">' . $pegawai->kab_nama . '</a>';
                                 ?>
                             </td>

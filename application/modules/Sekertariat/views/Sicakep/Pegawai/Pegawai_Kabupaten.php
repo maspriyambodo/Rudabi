@@ -11,7 +11,7 @@ $pegawai = json_decode($data);
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            DETAIL DATA PEGAWAI
+            <a href="<?= base_url('Sekertariat/Sicakep/Pegawai/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[2] . '&b=' . $param[3]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
@@ -22,27 +22,24 @@ $pegawai = json_decode($data);
                         <th>nama</th>
                         <th>jenis<br>kelamin</th>
                         <th>agama</th>
-                        <th>orang<br>tua</th>
-                        <th>orang<br>tua</th>
+                        <th>action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($pegawai as $pegawai) { ?>
                         <tr>
                             <td>
-                                <?php
-                                $url = str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $pegawai->peg_id . '&b=' . $pegawai->nama));
-                                echo '<a href="' . base_url('Sekertariat/Sicakep/Pegawai/Detail?key=' . $url) . '">' . $pegawai->nama . '</a>';
-                                ?>
+                                <?= $pegawai->nama; ?>
                             </td>
                             <td class="text-center">
-                                <!--=========================================-->
-                                lanjut disini
-                                <!--=========================================-->
+                                <?= $pegawai->kelamin; ?>
                             </td>
-                            <td class="text-center"></td>
-                            <td class="text-center"></td>
-                            <td class="text-center"></td>
+                            <td class="text-center">
+                                <?= $pegawai->agama; ?>
+                            </td>
+                            <td class="text-center">
+                                <a href="<?= base_url('Sekertariat/Sicakep/Pegawai/Detail?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $pegawai->peg_id . '&b=' . $pegawai->nama . '&c=' . $param[0] . '&d=' . $param[1] . '&e=' . $param[2] . '&f=' . $param[3]))); ?>" class="btn btn-icon btn-xs btn-default" title="<?= 'Detail data ' . $pegawai->nama ?>"><i class="fas fa-eye"></i></a>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>
