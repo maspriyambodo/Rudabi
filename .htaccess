@@ -1,3 +1,4 @@
+# personal access token github.com: 6832db2333840de0932b19935f17359ad7d7b9af
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
