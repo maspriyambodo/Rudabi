@@ -274,13 +274,46 @@
                                         <span class="menu-text">SIK</span>
                                     </a>
                                 </li>
-                                <li class="menu-item menu-item-active" aria-haspopup="true">
-                                    <a href="<?= base_url('Emonev/index/'); ?>" class="menu-link">
+                                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                    <a href="javascript:;" class="menu-link menu-toggle">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-chalkboard-teacher"></i>
                                         </span>
-                                        <span class="menu-text">E-Monev</span>
+                                        <span class="menu-text">e-Monev</span><i class="menu-arrow"></i>
                                     </a>
+                                    <div class="menu-submenu" style="" kt-hidden-height="360">
+                                        <i class="menu-arrow"></i>
+                                        <ul class="menu-subnav">
+                                            <li class="menu-item menu-item-parent" aria-haspopup="true">
+                                                <span class="menu-link"><span class="menu-text">e-Monev</span></span>
+                                            </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('Emonev/index/'); ?>" class="menu-link menu-toggle">
+                                                    <span class="menu-text">Data KUA</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('Emonev/Tipologi/index/'); ?>" class="menu-link menu-toggle">
+                                                    <span class="menu-text">Tipologi KUA</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('Emonev/Tanah/index/'); ?>" class="menu-link menu-toggle">
+                                                    <span class="menu-text">Status Tanah KUA</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('Emonev/Penilaian/index/'); ?>" class="menu-link menu-toggle">
+                                                    <span class="menu-text">Rekapitulasi Penilaian KUA</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('Emonev/Rekap/index/'); ?>" class="menu-link menu-toggle">
+                                                    <span class="menu-text">Rekapitulasi Data KUA</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
                                 <li class="menu-item menu-item-active" aria-haspopup="true">
                                     <a href="<?= base_url('Simpenghulu/index/'); ?>" class="menu-link">

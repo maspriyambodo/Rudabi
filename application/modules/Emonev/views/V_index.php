@@ -1,33 +1,80 @@
+<?php
+$kua = json_decode($data);
+$kanmenag = json_decode($kankemenag);
+$totkanmenag = 0;
+$totjumlah_kua = 0;
+?>
 <div class="card card-custom">
+    <div class="card-header">
+        <div class="card-title">
+            Data KUA per Provinsi
+        </div>
+    </div>
     <div class="card-body">
+        <div class="text-center">
+            <b id="title_chartdiv"></b>
+        </div>
         <div id="chartdiv" class="chartdivs"></div>
     </div>
 </div>
 <div class="clear" style="margin:5% 0px"></div>
 <div class="card card-custom">
+    <div class="card-header">
+        <div class="card-title">
+            Detail Data KUA
+        </div>
+    </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped">
                 <thead class="text-center text-uppercase">
                     <tr>
+                        <th>Kode</th>
                         <th>Provinsi</th>
+                        <th>Kankemenag</th>
                         <th>Jumlah KUA</th>
                     </tr>
                 </thead>
-                <tfoot>
+                <tbody>
+                    <?php foreach ($kua as $key => $kua) { ?>
+                        <tr>
+                            <td class="text-center"><?= $kua->kodekua; ?></td>
+                            <td><?= $kua->propinsi; ?></td>
+                            <td class="text-center">
+                                <?php
+                                $totkanmenag += $kanmenag[$key]->jumlah_kabupaten;
+                                echo '<a href="' . base_url('Emonev/Kankemenag?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $kanmenag[$key]->kodekab . '&b=' . $kua->propinsi))) . '">' . $kanmenag[$key]->jumlah_kabupaten . '</a>';
+                                ?>
+                            </td>
+                            <td class="text-center">
+                                <?php
+                                $totjumlah_kua += $kua->jumlah_kua;
+                                echo '<a href="' . base_url('Emonev/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $kua->kodekua . '&b=' . $kua->propinsi))) . '">' . $kua->jumlah_kua . '</a>'
+                                ?>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+                <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th>
-                            Jumlah
-                        </th>
-                        <th></th>
+                        <th colspan="2">total</th>
+                        <th><?= number_format($totkanmenag); ?></th>
+                        <th><?= number_format($totjumlah_kua); ?></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
+<input type="hidden" name="totjumlah_kua" value="<?= $totjumlah_kua; ?>"/>
+<input type="hidden" name="totkanmenag" value="<?= $totkanmenag; ?>"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js" integrity="sha512-USPCA7jmJHlCNRSFwUFq3lAm9SaOjwG8TaB8riqx3i/dAJqhaYilVnaf2eVUH5zjq89BU6YguUuAno+jpRvUqA==" crossorigin="anonymous"></script>
 <script>
     window.onload = function () {
+        var a, b;
+        a = $('input[name=totjumlah_kua]').val();
+        b = numeral(a).format('0,0');
+        document.getElementById('title_chartdiv').innerText = "Total KUA " + b;
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],
@@ -38,49 +85,14 @@
             "deferRender": true,
             "scrollCollapse": true,
             "scrollX": true,
-            "scrollY": "400px",
-            "ajax": {
-                dataSrc: '',
-                method: "GET",
-                async: false,
-                url: "https://simas.kemenag.go.id/rudabi/datapi/monev"
-            },
-            columns: [
-                {
-                    data: null, render: function (data) {
-                        var a, b, c;
-                        a = data.kodekua;
-                        b = data.propinsi;
-                        c = b.replace(' ', '_');
-                        return '<a href="<?= base_url('Emonev/Detail/'); ?>' + a + '/' + c + '">' + b + '</a>';
-                    }
-                },
-                {data: "jumlah_kua", className: "text-center sum_sum"}
-            ],
-            footerCallback: function () {
-                var api = this.api();
-                var numFormat = $.fn.dataTable.render.number( '\.', '', 0, '' ).display;
-                api.columns('.sum_sum', {page: 'current'}).every(function () {
-                    var sum = this
-                            .data()
-                            .reduce(function (a, b) {
-                                var x = parseFloat(a) || 0;
-                                var y = parseFloat(b) || 0;
-                                return x + y;
-                            }, 0);
-                    $(this.footer()).html(numFormat(sum));
-                });
-            }
+            "scrollY": "400px"
         });
     };
     am4core.ready(function () {
         am4core.useTheme(am4themes_animated);
-
         var chart = am4core.create("chartdiv", am4charts.XYChart);
         chart.exporting.menu = new am4core.ExportMenu();
-
-        chart.dataSource.url = "https://simas.kemenag.go.id/rudabi/datapi/monev";
-
+        chart.data = <?= $data; ?>;
         var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
         categoryAxis.dataFields.category = "propinsi";
         categoryAxis.renderer.grid.template.location = 0;
@@ -117,7 +129,6 @@
         series.columns.template.adapter.add("fill", function (fill, target) {
             return chart.colors.getIndex(target.dataItem.index);
         });
-
         chart.cursor = new am4charts.XYCursor();
     });
 </script>

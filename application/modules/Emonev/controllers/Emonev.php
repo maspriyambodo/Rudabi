@@ -19,12 +19,44 @@ defined('BASEPATH')OR exit('No direct script access allowed');
  */
 class Emonev extends CI_Controller {
 
+    public function __construct() {
+        parent::__construct();
+        $this->load->model('M_emonev');
+        $this->Authentication = $this->M_emonev->Auth();
+    }
+
     public function index() {
         $data = [
             'title' => 'E-Monev | RUDABI SYSTEM OF KEMENAG RI',
-            'username' => $this->session->userdata('username')
+            'username' => $this->session->userdata('username'),
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev'),
+            'kankemenag' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/propinsi')
         ];
         $data['content'] = $this->parser->parse('V_index', $data, true);
+        return $this->parser->parse('Dashboard/Template', $data);
+    }
+
+    public function Kankemenag() {
+        $param = $this->bodo->Url($this->input->post_get('key')); //Output Array ( [0] => 23 [1] => ACEH )
+        $data = [
+            'title' => 'Kantor Kemenag Provinsi ' . $param[1] . ' | RUDABI SYSTEM OF KEMENAG RI',
+            'username' => $this->session->userdata('username'),
+            'param' => $param,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/propinsi?kodekab=' . $param[0])
+        ];
+        $data['content'] = $this->parser->parse('Emonev_Kankemenag', $data, true);
+        return $this->parser->parse('Dashboard/Template', $data);
+    }
+
+    public function Provinsi() {
+        $param = $this->bodo->Url($this->input->post_get('key')); //Output Array ( [0] => 02 [1] => SUMATERA UTARA ) 
+        $data = [
+            'title' => 'E-Monev | RUDABI SYSTEM OF KEMENAG RI',
+            'username' => $this->session->userdata('username'),
+            'param' => $param,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev?kodekua=' . $param[0])
+        ];
+        $data['content'] = $this->parser->parse('Emonev_Provinsi', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
