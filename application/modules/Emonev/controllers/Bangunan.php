@@ -38,7 +38,7 @@ class Bangunan extends CI_Controller {
     public function Statusbangunan() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 0 [1] => Tidak Mengisi Inputan )
         $data = [
-            'title' => 'Status Tanah KUA ' . $param[1] . ' | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Status Bangunan KUA ' . $param[1] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
             'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/Stat_bangunan?status=' . $param[0])

@@ -48,6 +48,7 @@ foreach ($tanah as $value) {
                         <th>no</th>
                         <th>status<br>tanah</th>
                         <th>jumlah</th>
+                        <th>action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -61,6 +62,9 @@ foreach ($tanah as $value) {
                             </td>
                             <td><?= $dt_tanah->keterangan; ?></td>
                             <td class="text-center"><?= number_format($dt_tanah->jml); ?></td>
+                            <td class="text-center">
+                                <a href="<?= base_url('Emonev/Tanah/Statustanah?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $dt_tanah->statustanah . '&b=' . $dt_tanah->keterangan))); ?>" class="btn btn-icon btn-success btn-xs" title="Detail status bangunan KUA"><i class="fas fa-eye"></i></a>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -87,6 +91,7 @@ foreach ($tanah as $value) {
             pieSeries.dataFields.value = "litres";
             pieSeries.dataFields.category = "country";
             chart.innerRadius = am4core.percent(30);
+            chart.exporting.menu = new am4core.ExportMenu();
             pieSeries.slices.template.stroke = am4core.color("#fff");
             pieSeries.slices.template.strokeWidth = 2;
             pieSeries.slices.template.strokeOpacity = 1;
