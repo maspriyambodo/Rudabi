@@ -35,4 +35,16 @@ class Tipologi extends CI_Controller {
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
+    public function Tipokua() {
+        $param = $this->bodo->Url($this->input->post_get('key'));
+        $data = [
+            'title' => 'Tipologi KUA ' . $param[0] . ' | RUDABI SYSTEM OF KEMENAG RI',
+            'username' => $this->session->userdata('username'),
+            'param' => $param,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/Tipokua?tipokua=' . $param[0])
+        ];
+        $data['content'] = $this->parser->parse('Tipologi_Tipokua', $data, true);
+        return $this->parser->parse('Dashboard/Template', $data);
+    }
+
 }

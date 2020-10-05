@@ -22,6 +22,49 @@ foreach ($tipo as $value) {
         <div id="chartdiv" class="chartdivs"></div>
     </div>
 </div>
+<div class="clear" style="margin:5% 0px;"></div>
+<div class="card card-custom">
+    <div class="card-header">
+        <div class="card-title">
+            Detail Tipologi KUA
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped" style="width:100%;">
+                <thead class="text-center text-uppercase">
+                    <tr>
+                        <th>no</th>
+                        <th>jenis tipologi</th>
+                        <th>jumlah</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <?php foreach ($tipo as $value) { ?>
+                        <tr>
+                            <td>
+                                <?php
+                                static $id = 1;
+                                echo $id++;
+                                ?>
+                            </td>
+                            <td>
+                                <?= $value->tipokua ?>
+                            </td>
+                            <td>
+                                <?= $value->jml ?>
+                            </td>
+                            <td>
+                                <a href="<?= base_url('Emonev/Tipologi/Tipokua?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $value->tipokua))); ?>" class="btn btn-icon btn-success btn-xs" title="Detail Tipologi KUA"><i class="fas fa-eye"></i></a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 <script>
     window.onload = function () {
         document.getElementById('title_chartdiv').innerText = "Total Tipologi KUA " + $('input[name=totjml]').val();
@@ -60,6 +103,29 @@ foreach ($tipo as $value) {
             });
             chart.cursor = new am4charts.XYCursor();
             categoryAxis.sortBySeries = series;
+        });
+        $('table').dataTable({
+            "ServerSide": true,
+            "searching": false,
+            "order": [[0, "asc"]],
+            "paging": false,
+            "ordering": true,
+            "info": true,
+            "processing": true,
+            "deferRender": true,
+            "scrollCollapse": true,
+            "scrollX": true,
+            "scrollY": "400px",
+            dom: `<'row'<'col-sm-6 text-left'l><'col-sm-6 text-right'B>>
+<'row'<'col-sm-12'tr>>
+<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'p>>`,
+            buttons: [
+                'print',
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5'
+            ]
         });
     };
 </script>
