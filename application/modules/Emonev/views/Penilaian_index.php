@@ -41,6 +41,7 @@ foreach ($tahun as $value) {
                         <th>no</th>
                         <th>tahun penilaian</th>
                         <th>jumlah</th>
+                        <th>action</th>
                     </tr>
                 </thead>
                 <tbody class="text-center">
@@ -54,6 +55,9 @@ foreach ($tahun as $value) {
                             </td>
                             <td>Tahun <?= $dt_tahun->tahun; ?></td>
                             <td><?= number_format($dt_tahun->jumlah); ?></td>
+                            <td>
+                                <a href="<?= base_url('Emonev/Penilaian/Tahun?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $dt_tahun->tahun))); ?>" class="btn btn-icon btn-success btn-xs" title="Detail Penilaian Tahun <?= $dt_tahun->tahun; ?>"><i class="fas fa-eye"></i></a>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>
