@@ -327,6 +327,11 @@
                                                     <span class="menu-text">Penggunaan SIMKAH</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('Emonev/Registrasi/index/'); ?>" class="menu-link menu-toggle">
+                                                    <span class="menu-text">Rekapitulasi Registrasi</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>
