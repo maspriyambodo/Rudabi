@@ -47,7 +47,7 @@
                     <div class="aside-menu-wrapper flex-column-fluid" id="kt_aside_menu_wrapper">
                         <div id="kt_aside_menu" class="aside-menu my-4" data-menu-vertical="1" data-menu-scroll="1" data-menu-dropdown-timeout="500">
                             <ul class="menu-nav">
-                                <li class="menu-item menu-item-active" aria-haspopup="true">
+                                <li class="menu-item" aria-haspopup="true">
                                     <a href="<?= base_url('Dashboard/index/'); ?>" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-tv"></i>
@@ -61,7 +61,7 @@
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                 </li>
                                 <div class="separator separator-dashed"></div>
-                                <li class="menu-item menu-item-active" aria-haspopup="true" title="e-planning Bimas Islam">
+                                <li class="menu-item" aria-haspopup="true" title="e-planning Bimas Islam">
                                     <a href="#" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-clipboard-list"></i>
@@ -84,21 +84,33 @@
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('Sekertariat/Satker/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">SATKER</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('Sekertariat/Usulan/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Usulan Triwulan</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('Sekertariat/Input/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Input Triwulan</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('Sekertariat/Approved/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Approved Usulan</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
@@ -120,13 +132,24 @@
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('Sekertariat/Sicakep/Pegawai/index'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Data Pegawai</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('Sekertariat/Pensiun/index'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
+                                                    <span class="menu-text">Data Pensiun</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
-                                <li class="menu-item menu-item-active" aria-haspopup="true" title="Sistem Informasi Persuratan Bimas Islam">
+                                <li class="menu-item" aria-haspopup="true" title="Sistem Informasi Persuratan Bimas Islam">
                                     <a href="#" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-mail-bulk"></i>
@@ -134,7 +157,7 @@
                                         <span class="menu-text">SIPBI</span>
                                     </a>
                                 </li>
-                                <li class="menu-item menu-item-active" aria-haspopup="true" title="Tim Cyber Anti Narkoba, Pornografi, dan Radikalisme">
+                                <li class="menu-item" aria-haspopup="true" title="Tim Cyber Anti Narkoba, Pornografi, dan Radikalisme">
                                     <a href="#" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-user-shield"></i>
@@ -142,7 +165,7 @@
                                         <span class="menu-text">Cyber</span>
                                     </a>
                                 </li>
-                                <li class="menu-item menu-item-active" aria-haspopup="true" title="Sistem Informasi Manajemen Bimas Islam">
+                                <li class="menu-item" aria-haspopup="true" title="Sistem Informasi Manajemen Bimas Islam">
                                     <a href="#" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-cogs"></i>
@@ -150,7 +173,7 @@
                                         <span class="menu-text">SIMBI</span>
                                     </a>
                                 </li>
-                                <li class="menu-item menu-item-active" aria-haspopup="true" title="Sistem Informasi Laporan Pimpinan">
+                                <li class="menu-item" aria-haspopup="true" title="Sistem Informasi Laporan Pimpinan">
                                     <a href="#" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-book"></i>
@@ -180,38 +203,56 @@
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('Binsyar/Sihat/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Alat Hisab Rukyat</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('Binsyar/Ahli/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Tenaga Ahli</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('Binsyar/Pengukuran/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Hisab Pengukuran</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('Binsyar/Lokasi/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Hisab Lokasi</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('Binsyar/Laporan/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Hisab Laporan</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('Binsyar/Lintang/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Lintang Kota</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
-                                <li class="menu-item menu-item-active" aria-haspopup="true" title="Sistem Informasi Masjid">
+                                <li class="menu-item" aria-haspopup="true" title="Sistem Informasi Masjid">
                                     <a href="<?= base_url('Simas/index/'); ?>" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-mosque"></i>
@@ -219,7 +260,7 @@
                                         <span class="menu-text">SIMAS</span>
                                     </a>
                                 </li>
-                                <li class="menu-item menu-item-active" aria-haspopup="true" title="Sistem Informasi Paham Keagamaan">
+                                <li class="menu-item" aria-haspopup="true" title="Sistem Informasi Paham Keagamaan">
                                     <a href="#" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-moon"></i>
@@ -227,7 +268,7 @@
                                         <span class="menu-text">SIPAHAM</span>
                                     </a>
                                 </li>
-                                <li class="menu-item menu-item-active" aria-haspopup="true" title="Pustaka Bimas Islam">
+                                <li class="menu-item" aria-haspopup="true" title="Pustaka Bimas Islam">
                                     <a href="#" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-book-open"></i>
@@ -255,18 +296,24 @@
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('KUA/Bimwin/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Target Catin</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('KUA/Catin/index/' . date("Y") . ''); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Data Catin</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
-                                <li class="menu-item menu-item-active" aria-haspopup="true" title="sistem informasi kepenghuluan">
+                                <li class="menu-item" aria-haspopup="true" title="sistem informasi kepenghuluan">
                                     <a href="#" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-genderless"></i>
@@ -289,53 +336,80 @@
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('Emonev/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Rekap Data KUA</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('Emonev/Tipologi/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Tipologi KUA</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('Emonev/Tanah/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Status Tanah KUA</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('Emonev/Penilaian/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Rekapitulasi Penilaian KUA</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('Emonev/Rekap/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Rekapitulasi Data KUA</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('Emonev/Isian/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Rekap Isian KUA</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('Emonev/Bangunan/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Status Bangunan KUA</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('Emonev/Simkah/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Penggunaan SIMKAH</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('Emonev/Registrasi/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Rekapitulasi Registrasi</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
-                                <li class="menu-item menu-item-active" aria-haspopup="true">
+                                <li class="menu-item" aria-haspopup="true">
                                     <a href="<?= base_url('Simpenghulu/index/'); ?>" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-handshake"></i>
@@ -364,88 +438,136 @@
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('PAI/Simpenais/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Penyuluh</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('PAI/Majelis/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Majelis Taklim</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('PAI/Seni_Islam/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Seni Islam</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('PAI/Dakwah/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Lembaga Dakwah</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('PAI/Ormas/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Ormas Islam</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('PAI/Dewan/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Dewan Hakim</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('PAI/Guru_ngaji/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Guru Ngaji</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('PAI/LPTQ/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">L P T Q</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('PAI/Hafiz/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Hafidz</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('PAI/Qari/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Qari</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('PAI/Mufassir/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Mufassir</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('PAI/Kaligrafer/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Kaligrafer</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('PAI/Seniman/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Seniman</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('PAI/Budayawan/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Budayawan</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('PAI/Radio_Islam/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Radio Islam</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('PAI/Penulis/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
                                                     <span class="menu-text">Penulis Islam</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
-                                <li class="menu-item menu-item-active" aria-haspopup="true" title="e-penyuluh agama islam">
+                                <li class="menu-item" aria-haspopup="true" title="e-penyuluh agama islam">
                                     <a href="<?= base_url('PAI/Epai/index/'); ?>" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-bullhorn"></i>
@@ -453,7 +575,7 @@
                                         <span class="menu-text">E-PAI</span>
                                     </a>
                                 </li>
-                                <li class="menu-item menu-item-active" aria-haspopup="true" title="sistem aplikasi pendaftaran MTQ">
+                                <li class="menu-item" aria-haspopup="true" title="sistem aplikasi pendaftaran MTQ">
                                     <a href="#" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-book-reader"></i>
@@ -467,7 +589,7 @@
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                 </li>
                                 <div class="separator separator-dashed"></div>
-                                <li class="menu-item menu-item-active" aria-haspopup="true" title="sistem informasi zakat">
+                                <li class="menu-item" aria-haspopup="true" title="sistem informasi zakat">
                                     <a href="#" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-hand-holding-usd"></i>
@@ -475,7 +597,7 @@
                                         <span class="menu-text">Simzat</span>
                                     </a>
                                 </li>
-                                <li class="menu-item menu-item-active" aria-haspopup="true" title="sistem informasi wakaf">
+                                <li class="menu-item" aria-haspopup="true" title="sistem informasi wakaf">
                                     <a href="#" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-hand-holding-heart"></i>
@@ -488,7 +610,7 @@
                                     <h4 class="menu-text text-info user-select-none">SYSTEM</h4>
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                 </li>
-                                <li class="menu-item menu-item-active" aria-haspopup="true" title="sistem informasi wakaf">
+                                <li class="menu-item" aria-haspopup="true" title="sistem informasi wakaf">
                                     <a href="<?= base_url('Auth/Management/'); ?>" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-users-cog"></i>
@@ -496,7 +618,7 @@
                                         <span class="menu-text">User Management</span>
                                     </a>
                                 </li>
-                                <li class="menu-item menu-item-active" aria-haspopup="true" title="sistem informasi wakaf">
+                                <li class="menu-item" aria-haspopup="true" title="sistem informasi wakaf">
                                     <a href="<?= base_url('Auth/Subdit/'); ?>" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-code-branch"></i>
@@ -591,7 +713,14 @@
             </div>
         </div>
         <div id="kt_scrolltop" class="scrolltop"><span class="svg-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><polygon points="0 0 24 0 24 24 0 24" /><rect fill="#000000" opacity="0.3" x="11" y="10" width="2" height="10" rx="1" /><path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z" fill="#000000" fill-rule="nonzero" /></g></svg></span></div>
-        <script>var KTAppSettings = {breakpoints: {sm: 576, md: 768, lg: 992, xl: 1200, xxl: 1200}, colors: {theme: {base: {white: "#ffffff", primary: "#6993FF", secondary: "#E5EAEE", success: "#1BC5BD", info: "#8950FC", warning: "#FFA800", danger: "#F64E60", light: "#F3F6F9", dark: "#212121"}, light: {white: "#ffffff", primary: "#E1E9FF", secondary: "#ECF0F3", success: "#C9F7F5", info: "#EEE5FF", warning: "#FFF4DE", danger: "#FFE2E5", light: "#F3F6F9", dark: "#D6D6E0"}, inverse: {white: "#ffffff", primary: "#ffffff", secondary: "#212121", success: "#ffffff", info: "#ffffff", warning: "#ffffff", danger: "#ffffff", light: "#464E5F", dark: "#ffffff"}}, gray: {"gray-100": "#F3F6F9", "gray-200": "#ECF0F3", "gray-300": "#E5EAEE", "gray-400": "#D6D6E0", "gray-500": "#B5B5C3", "gray-600": "#80808F", "gray-700": "#464E5F", "gray-800": "#1B283F", "gray-900": "#212121"}}, "font-family": "Poppins"};</script>
+        <script>
+            var pageUrl = window.location.origin + window.location.pathname;
+            var menu = $('.aside-menu .menu-nav li a[href="' + pageUrl + '"]').parent('li');
+            menu.addClass('menu-item-active');
+            var treeLi = menu.parent().parent().parent();
+            treeLi.addClass('menu-item-open');
+            var KTAppSettings = {breakpoints: {sm: 576, md: 768, lg: 992, xl: 1200, xxl: 1200}, colors: {theme: {base: {white: "#ffffff", primary: "#6993FF", secondary: "#E5EAEE", success: "#1BC5BD", info: "#8950FC", warning: "#FFA800", danger: "#F64E60", light: "#F3F6F9", dark: "#212121"}, light: {white: "#ffffff", primary: "#E1E9FF", secondary: "#ECF0F3", success: "#C9F7F5", info: "#EEE5FF", warning: "#FFF4DE", danger: "#FFE2E5", light: "#F3F6F9", dark: "#D6D6E0"}, inverse: {white: "#ffffff", primary: "#ffffff", secondary: "#212121", success: "#ffffff", info: "#ffffff", warning: "#ffffff", danger: "#ffffff", light: "#464E5F", dark: "#ffffff"}}, gray: {"gray-100": "#F3F6F9", "gray-200": "#ECF0F3", "gray-300": "#E5EAEE", "gray-400": "#D6D6E0", "gray-500": "#B5B5C3", "gray-600": "#80808F", "gray-700": "#464E5F", "gray-800": "#1B283F", "gray-900": "#212121"}}, "font-family": "Poppins"};
+        </script>
     </body>
 
 </html>
