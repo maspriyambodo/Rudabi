@@ -13,10 +13,15 @@ $jml = 0;
         </div>
     </div>
 </div>
-<div class="card card-custom">
+<div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
             Kategori Penggunaan SIMKAH
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
         </div>
     </div>
     <div class="card-body">
@@ -24,13 +29,21 @@ $jml = 0;
             <b><u id="title_chartdiv"></u></b>
         </div>
         <div id="chartdiv" class="chartdivs"></div>
+        <div class="clear" style="margin:5% 0px;"></div>
+        <hr>
+        <div id="chartdiv_a" class="chartdivs"></div>
     </div>
 </div>
 <div class="clear" style="margin:5% 0px;"></div>
-<div class="card card-custom">
+<div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
             Detail Data Penggunaan SIMKAH
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
         </div>
     </div>
     <div class="card-body">
@@ -80,6 +93,17 @@ $jml = 0;
     window.onload = function () {
         var a = $('input[name=jml]').val();
         document.getElementById('title_chartdiv').innerText = "Total Penggunaan SIMKAH: " + a;
+        am4core.ready(function () {
+            am4core.useTheme(am4themes_animated);
+            var chart = am4core.create("chartdiv_a", am4charts.PieChart3D);
+            chart.hiddenState.properties.opacity = 0;
+            chart.legend = new am4charts.Legend();
+            chart.data = <?= $data; ?>;
+            chart.innerRadius = 100;
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "jml";
+            series.dataFields.category = "kategori";
+        });
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
