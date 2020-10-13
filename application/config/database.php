@@ -7,8 +7,8 @@ $active_group = 'default';
 $query_builder = true;
 $db['default'] = ['dsn' => '',
     'hostname' => 'localhost',
-    'username' => 'admin',
-    'password' => 'priyambodo',
+    'username' => 'root',
+    'password' => '',
     'database' => 'rudabi',
     'dbdriver' => 'mysqli',
     'dbprefix' => '',
