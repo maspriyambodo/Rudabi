@@ -2,3 +2,4 @@
 /application/sessions/
 /application/logs/
 /vendor/*
+/application/config/database.php
