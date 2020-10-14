@@ -54,7 +54,7 @@
                 dataSrc: '',
                 method: "GET",
                 async: false,
-                url: "https://simas.kemenag.go.id/rudabi/datapi/epay"
+                url: "https://simas.kemenag.go.id/rudabi/datapi/epay?KEY=BOBA"
             },
             columns: [
                 {
@@ -102,7 +102,7 @@
 
         var chart = am4core.create("chartdiv", am4charts.XYChart);
         chart.exporting.menu = new am4core.ExportMenu();
-        chart.dataSource.url = "https://simas.kemenag.go.id/rudabi/datapi/epay";
+        chart.dataSource.url = "https://simas.kemenag.go.id/rudabi/datapi/epay?KEY=BOBA";
         chart.yAxes.push(new am4charts.ValueAxis());
         var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
         categoryAxis.dataFields.category = "provinsi_nama";

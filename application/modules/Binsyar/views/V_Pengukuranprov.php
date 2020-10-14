@@ -43,7 +43,7 @@
 </div>
 <script>
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/siihat/hisabpengukuran?ukur_provinsi=<?= $id; ?>";
+        var url = "https://simas.kemenag.go.id/rudabi/datapi/siihat/hisabpengukuran?KEY=BOBA&ukur_provinsi=<?= $id; ?>";
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],

@@ -113,7 +113,7 @@
         window.history.back();
     }
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/dakwah?city_id=<?= $id; ?>";
+        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/dakwah?KEY=BOBA&city_id=<?= $id; ?>";
         var table = $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],

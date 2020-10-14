@@ -71,7 +71,7 @@
 </div>
 
 <script>
-    var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/tokoh?province_id=<?= $id; ?>";
+    var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/tokoh?KEY=BOBA&province_id=<?= $id; ?>";
     am4core.ready(function () {
         var tot_dewan = $('input[name=dewantxt]').val();
         var tot_laki = $('input[name=lakitxt]').val();

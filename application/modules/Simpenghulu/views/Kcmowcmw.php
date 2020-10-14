@@ -47,7 +47,7 @@
                 dataSrc: '',
                 method: "GET",
                 async: false,
-                url: "https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/penghulu?city_id=<?= $id ?>"
+                url: "https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/penghulu?KEY=BOBA&city_id=<?= $id ?>"
             },
             columns: [
                 {data: "nama"},

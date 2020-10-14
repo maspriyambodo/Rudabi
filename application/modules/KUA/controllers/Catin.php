@@ -42,8 +42,8 @@ class Catin extends CI_Controller {
             'title' => 'Target Catin | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'datedex' => $dec,
-            'data' => json_decode(file_get_contents("https://simas.kemenag.go.id/rudabi/datapi/embimwin/datacatin")),
-            'catin' => json_decode(file_get_contents("https://simas.kemenag.go.id/rudabi/datapi/embimwin/datacatin?tahun_target_pusat=" . $dec . ""))
+            'data' => json_decode(file_get_contents("https://simas.kemenag.go.id/rudabi/datapi/embimwin/datacatin?KEY=BOBA")),
+            'catin' => json_decode(file_get_contents("https://simas.kemenag.go.id/rudabi/datapi/embimwin/datacatin?KEY=BOBA&tahun_target_pusat=" . $dec . ""))
         ];
         $data['content'] = $this->parser->parse('KUA/Catin/V_index', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -57,7 +57,7 @@ class Catin extends CI_Controller {
             log_message('error', '===================================================================================');
             $data = '[{"tahun_target_pusat":0,"target_pusat":0,"jumlah_catin":0,"hadir_suami":0,"nonhadir_istri":0,"hadir_suami_bimwin":0,"hadir_istri_bimwin":0}]';
         } else {
-            $data = file_get_contents("https://simas.kemenag.go.id/rudabi/datapi/embimwin/targetcatin2020?id_prop=" . $dec . "");
+            $data = file_get_contents("https://simas.kemenag.go.id/rudabi/datapi/embimwin/targetcatin2020?KEY=BOBA&id_prop=" . $dec . "");
         }
         $this->output
                 ->set_status_header(200)

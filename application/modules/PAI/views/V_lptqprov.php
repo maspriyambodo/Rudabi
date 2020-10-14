@@ -58,7 +58,7 @@
 <input type="hidden" name="pgrs_perempuan"/>
 <script>
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lsmislam?province_id=<?= $id; ?>";
+        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lsmislam?KEY=BOBA&province_id=<?= $id; ?>";
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],

@@ -109,7 +109,7 @@
         am4core.useTheme(am4themes_animated);
         var b = am4core.create("chartdivs", am4charts.PieChart);
         b.hiddenState.properties.opacity = 0;
-        b.dataSource.url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/statuskawin";
+        b.dataSource.url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/statuskawin?KEY=BOBA";
         b.radius = am4core.percent(70);
         b.innerRadius = am4core.percent(40);
         b.startAngle = 180;
@@ -129,7 +129,7 @@
 
 </script>
 <script>
-    var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss";
+    var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss?KEY=BOBA";
     window.onload = function () {
         $('#pns_nonvalid').dataTable({
             "ServerSide": true,
@@ -146,7 +146,7 @@
                 dataSrc: '',
                 method: "GET",
                 async: false,
-                url: "https://simas.kemenag.go.id/rudabi/datapi/Simpenaiss/pnsinvalid"
+                url: "https://simas.kemenag.go.id/rudabi/datapi/Simpenaiss/pnsinvalid?KEY=BOBA"
             },
             columns: [
                 {data: "status_pns", className: "text-center text-uppercase"},
@@ -176,7 +176,7 @@
                 dataSrc: '',
                 method: "GET",
                 async: false,
-                url: "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss"
+                url: "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss?KEY=BOBA"
             },
             columns: [
                 {data: "province_title"},

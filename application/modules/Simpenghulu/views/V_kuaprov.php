@@ -67,7 +67,7 @@
                 dataSrc: '',
                 method: "GET",
                 async: false,
-                url: "https://simas.kemenag.go.id/rudabi/datapi/simpenghulu?province_id=<?= $id ?>"
+                url: "https://simas.kemenag.go.id/rudabi/datapi/simpenghulu?KEY=BOBA&province_id=<?= $id ?>"
             },
             columns: [
                 {
@@ -274,7 +274,7 @@
         am4core.useTheme(am4themes_animated);
         var chart = am4core.create("chartdiv", am4charts.XYChart);
         chart.scrollbarX = new am4core.Scrollbar();
-        chart.dataSource.url = "https://simas.kemenag.go.id/rudabi/datapi/simpenghulu?province_id=" +<?= $id ?>;
+        chart.dataSource.url = "https://simas.kemenag.go.id/rudabi/datapi/simpenghulu?KEY=BOBA&province_id=" +<?= $id ?>;
         var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
         categoryAxis.title.text = 'Daerah Tingkat Kota';
         categoryAxis.dataFields.category = "city_title";

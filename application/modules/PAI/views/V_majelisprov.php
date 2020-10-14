@@ -64,7 +64,7 @@
     </div>
 </div>
 <script>
-    var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/majelistaklim?province_id=<?= $id; ?>";
+    var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/majelistaklim?KEY=BOBA&province_id=<?= $id; ?>";
     window.onload = function () {
         $('#t_majelis').dataTable({
             "ServerSide": true,

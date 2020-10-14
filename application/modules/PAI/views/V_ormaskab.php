@@ -75,7 +75,7 @@
         window.history.back();
     }
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/ormas?city_id=<?= $id; ?>";
+        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/ormas?KEY=BOBA&city_id=<?= $id; ?>";
         $('table').dataTable({
             dom: 'Blfrtip',
             buttons: true,

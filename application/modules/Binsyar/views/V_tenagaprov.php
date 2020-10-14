@@ -34,7 +34,7 @@
 </div>
 <script>
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/siihat/tenagaahli?tenaga_provinsi=<?= $id; ?>";
+        var url = "https://simas.kemenag.go.id/rudabi/datapi/siihat/tenagaahli?KEY=BOBA&tenaga_provinsi=<?= $id; ?>";
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],

@@ -43,7 +43,7 @@
             "ajax": {
                 method: "GET",
                 async: false,
-                url: "https://simas.kemenag.go.id/rudabi/datapi/kua",
+                url: "https://simas.kemenag.go.id/rudabi/datapi/kua?KEY=BOBA",
                 dataSrc: ''
             },
             columns: [
@@ -77,7 +77,7 @@
         am4core.useTheme(am4themes_animated);
         var chart = am4core.create("dt_kua", am4charts.XYChart);
         chart.scrollbarX = new am4core.Scrollbar();
-        chart.dataSource.url = "https://simas.kemenag.go.id/rudabi/datapi/kua/";
+        chart.dataSource.url = "https://simas.kemenag.go.id/rudabi/datapi/kua?KEY=BOBA";
 
         var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
         categoryAxis.title.text = 'Daerah Tingkat Provinsi';

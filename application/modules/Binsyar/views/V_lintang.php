@@ -37,7 +37,7 @@
 </div>
 <script>
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/siihat/datalintang";
+        var url = "https://simas.kemenag.go.id/rudabi/datapi/siihat/datalintang?KEY=BOBA";
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],

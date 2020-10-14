@@ -66,7 +66,7 @@
         am4core.useTheme(am4themes_animated);
         var chart = am4core.create("mushalla_prov", am4charts.XYChart);
         chart.scrollbarX = new am4core.Scrollbar();
-        chart.dataSource.url = "https://simas.kemenag.go.id/dataseuneu/docs/simas/mushallaprovinsi";
+        chart.dataSource.url = "https://simas.kemenag.go.id/dataseuneu/docs/simas/mushallaprovinsi?KEY=BOBA";
 
         var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
         categoryAxis.title.text = 'Daerah Tingkat Provinsi';

@@ -82,6 +82,6 @@
         hoverShadow.opacity = 0.7;
         hoverShadow.blur = 5;
         chart.legend = new am4charts.Legend();
-        chart.dataSource.url="https://simas.kemenag.go.id/rudabi/datapi/eimas/provinsi";
+        chart.dataSource.url="https://simas.kemenag.go.id/rudabi/datapi/eimas/provinsi?KEY=BOBA";
     });
 </script>

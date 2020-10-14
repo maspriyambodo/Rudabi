@@ -48,7 +48,7 @@
 </div>
 <script>
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/ormas";
+        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/ormas?KEY=BOBA";
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],

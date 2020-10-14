@@ -135,7 +135,7 @@
     function Back() {
         window.history.back();
     }
-    var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/majelistaklim?city_id=<?= $id; ?>";
+    var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/majelistaklim?KEY=BOBA&city_id=<?= $id; ?>";
     window.onload = function () {
         $('#t_majelis').dataTable({
             "ServerSide": true,

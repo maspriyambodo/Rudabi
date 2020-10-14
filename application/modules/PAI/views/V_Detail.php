@@ -37,7 +37,7 @@
                 dataSrc: '',
                 method: "GET",
                 async: false,
-                url: "https://simas.kemenag.go.id/rudabi/datapi/epay?provinsi_kode=%27<?= $kode; ?>%27"
+                url: "https://simas.kemenag.go.id/rudabi/datapi/epay?KEY=BOBA&provinsi_kode=%27<?= $kode; ?>%27"
             },
             columns: [
                 {data: "penyuluh_KabKota_Kode", className: "text-center"},

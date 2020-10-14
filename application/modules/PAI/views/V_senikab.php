@@ -91,7 +91,7 @@
     function Back() {
         window.history.back();
     }
-    var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lembagaseni?city_id=<?= $id; ?>";
+    var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lembagaseni?KEY=BOBA&city_id=<?= $id; ?>";
     $('table').dataTable({
         "ServerSide": true,
         "order": [[0, "asc"]],

@@ -56,7 +56,7 @@
 <input type="hidden" name="tertxt"/>
 <script>
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lsmislam";
+        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lsmislam?KEY=BOBA";
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);

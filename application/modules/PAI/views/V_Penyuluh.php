@@ -47,7 +47,7 @@
                 dataSrc: '',
                 method: "GET",
                 async: false,
-                url: "https://simas.kemenag.go.id/rudabi/datapi/epay/penyuluh?penyuluh_KabKota_Kode=%27<?= $kode; ?>%27"
+                url: "https://simas.kemenag.go.id/rudabi/datapi/epay/penyuluh?KEY=BOBA&penyuluh_KabKota_Kode=%27<?= $kode; ?>%27"
             },
             columns: [
                 {data: "penyuluh_Kecamatan"},

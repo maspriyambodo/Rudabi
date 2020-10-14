@@ -43,7 +43,7 @@
 </div>
 <script>
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/siihat/alat2020?alat_provinsi=<?= $id; ?>";
+        var url = "https://simas.kemenag.go.id/rudabi/datapi/siihat/alat2020?KEY=BOBA&alat_provinsi=<?= $id; ?>";
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],

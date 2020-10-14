@@ -45,7 +45,7 @@
 </div>
 <script>
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/siihat/alat2020";
+        var url = "https://simas.kemenag.go.id/rudabi/datapi/siihat/alat2020?KEY=BOBA";
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],

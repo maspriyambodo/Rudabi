@@ -61,7 +61,7 @@
                 dataSrc: '',
                 method: "GET",
                 async: false,
-                url: "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lsmislam?city_id=<?= $id; ?>"
+                url: "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lsmislam?KEY=BOBA&city_id=<?= $id; ?>"
             },
             columns: [
                 {data: "lsm_islam_nama"},

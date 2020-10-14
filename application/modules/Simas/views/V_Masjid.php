@@ -73,7 +73,7 @@
                 dataSrc: '',
                 method: "GET",
                 async: false,
-                url: "https://simas.kemenag.go.id/rudabi/datapi/eimas/provtipol"
+                url: "https://simas.kemenag.go.id/rudabi/datapi/eimas/provtipol?KEY=BOBA"
             },
             columns: [
                 {
@@ -197,7 +197,7 @@
         am4core.useTheme(am4themes_animated);
         var chart = am4core.create("masjid_prov", am4charts.XYChart);
         chart.scrollbarX = new am4core.Scrollbar();
-        chart.dataSource.url = "https://simas.kemenag.go.id/dataseuneu/docs/simas/masjidprovinsi";
+        chart.dataSource.url = "https://simas.kemenag.go.id/dataseuneu/docs/simas/masjidprovinsi?KEY=BOBA";
 
         var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
         categoryAxis.title.text = 'Daerah Tingkat Provinsi';

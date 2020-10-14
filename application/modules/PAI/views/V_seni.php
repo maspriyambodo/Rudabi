@@ -69,7 +69,7 @@
     </div>
 </div>
 <script>
-    var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lembagaseni";
+    var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lembagaseni?KEY=BOBA";
     $('table').dataTable({
         "ServerSide": true,
         "order": [[0, "asc"]],

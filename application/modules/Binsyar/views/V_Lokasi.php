@@ -37,7 +37,7 @@
 </div>
 <script>
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/siihat/hisablokasi";
+        var url = "https://simas.kemenag.go.id/rudabi/datapi/siihat/hisablokasi?KEY=BOBA";
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],

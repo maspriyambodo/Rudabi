@@ -52,7 +52,7 @@
 <input type="hidden" name="blmtxt"/>
 <script>
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/seniman";
+        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/seniman?KEY=BOBA";
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],

@@ -52,7 +52,7 @@
     </div>
 </div>
 <script>
-    var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss?penyuluh_nonpns_provinsi=<?= $id; ?>";
+    var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss?KEY=BOBA&penyuluh_nonpns_provinsi=<?= $id; ?>";
     window.onload = function () {
         $('table').dataTable({
             "ServerSide": true,
