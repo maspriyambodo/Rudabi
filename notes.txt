@@ -1,0 +1,9 @@
+module Binsyar: API masih menggunakan ajax, ubah API di controllers
+
+module PAI: API masih menggunakan ajax, ubah API di controllers
+
+module Simas: API masih menggunakan ajax, ubah API di controllers
+              Belum terpasang module AUTH
+
+module Simpenghulu: API masih menggunakan ajax, ubah API di controllers
+              Belum terpasang module AUTH
