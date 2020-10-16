@@ -47,4 +47,16 @@ class Penilaian extends CI_Controller {
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
+    public function Kabupaten() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 2017 as tahun [1] => 01 as kodekua [2] => ACEH as propinsi ) 
+        $data = [
+            'title' => 'Detail Penilaian KUA Provinsi ' . $param[0] . ' | RUDABI SYSTEM OF KEMENAG RI',
+            'username' => $this->session->userdata('username'),
+            'param' => $param,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/Penilaian?KEY=boba&tahun=2017&kodekua=01')
+        ];
+        $data['content'] = $this->parser->parse('Penilaian_Kabupaten', $data, true);
+        return $this->parser->parse('Dashboard/Template', $data);
+    }
+
 }

@@ -17,16 +17,25 @@
             <thead class="text-center text-uppercase">
                 <tr>
                     <th>no</th>
-                    <th>kabupaten</th>
-                    <th>kode kua</th>
-                    <th>nama kua</th>
-                    <th>kepala kua</th>
-                    <th>tanggal<br>input</th>
+                    <th>provinsi</th>
+                    <th>kode<br>provinsi</th>
+                    <th>data<br>penilai</th>
+                    <th>data<br>validasi</th>
+                    <th>data<br>non-validasi</th>
+                    <th>data<br>penghulu</th>
+                    <th>data<br>pegawai</th>
+                    <th>data<br>penduduk</th>
+                    <th>data<br>muslim</th>
+                    <th>data<br>nikah</th>
+                    <th>data<br>luas tanah</th>
+                    <th>performa 1</th>
+                    <th>performa 2</th>
+                    <th>performa 3</th>
+                    <th>performa 4</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($taun as $value) { ?>
-
                     <tr>
                         <td class="text-center">
                             <?php
@@ -34,11 +43,51 @@
                             echo $id++;
                             ?>
                         </td>
-                        <td><?= $value->kabupaten; ?></td>
-                        <td class="text-center"><?= $value->kodekua; ?></td>
-                        <td><?= $value->kua; ?></td>
-                        <td><?= $value->kepala; ?></td>
-                        <td class="text-center"><?= date("d F Y", strtotime($value->tgl)); ?></td>
+                        <td>
+                            <?= '<a href="' . base_url('Emonev/Penilaian/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $value->kodekua . '&c=' . $value->propinsi))) . '">' . $value->propinsi . '</a>' ?>
+                        </td>
+                        <td class="text-center">
+                            <?= $value->kodekua; ?>
+                        </td>
+                        <td class="text-center">
+                            <?= $value->dt_penilai; ?>
+                        </td>
+                        <td class="text-center">
+                            <?= $value->dt_validasi; ?>
+                        </td>
+                        <td class="text-center">
+                            <?= $value->dt_nonvalidasi; ?>
+                        </td>
+                        <td class="text-center">
+                            <?= $value->dt_penghulu; ?>
+                        </td>
+                        <td class="text-center">
+                            <?= $value->dt_pegawai; ?>
+                        </td>
+                        <td class="text-center">
+                            <?= $value->dt_penduduk; ?>
+                        </td>
+                        <td class="text-center">
+                            <?= $value->dt_muslim; ?>
+                        </td>
+                        <td class="text-center">
+                            <?= $value->dt_nikah; ?>
+                        </td>
+                        <td class="text-center">
+                            <?= $value->dt_luastanah; ?>
+                        </td>
+                        <td class="text-center">
+                            <?= number_format($value->dt_performa1); ?>
+                        </td>
+                        <td class="text-center">
+                            <?= number_format($value->dt_performa2); ?>
+                        </td>
+                        <td class="text-center">
+                            <?= number_format($value->dt_performa3); ?>
+                        </td>
+                        <td class="text-center">
+                            <?= number_format($value->dt_performa4); ?>
+                        </td>
                     </tr>
                 <?php } ?>
             </tbody>

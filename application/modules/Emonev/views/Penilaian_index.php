@@ -2,7 +2,7 @@
 $tahun = json_decode($data);
 $tot = 0;
 foreach ($tahun as $value) {
-    $tot += $value->jumlah;
+    $tot += $value->jum;
 }
 ?>
 <input type="hidden" name="tot" value="<?= $tot; ?>"/>
@@ -54,7 +54,7 @@ foreach ($tahun as $value) {
                                 ?>
                             </td>
                             <td>Tahun <?= $dt_tahun->tahun; ?></td>
-                            <td><?= number_format($dt_tahun->jumlah); ?></td>
+                            <td><?= number_format($dt_tahun->jum); ?></td>
                             <td>
                                 <a href="<?= base_url('Emonev/Penilaian/Tahun?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $dt_tahun->tahun))); ?>" class="btn btn-icon btn-success btn-xs" title="Detail Penilaian Tahun <?= $dt_tahun->tahun; ?>"><i class="fas fa-eye"></i></a>
                             </td>
@@ -117,7 +117,7 @@ foreach ($tahun as $value) {
 
             var series = chart.series.push(new am4charts.LineSeries());
             series.dataFields.dateX = "tahun";
-            series.dataFields.valueY = "jumlah";
+            series.dataFields.valueY = "jum";
             series.strokeWidth = 2;
             series.tooltipText = "Penilaian Tahun: {tahun}, Jumlah: [bold]{valueY}[/] data";
             series.propertyFields.stroke = "color";
