@@ -29,7 +29,7 @@ class Penilaian extends CI_Controller {
         $data = [
             'title' => 'Rekapitulasi Penilaian KUA | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/Penilaian')
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/Penilaian?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Penilaian_index', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -41,7 +41,7 @@ class Penilaian extends CI_Controller {
             'title' => 'Detail Penilaian KUA Tahun ' . $param[0] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/Penilaian?Tahun=' . $param[0])
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/Penilaian?KEY=boba&Tahun=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Penilaian_Tahun', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);

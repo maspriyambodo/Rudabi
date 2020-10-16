@@ -29,7 +29,7 @@ class Bangunan extends CI_Controller {
         $data = [
             'title' => 'Status Bangunan KUA | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
-            'bangunan' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/Statbangunan?KEY=BOBA')
+            'bangunan' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/Statbangunan?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Bangunan_index', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -41,7 +41,7 @@ class Bangunan extends CI_Controller {
             'title' => 'Status Bangunan KUA ' . $param[1] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/Stat_bangunan?KEY=BOBA&status=' . $param[0])
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/Stat_bangunan?KEY=boba&status=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Bangunan_Status', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);

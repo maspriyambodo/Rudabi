@@ -29,8 +29,8 @@ class Registrasi extends CI_Controller {
         $data = [
             'title' => 'Rekapitulasi Registrasi KANKEMENAG | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/regmenag'),
-            'regkua' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/regkua')
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/regmenag?KEY=boba'),
+            'regkua' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/regkua?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Regis_index', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -42,7 +42,7 @@ class Registrasi extends CI_Controller {
             'title' => 'Registrasi Kankemenag ' . $param[1] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/regmenag?status=' . $param[0])
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/regmenag?KEY=boba&status=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Regis_Status', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -54,7 +54,7 @@ class Registrasi extends CI_Controller {
             'title' => 'Registrasi KUA ' . $param[1] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/regkua?status=' . $param[0])
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/regkua?KEY=boba&status=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Regis_Statuskua', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
