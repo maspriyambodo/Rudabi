@@ -24,6 +24,11 @@ class Auth extends CI_Controller {
         $this->load->model('M_Auth');
     }
 
+    public function __destruct() {
+        $this->db->close();
+        log_message('info', 'koneksi database ditutup');
+    }
+
     private function Csrf() {
         $csrf = array(
             'name' => $this->security->get_csrf_token_name(),

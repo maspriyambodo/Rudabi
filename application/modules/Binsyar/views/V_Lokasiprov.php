@@ -41,7 +41,7 @@
 </div>
 <script>
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/siihat/hisablokasi?KEY=BOBA&lokasi_provinsi=<?= $id; ?>";
+        var url = "https://simas.kemenag.go.id/rudabi/datapi/siihat/hisablokasi?KEY=boba&lokasi_provinsi=<?= $id; ?>";
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],

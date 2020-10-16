@@ -35,7 +35,7 @@ class Satker extends CI_Controller {
         $data = [
             'title' => 'Data SATKER | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => file_get_contents("https://simas.kemenag.go.id/rudabi/datapi/esbsnn?KEY=BOBA")
+            'data' => file_get_contents("https://simas.kemenag.go.id/rudabi/datapi/esbsnn?KEY=boba")
         ];
         $data['content'] = $this->parser->parse('Sekertariat/Satker/V_index', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);

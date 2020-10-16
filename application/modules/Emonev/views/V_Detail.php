@@ -41,7 +41,7 @@
             dataSrc: '',
             method: "GET",
             async: false,
-            url: "https://simas.kemenag.go.id/rudabi/datapi/monev?kodekua={id}"
+            url: "https://simas.kemenag.go.id/rudabi/datapi/monev?KEY=boba&kodekua={id}"
         },
         columns: [
             {data: "kepala"},
