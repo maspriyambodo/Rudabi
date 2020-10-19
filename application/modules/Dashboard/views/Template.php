@@ -57,7 +57,7 @@
                                 </li>
 
                                 <li class="menu-section">
-                                    <h4 class="menu-text text-info user-select-none">Sekertariat</h4>
+                                    <h4 class="menu-text text-white user-select-none"><u>Sekertariat</u></h4>
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                 </li>
                                 <div class="separator separator-dashed"></div>
@@ -184,7 +184,7 @@
 
 
                                 <li class="menu-section">
-                                    <h4 class="menu-text text-info user-select-none">Agama Islam & BinSyar</h4>
+                                    <h4 class="menu-text text-white user-select-none"><u>Agama Islam & BinSyar</u></h4>
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                 </li>
                                 <div class="separator separator-dashed"></div>
@@ -278,7 +278,7 @@
                                 </li>
 
                                 <li class="menu-section">
-                                    <h4 class="menu-text text-info user-select-none">Bina KUA & Keluarga Sakinah</h4>
+                                    <h4 class="menu-text text-white user-select-none"><u>Bina KUA & Keluarga Sakinah</u></h4>
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                 </li>
                                 <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
@@ -419,7 +419,7 @@
                                 </li>
 
                                 <li class="menu-section">
-                                    <h4 class="menu-text text-info user-select-none">Penerangan Agama Islam</h4>
+                                    <h4 class="menu-text text-white user-select-none"><u>Penerangan Agama Islam</u></h4>
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                 </li>
                                 <div class="separator separator-dashed"></div>
@@ -585,7 +585,7 @@
                                 </li>
 
                                 <li class="menu-section">
-                                    <h4 class="menu-text text-info user-select-none">Pemberdayaan Zakat & Wakaf</h4>
+                                    <h4 class="menu-text text-white user-select-none"><u>Pemberdayaan Zakat & Wakaf</u></h4>
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                 </li>
                                 <div class="separator separator-dashed"></div>
