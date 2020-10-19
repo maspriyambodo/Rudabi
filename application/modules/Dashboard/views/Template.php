@@ -61,14 +61,6 @@
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                 </li>
                                 <div class="separator separator-dashed"></div>
-                                <li class="menu-item" aria-haspopup="true" title="e-planning Bimas Islam">
-                                    <a href="#" class="menu-link">
-                                        <span class="svg-icon menu-icon">
-                                            <i class="fas fa-clipboard-list"></i>
-                                        </span>
-                                        <span class="menu-text">EBI</span>
-                                    </a>
-                                </li>
                                 <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                     <a href="javascript:;" class="menu-link menu-toggle">
                                         <span class="svg-icon menu-icon">

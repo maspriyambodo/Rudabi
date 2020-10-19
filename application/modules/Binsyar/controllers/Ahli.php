@@ -28,18 +28,20 @@ class Ahli extends CI_Controller {
     public function index() {
         $data = [
             'title' => 'Tenaga Ahli | RUDABI SYSTEM OF KEMENAG RI',
-            'username' => $this->Authentication[0]->uname
+            'username' => $this->Authentication[0]->uname,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/siihat/tenagaahli?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Binsyar/V_tenaga', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
-    public function Provinsi($id, $prov) {
+    public function Provinsi() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 1 as tenaga_provinsi [1] => Aceh as province_title)
         $data = [
-            'title' => 'Tenaga Ahli | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Tenaga Ahli Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'id' => $id,
-            'provinsi' => str_replace(['_', '%20'], ' ', $prov)
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/siihat/tenagaahli?KEY=boba&tenaga_provinsi=' . $param[0]),
+            'param' => $param
         ];
         $data['content'] = $this->parser->parse('Binsyar/V_tenagaprov', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);

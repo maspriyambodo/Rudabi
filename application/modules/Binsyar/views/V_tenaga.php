@@ -1,3 +1,7 @@
+<?php
+$a = json_decode($data);
+$c = 0;
+?>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
@@ -21,14 +25,35 @@
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
                     <tr>
+                        <th>no</th>
                         <th>provinsi</th>
                         <th>jumlah</th>
                         <th>action</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <?php
+                    foreach ($a as $b) {
+                        $c += $b->jum_ahli;
+                        ?>
+                        <tr>
+                            <td class="text-center">
+                                <?php
+                                static $id = 1;
+                                echo $id++;
+                                ?>
+                            </td>
+                            <td><?= $b->province_title; ?></td>
+                            <td class="text-center"><?= $b->jum_ahli; ?></td>
+                            <td class="text-center">
+                                <a href="<?= base_url('Binsyar/Ahli/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->tenaga_provinsi . '&b=' . $b->province_title))); ?>" class="btn btn-icon btn-default btn-xs" title="Detail Provinsi <?= $b->province_title; ?>"><i class="fas fa-eye"></i></a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th colspan="3"></th>
+                        <th colspan="3">Jumlah Tenaga Ahli <?= number_format($c); ?></th>
                     </tr>
                 </tfoot>
             </table>
@@ -48,47 +73,13 @@
             "deferRender": true,
             "scrollCollapse": true,
             "scrollX": true,
-            "scrollY": "400px",
-            "ajax": {
-                dataSrc: '',
-                method: "GET",
-                async: false,
-                url: url
-            },
-            columns: [
-                {data: "province_title"},
-                {data: "jum_ahli", className: "text-center sum_ahl"},
-                {
-                    data: null, className: "text-center",
-                    render: function (data) {
-                        var a, b, c;
-                        a = data.tenaga_provinsi;
-                        b = data.province_title;
-                        c = b.replace(' ', '_');
-                        return '<a href="<?= base_url('Binsyar/Ahli/Provinsi/'); ?>' + a + "/" + c + '" class="btn btn-icon btn-default btn-xs" title="Detail Prov ' + b + '"><i class="fas fa-eye"></i></a>';
-                    }
-                }
-            ],
-            footerCallback: function () {
-                var api = this.api();
-                var numFormat = $.fn.dataTable.render.number('\.', '', 0, '').display;
-                api.columns('.sum_ahl', {page: 'all'}).every(function () {
-                    var sum = this
-                            .data()
-                            .reduce(function (a, b) {
-                                var x = parseFloat(a) || 0;
-                                var y = parseFloat(b) || 0;
-                                return x + y;
-                            }, 0);
-                    $(this.footer()).html("Jumlah Tenaga Ahli " + "<span id='tot_ahli'>" + numFormat(sum) + "</span>");
-                });
-            }
+            "scrollY": "400px"
         });
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.dataSource.url = url;
+            chart.data = <?= $data; ?>;
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
             categoryAxis.title.text = 'Daerah Tingkat Provinsi';
