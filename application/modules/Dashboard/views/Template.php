@@ -401,15 +401,46 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <li class="menu-item" aria-haspopup="true">
-                                    <a href="<?= base_url('Simpenghulu/index/'); ?>" class="menu-link">
+                                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                    <a href="javascript:;" class="menu-link menu-toggle">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-handshake"></i>
                                         </span>
-                                        <span class="menu-text">Simpenghulu</span>
+                                        <span class="menu-text">Simpenghulu</span><i class="menu-arrow"></i>
                                     </a>
+                                    <div class="menu-submenu" style="" kt-hidden-height="360">
+                                        <i class="menu-arrow"></i>
+                                        <ul class="menu-subnav">
+                                            <li class="menu-item menu-item-parent" aria-haspopup="true">
+                                                <span class="menu-link"><span class="menu-text">Simpenghulu</span></span>
+                                            </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('Simpenghulu/KUA/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
+                                                    <span class="menu-text">Data KUA</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('Simpenghulu/Penghulu/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
+                                                    <span class="menu-text">Data Penghulu</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('Simpenghulu/Peristiwa/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
+                                                    <span class="menu-text">Data Peristiwa Nikah</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
-
                                 <li class="menu-section">
                                     <h4 class="menu-text text-white user-select-none"><u>Penerangan Agama Islam</u></h4>
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>

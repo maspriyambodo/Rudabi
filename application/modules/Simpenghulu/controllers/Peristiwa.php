@@ -12,14 +12,10 @@
  */
 
 /**
- * Description of Maintenance
+ * Description of Peristiwa
  *
  * @author centos
  */
-class Maintenance extends CI_Controller {
-
-    public function index() {
-        echo 'maintenis';
-    }
-
+class Peristiwa extends CI_Controller {
+    //put your code here
 }
