@@ -26,8 +26,9 @@
         <div class="d-flex flex-column flex-root">
             <div class="login login-1 login-signin-on d-flex flex-column flex-lg-row flex-row-fluid owl-carousel" id="kt_login" style="background-image:url(https://simas.kemenag.go.id/assets/front/img/banner/home-banner-alt.jpg);background-repeat:no-repeat;background-position: center;">
                 <div class="login-aside d-flex flex-row-auto px-lg-0 px-5 pb-sm-40 pb-lg-40 flex-grow-1" style="background:aliceblue">
-                    <div class="d-flex flex-row-fluid flex-column mt-lg-30 mb-lg-0 pb-lg-0 mb-20 pb-40 mt-0 pt-15"> <a href="#" class="text-center mb-10"> <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Kementerian_Agama_new_logo.png" style="width:125px;" alt="Kemenag RI Logo" /> </a>
-                        <h3 class="font-weight-bolder text-center display5 pb-lg-0 pb-40">RUDABI<br />Rumah Data Bimas Islam</h3>
+                    <div class="d-flex flex-row-fluid flex-column mt-lg-30 mb-lg-0 pb-lg-0 mb-20 pb-40 mt-0 pt-15">
+                        <div class="clear" style="margin-top:15%;"></div>
+                        <a href="#" class="text-center mb-10"> <img src="https://simas.kemenag.go.id/assets/img/rudabilogo.png" style="width:70%;" alt="Rudabi Logo" /> </a>
                     </div>
                 </div>
                 <div class="login-content flex-row-fluid d-flex flex-column justify-content-center position-relative overflow-hidden p-7 ml-auto mr-auto">
