@@ -28,6 +28,20 @@ $m = 0;
         </div>
     </div>
     <div class="card-body">
+        <div class="text-center">
+            <b><u id="title_chartdiv"></u></b>
+        </div>
+        <div id="chartdiv" class="chartdivs"></div>
+    </div>
+</div>
+<div class="clear" style="margin:5%;"></div>
+<div class="card card-custom">
+    <div class="card-header">
+        <div class="card-title">
+            Detail Data Penilaian Provinsi <?= $param[2]; ?>
+        </div>
+    </div>
+    <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
@@ -74,7 +88,11 @@ $m = 0;
                                 echo $id++;
                                 ?>
                             </td>
-                            <td><?= $value->kabupaten; ?></td>
+                            <td>
+                                <?php
+                                echo '<a href="' . base_url('Emonev/Penilaian/Detail?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $param[2] . '&d=' . $value->kodekab . '&e=' . $value->kabupaten))) . '">' . $value->kabupaten . '</a>';
+                                ?>
+                            </td>
                             <td class="text-center"><?= $value->kodekab; ?></td>
                             <td class="text-center"><?= $value->dt_penilai; ?></td>
                             <td class="text-center"><?= $value->dt_validasi; ?></td>
@@ -114,8 +132,36 @@ $m = 0;
         </div>
     </div>
 </div>
+<input type="hidden" name="dt_penilai" readonly="" value="<?= number_format($a); ?>"/>
 <script>
     window.onload = function () {
+        document.getElementById('title_chartdiv').innerText = "Total Data Tahun <?= $param[0]; ?> Provinsi <?= $param[2]; ?>: " + $('input[name="dt_penilai"]').val();
+        am4core.ready(function () {
+            am4core.useTheme(am4themes_frozen);
+            am4core.useTheme(am4themes_animated);
+            var chart = am4core.create("chartdiv", am4charts.PieChart3D);
+            chart.hiddenState.properties.opacity = 0;
+
+            chart.legend = new am4charts.Legend();
+
+            chart.data = [
+                {
+                    country: "Data Validasi",
+                    litres: <?= $b; ?>
+                },
+                {
+                    country: "Data Non-Validasi",
+                    litres: <?= $c; ?>
+                }
+            ];
+
+            chart.innerRadius = 100;
+
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "litres";
+            series.dataFields.category = "country";
+
+        });
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],

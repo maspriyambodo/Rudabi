@@ -1,4 +1,19 @@
-<?php $taun = json_decode($data); ?>
+<?php
+$taun = json_decode($data);
+$a = 0;
+$b = 0;
+$c = 0;
+$d = 0;
+$e = 0;
+$f = 0;
+$g = 0;
+$h = 0;
+$i = 0;
+$j = 0;
+$k = 0;
+$l = 0;
+$m = 0;
+?>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
@@ -10,6 +25,20 @@
     <div class="card-header">
         <div class="card-title">
             <a href="<?= base_url('Emonev/Penilaian/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="text-center">
+            <b><u id="title_chartdiv"></u></b>
+        </div>
+        <div id="chartdiv" class="chartdivs"></div>
+    </div>
+</div>
+<div class="clear" style="margin:5%;"></div>
+<div class="card card-custom">
+    <div class="card-header">
+        <div class="card-title">
+            Detail Data Penilaian Tahun <?= $param[0] ?>
         </div>
     </div>
     <div class="card-body">
@@ -35,7 +64,22 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($taun as $value) { ?>
+                <?php
+                foreach ($taun as $value) {
+                    $a += $value->dt_penilai;
+                    $b += $value->dt_validasi;
+                    $c += $value->dt_nonvalidasi;
+                    $d += $value->dt_penghulu;
+                    $e += $value->dt_pegawai;
+                    $f += $value->dt_penduduk;
+                    $g += $value->dt_muslim;
+                    $h += $value->dt_nikah;
+                    $i += $value->dt_luastanah;
+                    $j += $value->dt_performa1;
+                    $k += $value->dt_performa2;
+                    $l += $value->dt_performa3;
+                    $m += $value->dt_performa4;
+                    ?>
                     <tr>
                         <td class="text-center">
                             <?php
@@ -91,11 +135,57 @@
                     </tr>
                 <?php } ?>
             </tbody>
+            <tfoot class="text-center text-uppercase">
+                <tr>
+                    <th colspan="3">jumlah</th>
+                    <th><?= $a; ?></th>
+                    <th><?= $b; ?></th>
+                    <th><?= $c; ?></th>
+                    <th><?= $d; ?></th>
+                    <th><?= $e; ?></th>
+                    <th><?= $f; ?></th>
+                    <th><?= $g; ?></th>
+                    <th><?= $h; ?></th>
+                    <th><?= $i; ?></th>
+                    <th><?= number_format($j); ?></th>
+                    <th><?= number_format($k); ?></th>
+                    <th><?= number_format($l); ?></th>
+                    <th><?= number_format($m); ?></th>
+                </tr>
+            </tfoot>
         </table>
     </div>
 </div>
+<input type="hidden" name="dt_penilai" readonly="" value="<?= number_format($a); ?>"/>
 <script>
     window.onload = function () {
+        document.getElementById('title_chartdiv').innerText = "Total Data Tahun <?= $param[0]; ?>: " + $('input[name="dt_penilai"]').val();
+        am4core.ready(function () {
+            am4core.useTheme(am4themes_frozen);
+            am4core.useTheme(am4themes_animated);
+            var chart = am4core.create("chartdiv", am4charts.PieChart3D);
+            chart.hiddenState.properties.opacity = 0;
+
+            chart.legend = new am4charts.Legend();
+
+            chart.data = [
+                {
+                    country: "Data Validasi",
+                    litres: <?= $b; ?>
+                },
+                {
+                    country: "Data Non-Validasi",
+                    litres: <?= $c; ?>
+                }
+            ];
+
+            chart.innerRadius = 100;
+
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "litres";
+            series.dataFields.category = "country";
+
+        });
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],

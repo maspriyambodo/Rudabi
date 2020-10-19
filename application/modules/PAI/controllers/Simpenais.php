@@ -28,29 +28,34 @@ class Simpenais extends CI_Controller {
     public function index() {
         $data = [
             'title' => 'SIMPENAIS | RUDABI SYSTEM OF KEMENAG RI',
-            'username' => $this->Authentication[0]->uname
+            'username' => $this->Authentication[0]->uname,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss?KEY=boba'),
+            'statuskawin' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/statuskawin?KEY=boba'),
+            'simpenaiss' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('PAI/V_Simpenais', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
-    public function PNS($id, $prov) {
+    public function PNS() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 1 as province_id [1] => Nanggroe Aceh Darussalam as province_title )
         $data = [
             'title' => 'SIMPENAIS | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'id' => $id,
-            'provinsi' => $prov
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/penyuluhpns?KEY=boba&province_id=' . $param[0]),
+            'param' => $param
         ];
         $data['content'] = $this->parser->parse('PAI/V_PNS', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
-    public function Nonpns($id, $prov) {
+    public function Nonpns() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 1 as province_id [1] => Nanggroe Aceh Darussalam as province_title )
         $data = [
             'title' => 'SIMPENAIS | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'id' => $id,
-            'provinsi' => $prov
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss?KEY=boba&penyuluh_nonpns_provinsi=' . $param[0]),
+            'param' => $param
         ];
         $data['content'] = $this->parser->parse('PAI/V_Nonpns', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
