@@ -17,6 +17,9 @@ $d = 0;
         </div>
     </div>
     <div class="card-body">
+        <div class="text-center">
+            <b><u id="title_chartdiv"></u></b>
+        </div>
         <div id="chartdiv" class="chartdivs"></div>
     </div>
 </div>
@@ -86,9 +89,18 @@ $d = 0;
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th colspan="2">Total</th>
+                        <th colspan="2">Jumlah</th>
                         <th><?= number_format($c); ?></th>
                         <th><?= number_format($d); ?></th>
+                    </tr>
+                    <tr>
+                        <th colspan="4">
+                            <?php
+                            $f = $c + $d;
+                            echo 'Total Penyuluh Agama Islam: ' . number_format($f);
+                            ?>
+                            <input type="hidden" name="tot" readonly="" value="<?= number_format($f); ?>"/>
+                        </th>
                     </tr>
                 </tfoot>
             </table>
@@ -97,6 +109,7 @@ $d = 0;
 </div>
 <script>
     window.onload = function () {
+        document.getElementById('title_chartdiv').innerText = "Total Penyuluh Agama Islam: " + $('input[name="tot"]').val();
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var b = am4core.create("chartdivs", am4charts.PieChart);
