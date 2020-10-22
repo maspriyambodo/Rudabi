@@ -1,7 +1,6 @@
 <?php
 
 defined('BASEPATH')OR exit('No direct script access allowed');
-date_default_timezone_set("Asia/Bangkok");
 date_default_timezone_set("Asia/Jakarta");
 $config['base_url'] = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
 $config['base_url'] .= "://" . $_SERVER['HTTP_HOST'];
@@ -14,7 +13,7 @@ $config['language'] = 'english';
 $config['charset'] = 'utf-8';
 $config['enable_hooks'] = true;
 $config['subclass_prefix'] = 'MY_';
-$config['composer_autoload'] = false;
+$config['composer_autoload'] = 'vendor/autoload.php';
 $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-&';
 $config['enable_query_strings'] = false;
 $config['controller_trigger'] = 'c';
@@ -31,8 +30,8 @@ $config['cache_path'] = '';
 $config['cache_query_string'] = false;
 $config['encryption_key'] = hex2bin('4f47938a381348d13c258dc2ab73e3db');
 $config['sess_driver'] = 'files';
-$config['sess_cookie_name'] = 'kemenagri';
-$config['sess_expiration'] = 7200;
+$config['sess_cookie_name'] = 'rudabi';
+$config['sess_expiration'] = 18000;
 $config['sess_save_path'] = APPPATH . 'sessions';
 $config['sess_match_ip'] = true;
 $config['sess_time_to_update'] = 300;

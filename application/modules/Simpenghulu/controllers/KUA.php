@@ -27,7 +27,7 @@ class KUA extends CI_Controller {
 
     public function index() {
         $data = [
-            'title' => 'KUA Menurut Kondisi Bangunan | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Sistem Informasi Kepenghuluan | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/kua?KEY=boba')
         ];

@@ -19,7 +19,7 @@ $c = 0;
         <div class="text-center">
             <b><u id="title_chartdiv"></u></b>
         </div>
-        <div id="dt_kua" style="width:100%;height:650px;"></div>
+        <div id="dt_kua" class="chartdivs"></div>
     </div>
 </div>
 <div class="clear" style="margin:5%;"></div>

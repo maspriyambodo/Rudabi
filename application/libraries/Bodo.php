@@ -38,4 +38,13 @@ class Bodo {
         return $d;
     }
 
+    public function Since() {
+        if (date('Y') == 2020) {
+            $since = 2020;
+        } else {
+            $since = 2020 . '-' . date('Y');
+        }
+        return $since;
+    }
+
 }

@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <base href="<?= base_url(); ?>">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8;">
         <meta property="og:image" content="https://simas.kemenag.go.id/assets/img/rudabilogo.png">
         <meta property='og:title' content='{title}'>
         <meta property='og:description' content='Rudabi - Rumah Data Bimas Islam Kementerian Agama RI'>
@@ -23,6 +22,7 @@
         <link href="https://cdn.maspriyambodo.com/Metronic/assets/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css" />
         <link href="https://cdn.maspriyambodo.com/Metronic/assets/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
         <link href="https://cdn.maspriyambodo.com/Metronic/assets/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
+        <link href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.22/af-2.3.5/b-1.6.5/b-colvis-1.6.5/b-flash-1.6.5/b-html5-1.6.5/b-print-1.6.5/cr-1.5.2/fc-3.3.1/fh-3.1.7/kt-2.5.3/r-2.2.6/rg-1.1.2/rr-1.2.7/sc-2.0.3/sb-1.0.0/sp-1.2.1/sl-1.3.1/datatables.min.css" rel="stylesheet" type="text/css"/>
         <link href="https://cdn.maspriyambodo.com/css/custom.kemenag.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="https://simas.kemenag.go.id/assets/img/rudabilogo.png" />
         <title>{title}</title>
@@ -694,10 +694,9 @@
                         <script src="https://cdn.maspriyambodo.com/Metronic/assets/js/scripts.bundle.js?v=7.0.6"></script>
                         <script src="https://cdn.maspriyambodo.com/Metronic/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
                         <script src="https://cdn.maspriyambodo.com/Metronic/assets/js/pages/widgets.js"></script>
-                        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.21/af-2.3.5/b-1.6.2/b-colvis-1.6.2/b-flash-1.6.2/b-html5-1.6.2/b-print-1.6.2/cr-1.5.2/fc-3.3.1/fh-3.1.7/kt-2.5.2/r-2.2.5/rg-1.1.2/rr-1.2.7/sc-2.0.2/sp-1.1.1/sl-1.3.1/datatables.min.css"/>
-                        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-                        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-                        <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.21/af-2.3.5/b-1.6.2/b-colvis-1.6.2/b-flash-1.6.2/b-html5-1.6.2/b-print-1.6.2/cr-1.5.2/fc-3.3.1/fh-3.1.7/kt-2.5.2/r-2.2.5/rg-1.1.2/rr-1.2.7/sc-2.0.2/sp-1.1.1/sl-1.3.1/datatables.min.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script>
+                        <script src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.22/af-2.3.5/b-1.6.5/b-colvis-1.6.5/b-flash-1.6.5/b-html5-1.6.5/b-print-1.6.5/cr-1.5.2/fc-3.3.1/fh-3.1.7/kt-2.5.3/r-2.2.6/rg-1.1.2/rr-1.2.7/sc-2.0.3/sb-1.0.0/sp-1.2.1/sl-1.3.1/datatables.min.js" type="text/javascript"></script>
                         <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
                         <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
                         <script src="https://cdn.amcharts.com/lib/4/themes/frozen.js"></script>
@@ -706,7 +705,7 @@
                     </div>
                     <div class="footer bg-white py-4 d-flex flex-lg-column" id="kt_footer">
                         <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
-                            <div class="text-dark order-2 order-md-1"><span class="text-muted font-weight-bold mr-2">2020©</span><a href="https://kemenag.go.id" target="_blank" class="text-dark-75 text-hover-primary">RUDABI | Kementerian Agama RI</a></div>
+                            <div class="text-dark order-2 order-md-1"><span class="text-muted font-weight-bold mr-2"><?= $this->bodo->Since(); ?> &copy;</span><a href="https://kemenag.go.id" target="_blank" class="text-dark-75 text-hover-primary">RUDABI | Direktorat Bimas Islam</a></div>
                             <div class="nav nav-dark"> </div>
                         </div>
                     </div>

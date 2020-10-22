@@ -5,7 +5,7 @@ foreach ($tahun as $value) {
     $tot += $value->jum;
 }
 ?>
-<input type="hidden" name="tot" value="<?= $tot; ?>"/>
+<input type="hidden" name="tot" value="<?= number_format($tot); ?>"/>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
@@ -23,7 +23,7 @@ foreach ($tahun as $value) {
         <div class="text-center">
             <b><u id="title_chartdiv"></u></b>
         </div>
-        <div id="chartdiv" style="width:100%;height:500px;"></div>
+        <div id="chartdiv" class="chartdivs"></div>
     </div>
 </div>
 <div class="clear" style="margin:5% 0px;"></div>
@@ -70,12 +70,9 @@ foreach ($tahun as $value) {
         </div>
     </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js" integrity="sha512-USPCA7jmJHlCNRSFwUFq3lAm9SaOjwG8TaB8riqx3i/dAJqhaYilVnaf2eVUH5zjq89BU6YguUuAno+jpRvUqA==" crossorigin="anonymous"></script>
 <script>
     window.onload = function () {
-        var a;
-        a = parseFloat($('input[name=tot]').val());
-        document.getElementById('title_chartdiv').innerText = "Total data penilaian KUA " + numeral(a).format('0,0');
+        document.getElementById('title_chartdiv').innerText = "Total data penilaian KUA " + $('input[name=tot]').val();
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],
@@ -105,16 +102,18 @@ foreach ($tahun as $value) {
             chart.data = <?= $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+            dateAxis.title.fontWeight = 800;
+            dateAxis.title.text = 'Tahun Penilaian';
             dateAxis.renderer.grid.template.location = 0;
             dateAxis.renderer.axisFills.template.disabled = true;
             dateAxis.renderer.ticks.template.disabled = true;
-
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            valueAxis.title.text = "Jumlah Data";
+            valueAxis.title.fontWeight = 800;
             valueAxis.tooltip.disabled = true;
             valueAxis.renderer.minWidth = 35;
             valueAxis.renderer.axisFills.template.disabled = true;
             valueAxis.renderer.ticks.template.disabled = true;
-
             var series = chart.series.push(new am4charts.LineSeries());
             series.dataFields.dateX = "tahun";
             series.dataFields.valueY = "jum";
@@ -122,7 +121,6 @@ foreach ($tahun as $value) {
             series.tooltipText = "Penilaian Tahun: {tahun}, Jumlah: [bold]{valueY}[/] data";
             series.propertyFields.stroke = "color";
             chart.cursor = new am4charts.XYCursor();
-
             var scrollbarX = new am4core.Scrollbar();
             chart.scrollbarX = scrollbarX;
             dateAxis.keepSelection = true;

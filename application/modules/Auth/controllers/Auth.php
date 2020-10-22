@@ -238,7 +238,7 @@ class Auth extends CI_Controller {
         ];
         $result = $this->M_Auth->Process($data);
         if ($result == false) {
-            return redirect(base_url('Auth/index'), $this->session->set_flashdata('message', '<small id="errmsg" style="color:#ed4956;"> Maaf, username dan password Anda salah. Harap periksa kembali username dan password Anda. </small>'));
+            return redirect(base_url('Auth/index'), $this->session->set_flashdata('gagal', 'Maaf, username dan password Anda salah. Harap periksa kembali username dan password Anda.'));
         } else {
             $session = [
                 'login_stat' => 1,
