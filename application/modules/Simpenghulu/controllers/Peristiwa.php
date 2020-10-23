@@ -36,14 +36,26 @@ class Peristiwa extends CI_Controller {
     }
 
     public function Provinsi() {
-        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 1 as nikah_province_id [1] => Aceh as provinsi)
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 1 as city_province [1] => Aceh as province_title )
         $data = [
             'title' => 'Sistem Informasi Kepenghuluan | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/penghulu?KEY=boba&city_province=' . $param[0])
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/nikah?KEY=boba&city_province=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Peristiwa_Provinsi', $data, true);
+        return $this->parser->parse('Dashboard/Template', $data);
+    }
+
+    public function Detail() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 3 as nikah_city_id [1] => Kab. Aceh Selatan as city_title [2] => 1 as city_province [3] => Aceh as province_title ) 
+        $data = [
+            'title' => 'Sistem Informasi Kepenghuluan | RUDABI SYSTEM OF KEMENAG RI',
+            'username' => $this->session->userdata('username'),
+            'param' => $param,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/nikah?KEY=boba&nikah_city_id=' . $param[0])
+        ];
+        $data['content'] = $this->parser->parse('Peristiwa_Detail', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
