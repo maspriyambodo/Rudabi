@@ -22,7 +22,7 @@
     </head>
     <body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
         <div class="d-flex flex-column flex-root">
-            <div class="login login-1 login-signin-on d-flex flex-column flex-lg-row flex-row-fluid owl-carousel" id="kt_login" style="background-image:url(https://simas.kemenag.go.id/assets/front/img/banner/home-banner-alt.jpg);background-repeat:no-repeat;background-position: center;">
+            <div class="login login-1 login-signin-on d-flex flex-column flex-lg-row flex-row-fluid owl-carousel" id="kt_login" style="background-image:url(https://simas.kemenag.go.id/assets/img/home-banner.jpg);background-repeat:no-repeat;background-position:center;background-size:cover;">
                 <div class="login-aside d-flex flex-row-auto px-lg-0 px-5 pb-sm-40 pb-lg-40 flex-grow-1" style="background:aliceblue">
                     <div class="d-flex flex-row-fluid flex-column mt-lg-30 mb-lg-0 pb-lg-0 mb-20 pb-40 mt-0 pt-15">
                         <div class="clear" style="margin-top:15%;"></div>
