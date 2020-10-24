@@ -19,6 +19,12 @@ defined('BASEPATH')OR exit('No direct script access allowed');
  */
 class Simas extends CI_Controller {
 
+    public function __construct() {
+        parent::__construct();
+        $this->load->model('M_Simas');
+        $this->Authentication = $this->M_Simas->Auth();
+    }
+
     private function Csrf() {
         $csrf = array(
             'name' => $this->security->get_csrf_token_name(),
@@ -29,7 +35,8 @@ class Simas extends CI_Controller {
 
     public function index() {
         $data = [
-            'title' => 'Data Rumah Ibadah | RUDABI SYSTEM OF KEMENAG RI'
+            'title' => 'Data Rumah Ibadah | RUDABI SYSTEM OF KEMENAG RI',
+            'username' => $this->Authentication[0]->uname
         ];
         $data['content'] = $this->parser->parse('V_index', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -37,7 +44,8 @@ class Simas extends CI_Controller {
 
     public function Mushalla() {
         $data = [
-            'title' => 'Data Mushalla | RUDABI SYSTEM OF KEMENAG RI'
+            'title' => 'Data Mushalla | RUDABI SYSTEM OF KEMENAG RI',
+            'username' => $this->Authentication[0]->uname
         ];
         $data['content'] = $this->parser->parse('V_Mushalla', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);

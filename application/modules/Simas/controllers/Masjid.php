@@ -19,10 +19,16 @@ defined('BASEPATH')OR exit('No direct script access allowed');
  */
 class Masjid extends CI_Controller {
 
+    public function __construct() {
+        parent::__construct();
+        $this->load->model('M_Simas');
+        $this->Authentication = $this->M_Simas->Auth();
+    }
+
     public function index() {
         $data = [
             'title' => 'Data Masjid | RUDABI SYSTEM OF KEMENAG RI',
-            'username' => $this->session->userdata('username')
+            'username' => $this->Authentication[0]->uname
         ];
         $data['content'] = $this->parser->parse('V_Masjid', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -32,7 +38,7 @@ class Masjid extends CI_Controller {
         $provinsi = str_replace('_', ' ', $prov);
         $data = [
             'title' => 'Data Masjid | RUDABI SYSTEM OF KEMENAG RI',
-            'username' => $this->session->userdata('username'),
+            'username' => $this->Authentication[0]->uname,
             'provinsi' => $provinsi,
             'id' => $id
         ];
