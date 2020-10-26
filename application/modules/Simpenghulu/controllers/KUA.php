@@ -29,30 +29,33 @@ class KUA extends CI_Controller {
         $data = [
             'title' => 'Sistem Informasi Kepenghuluan | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/kua?KEY=boba')
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/kua?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('V_kua', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
     public function Provinsi() {
-        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 16 as province_id [1] => Jawa Timur as province_title )
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 16 as kua_province_id [1] => Jawa Timur as province_title )
         $data = [
             'title' => 'Detail Data KUA Provinsi ' . $param[1] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'param' => $param,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu?KEY=boba&province_id=' . $param[0])
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/kua?KEY=boba&kua_province_id=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('V_kuaprov', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
-    public function Detail($id) {
+    public function Detail() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 225 as kua_city_id [1] => Kab. Malang as city_title [2] => 16 as kua_province_id [3] => Jawa Timur as province_title)
         $data = [
-            'title' => 'Detail Data KUA | RUDABI SYSTEM OF KEMENAG RI',
-            'id' => $id
+            'title' => 'Detail Data KUA ' . $param[1] . ' | RUDABI SYSTEM OF KEMENAG RI',
+            'username' => $this->Authentication[0]->uname,
+            'param' => $param,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/kua?KEY=boba&kua_city_id=' . $param[0])
         ];
-        $data['content'] = $this->parser->parse('Kcmowcmw', $data, true);
+        $data['content'] = $this->parser->parse('V_kuadetail', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 

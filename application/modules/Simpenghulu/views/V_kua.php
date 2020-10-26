@@ -9,10 +9,15 @@ $c = 0;
         </div>
     </div>
 </div>
-<div class="card card-custom">
+<div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
             Data KUA per Provinsi
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
         </div>
     </div>
     <div class="card-body">
@@ -23,10 +28,15 @@ $c = 0;
     </div>
 </div>
 <div class="clear" style="margin:5%;"></div>
-<div class="card card-custom gutter-b">
+<div class="card card-custom gutter-b" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
             Detail Data KUA
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
         </div>
     </div>
     <div class="card-body">
@@ -43,7 +53,7 @@ $c = 0;
                 <tbody>
                     <?php
                     foreach ($a as $b) {
-                        $c += $b->jumlah_kua;
+                        $c += $b->dt_kua;
                         ?>
                         <tr>
                             <td class="text-center">
@@ -56,10 +66,10 @@ $c = 0;
                                 <?= $b->province_title; ?>
                             </td>
                             <td class="text-center">
-                                <?= $b->jumlah_kua; ?>
+                                <?= $b->dt_kua; ?>
                             </td>
                             <td class="text-center">
-                                <a href="<?= base_url('Simpenghulu/KUA/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->province_id . '&b=' . $b->province_title))); ?>" class="btn btn-icon btn-default btn-xs" title="Detail Provinsi <?= $b->province_title; ?>"><i class="fas fa-eye"></i></a>
+                                <a href="<?= base_url('Simpenghulu/KUA/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->kua_province_id . '&b=' . $b->province_title))); ?>" class="btn btn-icon btn-default btn-xs" title="Detail Provinsi <?= $b->province_title; ?>"><i class="fas fa-eye"></i></a>
                             </td>
                         </tr>
                     <?php } ?>
@@ -112,7 +122,7 @@ $c = 0;
             valueAxis.title.fontWeight = 800;
             var series = chart.series.push(new am4charts.ColumnSeries());
             series.sequencedInterpolation = true;
-            series.dataFields.valueY = "jumlah_kua";
+            series.dataFields.valueY = "dt_kua";
             series.dataFields.categoryX = "province_title";
             series.tooltipText = "Total KUA \r\n Provinsi {province_title}: [{categoryX}: bold]{valueY}[/]";
             series.columns.template.strokeWidth = 0;
