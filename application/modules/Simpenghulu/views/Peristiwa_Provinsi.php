@@ -170,7 +170,7 @@ $o = 0; // pddk_s3_wanita
 </div>
 <script>
     window.onload = function () {
-        var a, b, c, d, e, f, g, h, i, j, k, l;
+        var a, b, c, d, e, f, g, h, i, j, k, l, m;
         a =<?= $d; ?>;
         b =<?= $e; ?>;
         c =<?= $f; ?>;
@@ -183,6 +183,8 @@ $o = 0; // pddk_s3_wanita
         j =<?= $m; ?>;
         k =<?= $n; ?>;
         l =<?= $o; ?>;
+        m =<?= $c; ?>;
+        document.getElementById('title_chartdiv').innerText = "Total Data Peristiwa Nikah: " + m;
         am4core.ready(function () {
             am4core.useTheme(am4themes_frozen);
             am4core.useTheme(am4themes_animated);
