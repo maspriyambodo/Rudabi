@@ -13,6 +13,7 @@
         <meta name="description" content="Rudabi - Rumah Data Bimas Islam Kementerian Agama RI" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+        <link rel="shortcut icon" href="https://simas.kemenag.go.id/assets/img/rudabilogo.png"/>
         <link href="https://cdn.maspriyambodo.com/Metronic/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
         <link href="https://cdn.maspriyambodo.com/Metronic/assets/plugins/custom/datatables/datatables.bundle.css?v=7.0.6" rel="stylesheet" type="text/css"/>
         <link href="https://cdn.maspriyambodo.com/Metronic/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
