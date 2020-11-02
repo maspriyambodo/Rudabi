@@ -158,24 +158,24 @@ $y = 0; //dt_hibah
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <td>Total</td>
-                        <td><?= number_format($c); ?></td>
-                        <td><?= number_format($d); ?></td>
-                        <td><?= number_format($e); ?></td>
-                        <td><?= number_format($f); ?></td>
-                        <td><?= number_format($g); ?></td>
-                        <td><?= number_format($h); ?></td>
-                        <td><?= number_format($i); ?></td>
-                        <td><?= number_format($j); ?></td>
-                        <td><?= number_format($k); ?></td>
-                        <td><?= number_format($l); ?></td>
-                        <td><?= number_format($m); ?></td>
-                        <td><?= number_format($n); ?></td>
-                        <td><?= number_format($o); ?></td>
-                        <td><?= number_format($p); ?></td>
-                        <td><?= number_format($q); ?></td>
-                        <td><?= number_format($r); ?></td>
-                        <td><?= number_format($s); ?></td>
+                        <th>Total</th>
+                        <th><?= number_format($c); ?></th>
+                        <th><?= number_format($d); ?></th>
+                        <th><?= number_format($e); ?></th>
+                        <th><?= number_format($f); ?></th>
+                        <th><?= number_format($g); ?></th>
+                        <th><?= number_format($h); ?></th>
+                        <th><?= number_format($i); ?></th>
+                        <th><?= number_format($j); ?></th>
+                        <th><?= number_format($k); ?></th>
+                        <th><?= number_format($l); ?></th>
+                        <th><?= number_format($m); ?></th>
+                        <th><?= number_format($n); ?></th>
+                        <th><?= number_format($o); ?></th>
+                        <th><?= number_format($p); ?></th>
+                        <th><?= number_format($q); ?></th>
+                        <th><?= number_format($r); ?></th>
+                        <th><?= number_format($s); ?></th>
                     </tr>
                 </tfoot>
             </table>

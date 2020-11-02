@@ -82,7 +82,7 @@ $y = 0; //dt_hibah
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
                     <tr>
-                        <th rowspan="2">provinsi</th>
+                        <th rowspan="2">kecamatan</th>
                         <th rowspan="2">jumlah masjid</th>
                         <th rowspan="2">luas tanah</th>
                         <th rowspan="2">luas bangunan</th>
@@ -158,24 +158,24 @@ $y = 0; //dt_hibah
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <td>Total</td>
-                        <td><?= number_format($c); ?></td>
-                        <td><?= number_format($d); ?></td>
-                        <td><?= number_format($e); ?></td>
-                        <td><?= number_format($f); ?></td>
-                        <td><?= number_format($g); ?></td>
-                        <td><?= number_format($h); ?></td>
-                        <td><?= number_format($i); ?></td>
-                        <td><?= number_format($j); ?></td>
-                        <td><?= number_format($k); ?></td>
-                        <td><?= number_format($l); ?></td>
-                        <td><?= number_format($m); ?></td>
-                        <td><?= number_format($n); ?></td>
-                        <td><?= number_format($o); ?></td>
-                        <td><?= number_format($p); ?></td>
-                        <td><?= number_format($q); ?></td>
-                        <td><?= number_format($r); ?></td>
-                        <td><?= number_format($s); ?></td>
+                        <th>Total</th>
+                        <th><?= number_format($c); ?></th>
+                        <th><?= number_format($d); ?></th>
+                        <th><?= number_format($e); ?></th>
+                        <th><?= number_format($f); ?></th>
+                        <th><?= number_format($g); ?></th>
+                        <th><?= number_format($h); ?></th>
+                        <th><?= number_format($i); ?></th>
+                        <th><?= number_format($j); ?></th>
+                        <th><?= number_format($k); ?></th>
+                        <th><?= number_format($l); ?></th>
+                        <th><?= number_format($m); ?></th>
+                        <th><?= number_format($n); ?></th>
+                        <th><?= number_format($o); ?></th>
+                        <th><?= number_format($p); ?></th>
+                        <th><?= number_format($q); ?></th>
+                        <th><?= number_format($r); ?></th>
+                        <th><?= number_format($s); ?></th>
                     </tr>
                 </tfoot>
             </table>
@@ -211,7 +211,7 @@ $y = 0; //dt_hibah
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
-            categoryAxis.title.text = 'Daerah Tingkat Provinsi';
+            categoryAxis.title.text = 'Wilayah Kecamatan';
             categoryAxis.dataFields.category = "kecamatan_name";
             categoryAxis.renderer.grid.template.location = 0;
             categoryAxis.renderer.minGridDistance = 30;
@@ -228,7 +228,7 @@ $y = 0; //dt_hibah
             series.sequencedInterpolation = true;
             series.dataFields.valueY = "dt_masjid";
             series.dataFields.categoryX = "kecamatan_name";
-            series.tooltipText = "Jumlah Masjid Provinsi {kecamatan_name}: [bold]{valueY}[/]";
+            series.tooltipText = "Jumlah Masjid Kecamatan {kecamatan_name}: [bold]{valueY}[/]";
             series.columns.template.strokeWidth = 0;
             series.tooltip.pointerOrientation = "vertical";
             series.columns.template.column.cornerRadiusTopLeft = 10;
