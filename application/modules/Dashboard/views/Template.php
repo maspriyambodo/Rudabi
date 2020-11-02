@@ -142,38 +142,6 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <li class="menu-item" aria-haspopup="true" title="Sistem Informasi Persuratan Bimas Islam">
-                                    <a href="#" class="menu-link">
-                                        <span class="svg-icon menu-icon">
-                                            <i class="fas fa-mail-bulk"></i>
-                                        </span>
-                                        <span class="menu-text">SIPBI</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item" aria-haspopup="true" title="Tim Cyber Anti Narkoba, Pornografi, dan Radikalisme">
-                                    <a href="#" class="menu-link">
-                                        <span class="svg-icon menu-icon">
-                                            <i class="fas fa-user-shield"></i>
-                                        </span>
-                                        <span class="menu-text">Cyber</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item" aria-haspopup="true" title="Sistem Informasi Manajemen Bimas Islam">
-                                    <a href="#" class="menu-link">
-                                        <span class="svg-icon menu-icon">
-                                            <i class="fas fa-cogs"></i>
-                                        </span>
-                                        <span class="menu-text">SIMBI</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item" aria-haspopup="true" title="Sistem Informasi Laporan Pimpinan">
-                                    <a href="#" class="menu-link">
-                                        <span class="svg-icon menu-icon">
-                                            <i class="fas fa-book"></i>
-                                        </span>
-                                        <span class="menu-text">SILP</span>
-                                    </a>
-                                </li>
                                 <li class="menu-section">
                                     <h4 class="menu-text text-white user-select-none">Agama Islam & BinSyar</h4>
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
@@ -251,23 +219,6 @@
                                         <span class="menu-text">SIMAS</span>
                                     </a>
                                 </li>
-                                <li class="menu-item" aria-haspopup="true" title="Sistem Informasi Paham Keagamaan">
-                                    <a href="#" class="menu-link">
-                                        <span class="svg-icon menu-icon">
-                                            <i class="fas fa-moon"></i>
-                                        </span>
-                                        <span class="menu-text">SIPAHAM</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item" aria-haspopup="true" title="Pustaka Bimas Islam">
-                                    <a href="#" class="menu-link">
-                                        <span class="svg-icon menu-icon">
-                                            <i class="fas fa-book-open"></i>
-                                        </span>
-                                        <span class="menu-text">PUSBIM</span>
-                                    </a>
-                                </li>
-
                                 <li class="menu-section">
                                     <h4 class="menu-text text-white user-select-none">Bina KUA & Keluarga Sakinah</h4>
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
@@ -303,14 +254,6 @@
                                             </li>
                                         </ul>
                                     </div>
-                                </li>
-                                <li class="menu-item" aria-haspopup="true" title="sistem informasi kepenghuluan">
-                                    <a href="#" class="menu-link">
-                                        <span class="svg-icon menu-icon">
-                                            <i class="fas fa-genderless"></i>
-                                        </span>
-                                        <span class="menu-text">SIK</span>
-                                    </a>
                                 </li>
                                 <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                     <a href="javascript:;" class="menu-link menu-toggle">
@@ -605,28 +548,11 @@
                                         <span class="menu-text">E-PAI</span>
                                     </a>
                                 </li>
-                                <li class="menu-item" aria-haspopup="true" title="sistem aplikasi pendaftaran MTQ">
-                                    <a href="#" class="menu-link">
-                                        <span class="svg-icon menu-icon">
-                                            <i class="fas fa-book-reader"></i>
-                                        </span>
-                                        <span class="menu-text">E-MTQ</span>
-                                    </a>
-                                </li>
-
                                 <li class="menu-section">
                                     <h4 class="menu-text text-white user-select-none">Pemberdayaan Zakat & Wakaf</h4>
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                 </li>
                                 <div class="separator separator-dashed"></div>
-                                <li class="menu-item" aria-haspopup="true" title="sistem informasi zakat">
-                                    <a href="#" class="menu-link">
-                                        <span class="svg-icon menu-icon">
-                                            <i class="fas fa-hand-holding-usd"></i>
-                                        </span>
-                                        <span class="menu-text">Simzat</span>
-                                    </a>
-                                </li>
                                 <li class="menu-item" aria-haspopup="true" title="sistem informasi wakaf">
                                     <a href="#" class="menu-link">
                                         <span class="svg-icon menu-icon">
