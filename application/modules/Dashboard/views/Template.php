@@ -580,7 +580,7 @@
                                 </li>
                                 <div class="separator separator-dashed"></div>
                                 <li class="menu-item" aria-haspopup="true" title="sistem informasi wakaf">
-                                    <a href="<?= base_url('Siwak/index/'); ?>" class="menu-link">
+                                    <a href="#" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-hand-holding-heart"></i>
                                         </span>
