@@ -9,14 +9,6 @@ $h = 0; //dt_imam
 $i = 0; //dt_khatib
 $j = 0; //dt_muazin
 $k = 0; //dt_remaja
-$l = 0; //dt_negara
-$m = 0; //dt_raya
-$n = 0; //dt_agung
-$o = 0; //dt_besar
-$p = 0; //dt_jami
-$q = 0; //dt_bersejarah
-$r = 0; //dt_publik
-$s = 0; //dt_nasional
 $t = 0; //dt_wakaf
 $u = 0; //dt_shm
 $v = 0; //dt_girik
@@ -53,22 +45,6 @@ $y = 0; //dt_hibah
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            Data Masjid berdasarkan tipologi
-        </div>
-        <div class="card-toolbar">
-            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
-                <i class="ki ki-arrow-down icon-nm"></i>
-            </a>
-        </div>
-    </div>
-    <div class="card-body">
-        <div id="chartdiv_a" class="chartdivs"></div>
-    </div>
-</div>
-<div class="clearfix" style="margin:5% 0px;"></div>
-<div class="card card-custom" data-card="true" id="kt_card_1">
-    <div class="card-header">
-        <div class="card-title">
             Detail data Masjid
         </div>
         <div class="card-toolbar">
@@ -82,27 +58,16 @@ $y = 0; //dt_hibah
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
                     <tr>
-                        <th rowspan="2">kecamatan</th>
-                        <th rowspan="2">jumlah masjid</th>
-                        <th rowspan="2">luas tanah</th>
-                        <th rowspan="2">luas bangunan</th>
-                        <th rowspan="2">jamaah</th>
-                        <th rowspan="2">pengurus</th>
-                        <th rowspan="2">imam</th>
-                        <th rowspan="2">khatib</th>
-                        <th rowspan="2">muazin</th>
-                        <th rowspan="2">remaja</th>
-                        <th colspan="8">tipologi masjid</th>
-                    </tr>
-                    <tr>
-                        <th>negara</th>
-                        <th>raya</th>
-                        <th>agung</th>
-                        <th>besar</th>
-                        <th>jami</th>
-                        <th>bersejarah</th>
-                        <th>publik</th>
-                        <th>nasional</th>
+                        <th>kecamatan</th>
+                        <th>jumlah masjid</th>
+                        <th>luas tanah</th>
+                        <th>luas bangunan</th>
+                        <th>jamaah</th>
+                        <th>pengurus</th>
+                        <th>imam</th>
+                        <th>khatib</th>
+                        <th>muazin</th>
+                        <th>remaja</th>
                     </tr>
                 </thead>
                 <tbody class="text-center">
@@ -117,14 +82,6 @@ $y = 0; //dt_hibah
                         $i += str_replace(',', '', $b->dt_khatib); //dt_khatib
                         $j += str_replace(',', '', $b->dt_muazin); //dt_muazin
                         $k += str_replace(',', '', $b->dt_remaja); //dt_remaja
-                        $l += $b->dt_negara; //dt_negara
-                        $m += $b->dt_raya; //dt_raya
-                        $n += $b->dt_agung; //dt_agung
-                        $o += $b->dt_besar; //dt_besar
-                        $p += $b->dt_jami; //dt_jami
-                        $q += $b->dt_bersejarah; //dt_bersejarah
-                        $r += $b->dt_publik; //dt_publik
-                        $s += $b->dt_nasional; //dt_nasional
                         $t += $b->dt_wakaf; //dt_wakaf
                         $u += $b->dt_shm; //dt_shm
                         $v += $b->dt_girik; //dt_girik
@@ -145,14 +102,6 @@ $y = 0; //dt_hibah
                             <td><?= $b->dt_khatib; ?></td>
                             <td><?= $b->dt_muazin; ?></td>
                             <td><?= $b->dt_remaja; ?></td>
-                            <td><?= number_format($b->dt_negara); ?></td>
-                            <td><?= number_format($b->dt_raya); ?></td>
-                            <td><?= number_format($b->dt_agung); ?></td>
-                            <td><?= number_format($b->dt_besar); ?></td>
-                            <td><?= number_format($b->dt_jami); ?></td>
-                            <td><?= number_format($b->dt_bersejarah); ?></td>
-                            <td><?= number_format($b->dt_publik); ?></td>
-                            <td><?= number_format($b->dt_nasional); ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -168,14 +117,6 @@ $y = 0; //dt_hibah
                         <th><?= number_format($i); ?></th>
                         <th><?= number_format($j); ?></th>
                         <th><?= number_format($k); ?></th>
-                        <th><?= number_format($l); ?></th>
-                        <th><?= number_format($m); ?></th>
-                        <th><?= number_format($n); ?></th>
-                        <th><?= number_format($o); ?></th>
-                        <th><?= number_format($p); ?></th>
-                        <th><?= number_format($q); ?></th>
-                        <th><?= number_format($r); ?></th>
-                        <th><?= number_format($s); ?></th>
                     </tr>
                 </tfoot>
             </table>
@@ -183,25 +124,9 @@ $y = 0; //dt_hibah
     </div>
 </div>
 <input type="hidden" name="dt_masjid" readonly="" value="<?= number_format($c); ?>"/>
-<input type="hidden" name="tipo_negara" readonly="" value="<?= number_format($l); ?>"/>
-<input type="hidden" name="tipo_raya" readonly="" value="<?= number_format($m); ?>"/>
-<input type="hidden" name="tipo_agung" readonly="" value="<?= number_format($n); ?>"/>
-<input type="hidden" name="tipo_besar" readonly="" value="<?= number_format($o); ?>"/>
-<input type="hidden" name="tipo_jami" readonly="" value="<?= number_format($p); ?>"/>
-<input type="hidden" name="tipo_bersejarah" readonly="" value="<?= number_format($q); ?>"/>
-<input type="hidden" name="tipo_publik" readonly="" value="<?= number_format($r); ?>"/>
-<input type="hidden" name="tipo_nasional" readonly="" value="<?= number_format($s); ?>"/>
 <script>
     window.onload = function () {
         var dt_masjid = $('input[name="dt_masjid"]').val();
-        var tipo_negara = $('input[name="tipo_negara"]').val();
-        var tipo_raya = $('input[name="tipo_raya"]').val();
-        var tipo_agung = $('input[name="tipo_agung"]').val();
-        var tipo_besar = $('input[name="tipo_besar"]').val();
-        var tipo_jami = $('input[name="tipo_jami"]').val();
-        var tipo_bersejarah = $('input[name="tipo_bersejarah"]').val();
-        var tipo_publik = $('input[name="tipo_publik"]').val();
-        var tipo_nasional = $('input[name="tipo_nasional"]').val();
         document.getElementById('title_chartdiv').innerText = "Total Data Masjid: " + dt_masjid;
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
@@ -242,53 +167,6 @@ $y = 0; //dt_hibah
                 return chart.colors.getIndex(target.dataItem.index);
             });
             chart.cursor = new am4charts.XYCursor();
-        });
-        am4core.ready(function () {
-            am4core.useTheme(am4themes_animated);
-            var chart = am4core.create("chartdiv_a", am4charts.PieChart3D);
-            chart.hiddenState.properties.opacity = 0;
-
-            chart.legend = new am4charts.Legend();
-
-            chart.data = [
-                {
-                    country: "Masjid Negara",
-                    litres: tipo_negara
-                },
-                {
-                    country: "Masjid Jami",
-                    litres: tipo_jami
-                },
-                {
-                    country: "Masjid Agung",
-                    litres: tipo_agung
-                },
-                {
-                    country: "Masjid Raya",
-                    litres: tipo_raya
-                },
-                {
-                    country: "Masjid Besar",
-                    litres: tipo_besar
-                },
-                {
-                    country: "Masjid Bersejarah",
-                    litres: tipo_bersejarah
-                },
-                {
-                    country: "Masjid Nasional",
-                    litres: tipo_nasional
-                },
-                {
-                    country: "Masjid Publik",
-                    litres: tipo_publik
-                }
-            ];
-
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "litres";
-            series.dataFields.category = "country";
-
         });
         $('table').dataTable({
             "ServerSide": true,

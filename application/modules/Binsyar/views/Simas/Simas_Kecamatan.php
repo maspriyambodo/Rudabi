@@ -34,8 +34,6 @@
                         <th>khatib</th>
                         <th>muazin</th>
                         <th>remaja</th>
-                        <th>status</th>
-                        <th>tipologi</th>
                         <th>longtitude</th>
                         <th>latitude</th>
                     </tr>
@@ -55,8 +53,6 @@
                             <td class="text-center"><?= $b->khatib; ?></td>
                             <td class="text-center"><?= $b->muazin; ?></td>
                             <td class="text-center"><?= $b->remaja; ?></td>
-                            <td class="text-center"><?= $b->tanah_name; ?></td>
-                            <td class="text-center"><?= $b->tipologi_name; ?></td>
                             <td class="text-center"><?= $b->masjid_lat; ?></td>
                             <td class="text-center"><?= $b->masjid_long; ?></td>
                         </tr>
