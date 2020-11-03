@@ -22,9 +22,10 @@
         <link href="https://cdn.maspriyambodo.com/Metronic/assets/css/themes/layout/header/base/light.css" rel="stylesheet" type="text/css" />
         <link href="https://cdn.maspriyambodo.com/Metronic/assets/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css" />
         <link href="https://cdn.maspriyambodo.com/Metronic/assets/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
-        <link href="https://cdn.maspriyambodo.com/Metronic/assets/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
+        <link href="https://cdn.maspriyambodo.com/Metronic/assets/css/themes/layout/aside/light.css" rel="stylesheet" type="text/css" />
         <link href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.22/af-2.3.5/b-1.6.5/b-colvis-1.6.5/b-flash-1.6.5/b-html5-1.6.5/b-print-1.6.5/cr-1.5.2/fc-3.3.1/fh-3.1.7/kt-2.5.3/r-2.2.6/rg-1.1.2/rr-1.2.7/sc-2.0.3/sb-1.0.0/sp-1.2.1/sl-1.3.1/datatables.min.css" rel="stylesheet" type="text/css"/>
         <link href="https://cdn.maspriyambodo.com/css/custom.kemenag.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="https://simas.kemenag.go.id/assets/img/rudabilogo.png" />
         <title>{title}</title>
     </head>
@@ -579,7 +580,7 @@
                                 </li>
                                 <div class="separator separator-dashed"></div>
                                 <li class="menu-item" aria-haspopup="true" title="sistem informasi wakaf">
-                                    <a href="#" class="menu-link">
+                                    <a href="<?= base_url('Siwak/index/'); ?>" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-hand-holding-heart"></i>
                                         </span>

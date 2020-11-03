@@ -7,7 +7,6 @@
         <meta name="description" content="Login System" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-        <link href="https://cdn.maspriyambodo.com/Metronic/assets/css/pages/login/login-1.css" rel="stylesheet" type="text/css" />
         <link href="https://cdn.maspriyambodo.com/Metronic/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
         <link href="https://cdn.maspriyambodo.com/Metronic/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
         <link href="https://cdn.maspriyambodo.com/Metronic/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
@@ -19,27 +18,23 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="https://kemenag.go.id/public/images/icon.png" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">
+        <link href="<?php echo base_url(); ?>assets/css/login-1.css" rel="stylesheet" type="text/css" />
     </head>
     <body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
         <div class="d-flex flex-column flex-root">
-            <div class="login login-1 login-signin-on d-flex flex-column flex-lg-row flex-row-fluid owl-carousel" id="kt_login" style="background-image:url(https://simas.kemenag.go.id/assets/img/home-banner.jpg);background-repeat:no-repeat;background-position:center;background-size:cover;">
-                <div class="login-aside d-flex flex-row-auto px-lg-0 px-5 pb-sm-40 pb-lg-40 flex-grow-1" style="background:aliceblue">
-                    <div class="d-flex flex-row-fluid flex-column mt-lg-30 mb-lg-0 pb-lg-0 mb-20 pb-40 mt-0 pt-15">
-                        <div class="clear" style="margin-top:15%;"></div>
-                        <a href="#" class="text-center mb-10"> <img src="https://simas.kemenag.go.id/assets/img/rudabilogo.png" style="width:70%;" alt="Rudabi Logo" /> </a>
-                    </div>
-                    <div class="fixed-bottom"><?= $this->bodo->Since(); ?> &copy; RUDABI | Direktorat Bimas Islam</div>
+            <div class="login login-1 login-signin-on d-flex flex-column flex-lg-row flex-row-fluid owl-carousel" id="kt_login">
+                <div class="login-aside d-flex flex-row-auto flex-grow-1">
+                    <div class="d-flex flex-row-fluid flex-column login-img-bg"></div>
                 </div>
                 <div class="login-content flex-row-fluid d-flex flex-column justify-content-center position-relative overflow-hidden p-7 ml-auto mr-auto">
                     <div class="d-flex flex-column-fluid flex-center mt-6 mt-lg-0">
                         <div class="login-form login-signin">
+                            <a href="#" class="text-center nav-brand"> <img src="https://simas.kemenag.go.id/assets/img/rudabilogo.png" style="width:70%;" alt="Rudabi Logo" /> </a>
+                            <h3 class="login-title">Sign in to system</h3>
                             <form class="form" novalidate="novalidate" id="kt_login_signin_form" action="<?= base_url('Auth/Login/'); ?>" method="post">
-                                <div class="pt-lg-40 mt-lg-10 pb-15">
-                                    <h3 class="font-weight-bolder text-dark display5">Sign in to system</h3>
-                                </div>
                                 <div class="form-group">
                                     <label class="font-size-h6 font-weight-bolder text-dark">Username</label>
-                                    <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg" type="text" name="username" autocomplete="off" required=""/>
+                                    <input class="form-control form-control-solid h-auto rounded-md" type="text" name="username" autocomplete="off" required=""/>
                                 </div>
                                 <div class="form-group">
                                     <div class="d-flex justify-content-between mt-n5">
@@ -48,7 +43,7 @@
                                             Forgot Password ?
                                         </a>
                                     </div>
-                                    <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg" type="password" name="password" autocomplete="off" required="" />
+                                    <input class="form-control form-control-solid h-auto rounded-md" type="password" name="password" autocomplete="off" required="" />
                                 </div>
                                 <div class="pb-lg-0 pb-10">
                                     <input type="hidden" name="<?= $csrf['name'] ?>" value="<?= $csrf['hash'] ?>"/>
@@ -56,20 +51,7 @@
                                     <button type="submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3">Sign In</button>
                                 </div>
                             </form>
-                        </div>
-                        <div class="login-form login-signup">
-                            <form class="form" novalidate="novalidate" id="kt_login_signup_form">
-                                <div class="text-center pt-lg-30 pb-15">
-                                    <h3 class="font-weight-bolder text-dark display5">Sign Up</h3>
-                                    <p class="text-muted font-weight-bold font-size-h4">Enter your details to create your account</p>
-                                </div>
-                                <div class="form-group"> <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="text" placeholder="Fullname" name="fullname" autocomplete="off" /> </div>
-                                <div class="form-group"> <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="email" placeholder="Email" name="email" autocomplete="off" /> </div>
-                                <div class="form-group"> <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="password" placeholder="Password" name="password" autocomplete="off" /> </div>
-                                <div class="form-group"> <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="password" placeholder="Confirm password" name="cpassword" autocomplete="off" /> </div>
-                                <div class="form-group"> <label class="checkbox mb-0"> <input type="checkbox" name="agree" />I Agree the <a href="#">terms and conditions</a>. <span></span></label> </div>
-                                <div class="form-group d-flex flex-wrap flex-center pb-lg-0 pb-3"> <button type="button" id="kt_login_signup_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Submit</button> <button type="button" id="kt_login_signup_cancel" class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Cancel</button>                                </div>
-                            </form>
+                            <div class="login-footer"><?= $this->bodo->Since(); ?> &copy; RUDABI | Direktorat Bimas Islam</div>
                         </div>
                         <div class="login-form login-forgot">
                             <form class="form" novalidate="novalidate" id="kt_login_forgot_form">
