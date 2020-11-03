@@ -9,10 +9,6 @@ $h = 0; //dt_imam
 $i = 0; //dt_khatib
 $j = 0; //dt_muazin
 $k = 0; //dt_remaja
-$l = 0; //tipo_perumahan
-$m = 0; //tipo_publik
-$n = 0; //tipo_perkantoran
-$o = 0; //tipo_pendidikan
 ?>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
@@ -43,22 +39,6 @@ $o = 0; //tipo_pendidikan
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            Jenis Tipologi Mushalla
-        </div>
-        <div class="card-toolbar">
-            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
-                <i class="ki ki-arrow-down icon-nm"></i>
-            </a>
-        </div>
-    </div>
-    <div class="card-body">
-        <div id="chartdiv_a" class="chartdivs"></div>
-    </div>
-</div>
-<div class="clearfix" style="margin:5% 0px;"></div>
-<div class="card card-custom" data-card="true" id="kt_card_1">
-    <div class="card-header">
-        <div class="card-title">
             Detail Data Mushalla
         </div>
         <div class="card-toolbar">
@@ -72,23 +52,16 @@ $o = 0; //tipo_pendidikan
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
                     <tr>
-                        <th rowspan="2">kecamatan</th>
-                        <th rowspan="2">jumlah mushalla</th>
-                        <th rowspan="2">luas tanah</th>
-                        <th rowspan="2">luas bangunan</th>
-                        <th rowspan="2">jamaah</th>
-                        <th rowspan="2">pengurus</th>
-                        <th rowspan="2">imam</th>
-                        <th rowspan="2">khatib</th>
-                        <th rowspan="2">muazin</th>
-                        <th rowspan="2">remaja</th>
-                        <th colspan="4">tipologi mushalla</th>
-                    </tr>
-                    <tr>
-                        <th>perumahan</th>
-                        <th>publik</th>
-                        <th>perkantoran</th>
-                        <th>pendidikan</th>
+                        <th>kecamatan</th>
+                        <th>jumlah mushalla</th>
+                        <th>luas tanah</th>
+                        <th>luas bangunan</th>
+                        <th>jamaah</th>
+                        <th>pengurus</th>
+                        <th>imam</th>
+                        <th>khatib</th>
+                        <th>muazin</th>
+                        <th>remaja</th>
                     </tr>
                 </thead>
                 <tbody class="text-center text-uppercase">
@@ -103,10 +76,6 @@ $o = 0; //tipo_pendidikan
                         $i += str_replace(',', '', $b->dt_khatib); //dt_khatib
                         $j += str_replace(',', '', $b->dt_muazin); //dt_muazin
                         $k += str_replace(',', '', $b->dt_remaja); //dt_remaja
-                        $l += $b->tipo_perumahan; //tipo_perumahan
-                        $m += $b->tipo_publik; //tipo_publik
-                        $n += $b->tipo_perkantoran; //tipo_perkantoran
-                        $o += $b->tipo_pendidikan; //tipo_pendidikan
                         ?>
                         <tr>
                             <td style="text-align:left !important;">
@@ -121,10 +90,6 @@ $o = 0; //tipo_pendidikan
                             <td><?= $b->dt_khatib; ?></td>
                             <td><?= $b->dt_muazin; ?></td>
                             <td><?= $b->dt_remaja; ?></td>
-                            <td><?= $b->tipo_perumahan; ?></td>
-                            <td><?= $b->tipo_publik; ?></td>
-                            <td><?= $b->tipo_perkantoran; ?></td>
-                            <td><?= $b->tipo_pendidikan; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -159,10 +124,6 @@ $o = 0; //tipo_pendidikan
 <input type="hidden" name="dt_khatib" readonly="" value="<?= number_format($i); ?>"/>
 <input type="hidden" name="dt_muazin" readonly="" value="<?= number_format($j); ?>"/>
 <input type="hidden" name="dt_remaja" readonly="" value="<?= number_format($k); ?>"/>
-<input type="hidden" name="tipo_perumahan" readonly="" value="<?= number_format($l); ?>"/>
-<input type="hidden" name="tipo_publik" readonly="" value="<?= number_format($m); ?>"/>
-<input type="hidden" name="tipo_perkantoran" readonly="" value="<?= number_format($n); ?>"/>
-<input type="hidden" name="tipo_pendidikan" readonly="" value="<?= number_format($o); ?>"/>
 <script>
     window.onload = function () {
         var a, b, c, d, e, f, g, h, i, j, k, l, m;
@@ -175,10 +136,6 @@ $o = 0; //tipo_pendidikan
         g = $('input[name="dt_khatib"]').val();
         h = $('input[name="dt_muazin"]').val();
         i = $('input[name="dt_remaja"]').val();
-        j = $('input[name="tipo_perumahan"]').val();
-        k = $('input[name="tipo_publik"]').val();
-        l = $('input[name="tipo_perkantoran"]').val();
-        m = $('input[name="tipo_pendidikan"]').val();
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);

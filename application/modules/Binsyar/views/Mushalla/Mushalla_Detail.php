@@ -31,8 +31,6 @@ $g = 0; //mushalla_num_remaja
                         <th>khatib</th>
                         <th>muazin</th>
                         <th>remaja</th>
-                        <th>status</th>
-                        <th>tipologi</th>
                         <th>long</th>
                         <th>lat</th>
                     </tr>
@@ -59,8 +57,6 @@ $g = 0; //mushalla_num_remaja
                             <td><?= $b->mushalla_num_khatib; ?></td>
                             <td><?= $b->mushalla_num_muazin; ?></td>
                             <td><?= $b->mushalla_num_remaja; ?></td>
-                            <td><?= $b->tanah_name; ?></td>
-                            <td><?= $b->tipologi_name; ?></td>
                             <td><?= $b->mushalla_long; ?></td>
                             <td><?= $b->mushalla_lat; ?></td>
                         </tr>
