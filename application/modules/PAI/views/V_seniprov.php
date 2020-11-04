@@ -12,8 +12,25 @@
         </div>
     </div>
     <div class="card-body">
+        <div class="text-center">
+            <b><u id="title_chartdiv"></u></b>
+        </div>
         <div id="chartdiv" class="chartdivs"></div>
-        <hr style="margin:5% 0px;">
+    </div>
+</div>
+<div class="clearfix" style="margin:5%;"></div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            Detail Data Lembaga Seni Islam
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-uppercase text-center">
@@ -90,7 +107,7 @@
         ],
         footerCallback: function () {
             var api = this.api();
-            var numFormat = $.fn.dataTable.render.number( '\.', '', 0, '' ).display;
+            var numFormat = $.fn.dataTable.render.number('\.', '', 0, '').display;
             api.columns('.sum_lsi', {page: 'current'}).every(function () {
                 var sum = this
                         .data()
@@ -99,6 +116,7 @@
                             var y = parseFloat(b) || 0;
                             return x + y;
                         }, 0);
+                document.getElementById('title_chartdiv').innerText = "Total Lembaga Seni Islam: " + numFormat(sum);
                 $(this.footer()).html(numFormat(sum));
             });
             api.columns('.sum_pap', {page: 'current'}).every(function () {
@@ -176,6 +194,7 @@
     am4core.ready(function () {
         am4core.useTheme(am4themes_animated);
         var chart = am4core.create("chartdiv", am4charts.XYChart);
+        chart.exporting.menu = new am4core.ExportMenu();
         chart.scrollbarX = new am4core.Scrollbar();
         chart.dataSource.url = url;
         var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
