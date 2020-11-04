@@ -51,7 +51,7 @@
                                     <button type="submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3">Sign In</button>
                                 </div>
                             </form>
-                            <div class="login-footer"><?= $this->bodo->Since(); ?> &copy; RUDABI | Direktorat Bimas Islam</div>
+                            <div class="login-footer"><?= $this->bodo->Since(); ?> &copy; RUDABI | Ditjen Bimas Islam</div>
                         </div>
                         <div class="login-form login-forgot">
                             <form class="form" novalidate="novalidate" id="kt_login_forgot_form">
