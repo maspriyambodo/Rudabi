@@ -14,11 +14,54 @@
     <div class="card-body">
         <div id="title_chartdiv_a" class="text-center"></div>
         <div id="chartdiv_a" class="chartdivs"></div>
-        <hr class="clear" style="margin:5% 0px;">
+    </div>
+</div>
+<div class="clearfix" style="margin:5%;"></div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            Data Pendidikan Dewan Hakim
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
         <div id="chartdiv_pendidikan" class="chartdivs"></div>
-        <hr class="clear" style="margin:5% 0px;">
-        <div id="chartdiv_b" class="chartdivs"></div>
-        <hr class="clear" style="margin:5% 0px;">
+    </div>
+</div>
+<div class="clearfix" style="margin:5%;"></div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            Data Jenis Kelamin &amp; Status Nikah
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div id="chartdiv_b" class="chartdivs"></div>        
+    </div>
+</div>
+<div class="clearfix" style="margin:5%;"></div>
+<div class="clearfix" style="margin:5%;"></div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            Detail Data Dewan Hakim
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
@@ -69,7 +112,6 @@
         </div>
     </div>
 </div>
-
 <script>
     var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/dewan?KEY=BOBA&province_id=<?= $id; ?>";
     am4core.ready(function () {

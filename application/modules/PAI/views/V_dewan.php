@@ -14,9 +14,22 @@
         </div>
     </div>
     <div class="card-body">
-        <div id="jumlah_dewan" class="text-center"></div>
+        <div class="text-center">
+            <b><u id="title_chartdiv"></u></b>
+        </div>
         <div id="chartdiv" class="chartdivs"></div>
-        <hr style="margin:5% 0px;">
+    </div>
+</div>
+<div class="clearfix" style="margin:5%;"></div>
+<div class="card card-custom">
+    <div class="card-header">
+        <div class="card-title">
+            <div class="text-uppercase">
+                data dewan hakim per provinsi
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-uppercase text-center">
@@ -60,17 +73,19 @@
                     </tr>
                 </tfoot>
             </table>
-        </div>
+        </div>        
     </div>
 </div>
 <script>
     window.onload = function () {
         var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/dewan?KEY=BOBA";
+
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
             chart.dataSource.url = url;
+            chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
             categoryAxis.title.text = 'Daerah Tingkat Provinsi';
@@ -83,14 +98,19 @@
             categoryAxis.tooltip.disabled = true;
             categoryAxis.renderer.minHeight = 110;
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-            valueAxis.renderer.minWidth = 100;
+            valueAxis.renderer.minWidth = 50;
             valueAxis.title.text = "Jumlah Dewan Hakim";
             valueAxis.title.fontWeight = 800;
             var series = chart.series.push(new am4charts.ColumnSeries());
+            series.sequencedInterpolation = true;
             series.dataFields.valueY = "jum_dewan";
             series.dataFields.categoryX = "province_title";
-            series.clustered = false;
-            series.tooltipText = "Jumlah Dewan Hakim di {categoryX}: [bold]{valueY}[/]";
+            series.tooltipText = "Jumlah Dewan Hakim Provinsi {province_title}: [bold]{valueY}[/]";
+            series.columns.template.strokeWidth = 0;
+            series.tooltip.pointerOrientation = "vertical";
+            series.columns.template.column.cornerRadiusTopLeft = 10;
+            series.columns.template.column.cornerRadiusTopRight = 10;
+            series.columns.template.column.fillOpacity = 0.8;
             var hoverState = series.columns.template.column.states.create("hover");
             hoverState.properties.cornerRadiusTopLeft = 0;
             hoverState.properties.cornerRadiusTopRight = 0;
@@ -99,7 +119,6 @@
                 return chart.colors.getIndex(target.dataItem.index);
             });
             chart.cursor = new am4charts.XYCursor();
-            categoryAxis.sortBySeries = series;
         });
         $('table').dataTable({
             "ServerSide": true,
@@ -149,7 +168,7 @@
                                 var y = parseFloat(b) || 0;
                                 return x + y;
                             }, 0);
-                    document.getElementById('jumlah_dewan').innerHTML = "<b>Jumlah Dewan Hakim " + numFormat(sum) + "</b>";
+                    document.getElementById('title_chartdiv').innerHTML = "Total Data Dewan Hakim: " + numFormat(sum);
                     $(this.footer()).html(numFormat(sum));
                 });
                 api.columns('.sum_sunda', {page: 'current'}).every(function () {

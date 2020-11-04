@@ -9,7 +9,7 @@
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <button type="button" class="btn btn-light btn-shadow-hover" onclick="Back()"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <a href="<?= base_url('PAI/Dewan/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
