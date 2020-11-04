@@ -28,18 +28,20 @@ class Lokasi extends CI_Controller {
     public function index() {
         $data = [
             'title' => 'Hisab Lokasi | RUDABI SYSTEM OF KEMENAG RI',
-            'username' => $this->Authentication[0]->uname
+            'username' => $this->Authentication[0]->uname,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/siihat/hisablokasi?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Binsyar/V_Lokasi', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
-    public function Provinsi($id, $prov) {
+    public function Provinsi() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 2 as lokasi_provinsi [1] => Sumatera Utara as province_title)
         $data = [
-            'title' => 'Hisab Lokasi | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Hisab Pengukuran | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'id' => $id,
-            'provinsi' => str_replace(['_', '%20'], ' ', $prov)
+            'param' => $param,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/siihat/hisablokasi?KEY=boba&lokasi_provinsi=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Binsyar/V_Lokasiprov', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);

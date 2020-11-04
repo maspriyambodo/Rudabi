@@ -85,11 +85,24 @@ $e = 0; //ukur_berd_mushalla
             "paging": false,
             "ordering": true,
             "info": true,
-            "processing": true,
+            "processing": false,
             "deferRender": true,
             "scrollCollapse": true,
             "scrollX": true,
-            "scrollY": "400px"
+            "scrollY": "400px",
+            fixedColumns: {
+                leftColumns: 2
+            },
+            dom: `<'row'<'col-sm-6 text-left'f><'col-sm-6 text-right'B>>
+                <'row'<'col-sm-12'tr>>
+                <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
+            buttons: [
+                'print',
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5'
+            ]
         });
         document.getElementById('title_chartdiv').innerHTML = "Total Data Hisab Pengukuran: " + a;
         am4core.ready(function () {

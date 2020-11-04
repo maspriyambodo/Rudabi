@@ -1,3 +1,7 @@
+<?php
+$a = json_decode($data);
+$c = 0; //jum_lokasi
+?>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
@@ -14,84 +18,93 @@
         </div>
     </div>
     <div class="card-body">
-        <div id="jumlah_hisab" class="text-center"></div>
+        <div class="text-center">
+            <b><u id="title_chartdiv"></u></b>
+        </div>
         <div id="chartdiv" class="chartdivs"></div>
         <hr style="margin:5%;">
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
                     <tr>
+                        <th>no</th>
                         <th>provinsi</th>
                         <th>jumlah</th>
                         <th>action</th>
                     </tr>
                 </thead>
-                <tfoot>
+                <tbody class="text-center text-uppercase">
+                    <?php
+                    foreach ($a as $b) {
+                        $c += $b->jum_lokasi; //jum_lokasi 
+                        ?>
+                        <tr>
+                            <td>
+                                <?php
+                                static $id = 1;
+                                echo $id++;
+                                ?>
+                            </td>
+                            <td style="text-align:left !important;"><?php echo $b->province_title; ?></td>
+                            <td><?php echo $b->jum_lokasi; ?></td>
+                            <td>
+                                <?php
+                                if (!isset($b->province_title)) {
+                                    null;
+                                } else {
+                                    echo '<a href="' . base_url('Binsyar/Lokasi/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->lokasi_provinsi . '&b=' . $b->province_title))) . '" title="" class="btn btn-icon btn-default btn-xs"><i class="fas fa-eye"></i></a>';
+                                }
+                                ?>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+                <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th colspan="3"></th>
+                        <th colspan="4">total data hisab lokasi <?php echo number_format($c); ?></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
+<input type="hidden" name="jum_lokasi" readonly="" value="<?php echo number_format($c); ?>"/>
 <script>
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/siihat/hisablokasi?KEY=boba";
+        var a;
+        a = $('input[name="jum_lokasi"]').val();
+        document.getElementById('title_chartdiv').innerText = "Total Data Hisab Lokasi: " + a;
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],
             "paging": false,
             "ordering": true,
             "info": true,
-            "processing": true,
+            "processing": false,
             "deferRender": true,
             "scrollCollapse": true,
             "scrollX": true,
             "scrollY": "400px",
-            "ajax": {
-                dataSrc: '',
-                method: "GET",
-                async: false,
-                url: url
-            },
-            columns: [
-                {data: "province_title"},
-                {data: "jum_lokasi", className: "text-center jum_lokasi"},
-                {
-                    data: null, className: "text-center",
-                    render: function (data) {
-                        var a, b, c;
-                        a = data.lokasi_provinsi;
-                        b = data.province_title;
-                        c = b.replace(' ', '_');
-                        return '<a href="<?= base_url('Binsyar/Lokasi/Provinsi/'); ?>' + a + "/" + c + '" class="btn btn-icon btn-default btn-xs" title="Detail Prov ' + b + '"><i class="fas fa-eye"></i></a>';
-                    }
-                }
-            ],
-            footerCallback: function () {
-                var api = this.api();
-                var numFormat = $.fn.dataTable.render.number('\.', '', 0, '').display;
-                api.columns('.jum_lokasi', {page: 'all'}).every(function () {
-                    var sum = this
-                            .data()
-                            .reduce(function (a, b) {
-                                var x = parseFloat(a) || 0;
-                                var y = parseFloat(b) || 0;
-                                return x + y;
-                            }, 0);
-                    $(this.footer()).html("Jumlah Hisab Lokasi " + "<span id='tot_ahli'>" + numFormat(sum) + "</span>");
-                });
-            }
+            dom: `<'row'<'col-sm-6 text-left'f><'col-sm-6 text-right'B>>
+                <'row'<'col-sm-12'tr>>
+                <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
+            buttons: [
+                'print',
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5'
+            ]
         });
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.dataSource.url = url;
+            chart.data = <?= $data; ?>;
+            chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
-            categoryAxis.title.text = 'Hisab Lokasi';
+            categoryAxis.title.text = 'Daerah Tingkat Provinsi';
             categoryAxis.dataFields.category = "province_title";
             categoryAxis.renderer.grid.template.location = 0;
             categoryAxis.renderer.minGridDistance = 30;
@@ -101,14 +114,19 @@
             categoryAxis.tooltip.disabled = true;
             categoryAxis.renderer.minHeight = 110;
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-            valueAxis.renderer.minWidth = 100;
+            valueAxis.renderer.minWidth = 50;
             valueAxis.title.text = "Jumlah Hisab Lokasi";
             valueAxis.title.fontWeight = 800;
             var series = chart.series.push(new am4charts.ColumnSeries());
+            series.sequencedInterpolation = true;
             series.dataFields.valueY = "jum_lokasi";
             series.dataFields.categoryX = "province_title";
-            series.clustered = false;
-            series.tooltipText = "Jumlah {categoryX}: [bold]{valueY}[/]";
+            series.tooltipText = "Jumlah Hisab {province_title}: [bold]{valueY}[/]";
+            series.columns.template.strokeWidth = 0;
+            series.tooltip.pointerOrientation = "vertical";
+            series.columns.template.column.cornerRadiusTopLeft = 10;
+            series.columns.template.column.cornerRadiusTopRight = 10;
+            series.columns.template.column.fillOpacity = 0.8;
             var hoverState = series.columns.template.column.states.create("hover");
             hoverState.properties.cornerRadiusTopLeft = 0;
             hoverState.properties.cornerRadiusTopRight = 0;
@@ -117,7 +135,6 @@
                 return chart.colors.getIndex(target.dataItem.index);
             });
             chart.cursor = new am4charts.XYCursor();
-            categoryAxis.sortBySeries = series;
         });
     };
 </script>

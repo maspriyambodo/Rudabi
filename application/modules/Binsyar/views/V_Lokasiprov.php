@@ -1,7 +1,8 @@
+<?php $a = json_decode($data); ?>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Hisab Lokasi Provinsi {provinsi}</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Hisab Lokasi Provinsi <?php echo $param[1]; ?></h5>
         </div>
     </div>
 </div>
@@ -35,53 +36,49 @@
                         <th>menit</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <?php foreach ($a as $b) { ?>
+                        <tr>
+                            <td><?php echo $b->city_title; ?></td>
+                            <td><?php echo $b->lokasi_lokasi; ?></td>
+                            <td class="text-center"><?php echo $b->lokasi_bujur_deg; ?></td>
+                            <td class="text-center"><?php echo $b->lokasi_bujur_arah; ?></td>
+                            <td class="text-center"><?php echo $b->lokasi_bujur_jam; ?></td>
+                            <td class="text-center"><?php echo $b->lokasi_bujur_menit; ?></td>
+                            <td class="text-center"><?php echo $b->lokasi_lintang_deg; ?></td>
+                            <td class="text-center"><?php echo $b->lokasi_lintang_arah; ?></td>
+                            <td class="text-center"><?php echo $b->lokasi_lintang_jam; ?></td>
+                            <td class="text-center"><?php echo $b->lokasi_lintang_menit; ?></td>
+                            <td><?php echo $b->lokasi_alamat; ?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
             </table>
         </div>
     </div>
 </div>
 <script>
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/siihat/hisablokasi?KEY=boba&lokasi_provinsi=<?= $id; ?>";
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],
             "paging": true,
             "ordering": true,
             "info": true,
-            "processing": true,
+            "processing": false,
             "deferRender": true,
             "scrollCollapse": true,
             "scrollX": true,
             "scrollY": "400px",
             dom: `<'row'<'col-sm-6 text-left'f><'col-sm-6 text-right'B>>
-                        <'row'<'col-sm-12'tr>>
-                        <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
-
+                <'row'<'col-sm-12'tr>>
+                <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
             buttons: [
                 'print',
                 'copyHtml5',
                 'excelHtml5',
                 'csvHtml5',
                 'pdfHtml5'
-            ],
-            "ajax": {
-                dataSrc: '',
-                method: "GET",
-                async: false,
-                url: url
-            },
-            columns: [
-                {data: "city_title"},
-                {data: "lokasi_lokasi", className: "text-center"},
-                {data: "lokasi_bujur_deg", className: "text-center"},
-                {data: "lokasi_lintang_arah", className: "text-center"},
-                {data: "lokasi_lintang_jam", className: "text-center"},
-                {data: "lokasi_lintang_menit", className: "text-center"},
-                {data: "lokasi_bujur_deg", className: "text-center"},
-                {data: "lokasi_bujur_arah", className: "text-center"},
-                {data: "lokasi_bujur_jam", className: "text-center"},
-                {data: "lokasi_bujur_menit", className: "text-center"},
-                {data: "lokasi_alamat", className: "text-center"}
             ]
         });
     };
