@@ -35,4 +35,14 @@ class Tipologi extends CI_Controller {
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
+    public function Mushalla() {
+        $data = [
+            'title' => 'Mushalla Tipologi | RUDABI SYSTEM OF KEMENAG RI',
+            'username' => $this->Authentication[0]->uname,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/eimas/tipologimushalla?KEY=boba')
+        ];
+        $data['content'] = $this->parser->parse('Binsyar/Mushalla/Tipologi_index', $data, true);
+        return $this->parser->parse('Dashboard/Template', $data);
+    }
+
 }

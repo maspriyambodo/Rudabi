@@ -5,14 +5,14 @@ $c = 0;
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Tipologi Masjid</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Tipologi Mushalla</h5>
         </div>
     </div>
 </div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            Data Masjid Tipologi
+            Data Mushalla Tipologi
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -31,7 +31,7 @@ $c = 0;
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            Detail Masjid Tipologi
+            Detail Mushalla Tipologi
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -52,7 +52,7 @@ $c = 0;
                 <tbody>
                     <?php
                     foreach ($a as $b) {
-                        $c += $b->dt_masjid;
+                        $c += $b->dt_mushalla;
                         ?>
                         <tr>
                             <td class="text-center">
@@ -62,13 +62,13 @@ $c = 0;
                                 ?>
                             </td>
                             <td><?php echo $b->tipologi_name; ?></td>
-                            <td class="text-center"><?php echo $b->dt_masjid; ?></td>
+                            <td class="text-center"><?php echo $b->dt_mushalla; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th colspan="3">total masjid tipologi <?php echo number_format($c); ?></th>
+                        <th colspan="3">total mushalla tipologi <?php echo number_format($c); ?></th>
                     </tr>
                 </tfoot>
             </table>
@@ -96,11 +96,11 @@ $c = 0;
             categoryAxis.renderer.minHeight = 110;
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
             valueAxis.renderer.minWidth = 50;
-            valueAxis.title.text = "Jumlah Masjid";
+            valueAxis.title.text = "Jumlah Mushalla";
             valueAxis.title.fontWeight = 800;
             var series = chart.series.push(new am4charts.ColumnSeries());
             series.sequencedInterpolation = true;
-            series.dataFields.valueY = "dt_masjid";
+            series.dataFields.valueY = "dt_mushalla";
             series.dataFields.categoryX = "tipologi_name";
             series.tooltipText = "Jumlah Tipologi {tipologi_name}: [bold]{valueY}[/]";
             series.columns.template.strokeWidth = 0;

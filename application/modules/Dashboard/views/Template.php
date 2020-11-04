@@ -250,6 +250,14 @@
                                                     <span class="menu-text">Masjid Tipologi</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('Binsyar/Tipologi/Mushalla/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
+                                                    <span class="menu-text">Mushalla Tipologi</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>
