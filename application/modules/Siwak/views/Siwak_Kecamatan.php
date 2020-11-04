@@ -28,7 +28,7 @@
                         <th rowspan="2">wakif</th>
                         <th rowspan="2">nadzir</th>
                         <th colspan="2">sertifikat</th>
-                        <th rowspan="2">Akta Ikrar Wakaf</th>
+                        <th colspan="2">Akta Ikrar Wakaf</th>
                     </tr>
                     <tr>
                         <th>nomor</th>
@@ -41,7 +41,7 @@
                     <?php foreach ($a as $b) { ?>
                         <tr>
                             <td style="text-align:left !important;"><?php echo $b->Lokasi_Kel; ?></td>
-                            <td><?php echo number_format($b->Luas / 10000, 2, ',', '.'); ?></td><!-- m&sup2; -->
+                            <td><?php echo $b->Luas; ?></td><!-- m&sup2; -->
                             <td><?php echo $b->Penggunaan; ?></td>
                             <td style="text-align:left !important;"><?php echo $b->Wakif; ?></td>
                             <td style="text-align:left !important;"><?php echo $b->Nadzir; ?></td>
