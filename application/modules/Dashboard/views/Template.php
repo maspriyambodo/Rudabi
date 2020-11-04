@@ -243,7 +243,7 @@
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
-                                                <a href="<?= base_url('Binsyar/Simas/Tipologi/index/'); ?>" class="menu-link menu-toggle">
+                                                <a href="<?= base_url('Binsyar/Tipologi/index/'); ?>" class="menu-link menu-toggle">
                                                     <i class="menu-bullet menu-bullet-dot">
                                                         <span></span>
                                                     </i>

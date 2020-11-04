@@ -27,11 +27,11 @@ class Tipologi extends CI_Controller {
 
     public function index() {
         $data = [
-            'title' => 'Sistem Informasi Masjid | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Masjid Tipologi | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/eimas/datamasjid?KEY=boba')
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/eimas/tipologimasjid?KEY=boba')
         ];
-        $data['content'] = $this->parser->parse('Binsyar/Simas/Simas_index', $data, true);
+        $data['content'] = $this->parser->parse('Binsyar/Simas/Tipologi_index', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
