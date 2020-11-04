@@ -16,14 +16,14 @@ $n = 0; //pengguna_sosial
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Sistem Informasi Wakaf</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Wakaf <?php echo $param[3]; ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            Data Tanah Wakaf
+            <a href="<?= base_url('Siwak/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -95,9 +95,9 @@ $n = 0; //pengguna_sosial
                         $c += str_replace(',', '', $b->dt_wakaf); //dt_wakaf
                         $d += $b->dt_luas; //dt_luas
                         $e += str_replace(',', '', $b->dt_sertifikat); //dt_sertifikat
-                        $f += str_replace(',', '', $b->dt_luas_sertifikat); //dt_luas_sertifikat
+                        $f += $b->dt_luas_sertifikat; //dt_luas_sertifikat
                         $g += str_replace(',', '', $b->dt_nonsertifikat); //dt_nonsertifikat
-                        $h += str_replace(',', '', $b->dt_luas_nonsertifikat); //dt_luas_nonsertifikat
+                        $h += $b->dt_luas_nonsertifikat; //dt_luas_nonsertifikat
                         $i += str_replace(',', '', $b->pengguna_masjid); //pengguna_masjid
                         $j += str_replace(',', '', $b->pengguna_musholla); //pengguna_musholla
                         $k += str_replace(',', '', $b->pengguna_sekolah); //pengguna_sekolah
@@ -109,10 +109,10 @@ $n = 0; //pengguna_sosial
                             <td style="text-align:left !important;"><?= '<a href="' . base_url('Siwak/Kecamatan?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $param[2] . '&d=' . $param[3] . '&e=' . $b->lokasi_ID . '&f=' . $b->lokasi_nama))) . '" title="Detail Kecamatan ' . $b->lokasi_nama . '">' . $b->lokasi_nama . '</a>' ?></td>
                             <td><?= $b->dt_wakaf; ?></td>
                             <td><?php echo number_format($b->dt_luas / 10000, 2, ',', '.'); ?></td>
-                            <td><?= $b->dt_sertifikat; ?></td>
-                            <td><?= $b->dt_luas_sertifikat; ?></td>
+                            <td><?= str_replace(',', '.', number_format($b->dt_sertifikat)); ?></td>
+                            <td><?php echo number_format($b->dt_luas_sertifikat / 10000, 2, ',', '.'); ?></td>
                             <td><?= $b->dt_nonsertifikat; ?></td>
-                            <td><?= $b->dt_luas_nonsertifikat; ?></td>
+                            <td><?= number_format($b->dt_luas_nonsertifikat / 10000, 2, ',', '.'); ?></td>
                             <td><?= $b->pengguna_masjid; ?></td>
                             <td><?= $b->pengguna_musholla; ?></td>
                             <td><?= $b->pengguna_sekolah; ?></td>
@@ -128,9 +128,9 @@ $n = 0; //pengguna_sosial
                         <th><?= number_format($c); ?></th>
                         <th><?= number_format($d / 10000, 2, ',', '.'); ?></th>
                         <th><?= number_format($e); ?></th>
-                        <th><?= number_format($f); ?></th>
+                        <th><?= number_format($f / 10000, 2, ',', '.'); ?></th>
                         <th><?= number_format($g); ?></th>
-                        <th><?= number_format($h); ?></th>
+                        <th><?= number_format($h / 10000, 2, ',', '.'); ?></th>
                         <th><?= number_format($i); ?></th>
                         <th><?= number_format($j); ?></th>
                         <th><?= number_format($k); ?></th>

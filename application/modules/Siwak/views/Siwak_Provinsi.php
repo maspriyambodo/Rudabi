@@ -73,14 +73,16 @@ $n = 0; //pengguna_sosial
                     <tr>
                         <th rowspan="2">provinsi</th>
                         <th rowspan="2">jumlah<br>data</th>
-                        <th rowspan="2">luas</th>
-                        <th rowspan="2">sertifikat</th>
-                        <th rowspan="2">luas<br>sertifikat</th>
-                        <th rowspan="2">non<br>sertifikat</th>
-                        <th rowspan="2">luas<br>non-sertifikat</th>
+                        <th rowspan="2">luas (Ha)</th>
+                        <th colspan="2">Sudah Sertifikat</th>
+                        <th colspan="2">Belum Sertifikat</th>
                         <th colspan="6">data penggunaan tanah wakaf</th>
                     </tr>
                     <tr>
+                        <th>Jumlah</th>
+                        <th>luas (Ha)</th>
+                        <th>Jumlah</th>
+                        <th>luas (Ha)</th>
                         <th>masjid</th>
                         <th>mushalla</th>
                         <th>sekolah</th>
@@ -95,9 +97,9 @@ $n = 0; //pengguna_sosial
                         $c += str_replace(',', '', $b->dt_wakaf); //dt_wakaf
                         $d += $b->dt_luas; //dt_luas
                         $e += str_replace(',', '', $b->dt_sertifikat); //dt_sertifikat
-                        $f += str_replace(',', '', $b->dt_luas_sertifikat); //dt_luas_sertifikat
+                        $f += $b->dt_luas_sertifikat; //dt_luas_sertifikat
                         $g += str_replace(',', '', $b->dt_nonsertifikat); //dt_nonsertifikat
-                        $h += str_replace(',', '', $b->dt_luas_nonsertifikat); //dt_luas_nonsertifikat
+                        $h += $b->dt_luas_nonsertifikat; //dt_luas_nonsertifikat
                         $i += str_replace(',', '', $b->pengguna_masjid); //pengguna_masjid
                         $j += str_replace(',', '', $b->pengguna_musholla); //pengguna_musholla
                         $k += str_replace(',', '', $b->pengguna_sekolah); //pengguna_sekolah
@@ -110,9 +112,9 @@ $n = 0; //pengguna_sosial
                             <td><?= $b->dt_wakaf; ?></td>
                             <td><?php echo number_format($b->dt_luas / 10000, 2, ',', '.'); ?></td>
                             <td><?= $b->dt_sertifikat; ?></td>
-                            <td><?= $b->dt_luas_sertifikat; ?></td>
+                            <td><?php echo number_format($b->dt_luas_sertifikat / 10000, 2, ',', '.'); ?></td>
                             <td><?= $b->dt_nonsertifikat; ?></td>
-                            <td><?= $b->dt_luas_nonsertifikat; ?></td>
+                            <td><?php echo number_format($b->dt_luas_nonsertifikat / 10000, 2, ',', '.'); ?></td>
                             <td><?= $b->pengguna_masjid; ?></td>
                             <td><?= $b->pengguna_musholla; ?></td>
                             <td><?= $b->pengguna_sekolah; ?></td>
@@ -128,9 +130,9 @@ $n = 0; //pengguna_sosial
                         <th><?= number_format($c); ?></th>
                         <th><?= number_format($d / 10000, 2, ',', '.'); ?></th>
                         <th><?= number_format($e); ?></th>
-                        <th><?= number_format($f); ?></th>
+                        <th><?= number_format($f / 10000, 2, ',', '.'); ?></th>
                         <th><?= number_format($g); ?></th>
-                        <th><?= number_format($h); ?></th>
+                        <th><?= number_format($h / 10000, 2, ',', '.'); ?></th>
                         <th><?= number_format($i); ?></th>
                         <th><?= number_format($j); ?></th>
                         <th><?= number_format($k); ?></th>
