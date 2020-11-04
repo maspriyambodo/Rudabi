@@ -105,10 +105,6 @@ $k = 0; //dt_remaja
                         <th><?= number_format($i); ?></th>
                         <th><?= number_format($j); ?></th>
                         <th><?= number_format($k); ?></th>
-                        <th><?= number_format($l); ?></th>
-                        <th><?= number_format($m); ?></th>
-                        <th><?= number_format($n); ?></th>
-                        <th><?= number_format($o); ?></th>
                     </tr>
                 </tfoot>
             </table>
@@ -136,6 +132,7 @@ $k = 0; //dt_remaja
         g = $('input[name="dt_khatib"]').val();
         h = $('input[name="dt_muazin"]').val();
         i = $('input[name="dt_remaja"]').val();
+        document.getElementById('title_chartdiv').innerText="Total Data Mushalla: " + a;
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);

@@ -52,7 +52,7 @@ class Mushalla extends CI_Controller {
         $data = [
             'title' => 'Data Mushalla ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/eimas/datamushalla?KEY=boba&kabupaten_id=' . $param[0]),
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/eimas/datamushalla?KEY=boba&kabupaten_id=' . $param[2]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Binsyar/Mushalla/Mushalla_Kabupaten', $data, true);
