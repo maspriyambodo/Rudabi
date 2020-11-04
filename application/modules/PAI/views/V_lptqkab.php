@@ -1,14 +1,20 @@
+<?php $a = json_decode($data); ?>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">data LPTQ Kabupaten {kabupaten}</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data LPTQ <?php echo $param[3]; ?></h5>
         </div>
     </div>
 </div>
-<div class="card card-custom">
+<div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <button type="button" class="btn btn-light btn-shadow-hover" onclick="Back()"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <a href="<?= base_url('PAI/LPTQ/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
         </div>
     </div>
     <div class="card-body">
@@ -16,27 +22,29 @@
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
                     <tr>
-                        <th colspan="3">LPTQ</th>
-                        <th rowspan="2">izin</th>
-                        <th rowspan="2">alamat</th>
-                        <th rowspan="2">afiliasi</th>
-                        <th rowspan="2">transportasi</th>
-                        <th rowspan="2">topografi</th>
-                        <th rowspan="2">geografi</th>
-                        <th rowspan="2">status<br>tanah</th>
-                        <th rowspan="2">nomor<br>sertifikat</th>
-                        <th rowspan="2">lt</th>
-                        <th rowspan="2">lb</th>
-                        <th colspan="2">pengurus</th>
-                    </tr>
-                    <tr>
-                        <th>nama</th>
-                        <th>ketua</th>
+                        <th>no</th>
+                        <th>nama lptq</th>
+                        <th>nama ketua</th>
                         <th>tahun</th>
-                        <th>pria</th>
-                        <th>wanita</th>
+                        <th>afiliasi</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <?php foreach ($a as $b) { ?>
+                        <tr>
+                            <td class="text-center">
+                                <?php
+                                static $id = 1;
+                                echo $id++;
+                                ?>
+                            </td>
+                            <td><?php echo $b->lsm_nama; ?></td>
+                            <td><?php echo $b->lsm_nama_ketua; ?></td>
+                            <td class="text-center"><?php echo $b->lsm_thn_berdiri; ?></td>
+                            <td><?php echo $b->lsm_afiliasi; ?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
             </table>
         </div>
     </div>
@@ -49,36 +57,20 @@
             "paging": true,
             "ordering": true,
             "info": true,
-            "processing": true,
+            "processing": false,
             "deferRender": true,
             "scrollCollapse": true,
             "scrollX": true,
             "scrollY": "400px",
-            "fixedColumns": {
-                leftColumns: 3
-            },
-            "ajax": {
-                dataSrc: '',
-                method: "GET",
-                async: false,
-                url: "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lsmislam?KEY=BOBA&city_id=<?= $id; ?>"
-            },
-            columns: [
-                {data: "lsm_islam_nama"},
-                {data: "lsm_islam_nama_ketua", className: "text-center"},
-                {data: "lsm_islam_thn_berdiri", className: "text-center"},
-                {data: "lsm_islam_izin_opr", className: "text-center"},
-                {data: "lsm_islam_alamat", className: "text-center"},
-                {data: "lsm_islam_afiliasi", className: "text-center"},
-                {data: "lsm_islam_transportasi", className: "text-center"},
-                {data: "lsm_islam_topography", className: "text-center"},
-                {data: "lsm_islam_geography", className: "text-center"},
-                {data: "lsm_islam_status_tanah", className: "text-center"},
-                {data: "lsm_islam_no_sertifikat", className: "text-center"},
-                {data: "lsm_islam_luas_tanah", className: "text-center"},
-                {data: "lsm_islam_luas_bangunan", className: "text-center"},
-                {data: "lsm_islam_pengurus_pria", className: "text-center"},
-                {data: "lsm_islam_pengurus_wanita", className: "text-center"}
+            dom: `<'row'<'col-sm-6 text-left'f><'col-sm-6 text-right'B>>
+                <'row'<'col-sm-12'tr>>
+                <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
+            buttons: [
+                'print',
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5'
             ]
         });
     };
