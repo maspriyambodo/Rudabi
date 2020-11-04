@@ -84,8 +84,10 @@ class Auth extends CI_Controller {
     }
 
     public function Management() {
+        $exec = $this->M_Auth->Auth(); // output = Array ( [0] => stdClass Object ( [uname] => admin [hak_akses] => 1 [stat] => 1 ) )
         $data = [
             'title' => 'User Management | RUDABI SYSTEM OF KEMENAG RI',
+            'username' => $exec[0]->uname,
             'user' => $this->M_Auth->Management(),
             'subdit' => $this->M_Auth->Subdit(),
             'csrf' => $this->Csrf()

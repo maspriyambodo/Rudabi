@@ -19,6 +19,19 @@ defined('BASEPATH')OR exit('No direct script access allowed');
  */
 class M_Auth extends CI_Model {
 
+    public function Auth() {
+        $exec = $this->db->select('auth.uname, auth.hak_akses, auth.stat')
+                ->from('auth')
+                ->where(['auth.uname' => $this->session->userdata('username'), 'auth.hak_akses' => 1, 'auth.stat' => 1])
+                ->get()
+                ->result();
+        if (sizeof($exec) >= 1) {
+            return $exec;
+        } else {
+            return redirect(base_url('Auth/index/'), 'refresh');
+        }
+    }
+
     function Process($data) {
         $exec = $this->db->select('auth.id, auth.uname, auth.hak_akses')
                 ->from('auth')
