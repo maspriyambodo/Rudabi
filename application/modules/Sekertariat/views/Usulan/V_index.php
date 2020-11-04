@@ -167,8 +167,8 @@
         return window.location.href = "Sekertariat/Usulan/index/" + a;
     }
     window.onload = function () {
-        var a = $('input[name="jum_data"]').val();
-        document.getElementById('title_chartdiv').innerText = "Total Data Usulan: " + a;
+        var b = $('input[name="jum_data"]').val();
+        document.getElementById('title_chartdiv').innerText = "Total Data Usulan: " + b;
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
