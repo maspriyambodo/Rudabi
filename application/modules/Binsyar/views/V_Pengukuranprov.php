@@ -1,7 +1,8 @@
+<?php $a = json_decode($data); ?>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">data Hisab Pengukuran provinsi {provinsi}</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">data Hisab Pengukuran provinsi <?php echo $param[1]; ?></h5>
         </div>
     </div>
 </div>
@@ -37,13 +38,33 @@
                         <th>menit</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <?php foreach ($a as $b) { ?>
+                        <tr>
+                            <td><?php echo $b->city_title; ?></td>
+                            <td><?php echo $b->ukur_tempat; ?></td>
+                            <td><?php echo $b->ukur_lokasi; ?></td>
+                            <td class="text-center"><?php echo $b->ukur_lintang_deg; ?></td>
+                            <td class="text-center"><?php echo $b->ukur_lintang_arah; ?></td>
+                            <td class="text-center"><?php echo $b->ukur_lintang_jam; ?></td>
+                            <td class="text-center"><?php echo $b->ukur_lintang_menit; ?></td>
+                            <td class="text-center"><?php echo $b->ukur_bujur_deg; ?></td>
+                            <td class="text-center"><?php echo $b->ukur_bujur_arah; ?></td>
+                            <td class="text-center"><?php echo $b->ukur_bujur_jam; ?></td>
+                            <td class="text-center"><?php echo $b->ukur_bujur_menit; ?></td>
+                            <td class="text-center"><?php echo $b->ukur_azimut_1; ?></td>
+                            <td class="text-center"><?php echo $b->ukur_azimut_2; ?></td>
+                            <td class="text-center"><?php echo $b->ukur_azimut_3; ?></td>
+                            <td><?php echo $b->ukur_alamat; ?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
             </table>
         </div>
     </div>
 </div>
 <script>
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/siihat/hisabpengukuran?KEY=BOBA&ukur_provinsi=<?= $id; ?>";
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],
@@ -68,30 +89,7 @@
             ],
             "fixedColumns": {
                 leftColumns: 2
-            },
-            "ajax": {
-                dataSrc: '',
-                method: "GET",
-                async: false,
-                url: url
-            },
-            columns: [
-                {data: "city_title"},
-                {data: "ukur_tempat", className: "text-center"},
-                {data: "ukur_lokasi", className: "text-center"},
-                {data: "ukur_lintang_deg", className: "text-center"},
-                {data: "ukur_lintang_arah", className: "text-center"},
-                {data: "ukur_lintang_jam", className: "text-center"},
-                {data: "ukur_lintang_menit", className: "text-center"},
-                {data: "ukur_bujur_deg", className: "text-center"},
-                {data: "ukur_bujur_arah", className: "text-center"},
-                {data: "ukur_bujur_jam", className: "text-center"},
-                {data: "ukur_bujur_menit", className: "text-center"},
-                {data: "ukur_azimut_1", className: "text-center"},
-                {data: "ukur_azimut_2", className: "text-center"},
-                {data: "ukur_azimut_3", className: "text-center"},
-                {data: "ukur_alamat", className: "text-center"}
-            ]
+            }
         });
     };
 </script>

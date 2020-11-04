@@ -34,6 +34,34 @@ $nonhadir_istri = str_replace(',', '', $catin[0]->nonhadir_istri);
         <div id="chartdiv" class="chartdivs"></div>
     </div>
 </div>
+<div class="clearfix" style="margin:5%;"></div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            <a href="<?= base_url('KUA/Catin/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped" style="width:100%;">
+                <thead class="text-center text-uppercase">
+                    <tr>
+                        <th>no</th>
+                        <th>target</th>
+                        <th>jumlah<br>catin</th>
+                        <th>hadir<br>suami</th>
+                        <th>no</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
 <script>
     function Tahun() {
         var a = $('select[name=tahun]').val();

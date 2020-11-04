@@ -1,3 +1,9 @@
+<?php
+$a = json_decode($data);
+$c = 0; //jum_hisab
+$d = 0; //ukur_berd_masjid
+$e = 0; //ukur_berd_mushalla
+?>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
@@ -15,6 +21,9 @@
     </div>
     <div class="card-body">
         <div id="jumlah_hisab" class="text-center"></div>
+        <div class="text-center">
+            <b><u id="title_chartdiv"></u></b>
+        </div>
         <div id="chartdiv" class="chartdivs"></div>
         <hr style="margin:5%;">
         <div class="table-responsive">
@@ -30,18 +39,46 @@
                         <th>mushalla</th>
                     </tr>
                 </thead>
+                <tbody class="text-center text-uppercase">
+                    <?php
+                    foreach ($a as $b) {
+                        $c += $b->jum_hisab; //jum_hisab 
+                        $d += $b->ukur_berd_masjid; //ukur_berd_masjid
+                        $e += $b->ukur_berd_mushalla; //ukur_berd_mushalla
+                        ?>
+                        <tr <?php
+                        if (!isset($b->province_title)) {
+                            echo ' style="display:none;"';
+                        } else {
+                            null;
+                        }
+                        ?>>
+                            <td style="text-align:left !important;">
+                                <?php echo '<a href ="' . base_url('Binsyar/Pengukuran/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->ukur_provinsi . '&b=' . $b->province_title))) . '" title="Detail Provinsi ' . $b->province_title . '">' . $b->province_title . '</a>'; ?>
+                            </td>
+                            <td><?php echo $b->jum_hisab; ?></td>
+                            <td><?php echo $b->ukur_berd_masjid; ?></td>
+                            <td><?php echo $b->ukur_berd_mushalla; ?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th>jumlah</th><th></th><th></th><th></th>
+                        <th>total</th>
+                        <th><?php echo number_format($c); ?></th>
+                        <th><?php echo number_format($d); ?></th>
+                        <th><?php echo number_format($e); ?></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
+<input type="hidden" name="jum_hisab" readonly="" value="<?php echo number_format($c); ?>"/>
 <script>
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/siihat/hisabpengukuran?KEY=boba";
+        var a;
+        a = $('input[name="jum_hisab"]').val();
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],
@@ -52,57 +89,18 @@
             "deferRender": true,
             "scrollCollapse": true,
             "scrollX": true,
-            "scrollY": "400px",
-            "ajax": {
-                dataSrc: '',
-                method: "GET",
-                async: false,
-                url: url
-            },
-            columns: [
-                {
-                    data: null,
-                    render: function (data) {
-                        var a, b, c;
-                        a = data.ukur_provinsi;
-                        b = data.province_title;
-                        c = b.replace(' ', '_');
-                        return '<a href="<?= base_url('Binsyar/Pengukuran/Provinsi/'); ?>' + a + "/" + c + '">' + b + '</a>';
-                    }
-                },
-                {data: "jum_hisab", className: "text-center jum_hisab"},
-                {data: "ukur_berd_masjid", className: "text-center ukur_berd_masjid"},
-                {data: "ukur_berd_mushalla", className: "text-center ukur_berd_mushalla"}
-            ],
-            footerCallback: function () {
-                var api = this.api();
-                var numFormat = $.fn.dataTable.render.number('\.', '', 0, '').display;
-                api.columns(['.jum_hisab', '.ukur_berd_masjid', '.ukur_berd_mushalla'], {page: 'all'}).every(function () {
-                    var sum = this
-                            .data()
-                            .reduce(function (a, b) {
-                                var x = parseFloat(a) || 0;
-                                var y = parseFloat(b) || 0;
-                                return x + y;
-                            }, 0);
-                    $(this.footer()).html(numFormat(sum));
-                });
-            }
+            "scrollY": "400px"
         });
-        var a, b, c, d;
-        a = document.getElementsByClassName('jum_hisab')[2].innerText;
-        b = document.getElementsByClassName('ukur_berd_masjid')[2].innerText;
-        c = document.getElementsByClassName('ukur_berd_mushalla')[2].innerText;
-        d = parseFloat(a) + parseFloat(b) + parseFloat(c);
-        document.getElementById('jumlah_hisab').innerHTML = "<b>Jumlah Alat Bantu Hisab Pengukuran " + a + "</b>";
+        document.getElementById('title_chartdiv').innerHTML = "Total Data Hisab Pengukuran: " + a;
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.dataSource.url = url;
+            chart.data = <?= $data; ?>;
+            chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
-            categoryAxis.title.text = 'Alat Bantu Hisab Pengukuran';
+            categoryAxis.title.text = 'Daerah Tingkat Provinsi';
             categoryAxis.dataFields.category = "province_title";
             categoryAxis.renderer.grid.template.location = 0;
             categoryAxis.renderer.minGridDistance = 30;
@@ -112,14 +110,19 @@
             categoryAxis.tooltip.disabled = true;
             categoryAxis.renderer.minHeight = 110;
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-            valueAxis.renderer.minWidth = 100;
+            valueAxis.renderer.minWidth = 50;
             valueAxis.title.text = "Jumlah Hisab Pengukuran";
             valueAxis.title.fontWeight = 800;
             var series = chart.series.push(new am4charts.ColumnSeries());
+            series.sequencedInterpolation = true;
             series.dataFields.valueY = "jum_hisab";
             series.dataFields.categoryX = "province_title";
-            series.clustered = false;
-            series.tooltipText = "Jumlah {categoryX}: [bold]{valueY}[/]";
+            series.tooltipText = "Jumlah Hisab Pengukuran {province_title}: [bold]{valueY}[/]";
+            series.columns.template.strokeWidth = 0;
+            series.tooltip.pointerOrientation = "vertical";
+            series.columns.template.column.cornerRadiusTopLeft = 10;
+            series.columns.template.column.cornerRadiusTopRight = 10;
+            series.columns.template.column.fillOpacity = 0.8;
             var hoverState = series.columns.template.column.states.create("hover");
             hoverState.properties.cornerRadiusTopLeft = 0;
             hoverState.properties.cornerRadiusTopRight = 0;
@@ -128,7 +131,6 @@
                 return chart.colors.getIndex(target.dataItem.index);
             });
             chart.cursor = new am4charts.XYCursor();
-            categoryAxis.sortBySeries = series;
         });
     };
 </script>

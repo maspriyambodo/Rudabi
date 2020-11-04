@@ -7,3 +7,9 @@ module Simas: API masih menggunakan ajax, ubah API di controllers
 
 module Simpenghulu: API masih menggunakan ajax, ubah API di controllers
               Belum terpasang module AUTH
+
+menurut dirjen:
+data penyuluh
+data masjid
+data kua, rusak berat, rusak ringan dll
+data pendidikan islam tidak akurat

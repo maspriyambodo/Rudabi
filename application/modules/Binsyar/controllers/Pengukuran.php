@@ -28,18 +28,20 @@ class Pengukuran extends CI_Controller {
     public function index() {
         $data = [
             'title' => 'Hisab Pengukuran | RUDABI SYSTEM OF KEMENAG RI',
-            'username' => $this->Authentication[0]->uname
+            'username' => $this->Authentication[0]->uname,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/siihat/hisabpengukuran?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Binsyar/V_Pengukuran', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
-    public function Provinsi($id, $prov) {
+    public function Provinsi() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 1 as ukur_provinsi [1] => Aceh as province_title) 
         $data = [
             'title' => 'Hisab Pengukuran | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'id' => $id,
-            'provinsi' => str_replace(['_', '%20'], ' ', $prov)
+            'param' => $param,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/siihat/hisabpengukuran?KEY=boba&ukur_provinsi=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Binsyar/V_Pengukuranprov', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);

@@ -1,27 +1,13 @@
 <?php
 $a = json_decode($data);
 $c = 0; //dt_penghulu
-$d = 0; //dt_1a
-$e = 0; //dt_1b
-$f = 0; //dt_1c
-$g = 0; //dt_1d
-$h = 0; //dt_2a
-$i = 0; //dt_2b
-$j = 0; //dt_2c
-$k = 0; //dt_2d
-$l = 0; //dt_3a
-$m = 0; //dt_3b
-$n = 0; //dt_3c
-$o = 0; //dt_3d
-$p = 0; //dt_4a
-$q = 0; //dt_4b
-$r = 0; //dt_4c
-$s = 0; //dt_4d
-$t = 0; //dt_4e
 $u = 0; //dt_sma
 $v = 0; //dt_s1
 $w = 0; //dt_s2
 $x = 0; //dt_s3
+$a1 = 0; //dt_pertama
+$a2 = 0; //dt_madya
+$a3 = 0; //dt_muda
 ?>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
@@ -61,6 +47,9 @@ $x = 0; //dt_s3
         </div>
     </div>
     <div class="card-body">
+        <div class="text-center">
+            <b><u id="title_chartdiv_a"></u></b>
+        </div>
         <div id="chartdiv_a" class="chartdivs"></div>
     </div>
 </div>
@@ -84,30 +73,13 @@ $x = 0; //dt_s3
                         <th rowspan="2">no</th>
                         <th rowspan="2">provinsi</th>
                         <th rowspan="2">jumlah<br>penghulu</th>
-                        <th colspan="4">golongan / I</th>
-                        <th colspan="4">golongan / II</th>
-                        <th colspan="4">golongan / III</th>
-                        <th colspan="5">golongan / IV</th>
+                        <th colspan="3">golongan</th>
                         <th colspan="4">pendidikan</th>
                     </tr>
                     <tr>
-                        <th>i/a</th>
-                        <th>i/b</th>
-                        <th>i/c</th>
-                        <th>i/d</th>
-                        <th>ii/a</th>
-                        <th>ii/b</th>
-                        <th>ii/c</th>
-                        <th>ii/d</th>
-                        <th>iii/a</th>
-                        <th>iii/b</th>
-                        <th>iii/c</th>
-                        <th>iii/d</th>
-                        <th>iv/a</th>
-                        <th>iv/b</th>
-                        <th>iv/c</th>
-                        <th>iv/d</th>
-                        <th>iv/e</th>
+                        <th>pertama</th>
+                        <th>madya</th>
+                        <th>muda</th>
                         <th>sma</th>
                         <th>s1</th>
                         <th>s2</th>
@@ -118,27 +90,13 @@ $x = 0; //dt_s3
                     <?php
                     foreach ($a as $b) {
                         $c += $b->dt_penghulu; //dt_penghulu
-                        $d += $b->dt_1a; //dt_1a
-                        $e += $b->dt_1b; //dt_1b
-                        $f += $b->dt_1c; //dt_1c
-                        $g += $b->dt_1d; //dt_1d
-                        $h += $b->dt_2a; //dt_2a
-                        $i += $b->dt_2b; //dt_2b
-                        $j += $b->dt_2c; //dt_2c
-                        $k += $b->dt_2d; //dt_2d
-                        $l += $b->dt_3a; //dt_3a
-                        $m += $b->dt_3b; //dt_3b
-                        $n += $b->dt_3c; //dt_3c
-                        $o += $b->dt_3d; //dt_3d
-                        $p += $b->dt_4a; //dt_4a
-                        $q += $b->dt_4b; //dt_4b
-                        $r += $b->dt_4c; //dt_4c
-                        $s += $b->dt_4d; //dt_4d
-                        $t += $b->dt_4e; //dt_4e
                         $u += $b->dt_sma; //dt_sma
                         $v += $b->dt_s1; //dt_s1
                         $w += $b->dt_s2; //dt_s2
                         $x += $b->dt_s3; //dt_s3
+                        $a1 += $b->dt_pertama; //dt_pertama
+                        $a2 += $b->dt_madya; //dt_madya
+                        $a3 += $b->dt_muda; //dt_muda
                         ?>
                         <tr>
                             <td>
@@ -153,23 +111,9 @@ $x = 0; //dt_s3
                                 ?>
                             </td>
                             <td><?= number_format($b->dt_penghulu); ?></td>
-                            <td><?= number_format($b->dt_1a); ?></td>
-                            <td><?= number_format($b->dt_1b); ?></td>
-                            <td><?= number_format($b->dt_1c); ?></td>
-                            <td><?= number_format($b->dt_1d); ?></td>
-                            <td><?= number_format($b->dt_2a); ?></td>
-                            <td><?= number_format($b->dt_2b); ?></td>
-                            <td><?= number_format($b->dt_2c); ?></td>
-                            <td><?= number_format($b->dt_2d); ?></td>
-                            <td><?= number_format($b->dt_3a); ?></td>
-                            <td><?= number_format($b->dt_3b); ?></td>
-                            <td><?= number_format($b->dt_3c); ?></td>
-                            <td><?= number_format($b->dt_3d); ?></td>
-                            <td><?= number_format($b->dt_4a); ?></td>
-                            <td><?= number_format($b->dt_4b); ?></td>
-                            <td><?= number_format($b->dt_4c); ?></td>
-                            <td><?= number_format($b->dt_4d); ?></td>
-                            <td><?= number_format($b->dt_4e); ?></td>
+                            <td><?= number_format($b->dt_pertama); ?></td>
+                            <td><?= number_format($b->dt_madya); ?></td>
+                            <td><?= number_format($b->dt_muda); ?></td>
                             <td><?= number_format($b->dt_sma); ?></td>
                             <td><?= number_format($b->dt_s1); ?></td>
                             <td><?= number_format($b->dt_s2); ?></td>
@@ -198,6 +142,9 @@ $x = 0; //dt_s3
                         <th><?= number_format($r); ?></th>
                         <th><?= number_format($s); ?></th>
                         <th><?= number_format($t); ?></th>
+                        <th><?= number_format($a1); ?></th>
+                        <th><?= number_format($a2); ?></th>
+                        <th><?= number_format($a3); ?></th>
                         <th><?= number_format($u); ?></th>
                         <th><?= number_format($v); ?></th>
                         <th><?= number_format($w); ?></th>
@@ -219,9 +166,19 @@ $ab = $p + $q + $r + $s + $t; //total golongan IV
 <input type="hidden" name="z" readonly="" value="<?= number_format($z); ?>"/>
 <input type="hidden" name="aa" readonly="" value="<?= number_format($aa); ?>"/>
 <input type="hidden" name="ab" readonly="" value="<?= number_format($ab); ?>"/>
+<input type="hidden" name="dt_pertama" readonly="" value="<?= $a1; ?>"/>
+<input type="hidden" name="dt_madya" readonly="" value="<?= $a2; ?>"/>
+<input type="hidden" name="dt_muda" readonly="" value="<?= $a3; ?>"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js" integrity="sha512-USPCA7jmJHlCNRSFwUFq3lAm9SaOjwG8TaB8riqx3i/dAJqhaYilVnaf2eVUH5zjq89BU6YguUuAno+jpRvUqA==" crossorigin="anonymous"></script>
 <script>
     window.onload = function () {
+        var a, b, c, d;
+        a = $('input[name=dt_muda]').val();
+        b = $('input[name=dt_madya]').val();
+        c = $('input[name=dt_pertama]').val();
+        d = parseFloat(a) + parseFloat(b) + parseFloat(c);
         document.getElementById('title_chartdiv').innerText = "Total Data Penghulu: " + $('input[name="dt_penghulu"]').val();
+        document.getElementById('title_chartdiv_a').innerText = "Total Data Golongan: " + numeral(d).format('0,0');
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
@@ -270,20 +227,16 @@ $ab = $p + $q + $r + $s + $t; //total golongan IV
             chart.legend = new am4charts.Legend();
             chart.data = [
                 {
-                    country: "Golongan / I",
-                    litres: $('input[name=y]').val()
+                    country: " Ahli Muda",
+                    litres: $('input[name=dt_muda]').val()
                 },
                 {
-                    country: "Golongan / II",
-                    litres: $('input[name=z]').val()
+                    country: "Ahli Madya",
+                    litres: $('input[name=dt_madya]').val()
                 },
                 {
-                    country: "Golongan / III",
-                    litres: $('input[name=aa]').val()
-                },
-                {
-                    country: "Golongan / IV",
-                    litres: $('input[name=ab]').val()
+                    country: " Ahli Pertama",
+                    litres: $('input[name=dt_muda]').val()
                 }
             ];
             chart.innerRadius = 100;
