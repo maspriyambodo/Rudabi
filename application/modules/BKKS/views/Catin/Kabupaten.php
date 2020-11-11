@@ -80,12 +80,12 @@ $h = 0; //hadir_bimwin_istri
                 <tbody class="text-center text-uppercase">
                     <?php
                     foreach ($a as $b) {
-                        $c += str_replace(',', '', $b->target_wilayah); //target_wilayah
+                        $c += str_replace(',', '', $b->target_kabkot); //target_kabkot
                         $d += str_replace(',', '', $b->jum_catin); //jum_catin
                         $e += str_replace(',', '', $b->hadir_pasutri); //hadir_pasutri
                         $f += str_replace(',', '', $b->nonhadir_pasutri); //nonhadir_pasutri
-                        $g += str_replace(',', '', $b->hadir_bimwin_suami); //hadir_bimwin_suami
-                        $h += str_replace(',', '', $b->hadir_bimwin_istri); //hadir_bimwin_istri
+                        $g += str_replace(',', '', $b->hadir_suami); //hadir_suami
+                        $h += str_replace(',', '', $b->hadir_istri); //hadir_bimwin_istri
                         ?>
                         <tr>
                             <td style="text-align:left !important;">

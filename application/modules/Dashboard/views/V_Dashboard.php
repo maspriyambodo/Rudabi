@@ -207,9 +207,17 @@
                         </div>
                         <div class="row m-0">
                             <div class="col-12 shortcut-item">
-                                <a href="<?php echo base_url('KUA/Catin/index/'); ?>">
+                                <a href="<?php echo base_url('BKKS/Catin/index/'); ?>">
                                     <i class="icon-2x flaticon-suitcase"></i>
                                     Data Catin
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row m-0">
+                            <div class="col-12 shortcut-item">
+                                <a href="<?php echo base_url('BKKS/Fasilitator/index/'); ?>">
+                                    <i class="icon-2x flaticon-suitcase"></i>
+                                    Data Fasilitator
                                 </a>
                             </div>
                         </div>
