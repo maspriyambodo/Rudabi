@@ -78,7 +78,13 @@
         var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/ormas?KEY=BOBA&city_id=<?= $id; ?>";
         $('table').dataTable({
             dom: 'Blfrtip',
-            buttons: true,
+            buttons: [
+                {extend: 'print', footer: true},
+                {extend: 'copyHtml5', footer: true},
+                {extend: 'excelHtml5', footer: true},
+                {extend: 'csvHtml5', footer: true},
+                {extend: 'pdfHtml5', footer: true}
+            ],
             "ServerSide": true,
             "order": [[0, "asc"]],
             "paging": false,

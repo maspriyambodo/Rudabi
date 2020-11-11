@@ -54,12 +54,12 @@
                         <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
 
             buttons: [
-                'print',
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
+                {extend: 'print', footer: true},
+                {extend: 'copyHtml5', footer: true},
+                {extend: 'excelHtml5', footer: true},
+                {extend: 'csvHtml5', footer: true},
                 {
-                    extend: 'pdfHtml5',
+                    extend: 'pdfHtml5', footer: true,
                     customize: function (doc) {
                         doc.styles.title = {
                             display: 'none'
