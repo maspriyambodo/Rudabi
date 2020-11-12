@@ -61,29 +61,62 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Bina KUA & Keluarga Sakinah</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Target Catin</h5>
         </div>
     </div>
 </div>
-<div class="card card-custom">
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            Data Tahun Target Catin
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div id="chartdiv" class="chartdivs"></div>
+    </div>
+</div>
+<div class="clearfix" style="margin: 5%;"></div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
             <div class="text-uppercase">
                 data target catin
             </div>
         </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
     </div>
     <div class="card-body">
         <div class="text-center">
             <b>Target CATIN Perwilayah</b>
         </div>
-        <div id="chartdiv" class="chartdivs"></div>
-        <hr style="margin:5% 0px;">
         <div class="text-center">
             <b>Jumlah Target dan Realisasi</b>
         </div>
         <div id="chartdiv_a" class="chartdivs"></div>
-        <hr style="margin:5% 0px;">
+    </div>
+</div>
+<div class="clearfix" style="margin:5%;"></div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            Detail Data Target Catin
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-uppercase text-center">

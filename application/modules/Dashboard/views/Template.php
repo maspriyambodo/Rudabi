@@ -279,7 +279,7 @@
                                                 <span class="menu-link"><span class="menu-text">BIMWIN</span></span>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
-                                                <a href="<?= base_url('BKKS/Catin/index/'); ?>" class="menu-link menu-toggle">
+                                                <a href="<?= base_url('KUA/Bimwin/index/'); ?>" class="menu-link menu-toggle">
                                                     <i class="menu-bullet menu-bullet-dot">
                                                         <span></span>
                                                     </i>
