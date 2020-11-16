@@ -13,3 +13,6 @@ data penyuluh
 data masjid
 data kua, rusak berat, rusak ringan dll
 data pendidikan islam tidak akurat
+
+http://localhost/Rudabi/Sekertariat/Satker/index/
+tambahkan total data satker pada graphic
