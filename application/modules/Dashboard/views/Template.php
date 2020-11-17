@@ -468,11 +468,19 @@
                                                 <span class="menu-link"><span class="menu-text">Simpenais</span></span>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
-                                                <a href="<?= base_url('PAI/Simpenais/index/'); ?>" class="menu-link menu-toggle">
+                                                <a href="<?= base_url('PAI/Pns/index'); ?>" class="menu-link menu-toggle">
                                                     <i class="menu-bullet menu-bullet-dot">
                                                         <span></span>
                                                     </i>
-                                                    <span class="menu-text">Penyuluh</span><span class="menu-label"></span>
+                                                    <span class="menu-text">Penyuluh PNS</span><span class="menu-label"></span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                                <a href="<?= base_url('PAI/N_pns/index/'); ?>" class="menu-link menu-toggle">
+                                                    <i class="menu-bullet menu-bullet-dot">
+                                                        <span></span>
+                                                    </i>
+                                                    <span class="menu-text">Penyuluh non-PNS</span><span class="menu-label"></span>
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
