@@ -130,5 +130,9 @@ $totjumlah_kua = 0;
             return chart.colors.getIndex(target.dataItem.index);
         });
         chart.cursor = new am4charts.XYCursor();
+        var valueLabel = series.bullets.push(new am4charts.LabelBullet());
+        valueLabel.label.text = "{valueY}";
+        valueLabel.label.fontSize = 10;
+        valueLabel.label.verticalCenter = "top";
     });
 </script>

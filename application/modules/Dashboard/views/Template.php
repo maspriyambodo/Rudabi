@@ -295,14 +295,6 @@
                                                 </a>
                                             </li>
                                             <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
-                                                <a href="<?= base_url('BKKS/Instruktur/index/' . date("Y") . ''); ?>" class="menu-link menu-toggle">
-                                                    <i class="menu-bullet menu-bullet-dot">
-                                                        <span></span>
-                                                    </i>
-                                                    <span class="menu-text">Instruktur Bimwin</span><span class="menu-label"></span>
-                                                </a>
-                                            </li>
-                                            <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
                                                 <a href="<?= base_url('BKKS/Fasilitator/index/' . date("Y") . ''); ?>" class="menu-link menu-toggle">
                                                     <i class="menu-bullet menu-bullet-dot">
                                                         <span></span>

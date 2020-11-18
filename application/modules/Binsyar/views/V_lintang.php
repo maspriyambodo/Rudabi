@@ -141,8 +141,12 @@
             series.columns.template.adapter.add("fill", function (fill, target) {
                 return chart.colors.getIndex(target.dataItem.index);
             });
+            var valueLabel = series.bullets.push(new am4charts.LabelBullet());
+            valueLabel.label.text = "{valueY}";
+            valueLabel.label.fontSize = 10;
+            valueLabel.label.verticalCenter = "top";
             chart.cursor = new am4charts.XYCursor();
-            categoryAxis.sortBySeries = series;
+            
         });
     };
 </script>

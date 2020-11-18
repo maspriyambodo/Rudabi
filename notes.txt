@@ -16,3 +16,8 @@ data pendidikan islam tidak akurat
 
 http://localhost/Rudabi/Sekertariat/Satker/index/
 tambahkan total data satker pada graphic
+
+var valueLabel = series.bullets.push(new am4charts.LabelBullet());
+valueLabel.label.text = "{valueY}";
+valueLabel.label.fontSize = 10;
+valueLabel.label.verticalCenter = "top";

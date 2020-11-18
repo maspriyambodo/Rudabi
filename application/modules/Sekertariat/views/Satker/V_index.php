@@ -5,12 +5,15 @@
         </div>
     </div>
 </div>
-<div class="card card-custom">
+<div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <div class="text-uppercase">
-                Jumlah satker per provinsi
-            </div>
+            Jumlah Satker per Provinsi
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
         </div>
     </div>
     <div class="card-body">
@@ -21,12 +24,15 @@
     </div>
 </div>
 <div class="clear" style="margin:5% 0px;"></div>
-<div class="card card-custom">
+<div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <div class="text-uppercase">
-                data nama &amp; kode satker
-            </div>
+            Data Nama &amp; Kode Satker
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
         </div>
     </div>
     <div class="card-body">
@@ -34,12 +40,15 @@
     </div>
 </div>
 <div class="clear" style="margin:5% 0px;"></div>
-<div class="card card-custom">
+<div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <div class="text-uppercase">
-                detail data satker per provinsi
-            </div>
+            Detail Data Satker per Provinsi
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
         </div>
     </div>
     <div class="card-body">
@@ -427,6 +436,10 @@
             series.columns.template.adapter.add("fill", function (fill, target) {
                 return chart.colors.getIndex(target.dataItem.index);
             });
+            var valueLabel = series.bullets.push(new am4charts.LabelBullet());
+            valueLabel.label.text = "{valueY}";
+            valueLabel.label.fontSize = 10;
+            valueLabel.label.verticalCenter = "top";
             chart.cursor = new am4charts.XYCursor();
             categoryAxis.sortBySeries = series;
         });

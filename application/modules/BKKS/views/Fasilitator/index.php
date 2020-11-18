@@ -103,7 +103,7 @@ $c = 0; //dt_fasilitator
             categoryAxis.renderer.labels.template.verticalCenter = "middle";
             categoryAxis.renderer.labels.template.rotation = 270;
             categoryAxis.tooltip.disabled = true;
-            categoryAxis.renderer.minHeight = 110;
+            categoryAxis.renderer.minHeight = 50;
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
             valueAxis.renderer.minWidth = 50;
             valueAxis.title.text = "Jumlah Fasilitator";
@@ -126,6 +126,10 @@ $c = 0; //dt_fasilitator
             series.columns.template.adapter.add("fill", function (fill, target) {
                 return chart.colors.getIndex(target.dataItem.index);
             });
+            var valueLabel = series.bullets.push(new am4charts.LabelBullet());
+            valueLabel.label.text = "{valueY}";
+            valueLabel.label.fontSize = 20;
+            valueLabel.label.verticalCenter = "top";
             chart.cursor = new am4charts.XYCursor();
         });
         $('table').dataTable({
