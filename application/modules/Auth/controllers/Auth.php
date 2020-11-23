@@ -44,7 +44,7 @@ class Auth extends CI_Controller {
             case 2://Sub Direktorat Sekertariat
                 return redirect(base_url('Users/Sekertariat/Dashboard/index/'), 'refresh');
             case 3://DIREKTORAT URUSAN AGAMA ISLAM DAN PEMBINAAN SYARIAH
-                return redirect(base_url('Binsyar/index/'), 'refresh');
+                return redirect(base_url('Users/Binsyar/Dashboard/index/'), 'refresh');
             case 4://DIREKTORAT BINA KUA DAN KELUARGA SAKINAH
                 return redirect(base_url('KUA/index/'), 'refresh');
             case 5://DIREKTORAT PENERANGAN AGAMA ISLAM
