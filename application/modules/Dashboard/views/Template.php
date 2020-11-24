@@ -692,6 +692,7 @@
                         <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
                         <script src="https://cdn.amcharts.com/lib/4/themes/frozen.js"></script>
                         <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js" integrity="sha512-USPCA7jmJHlCNRSFwUFq3lAm9SaOjwG8TaB8riqx3i/dAJqhaYilVnaf2eVUH5zjq89BU6YguUuAno+jpRvUqA==" crossorigin="anonymous"></script>
                         <div class="d-flex flex-column-fluid"><div class="container-fluid">{content}</div></div>
                     </div>
                     <div class="footer bg-white py-4 d-flex flex-lg-column" id="kt_footer">

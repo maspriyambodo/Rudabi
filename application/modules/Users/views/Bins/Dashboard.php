@@ -1,77 +1,144 @@
-<div class="row">
-    <div class="col-12 col-xs-12">
-        <!--begin::Mixed Widget 1-->
-        <div class="card card-custom bg-gray-100 card-stretch gutter-b">
-            <!--begin::Header-->
-            <div class="card-header border-0 bg-success py-5">
-                <h3 class="card-title font-weight-bolder text-white">Sekretariat Ditjen Bimas Islam</h3>
-            </div>
-            <!--end::Header-->
-
-            <!--begin::Body-->
-            <div class="card-body p-0 position-relative overflow-hidden shortcut-wrapper">
-
-                <div class="row m-0">
-                    <div class="col-md-8 p-0">
-                        <h5>e-SBSN</h5>
-                        <!--begin::Row-->
-                        <div class="row m-0">
-                            <div class="col-6 shortcut-item">
-                                <a href="<?php echo base_url('Users/Sekertariat/Satker/index/'); ?>">
-                                    <i class="icon-2x flaticon-map"></i>
-                                    Satuan Kerja
-                                </a>
-                            </div>
-                            <div class="col-6 shortcut-item">
-                                <a href="<?php echo base_url('Users/Sekertariat/Usulan/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y")))); ?>">
-                                    <i class="icon-2x flaticon-statistics"></i>
-                                    Usulan Triwulan
-                                </a>
-                            </div>
-                        </div>
-                        <!--end::Row-->
-                        <!--begin::Row-->
-                        <div class="row m-0">
-                            <div class="col-6 shortcut-item">
-                                <a href="<?php echo base_url('Users/Sekertariat/Input/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y")))); ?>">
-                                    <i class="icon-2x flaticon-edit"></i>
-                                    Input Triwulan
-                                </a>
-                            </div>
-                            <div class="col-6 shortcut-item">
-                                <a href="<?php echo base_url('Users/Sekertariat/Approved/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y")))); ?>">
-                                    <i class="icon-2x flaticon-like"></i>
-                                    Usulan Disetujui
-                                </a>
-                            </div>
-                        </div>
-                        <!--end::Row-->
-                    </div>
-                    <div class="col-md-4 p-0">
-                        <h5>SICAKEP</h5>
-                        <!--begin::Row-->
-                        <div class="row m-0">
-                            <div class="col-12 shortcut-item">
-                                <a href="<?php echo base_url('Users/Sekertariat/Pegawai/index'); ?>">
-                                    <i class="icon-2x flaticon-users"></i>
-                                    Data Pegawai
-                                </a>
-                            </div>
-                        </div>
-                        <div class="row m-0">
-                            <div class="col-12 shortcut-item">
-                                <a href="<?php echo base_url('Users/Sekertariat/Pensiun/index'); ?>">
-                                    <i class="icon-2x flaticon-profile-1"></i>
-                                    Data Pensiun
-                                </a>
-                            </div>
-                        </div>
+<div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+    <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-2">
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">DIREKTORAT URUSAN AGAMA ISLAM DAN PEMBINAAN SYARIAH</h5>
+        </div>
+    </div>
+</div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            Sistem Informasi Hisab Rukyat
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-4">
+                <div class="shortcut-wrapper">
+                    <div class="shortcut-item">
+                        <a href="<?php echo base_url('Users/Binsyar/Sihat/index/'); ?>">
+                            <i class="icon-2x fas fa-tools"></i>
+                            Alat Hisab Rukyat
+                        </a>
                     </div>
                 </div>
-
             </div>
-            <!--end::Body-->
+            <div class="col-4">
+                <div class="shortcut-wrapper">
+                    <div class="shortcut-item">
+                        <a href="<?php echo base_url('Users/Binsyar/Ahli/index/'); ?>">
+                            <i class="icon-2x fas fa-user-tie"></i>
+                            Tenaga Ahli
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="shortcut-wrapper">
+                    <div class="shortcut-item">
+                        <a href="<?php echo base_url('Users/Binsyar/Pengukuran/index/'); ?>">
+                            <i class="icon-2x fas fa-pencil-ruler"></i>
+                            Hisab Pengukuran
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!--end::Mixed Widget 1-->
+        <div class="row">
+            <div class="col-4">
+                <div class="shortcut-wrapper">
+                    <div class="shortcut-item">
+                        <a href="<?php echo base_url('Users/Binsyar/Lokasi/index/'); ?>">
+                            <i class="icon-2x fas fa-location-arrow"></i>
+                            Hisab Lokasi
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="shortcut-wrapper">
+                    <div class="shortcut-item">
+                        <a href="<?php echo base_url('Users/Binsyar/Laporan/index/'); ?>">
+                            <i class="icon-2x fas fa-file"></i>
+                            Hisab Laporan
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="shortcut-wrapper">
+                    <div class="shortcut-item">
+                        <a href="<?php echo base_url('Users/Binsyar/Lintang/index/'); ?>">
+                            <i class="icon-2x fas fa-globe"></i>
+                            Lintang Kota
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix" style="margin:5% 0px;"></div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            Sistem Informasi Masjid
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6">
+                <div class="shortcut-wrapper">
+                    <div class="shortcut-item">
+                        <a href="<?php echo base_url('Users/Binsyar/Simas/index/'); ?>">
+                            <i class="icon-2x fas fa-mosque"></i>
+                            Data Masjid
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="shortcut-wrapper">
+                    <div class="shortcut-item">
+                        <a href="<?php echo base_url('Users/Binsyar/Mushalla/index/'); ?>">
+                            <i class="icon-2x fas fa-place-of-worship"></i>
+                            Data Mushalla
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="shortcut-wrapper">
+                    <div class="shortcut-item">
+                        <a href="<?php echo base_url('Users/Binsyar/Tipologi/index/'); ?>">
+                            <i class="icon-2x fas fa-shapes"></i>
+                            Masjid Tipologi
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="shortcut-wrapper">
+                    <div class="shortcut-item">
+                        <a href="<?php echo base_url('Users/Binsyar/Tipologi/Mushalla/'); ?>">
+                            <i class="icon-2x fas fa-shapes"></i>
+                            Mushalla Tipologi
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

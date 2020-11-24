@@ -60,16 +60,4 @@ class Emonev extends CI_Controller {
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
-    public function Detail($id, $prov) {
-        $provinsi = str_replace('_', ' ', $prov);
-        $data = [
-            'title' => 'E-Monev | RUDABI SYSTEM OF KEMENAG RI',
-            'username' => $this->session->userdata('username'),
-            'id' => $id,
-            'prov' => $provinsi
-        ];
-        $data['content'] = $this->parser->parse('V_Detail', $data, true);
-        return $this->parser->parse('Dashboard/Template', $data);
-    }
-
 }

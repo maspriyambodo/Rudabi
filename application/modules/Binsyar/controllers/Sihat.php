@@ -27,21 +27,23 @@ class Sihat extends CI_Controller {
 
     public function index() {
         $data = [
-            'title' => 'Hisab Rukyat | RUDABI SYSTEM OF KEMENAG RI',
-            'username' => $this->Authentication[0]->uname
+            'title' => 'Data Hisab Rukyat | RUDABI SYSTEM OF KEMENAG RI',
+            'username' => $this->Authentication[0]->uname,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/siihat/alat2020?KEY=BOBA')
         ];
-        $data['content'] = $this->parser->parse('Binsyar/V_sihat', $data, true);
+        $data['content'] = $this->parser->parse('Binsyar/Sihat_index', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
-    public function Provinsi($id, $prov) {
+    public function Provinsi() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 12 as alat_provinsi[1] => Jawa Barat as province_title )
         $data = [
-            'title' => 'Hisab Rukyat | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Sihat Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'id' => $id,
-            'provinsi' => str_replace(['_', '%20'], ' ', $prov)
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/siihat/alat2020?KEY=BOBA&alat_provinsi=' . $param[0]),
+            'param' => $param
         ];
-        $data['content'] = $this->parser->parse('Binsyar/V_sihatprov', $data, true);
+        $data['content'] = $this->parser->parse('Binsyar/Sihat_provinsi', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 

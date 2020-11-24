@@ -21,28 +21,30 @@ class Lintang extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('M_Binsyar');
+        $this->load->model('Binsyar/M_Binsyar');
         $this->Authentication = $this->M_Binsyar->Auth();
     }
 
     public function index() {
         $data = [
-            'title' => 'Lintang Kota | RUDABI SYSTEM OF KEMENAG RI',
-            'username' => $this->Authentication[0]->uname
+            'title' => 'Data Lintang Kota | RUDABI SYSTEM OF KEMENAG RI',
+            'username' => $this->Authentication[0]->uname,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/siihat/datalintang?KEY=BOBA')
         ];
-        $data['content'] = $this->parser->parse('Binsyar/V_lintang', $data, true);
-        return $this->parser->parse('Dashboard/Template', $data);
+        $data['content'] = $this->parser->parse('Bins/V_lintang', $data, true);
+        return $this->parser->parse('Bins/Template', $data);
     }
 
-    public function Provinsi($id, $prov) {
+    public function Provinsi() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 1 as nama_propinsi [1] => Aceh as province_title)
         $data = [
-            'title' => 'Lintang Kota| RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Data Lintang Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'id' => $id,
-            'provinsi' => str_replace(['_', '%20'], ' ', $prov)
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/siihat/datalintang?KEY=BOBA&nama_propinsi=1'),
+            'param' => $param
         ];
-        $data['content'] = $this->parser->parse('Binsyar/V_lintangprov', $data, true);
-        return $this->parser->parse('Dashboard/Template', $data);
+        $data['content'] = $this->parser->parse('Bins/V_lintangprov', $data, true);
+        return $this->parser->parse('Bins/Template', $data);
     }
 
 }

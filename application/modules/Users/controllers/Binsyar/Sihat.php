@@ -21,7 +21,7 @@ class Sihat extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('M_Binsyar');
+        $this->load->model('Binsyar/M_Binsyar');
         $this->Authentication = $this->M_Binsyar->Auth();
     }
 
@@ -30,8 +30,8 @@ class Sihat extends CI_Controller {
             'title' => 'Hisab Rukyat | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname
         ];
-        $data['content'] = $this->parser->parse('Binsyar/V_sihat', $data, true);
-        return $this->parser->parse('Dashboard/Template', $data);
+        $data['content'] = $this->parser->parse('Bins/V_sihat', $data, true);
+        return $this->parser->parse('Bins/Template', $data);
     }
 
     public function Provinsi($id, $prov) {

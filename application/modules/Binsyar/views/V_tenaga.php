@@ -18,7 +18,9 @@ $c = 0;
         </div>
     </div>
     <div class="card-body">
-        <div id="jumlah_hisab" class="text-center"></div>
+        <div class="text-center">
+            <b><u id="title_chartdiv"></u></b>
+        </div>
         <div id="chartdiv" class="chartdivs"></div>
         <hr style="margin:5%;">
         <div class="table-responsive">
@@ -53,16 +55,18 @@ $c = 0;
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th colspan="3">Jumlah Tenaga Ahli <?= number_format($c); ?></th>
+                        <th colspan="3">Total Tenaga Ahli <?= number_format($c); ?></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
+<input type="hidden" name="jum_ahli" readonly="" value="<?php echo $c; ?>"/>
 <script>
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/siihat/tenagaahli?KEY=BOBA";
+        var a = $('input[name="jum_ahli"]').val();
+        document.getElementById('title_chartdiv').innerText = "Total Tenaga Ahli: " + numeral(a).format('0,0');
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],

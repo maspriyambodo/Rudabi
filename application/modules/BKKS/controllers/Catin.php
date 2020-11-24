@@ -25,12 +25,6 @@ class Catin extends CI_Controller {
         $this->Authentication = $this->M_Bimwin->Auth();
     }
 
-    private function Dec($enc) {
-        $encrypt = str_replace(['-', '_', '~'], ['+', '/', '='], $enc);
-        $dec = $this->encryption->decrypt($encrypt);
-        return $dec;
-    }
-
     public function index() {
         $data = [
             'title' => 'Data Catin | RUDABI SYSTEM OF KEMENAG RI',

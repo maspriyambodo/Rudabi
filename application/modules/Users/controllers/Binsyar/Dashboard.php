@@ -1,5 +1,6 @@
 <?php
 
+defined('BASEPATH')OR exit('No direct script access allowed');
 /*
  * Product:        System of kementerian agama Republik Indonesia
  * License Type:   Government
@@ -20,17 +21,17 @@ class Dashboard extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('Sekertariat/M_Sekertariat');
-        $this->Authentication = $this->M_Sekertariat->Auth();
+        $this->load->model('Binsyar/M_Binsyar');
+        $this->Authentication = $this->M_Binsyar->Auth();
     }
 
     public function index() {
         $data = [
-            'title' => 'Dashboard | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'DIREKTORAT URUSAN AGAMA ISLAM DAN PEMBINAAN SYARIAH | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
         ];
-        $data['content'] = $this->parser->parse('Sek/Dashboard', [], true);
-        return $this->parser->parse('Sek/Template', $data);
+        $data['content'] = $this->parser->parse('Bins/Dashboard', [], true);
+        return $this->parser->parse('Bins/Template', $data);
     }
 
 }

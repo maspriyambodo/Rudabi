@@ -140,7 +140,6 @@
 <input name="non_nama_satker" type="hidden" readonly="" value="<?= $totnon_nama_satker; ?>"/>
 <input name="ada_kd_satker" type="hidden" readonly="" value="<?= $totada_kd_satker; ?>"/>
 <input name="non_kd_satker" type="hidden" readonly="" value="<?= $totnon_kd_satker; ?>"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js" integrity="sha512-USPCA7jmJHlCNRSFwUFq3lAm9SaOjwG8TaB8riqx3i/dAJqhaYilVnaf2eVUH5zjq89BU6YguUuAno+jpRvUqA==" crossorigin="anonymous"></script>
 <script>
     window.onload = function () {
         var a;

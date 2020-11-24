@@ -43,10 +43,24 @@ $c = 0;
                                 echo $id++;
                                 ?>
                             </td>
-                            <td><?= $b->province_title; ?></td>
+                            <td>
+                                <?php
+                                if (!isset($b->province_title)) {
+                                    echo '<small class="text-danger">DATA TIDAK VALID</small>';
+                                } else {
+                                    echo $b->province_title;
+                                }
+                                ?>
+                            </td>
                             <td class="text-center"><?= $b->jum_ahli; ?></td>
                             <td class="text-center">
-                                <a href="<?= base_url('Binsyar/Ahli/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->tenaga_provinsi . '&b=' . $b->province_title))); ?>" class="btn btn-icon btn-default btn-xs" title="Detail Provinsi <?= $b->province_title; ?>"><i class="fas fa-eye"></i></a>
+                                <?php
+                                if (!isset($b->province_title)) {
+                                    echo '<button type="button" class="btn btn-icon btn-info btn-xs" title="Data tidak valid"><i class="fas fa-info-circle"></i></button>';
+                                } else {
+                                    echo '<a href="' . base_url('Users/Binsyar/Ahli/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->tenaga_provinsi . '&b=' . $b->province_title))) . '" class="btn btn-icon btn-default btn-xs" title="Detail Provinsi ' . $b->province_title . '"><i class="fas fa-eye"></i></a>';
+                                }
+                                ?>
                             </td>
                         </tr>
                     <?php } ?>
@@ -62,7 +76,6 @@ $c = 0;
 </div>
 <script>
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/siihat/tenagaahli?KEY=BOBA";
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],

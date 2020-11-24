@@ -21,7 +21,7 @@ class Ahli extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('M_Binsyar');
+        $this->load->model('Binsyar/M_Binsyar');
         $this->Authentication = $this->M_Binsyar->Auth();
     }
 
@@ -31,7 +31,7 @@ class Ahli extends CI_Controller {
             'username' => $this->Authentication[0]->uname,
             'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/siihat/tenagaahli?KEY=boba')
         ];
-        $data['content'] = $this->parser->parse('Binsyar/V_tenaga', $data, true);
+        $data['content'] = $this->parser->parse('Bins/V_tenaga', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
@@ -43,7 +43,7 @@ class Ahli extends CI_Controller {
             'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/siihat/tenagaahli?KEY=boba&tenaga_provinsi=' . $param[0]),
             'param' => $param
         ];
-        $data['content'] = $this->parser->parse('Binsyar/V_tenagaprov', $data, true);
+        $data['content'] = $this->parser->parse('Bins/V_tenagaprov', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
