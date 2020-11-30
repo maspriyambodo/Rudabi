@@ -75,8 +75,11 @@ $c = 0;
         </div>
     </div>
 </div>
+<input type="hidden" name="dt_masjid" readonly="" value="<?php echo $c; ?>"/>
 <script>
     window.onload = function () {
+        var a = $('input[name="dt_masjid"]').val();
+        document.getElementById('title_chartdiv').innerText = "Total Tipologi Masjid: " + numeral(a).format('0,0');
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
@@ -115,6 +118,10 @@ $c = 0;
             series.columns.template.adapter.add("fill", function (fill, target) {
                 return chart.colors.getIndex(target.dataItem.index);
             });
+            var valueLabel = series.bullets.push(new am4charts.LabelBullet());
+            valueLabel.label.text = "{valueY}";
+            valueLabel.label.fontSize = 10;
+            valueLabel.label.verticalCenter = "top";
             chart.cursor = new am4charts.XYCursor();
         });
         $('table').dataTable({

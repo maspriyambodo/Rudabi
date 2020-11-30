@@ -4,10 +4,22 @@ $kanmenag = json_decode($kankemenag);
 $totkanmenag = 0;
 $totjumlah_kua = 0;
 ?>
-<div class="card card-custom">
+<div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+    <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-2">
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Rekap Data KUA</h5>
+        </div>
+    </div>
+</div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
             Data KUA per Provinsi
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
         </div>
     </div>
     <div class="card-body">
@@ -18,10 +30,15 @@ $totjumlah_kua = 0;
     </div>
 </div>
 <div class="clear" style="margin:5% 0px"></div>
-<div class="card card-custom">
+<div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
             Detail Data KUA
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
         </div>
     </div>
     <div class="card-body">
@@ -73,19 +90,28 @@ $totjumlah_kua = 0;
     window.onload = function () {
         var a, b;
         a = $('input[name=totjumlah_kua]').val();
-        b = numeral(a).format('0,0');
-        document.getElementById('title_chartdiv').innerText = "Total KUA " + b;
+        document.getElementById('title_chartdiv').innerText = "Total KUA " + numeral(a).format('0,0');
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],
             "paging": false,
             "ordering": true,
             "info": true,
-            "processing": true,
+            "processing": false,
             "deferRender": true,
             "scrollCollapse": true,
             "scrollX": true,
-            "scrollY": "400px"
+            "scrollY": "400px",
+            dom: `<'row'<'col-sm-6 text-left'f><'col-sm-6 text-right'B>>
+                <'row'<'col-sm-12'tr>>
+                <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
+            buttons: [
+                {extend: 'print', footer: true},
+                {extend: 'copyHtml5', footer: true},
+                {extend: 'excelHtml5', footer: true},
+                {extend: 'csvHtml5', footer: true},
+                {extend: 'pdfHtml5', footer: true}
+            ]
         });
     };
     am4core.ready(function () {

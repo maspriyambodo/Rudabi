@@ -28,11 +28,37 @@ $totregkua = 0;
             <b><u id="title_chartdiv"></u></b>
         </div>
         <div id="chartdiv" class="chartdivs"></div>
-        <div class="clear" style="margin:5% 0px;"></div>
-        <hr>
-        <div id="chartdiv_a" style="width:100%;height:500px;"></div>
-        <div class="clear" style="margin:5% 0px;"></div>
-        <hr>
+    </div>
+</div>
+<div class="clear" style="margin:5% 0px;"></div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            Data Registrasi Akun - Kantor Kemenag
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div id="chartdiv_a" class="chartdivs"></div>        
+    </div>
+</div>
+<div class="clear" style="margin:5% 0px;"></div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            Detail Registrasi Akun - Kantor Kemenag
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
@@ -91,11 +117,53 @@ $totregkua = 0;
             <b><u id="title_kua"></u></b>
         </div>
         <div id="chartdiv_b" class="chartdivs"></div>
-        <div class="clear" style="margin:5% 0px;"></div>
-        <hr>
+    </div>
+</div>
+<div class="clear" style="margin:5% 0px;"></div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            Data Registrasi Akun - KUA
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
         <div id="chartdiv_c" class="chartdivs"></div>
-        <div class="clear" style="margin:5% 0px;"></div>
-        <hr>
+    </div>
+</div>
+<div class="clear" style="margin:5% 0px;"></div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            Data Registrasi Akun - Kantor Kemenag
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
+
+    </div>
+</div>
+<div class="clear" style="margin:5% 0px;"></div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            Detail Registrasi Akun - KUA
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">

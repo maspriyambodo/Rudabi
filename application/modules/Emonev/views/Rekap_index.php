@@ -9,7 +9,17 @@ $tot = $rekap[0]->jumlah + $rekap[1]->jumlah;
         </div>
     </div>
 </div>
-<div class="card card-custom">
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            Data Input KUA
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
     <div class="card-body">
         <div class="text-center">
             <b><u id="title_chartdiv">Total Data KUA: <?= number_format($tot); ?></u></b>

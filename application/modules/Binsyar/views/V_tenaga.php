@@ -9,12 +9,17 @@ $c = 0;
         </div>
     </div>
 </div>
-<div class="card card-custom">
+<div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
             <div class="text-uppercase">
                 data Tenaga Ahli per provinsi
             </div>
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
         </div>
     </div>
     <div class="card-body">
@@ -22,7 +27,21 @@ $c = 0;
             <b><u id="title_chartdiv"></u></b>
         </div>
         <div id="chartdiv" class="chartdivs"></div>
-        <hr style="margin:5%;">
+    </div>
+</div>
+<div class="clearfix" style="margin:5% 0px;"></div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            Detail Data Tenaga Ahli
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
@@ -48,7 +67,13 @@ $c = 0;
                             <td><?= $b->province_title; ?></td>
                             <td class="text-center"><?= $b->jum_ahli; ?></td>
                             <td class="text-center">
-                                <a href="<?= base_url('Binsyar/Ahli/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->tenaga_provinsi . '&b=' . $b->province_title))); ?>" class="btn btn-icon btn-default btn-xs" title="Detail Provinsi <?= $b->province_title; ?>"><i class="fas fa-eye"></i></a>
+                                <?php
+                                if (!isset($b->province_title)) {
+                                    echo '<button type="button" class="btn btn-icon btn-danger btn-xs" title="Data tidak valid!"><i class="fas fa-info-circle"></i></button';
+                                } else {
+                                    echo '<a href="' . base_url('Binsyar/Ahli/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->tenaga_provinsi . '&b=' . $b->province_title))) . '" class="btn btn-icon btn-default btn-xs" title="Detail Provinsi ' . $b->province_title . '"><i class="fas fa-eye"></i></a>';
+                                }
+                                ?>
                             </td>
                         </tr>
                     <?php } ?>
@@ -73,11 +98,21 @@ $c = 0;
             "paging": false,
             "ordering": true,
             "info": true,
-            "processing": true,
+            "processing": false,
             "deferRender": true,
             "scrollCollapse": true,
             "scrollX": true,
-            "scrollY": "400px"
+            "scrollY": "400px",
+            dom: `<'row'<'col-sm-6 text-left'f><'col-sm-6 text-right'B>>
+                <'row'<'col-sm-12'tr>>
+                <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
+            buttons: [
+                {extend: 'print', footer: true},
+                {extend: 'copyHtml5', footer: true},
+                {extend: 'excelHtml5', footer: true},
+                {extend: 'csvHtml5', footer: true},
+                {extend: 'pdfHtml5', footer: true}
+            ]
         });
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);

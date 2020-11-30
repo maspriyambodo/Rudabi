@@ -75,8 +75,11 @@ $c = 0;
         </div>
     </div>
 </div>
+<!-- disini -->
 <script>
     window.onload = function () {
+        var a;
+        document.getElementById('title_chartdiv').innerText = "";
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);

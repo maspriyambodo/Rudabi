@@ -125,30 +125,13 @@ $a3 = 0; //dt_muda
                     <tr>
                         <th colspan="2">jumlah</th>
                         <th><?= number_format($c); ?></th>
-                        <th><?= number_format($d); ?></th>
-                        <th><?= number_format($e); ?></th>
-                        <th><?= number_format($f); ?></th>
-                        <th><?= number_format($g); ?></th>
-                        <th><?= number_format($h); ?></th>
-                        <th><?= number_format($i); ?></th>
-                        <th><?= number_format($j); ?></th>
-                        <th><?= number_format($k); ?></th>
-                        <th><?= number_format($l); ?></th>
-                        <th><?= number_format($m); ?></th>
-                        <th><?= number_format($n); ?></th>
-                        <th><?= number_format($o); ?></th>
-                        <th><?= number_format($p); ?></th>
-                        <th><?= number_format($q); ?></th>
-                        <th><?= number_format($r); ?></th>
-                        <th><?= number_format($s); ?></th>
-                        <th><?= number_format($t); ?></th>
-                        <th><?= number_format($a1); ?></th>
-                        <th><?= number_format($a2); ?></th>
-                        <th><?= number_format($a3); ?></th>
                         <th><?= number_format($u); ?></th>
                         <th><?= number_format($v); ?></th>
                         <th><?= number_format($w); ?></th>
                         <th><?= number_format($x); ?></th>
+                        <th><?php echo number_format($a1); ?></th>
+                        <th><?php echo number_format($a2); ?></th>
+                        <th><?php echo number_format($a3); ?></th>
                     </tr>
                 </tfoot>
             </table>

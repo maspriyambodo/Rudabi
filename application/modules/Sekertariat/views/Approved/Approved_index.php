@@ -14,10 +14,18 @@ if ($msg == false) {
         </div>
     </div>
 </div>
-<div class="card card-custom" <?= $msgs; ?>>
+<div class="card card-custom" data-card="true" id="kt_card_1" <?= $msgs; ?>>
+    <div class="card-header">
+        <div class="card-title">
+            Data Approved per Provinsi
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
     <div class="card-body">
-        <p>Data Approved per Provinsi</p>
-        <hr>
         <div class="text-center">
             <b id="title_chartdiv"></b>
         </div>
@@ -25,10 +33,18 @@ if ($msg == false) {
     </div>
 </div>
 <div class="clear" style="margin:5% 0px;" <?= $msgs; ?>></div>
-<div class="card card-custom" <?= $msgs; ?>>
+<div class="card card-custom" data-card="true" id="kt_card_1" <?= $msgs; ?>>
+    <div class="card-header">
+        <div class="card-title">
+            Data Status Bangunan
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
     <div class="card-body">
-        <p>Data Status Bangunan</p>
-        <hr>
         <div id="chartdiv_a" class="chartdivs"></div>
     </div>
 </div>

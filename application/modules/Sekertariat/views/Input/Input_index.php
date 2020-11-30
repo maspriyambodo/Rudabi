@@ -26,14 +26,25 @@
             </div>
         </div>
         <hr>
+        <div class="text-center">
+            <b><u id="title_chartdiv"></u></b>
+        </div>
         <div id="chartdiv" class="chartdivs"></div>
     </div>
 </div>
 <div class="clear" style="margin:5%;"></div>
-<div class="card card-custom">
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            Status Data Input Triwulan
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
     <div class="card-body">
-        <p>Status Data Input Triwulan</p>
-        <hr>
         <div id="chartdiv_a" class="chartdivs"></div>
     </div>
 </div>
@@ -174,12 +185,15 @@
         </div>
     </div>
 </div>
+<input type="hidden" name="totjum_kabkot" readonly="" value="<?php echo $totjum_kabkot; ?>"/>
 <script>
     function Tahun() {
         var a = $('select[name=tahun]').val();
         return window.location.href = "Sekertariat/Input/index/" + a;
     }
     window.onload = function () {
+        var a = $('input[name="totjum_kabkot"]').val();
+        document.getElementById('title_chartdiv').innerText = "Total Data Input: " + a;
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],

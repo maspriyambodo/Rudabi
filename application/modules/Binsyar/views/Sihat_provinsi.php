@@ -40,7 +40,7 @@ $l = 0; //jum_gawanglokasi
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            Data Penggunaan Tanah Wakaf
+            Detail Data Alat Hisab Rukyat
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -124,9 +124,10 @@ $l = 0; //jum_gawanglokasi
 <input type="hidden" name="jum_kalkulator" readonly="" value="<?php echo $j; ?>"/>
 <input type="hidden" name="jum_altimeter" readonly="" value="<?php echo $k; ?>"/>
 <input type="hidden" name="jum_gawanglokasi" readonly="" value="<?php echo $l; ?>"/>
+<input type="hidden" name="tot_al" readonly="" value="<?php echo $c + $d + $e + $f + $g + $h + $i + $j + $k + $l; ?>"/>
 <script>
     window.onload = function () {
-        var a, b, c, d, e, f, g, h, i, j;
+        var a, b, c, d, e, f, g, h, i, j,k;
         a = $('input[name="jum_teropong"]').val();
         b = $('input[name="jum_theodolit"]').val();
         c = $('input[name="jum_mizwala"]').val();
@@ -137,6 +138,8 @@ $l = 0; //jum_gawanglokasi
         h = $('input[name="jum_kalkulator"]').val();
         i = $('input[name="jum_altimeter"]').val();
         j = $('input[name="jum_gawanglokasi"]').val();
+        k = $('input[name="tot_al"]').val();
+        document.getElementById('title_chartdiv').innerText = "Total Alat Bantu Hisab Rukyat: " + numeral(k).format('0,0');
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);

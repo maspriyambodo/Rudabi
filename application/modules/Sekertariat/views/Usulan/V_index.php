@@ -159,13 +159,15 @@
         </div>
     </div>
 </div>
-<input type="hidden" name="" readonly="" value="<?php echo number_format($totjum_data); ?>"/>
+<input type="hidden" name="totjum_data" readonly="" value="<?php echo number_format($totjum_data); ?>"/>
 <script>
     function Tahun() {
         var a = $('select[name=tahun]').val();
         return window.location.href = "Sekertariat/Usulan/index/" + a;
     }
     window.onload = function () {
+        var a = $('input[name=totjum_data]').val();
+        document.getElementById('title_chartdiv').innerText = "Total Data Usulan: " + a;
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],

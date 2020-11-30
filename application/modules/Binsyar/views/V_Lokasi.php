@@ -9,12 +9,15 @@ $c = 0; //jum_lokasi
         </div>
     </div>
 </div>
-<div class="card card-custom">
+<div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <div class="text-uppercase">
-                data Hisab Lokasi per provinsi
-            </div>
+            Data Hisab Lokasi per Provinsi
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
         </div>
     </div>
     <div class="card-body">
@@ -22,7 +25,21 @@ $c = 0; //jum_lokasi
             <b><u id="title_chartdiv"></u></b>
         </div>
         <div id="chartdiv" class="chartdivs"></div>
-        <hr style="margin:5%;">
+    </div>
+</div>
+<div class="clearfix" style="margin:5% 0px;"></div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            Detail Data Hisab Lokasi
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
@@ -50,7 +67,7 @@ $c = 0; //jum_lokasi
                             <td>
                                 <?php
                                 if (!isset($b->province_title)) {
-                                    null;
+                                    echo '<button type="button" class="btn btn-icon btn-danger btn-xs" title="Data tidak valid!"><i class="fas fa-info-circle"></i></button';
                                 } else {
                                     echo '<a href="' . base_url('Binsyar/Lokasi/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->lokasi_provinsi . '&b=' . $b->province_title))) . '" title="" class="btn btn-icon btn-default btn-xs"><i class="fas fa-eye"></i></a>';
                                 }
