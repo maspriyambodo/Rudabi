@@ -1,5 +1,6 @@
 <?php
 
+defined('BASEPATH')OR exit('No direct script access allowed');
 /*
  * Product:        System of kementerian agama Republik Indonesia
  * License Type:   Government
