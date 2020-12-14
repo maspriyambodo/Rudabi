@@ -1,24 +1,20 @@
-<style>
-    .DTFC_ScrollWrapper{
-        height:auto !important;
-    }
-    th, td { white-space: nowrap; }
-    .dataTables_wrapper .dataTable {
-        width: 100% !important;
-        border-collapse: initial !important;
-        border-spacing: 0 !important;
-        margin:0 !important;
-        border-radius: .42rem;
-    }
-    .text-wrap{
-        white-space:normal !important;
-        width:400px;
-    }
-</style>
-<div class="card card-custom">
+<?php $a = json_decode($data); ?>
+<div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+    <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-2">
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">Lembaga Dakwah <?php echo $param[3]; ?></h5>
+        </div>
+    </div>
+</div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <button type="button" class="btn btn-light btn-shadow-hover" onclick="Back()"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <a href="<?= base_url('PAI/Dakwah/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
         </div>
     </div>
     <div class="card-body">
@@ -62,7 +58,8 @@
                         <th colspan="6">
                             sarana &amp; prasarana
                         </th>
-                        <th rowspan="2">visi &amp; misi</th>
+                        <th rowspan="2">visi</th>
+                        <th rowspan="2">misi</th>
                     </tr>
                     <tr>
                         <th>
@@ -104,67 +101,62 @@
                         </th>
                     </tr>
                 </thead>
+                <tbody>
+                    <?php foreach ($a as $b) { ?>
+                        <tr>
+                            <td><?php echo $b->lembaga_nama; ?></td>
+                            <td><?php echo $b->lembaga_ketua; ?></td>
+                            <td><?php echo $b->lembaga_thn_berdiri; ?></td>
+                            <td><?php echo $b->lembaga_alamat; ?></td>
+                            <td><?php echo $b->lembaga_no_akte; ?></td>
+                            <td><?php echo $b->lembaga_izin_opr; ?></td>
+                            <td><?php echo $b->lembaga_topography; ?></td>
+                            <td><?php echo $b->lembaga_geography; ?></td>
+                            <td><?php echo $b->lembaga_transportasi; ?></td>
+                            <td><?php echo $b->lembaga_status_tanah; ?></td>
+                            <td><?php echo $b->lembaga_no_sertifikat; ?></td>
+                            <td><?php echo $b->lembaga_luas_tanah; ?></td>
+                            <td><?php echo $b->lembaga_luas_bangunan; ?></td>
+                            <td><?php echo $b->lembaga_pengurus_laki; ?></td>
+                            <td><?php echo $b->lembaga_pengurus_perempuan; ?></td>
+                            <td><?php echo $b->lembaga_papan; ?></td>
+                            <td><?php echo $b->lembaga_lemari; ?></td>
+                            <td><?php echo $b->lembaga_meja; ?></td>
+                            <td><?php echo $b->lembaga_alas; ?></td>
+                            <td><?php echo $b->lembaga_komputer; ?></td>
+                            <td><?php echo $b->lembaga_plang; ?></td>
+                            <td><?php echo $b->lembaga_visi; ?></td>
+                            <td><?php echo $b->lembaga_misi; ?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
             </table>
         </div>
     </div>
 </div>
+<div class="clearfix" style="margin:5%;"></div>
 <script>
-    function Back() {
-        window.history.back();
-    }
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/dakwah?KEY=BOBA&city_id=<?= $id; ?>";
-        var table = $('table').dataTable({
+        $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],
             "paging": false,
             "ordering": true,
             "info": true,
-            "processing": true,
+            "processing": false,
             "deferRender": true,
             "scrollCollapse": true,
             "scrollX": true,
             "scrollY": "400px",
-            "ajax": {
-                dataSrc: '',
-                method: "GET",
-                async: false,
-                url: url
-            },
-            "fixedColumns": {
-                leftColumns: 3
-            },
-            columns: [
-                {data: "lembaga_nama", className: "text-wrap"},
-                {data: "lembaga_ketua", className: "text-center"},
-                {data: "lembaga_thn_berdiri", className: "text-center"},
-                {data: "lembaga_alamat", className: "text-center"},
-                {data: "lembaga_no_akte", className: "text-center"},
-                {data: "lembaga_izin_opr", className: "text-center"},
-                {data: "lembaga_topography", className: "text-center"},
-                {data: "lembaga_geography", className: "text-center"},
-                {data: "lembaga_transportasi", className: "text-center"},
-                {data: "lembaga_status_tanah", className: "text-center"},
-                {data: "lembaga_no_sertifikat", className: "text-center"},
-                {data: "lembaga_luas_tanah", className: "text-center"},
-                {data: "lembaga_luas_bangunan", className: "text-center"},
-                {data: "lembaga_pengurus_laki", className: "text-center"},
-                {data: "lembaga_pengurus_perempuan", className: "text-center"},
-                {data: "lembaga_papan", className: "text-center"},
-                {data: "lembaga_lemari", className: "text-center"},
-                {data: "lembaga_meja", className: "text-center"},
-                {data: "lembaga_alas", className: "text-center"},
-                {data: "lembaga_komputer", className: "text-center"},
-                {data: "lembaga_plang", className: "text-center"},
-                {
-                    data: null, className: "text-center",
-                    render: function (data) {
-                        var visi, misi;
-                        visi = data.lembaga_visi;
-                        misi = data.lembaga_misi;
-                        return visi + "<br>" + misi;
-                    }
-                }
+            dom: `<'row'<'col-sm-6 text-left'f><'col-sm-6 text-right'B>>
+                <'row'<'col-sm-12'tr>>
+                <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
+            buttons: [
+                {extend: 'print', footer: true},
+                {extend: 'copyHtml5', footer: true},
+                {extend: 'excelHtml5', footer: true},
+                {extend: 'csvHtml5', footer: true},
+                {extend: 'pdfHtml5', footer: true}
             ]
         });
     };
