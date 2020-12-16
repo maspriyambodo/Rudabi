@@ -1,14 +1,15 @@
+<?php $a = json_decode($data); ?>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">data lembaga dakwah kota/kabupaten {kabupaten}</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">data lembaga dakwah kota/kabupaten</h5>
         </div>
     </div>
 </div>
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <button type="button" class="btn btn-light btn-shadow-hover" onclick="Back()"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <a href="<?= base_url('PAI/Ormas/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>            
         </div>
     </div>
     <div class="card-body">
@@ -28,7 +29,8 @@
                         <th rowspan="2">lb</th>
                         <th colspan="2">jumlah pengurus</th>
                         <th colspan="6">sarana &amp; prasarana</th>
-                        <th rowspan="2">visi &amp; misi</th>
+                        <th rowspan="2">visi</th>
+                        <th rowspan="2">misi</th>
                     </tr>
                     <tr>
                         <th>
@@ -66,86 +68,66 @@
                         </th>
                     </tr>
                 </thead>
+                <tbody>
+                    <?php foreach ($a as $b) { ?>
+                        <tr>
+                            <td>
+                                <?php echo $b->ormas_nama; ?>
+                            </td>
+                            <td>
+                                <?php echo $b->ormas_ketua; ?>
+                            </td>
+                            <td>
+                                <?php echo $b->ormas_thn_berdiri; ?>
+                            </td>
+                            <td><?php echo $b->ormas_afiliasi; ?></td>
+                            <td><?php echo $b->ormas_alamat; ?></td>
+                            <td><?php echo $b->ormas_izin_opr; ?></td>
+                            <td><?php echo $b->ormas_transportasi; ?></td>
+                            <td><?php echo $b->ormas_topography; ?></td>
+                            <td><?php echo $b->ormas_geography; ?></td>
+                            <td><?php echo $b->ormas_status_tanah; ?></td>
+                            <td><?php echo $b->ormas_luas_tanah; ?></td>
+                            <td><?php echo $b->ormas_luas_bangunan; ?></td>
+                            <td><?php echo $b->ormas_pengurus_laki; ?></td>
+                            <td><?php echo $b->ormas_pengurus_perempuan; ?></td>
+                            <td><?php echo $b->ormas_papan; ?></td>
+                            <td><?php echo $b->ormas_lemari; ?></td>
+                            <td><?php echo $b->ormas_meja; ?></td>
+                            <td><?php echo $b->ormas_alas; ?></td>
+                            <td><?php echo $b->ormas_komputer; ?></td>
+                            <td><?php echo $b->ormas_plang; ?></td>
+                            <td><?php echo $b->ormas_visi; ?></td>
+                            <td><?php echo $b->ormas_misi; ?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
             </table>
         </div>
     </div>
 </div>
 <script>
-    function Back() {
-        window.history.back();
-    }
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/ormas?KEY=BOBA&city_id=<?= $id; ?>";
         $('table').dataTable({
-            dom: 'Blfrtip',
+            "ServerSide": true,
+            "order": [[0, "asc"]],
+            "paging": true,
+            "ordering": true,
+            "info": true,
+            "processing": false,
+            "deferRender": true,
+            "scrollCollapse": true,
+            "scrollX": true,
+            "scrollY": "400px",
+            dom: `<'row'<'col-sm-6 text-left'f><'col-sm-6 text-right'B>>
+                <'row'<'col-sm-12'tr>>
+                <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
             buttons: [
                 {extend: 'print', footer: true},
                 {extend: 'copyHtml5', footer: true},
                 {extend: 'excelHtml5', footer: true},
                 {extend: 'csvHtml5', footer: true},
                 {extend: 'pdfHtml5', footer: true}
-            ],
-            "ServerSide": true,
-            "order": [[0, "asc"]],
-            "paging": false,
-            "ordering": true,
-            "info": true,
-            "processing": true,
-            "deferRender": true,
-            "scrollCollapse": true,
-            "scrollX": true,
-            "scrollY": "400px",
-            "ajax": {
-                dataSrc: '',
-                method: "GET",
-                async: false,
-                url: url
-            },
-            "fixedColumns": {
-                leftColumns: 3
-            },
-            columns: [
-                {data: "ormas_nama", className: "text-wraps"},
-                {data: "ormas_ketua", className: "text-center text-wraps"},
-                {data: "ormas_thn_berdiri", className: "text-center"},
-                {
-                    data: null, className: "text-center",
-                    render: function (data) {
-                        var a, b;
-                        a = data.ormas_afiliasi;
-                        if (a == "") {
-                            b = "-";
-                        } else {
-                            b = a;
-                        }
-                        return b;
-                    }
-                },
-                {data: "ormas_alamat", className: "text-center"},
-                {data: "ormas_izin_opr", className: "text-center"},
-                {data: "ormas_transportasi", className: "text-center"},
-                {data: "ormas_topography", className: "text-center"},
-                {data: "ormas_geography", className: "text-center"},
-                {data: "ormas_status_tanah", className: "text-center"},
-                {data: "ormas_luas_tanah", className: "text-center"},
-                {data: "ormas_luas_bangunan", className: "text-center"},
-                {data: "ormas_pengurus_laki", className: "text-center"},
-                {data: "ormas_pengurus_perempuan", className: "text-center"},
-                {data: "ormas_papan", className: "text-center"},
-                {data: "ormas_lemari", className: "text-center"},
-                {data: "ormas_meja", className: "text-center"},
-                {data: "ormas_alas", className: "text-center"},
-                {data: "ormas_komputer", className: "text-center"},
-                {data: "ormas_plang", className: "text-center"},
-                {
-                    data: null, className: "text-center",
-                    render: function (data) {
-                        var visi, misi;
-                        visi = data.ormas_visi;
-                        misi = data.ormas_misi;
-                        return visi + "<br>" + misi;
-                    }
-                }
             ]
         });
     };

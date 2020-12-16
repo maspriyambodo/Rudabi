@@ -28,29 +28,32 @@ class Ormas extends CI_Controller {
     public function index() {
         $data = [
             'title' => 'Ormas Islam | RUDABI SYSTEM OF KEMENAG RI',
-            'username' => $this->Authentication[0]->uname
+            'username' => $this->Authentication[0]->uname,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/ormas?KEY=BOBA')
         ];
         $data['content'] = $this->parser->parse('PAI/V_ormas', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
-    public function Provinsi($id, $prov) {
+    public function Provinsi() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 12 as province_id [1] => DKI Jakarta as province_title)
         $data = [
-            'title' => 'Ormas Islam | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Ormas Islam Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'id' => $id,
-            'provinsi' => str_replace(['%20', '_'], ' ', $prov)
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/ormas?KEY=BOBA&province_id=' . $param[0]),
+            'param' => $param
         ];
         $data['content'] = $this->parser->parse('PAI/V_ormasprov', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
-    public function Kabupaten($id, $kab) {
+    public function Kabupaten() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 16 as province_id [1] => Jawa Timur as province_title [2] => 215 as city_id [3] => Bojonegoro as city_title)
         $data = [
-            'title' => 'Ormas Islam | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Ormas Islam Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'id' => $id,
-            'kabupaten' => str_replace(['%20', '_'], ' ', $kab)
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/ormas?KEY=BOBA&city_id=' . $param[2]),
+            'param' => $param
         ];
         $data['content'] = $this->parser->parse('PAI/V_ormaskab', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
