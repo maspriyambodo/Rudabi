@@ -131,7 +131,7 @@ $i = 0; //geo_pelosok_terisolir
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th><?php echo $b->province_title; ?></th>
+                        <th>total</th>
                         <th><?php echo number_format($c); ?></th>
                         <th><?php echo number_format($d); ?></th>
                         <th><?php echo number_format($e); ?></th>
