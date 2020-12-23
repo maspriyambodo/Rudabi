@@ -28,29 +28,32 @@ class Hafiz extends CI_Controller {
     public function index() {
         $data = [
             'title' => 'Hafidz & Hafidzah | RUDABI SYSTEM OF KEMENAG RI',
-            'username' => $this->Authentication[0]->uname
+            'username' => $this->Authentication[0]->uname,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/hafiz?KEY=BOBA')
         ];
         $data['content'] = $this->parser->parse('PAI/V_hafiz', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
-    public function Provinsi($id, $prov) {
+    public function Provinsi() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 14 as province_id [1] => Jawa Tengah as province_title)
         $data = [
-            'title' => 'Hafidz & Hafidzah | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Hafidz & Hafidzah ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'id' => $id,
-            'provinsi' => str_replace(['_', '%20'], ' ', $prov)
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/hafiz?KEY=BOBA&province_id=' . $param[0]),
+            'param' => $param
         ];
         $data['content'] = $this->parser->parse('PAI/V_hafizprov', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
-    public function Kabupaten($id, $kab) {
+    public function Kabupaten() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 14 as province_id [1] => Jawa Tengah as province_title [2] => 160 as city_id [3] => Wonosobo as city_title )
         $data = [
-            'title' => 'Hafidz & Hafidzah | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Hafidz & Hafidzah ' . $param[3] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'id' => $id,
-            'kabupaten' => str_replace(['_', '%20'], ' ', $kab)
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/hafiz?KEY=BOBA&city_id=' . $param[2]),
+            'param' => $param
         ];
         $data['content'] = $this->parser->parse('PAI/V_hafizkab', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
