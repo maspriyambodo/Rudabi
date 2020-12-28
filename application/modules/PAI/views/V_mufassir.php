@@ -145,8 +145,8 @@ $g = 0; // mufassir_belum_kawin
         b = $('input[name="mufassir_pria"]').val();
         c = $('input[name="mufassir_perempuan"]').val();
         d = $('input[name="mufassir_kawin"]').val();
-        e = $('input[name="jen_kel"]').val();
-        f = $('input[name="mufassir_belum_kawin"]').val();
+        f = $('input[name="jen_kel"]').val();
+        e = $('input[name="mufassir_belum_kawin"]').val();
         g = $('input[name="stat_kawin"]').val();
         document.getElementById('title_chartdiv').innerText = "Total Data Mufassir: " + numeral(a).format('0,0');
         document.getElementById('title_chartdiv_a').innerText = "Total Data Jenis Kelamin: " + numeral(f).format('0,0');

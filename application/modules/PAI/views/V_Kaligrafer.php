@@ -145,8 +145,8 @@ $g = 0; // klgf_belum_kawin
         b = $('input[name="klgf_pria"]').val();
         c = $('input[name="klgf_perempuan"]').val();
         d = $('input[name="klgf_kawin"]').val();
-        e = $('input[name="jen_kel"]').val();
-        f = $('input[name="klgf_belum_kawin"]').val();
+        f = $('input[name="jen_kel"]').val();
+        e = $('input[name="klgf_belum_kawin"]').val();
         g = $('input[name="stat_kawin"]').val();
         document.getElementById('title_chartdiv').innerText = "Total Data Kaligrafer: " + numeral(a).format('0,0');
         document.getElementById('title_chartdiv_a').innerText = "Total Data Jenis Kelamin: " + numeral(f).format('0,0');

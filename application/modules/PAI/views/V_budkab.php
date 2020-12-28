@@ -1,15 +1,20 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+<?php $a = json_decode($data); ?>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">data Budayawan Kabupaten {kabupaten}</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">Data Budayawan Islam <?php echo $param[3]; ?></h5>
         </div>
     </div>
 </div>
-<div class="card card-custom">
+<div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <button type="button" class="btn btn-light btn-shadow-hover" onclick="Back()"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <a href="<?= base_url('PAI/Budayawan/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
         </div>
     </div>
     <div class="card-body">
@@ -25,7 +30,8 @@
                         <th rowspan="2">jenis kelamin</th>
                         <th rowspan="2">alamat</th>
                         <th rowspan="2">status</th>
-                        <th rowspan="2">pendidikan</th>
+                        <th rowspan="2">etnis</th>
+                        <th rowspan="2">pekerjaan</th>
                     </tr>
                     <tr>
                         <th>tempat</th>
@@ -33,99 +39,57 @@
                         <th>usia</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <?php foreach ($a as $b) { ?>
+                        <tr>
+                            <td><?php echo $b->budayawan_muslim_nama; ?></td>
+                            <td><?php echo $b->budayawan_muslim_tempat_lahir; ?></td>
+                            <td><?php echo $b->budayawan_muslim_tgl_lahir; ?></td>
+                            <td class="text-center">
+                                <?php
+                                $date = new DateTime($b->budayawan_muslim_tgl_lahir);
+                                $now = new DateTime();
+                                $interval = $now->diff($date);
+                                echo $interval->y;
+                                ?>
+                            </td>
+                            <td><?php echo $b->budayawan_muslim_nama_ayah; ?></td>
+                            <td><?php echo $b->budayawan_muslim_nama_ibu; ?></td>
+                            <td><?php echo $b->budayawan_muslim_nama_istri_suami; ?></td>
+                            <td><?php echo $b->budayawan_muslim_jenis_kelamin; ?></td>
+                            <td><?php echo $b->budayawan_muslim_alamat; ?></td>
+                            <td><?php echo $b->budayawan_muslim_status_kawin; ?></td>
+                            <td><?php echo $b->budayawan_muslim_etnis; ?></td>
+                            <td><?php echo $b->budayawan_muslim_pekerjaan; ?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
             </table>
         </div>
     </div>
 </div>
 <script>
-    function Back() {
-        window.history.back();
-    }
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/Budayawan?KEY=BOBA&city_id=<?= $id; ?>";
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],
             "paging": true,
             "ordering": true,
             "info": true,
-            "processing": true,
+            "processing": false,
             "deferRender": true,
             "scrollCollapse": true,
             "scrollX": true,
             "scrollY": "400px",
-            "fixedColumns": {
-                leftColumns: 1
-            },
-            "ajax": {
-                dataSrc: '',
-                method: "GET",
-                async: false,
-                url: url
-            },
-            columns: [
-                {data: "budayawan_muslim_nama"},
-                {
-                    data: null, className: "text-center",
-                    render: function (data) {
-                        var a = data.budayawan_muslim_tempat_lahir;
-                        if (a === null || a === '-') {
-                            a = 'TIDAK ADA DATA';
-                        } else {
-                            a = data.budayawan_muslim_tempat_lahir;
-                        }
-                        return a;
-                    }
-                },
-                {data: "budayawan_muslim_tgl_lahir", className: "text-center"},
-                {
-                    data: null, className: "text-center",
-                    render: function (data) {
-                        var dob = data.budayawan_muslim_tgl_lahir;
-                        var age = moment().diff(moment(dob, 'YYYY-MM-DD'), 'years');
-                        return age;
-                    }
-                },
-                {
-                    data: null, className: "text-center",
-                    render: function (data) {
-                        var a = data.budayawan_muslim_nama_ayah;
-                        if (a === null || a === '-') {
-                            a = 'TIDAK ADA DATA';
-                        } else {
-                            a = data.budayawan_muslim_nama_ayah;
-                        }
-                        return a;
-                    }
-                },
-                {
-                    data: null, className: "text-center",
-                    render: function (data) {
-                        var a = data.budayawan_muslim_nama_ibu;
-                        if (a === null || a === '-') {
-                            a = 'TIDAK ADA DATA';
-                        } else {
-                            a = data.budayawan_muslim_nama_ibu;
-                        }
-                        return a;
-                    }
-                },
-                {
-                    data: null, className: "text-center",
-                    render: function (data) {
-                        var a = data.budayawan_muslim_nama_istri_suami;
-                        if (a === null || a === '-') {
-                            a = 'TIDAK ADA DATA';
-                        } else {
-                            a = data.budayawan_muslim_nama_istri_suami;
-                        }
-                        return a;
-                    }
-                },
-                {data: "budayawan_muslim_jenis_kelamin", className: "text-center"},
-                {data: "budayawan_muslim_alamat"},
-                {data: "budayawan_muslim_status_kawin", className: "text-center"},
-                {data: "budayawan_muslim_pendidikan", className: "text-center"}
+            dom: `<'row'<'col-sm-6 text-left'f><'col-sm-6 text-right'B>>
+                <'row'<'col-sm-12'tr>>
+                <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
+            buttons: [
+                {extend: 'print', footer: true},
+                {extend: 'copyHtml5', footer: true},
+                {extend: 'excelHtml5', footer: true},
+                {extend: 'csvHtml5', footer: true},
+                {extend: 'pdfHtml5', footer: true}
             ]
         });
     };

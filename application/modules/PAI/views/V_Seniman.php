@@ -149,7 +149,7 @@ $g = 0; // snmn_belum_kawin
         f = $('input[name="snmn_belum_kawin"]').val();
         g = $('input[name="stat_kawin"]').val();
         document.getElementById('title_chartdiv').innerText = "Total Data Seniman: " + numeral(a).format('0,0');
-        document.getElementById('title_chartdiv_a').innerText = "Total Data Jenis Kelamin: " + numeral(f).format('0,0');
+        document.getElementById('title_chartdiv_a').innerText = "Total Data Jenis Kelamin: " + numeral(e).format('0,0');
         document.getElementById('title_chartdiv_b').innerText = "Total Data Status Kawin: " + numeral(g).format('0,0');
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
@@ -222,7 +222,7 @@ $g = 0; // snmn_belum_kawin
                 },
                 {
                     country: "Belum Kawin",
-                    litres: e
+                    litres: f
                 }
             ];
             var series = chart.series.push(new am4charts.PieSeries3D());
