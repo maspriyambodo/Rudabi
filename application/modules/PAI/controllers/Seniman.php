@@ -13,7 +13,7 @@ defined('BASEPATH')OR exit('No direct script access allowed');
  */
 
 /**
- * Description of Guru_ngaji
+ * Description of Seniman
  *
  * @author centos
  */
@@ -28,29 +28,32 @@ class Seniman extends CI_Controller {
     public function index() {
         $data = [
             'title' => 'Data Seniman | RUDABI SYSTEM OF KEMENAG RI',
-            'username' => $this->Authentication[0]->uname
+            'username' => $this->Authentication[0]->uname,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/seniman?KEY=BOBA')
         ];
         $data['content'] = $this->parser->parse('PAI/V_Seniman', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
-    public function Provinsi($id, $prov) {
+    public function Provinsi() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 8 as province_id [1] => Bengkulu as province_title)
         $data = [
-            'title' => 'Data Seniman | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Data Seniman Islam ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'id' => $id,
-            'provinsi' => str_replace(['_', '%20'], ' ', $prov)
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/seniman?KEY=BOBA&province_id=' . $param[0]),
+            'param' => $param
         ];
         $data['content'] = $this->parser->parse('PAI/V_Senimanprov', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
-    public function Kabupaten($id, $kab) {
+    public function Kabupaten() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 17 as province_id [1] => Banten as province_title [2] => 233 as city_id [3] => Lebak city_title)
         $data = [
-            'title' => 'Data Seniman  | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Data Seniman Islam ' . $param[3] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'id' => $id,
-            'kabupaten' => str_replace(['_', '%20'], ' ', $kab)
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/seniman?KEY=BOBA&city_id=' . $param[2]),
+            'param' => $param
         ];
         $data['content'] = $this->parser->parse('PAI/V_Senimankab', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
