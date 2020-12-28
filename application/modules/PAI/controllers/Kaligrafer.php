@@ -28,29 +28,32 @@ class Kaligrafer extends CI_Controller {
     public function index() {
         $data = [
             'title' => 'Data Kaligrafer | RUDABI SYSTEM OF KEMENAG RI',
-            'username' => $this->Authentication[0]->uname
+            'username' => $this->Authentication[0]->uname,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/kaligrafer?KEY=BOBA')
         ];
         $data['content'] = $this->parser->parse('PAI/V_Kaligrafer', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
-    public function Provinsi($id, $prov) {
+    public function Provinsi() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 18 as province_id [1] => Bali as province_title)
         $data = [
-            'title' => 'Data Kaligrafer | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Data Kaligrafer Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'id' => $id,
-            'provinsi' => str_replace(['_', '%20'], ' ', $prov)
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/kaligrafer?KEY=BOBA&province_id=' . $param[0]),
+            'param' => $param
         ];
         $data['content'] = $this->parser->parse('PAI/V_Kaligraferprov', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
-    public function Kabupaten($id, $kab) {
+    public function Kabupaten() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 18 as province_id [1] => Bali as province_title [2] => 245 as city_id [3] => Buleleng ascity_title)
         $data = [
-            'title' => 'Data Kaligrafer  | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Data Kaligrafer ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'id' => $id,
-            'kabupaten' => str_replace(['_', '%20'], ' ', $kab)
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/kaligrafer?KEY=BOBA&city_id=' . $param[2]),
+            'param' => $param
         ];
         $data['content'] = $this->parser->parse('PAI/V_Kaligraferkab', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
