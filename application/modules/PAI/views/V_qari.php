@@ -131,7 +131,6 @@ $g = 0; // qari_belum_kawin
         </div>
     </div>
 </div>
-<div class="clearfix" style="margin:5%;"></div>
 <input type="hidden" name="jum_qari" readonly="" value="<?php echo $c; ?>"/>
 <input type="hidden" name="qari_pria" readonly="" value="<?php echo $d; ?>"/>
 <input type="hidden" name="qari_perempuan" readonly="" value="<?php echo $e; ?>"/>
