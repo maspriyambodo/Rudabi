@@ -1,25 +1,91 @@
+<?php
+$a = json_decode($data);
+$c = 0; // jum_radio
+$d = 0; // milik_sekolah
+$e = 0; // milik_wakaf
+$f = 0; // milik_yayasan
+$g = 0; // milik_pemerintah
+$h = 0; // luas_tanah
+$i = 0; // luas_bangunan
+$j = 0; // pengurus_laki
+$k = 0; // pengurus_perempuan
+?>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Radio Islam provinsi {provinsi}</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">Data Provinsi <?php echo $param[1]; ?></h5>
         </div>
     </div>
 </div>
-<div class="card card-custom">
+<div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
             <a href="<?= base_url('PAI/Radio_Islam/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
     </div>
     <div class="card-body">
-        <div id="jumlah_radio" class="text-center"></div>
-        <div id="chartdiv" class="chartdivs"></div>
-        <hr style="margin:5% 0px;">
         <div class="text-center">
-            <b>Data Luas Tanah & Luas Bangunan</b>
+            <b><u id="title_chartdiv"></u></b>
+        </div>
+        <div id="chartdiv" class="chartdivs"></div>
+    </div>
+</div>
+<div class="clearfix" style="margin:5%;"></div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            Radio Islam Status Tanah
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="text-center">
+            <b><u id="title_chartdiv_a"></u></b>
+        </div>
+        <div id="chartdiv_a" class="chartdivs"></div>
+    </div>
+</div>
+<div class="clearfix" style="margin:5%;"></div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            Radio Islam Pengurus
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="text-center">
+            <b><u id="title_chartdiv_b"></u></b>
         </div>
         <div id="chartdiv_b" class="chartdivs"></div>
-        <hr style="margin:5% 0px;">
+    </div>
+</div>
+<div class="clearfix" style="margin:5%;"></div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            Detail Data Radio Islam
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
@@ -40,92 +106,88 @@
                         <th>perempuan</th>
                     </tr>
                 </thead>
+                <tbody class="text-center">
+                    <?php
+                    foreach ($a as $b) {
+                        $c += $b->jum_radio; // jum_radio
+                        $d += $b->milik_sekolah; // milik_sekolah
+                        $e += $b->milik_wakaf; // milik_wakaf
+                        $f += $b->milik_yayasan; // milik_yayasan
+                        $g += $b->milik_pemerintah; // milik_pemerintah
+                        $h += $b->luas_tanah; // luas_tanah
+                        $i += $b->luas_bangunan; // luas_bangunan
+                        $j += $b->pengurus_laki; // pengurus_laki
+                        $k += $b->pengurus_perempuan; // pengurus_perempuan
+                        ?>
+                        <tr>
+                            <td style="text-align: left !important;"><?php echo '<a href="' . base_url('PAI/Radio_Islam/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $b->city_id . '&d=' . $b->city_title))) . '" title="Detail ' . $b->city_title . '">' . $b->city_title . '</a>'; ?></td>
+                            <td><?php echo number_format($b->jum_radio); ?></td>
+                            <td><?php echo number_format($b->milik_sekolah); ?></td>
+                            <td><?php echo number_format($b->milik_wakaf); ?></td>
+                            <td><?php echo number_format($b->milik_yayasan); ?></td>
+                            <td><?php echo number_format($b->milik_pemerintah); ?></td>
+                            <td><?php echo number_format($b->luas_tanah); ?></td>
+                            <td><?php echo number_format($b->luas_bangunan); ?></td>
+                            <td><?php echo number_format($b->pengurus_laki); ?></td>
+                            <td><?php echo number_format($b->pengurus_perempuan); ?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
                         <th>jumlah</th>
-                        <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                        <td><?php echo number_format($c); ?></td>
+                        <td><?php echo number_format($d); ?></td>
+                        <td><?php echo number_format($e); ?></td>
+                        <td><?php echo number_format($f); ?></td>
+                        <td><?php echo number_format($g); ?></td>
+                        <td><?php echo number_format($h); ?></td>
+                        <td><?php echo number_format($i); ?></td>
+                        <td><?php echo number_format($j); ?></td>
+                        <td><?php echo number_format($k); ?></td>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
+<input type="hidden" name="jum_radio" readonly="" value="<?php echo $c; ?>"/>
+<input type="hidden" name="milik_sekolah" readonly="" value="<?php echo $d; ?>"/>
+<input type="hidden" name="milik_wakaf" readonly="" value="<?php echo $e; ?>"/>
+<input type="hidden" name="milik_yayasan" readonly="" value="<?php echo $f; ?>"/>
+<input type="hidden" name="milik_pemerintah" readonly="" value="<?php echo $g; ?>"/>
+<input type="hidden" name="luas_tanah" readonly="" value="<?php echo $h; ?>"/>
+<input type="hidden" name="luas_bangunan" readonly="" value="<?php echo $i; ?>"/>
+<input type="hidden" name="pengurus_laki" readonly="" value="<?php echo $j; ?>"/>
+<input type="hidden" name="pengurus_perempuan" readonly="" value="<?php echo $k; ?>"/>
+<input type="hidden" name="tanah" readonly="" value="<?php echo $d + $e + $f + $g; ?>"/>
+<input type="hidden" name="pengurus" readonly="" value="<?php echo $j + $k; ?>"/>
 <script>
     window.onload = function () {
-        var url = "https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/radio?KEY=BOBA&province_id=<?= $id; ?>";
-        $('table').dataTable({
-            "ServerSide": true,
-            "order": [[0, "asc"]],
-            "paging": true,
-            "ordering": true,
-            "info": true,
-            "processing": true,
-            "deferRender": true,
-            "scrollCollapse": true,
-            "scrollX": true,
-            "scrollY": "400px",
-            "ajax": {
-                dataSrc: '',
-                method: "GET",
-                async: false,
-                url: url
-            },
-            columns: [
-                {
-                    data: null,
-                    render: function (data) {
-                        var a, b, c;
-                        a = data.city_id;
-                        b = data.city_title;
-                        c = b.replace(' ', '_');
-                        return '<a href="<?= base_url('PAI/Radio_Islam/Kabupaten/'); ?>' + a + "/" + c + '">' + b + '</a>';
-                    }
-                },
-                {data: "jum_radio", className: "text-center sum_rad"},
-                {data: "milik_sekolah", className: "text-center sum_sek"},
-                {data: "milik_wakaf", className: "text-center sum_wak"},
-                {data: "milik_yayasan", className: "text-center sum_yay"},
-                {data: "milik_pemerintah", className: "text-center sum_pem"},
-                {
-                    data: null, className: "text-center sum_tan",
-                    render: function (data) {
-                        var lt = data.luas_tanah;
-                        return lt.replace('-', '');
-                    }
-                },
-                {
-                    data: null, className: "text-center sum_bang",
-                    render: function (data) {
-                        var lb = data.luas_bangunan;
-                        return lb.replace('-', '');
-                    }
-                },
-                {data: "pengurus_laki", className: "text-center sum_laki"},
-                {data: "pengurus_perempuan", className: "text-center sum_per"}
-            ],
-            footerCallback: function () {
-                var api = this.api();
-                var numFormat = $.fn.dataTable.render.number('\.', '', 0, '').display;
-                api.columns(['.sum_rad', '.sum_sek', '.sum_wak', '.sum_yay', '.sum_pem', '.sum_tan', '.sum_bang', '.sum_laki', '.sum_per'], {page: 'all'}).every(function () {
-                    var sum = this
-                            .data()
-                            .reduce(function (a, b) {
-                                var x = parseFloat(a) || 0;
-                                var y = parseFloat(b) || 0;
-                                return x + y;
-                            }, 0);
-                    $(this.footer()).html(numFormat(sum));
-                });
-            }
-        });
+        var a, b, c, d, e, f, g, h, i, j, k;
+        a = $('input[name="jum_radio"]').val();
+        b = $('input[name="milik_sekolah"]').val();
+        c = $('input[name="milik_wakaf"]').val();
+        d = $('input[name="milik_yayasan"]').val();
+        e = $('input[name="milik_pemerintah"]').val();
+        f = $('input[name="luas_tanah"]').val();
+        g = $('input[name="luas_bangunan"]').val();
+        h = $('input[name="pengurus_laki"]').val();
+        i = $('input[name="pengurus_perempuan"]').val();
+        j = $('input[name="tanah"]').val();
+        k = $('input[name="pengurus"]').val();
+        document.getElementById('title_chartdiv').innerText = "Total Data Radio Islam: " + numeral(a).format('0,0');
+        document.getElementById('title_chartdiv').innerText = "Total Data Status Tanah: " + numeral(j).format('0,0');
+        document.getElementById('title_chartdiv').innerText = "Total Data Pengurus: " + numeral(k).format('0,0');
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.dataSource.url = url;
+            chart.data = <?= $data; ?>;
+            chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
-            categoryAxis.title.text = 'Daerah Tingkat Provinsi';
+            categoryAxis.title.text = 'Daerah Tingkat Kota/Kabupaten';
             categoryAxis.dataFields.category = "city_title";
             categoryAxis.renderer.grid.template.location = 0;
             categoryAxis.renderer.minGridDistance = 30;
@@ -135,14 +197,19 @@
             categoryAxis.tooltip.disabled = true;
             categoryAxis.renderer.minHeight = 110;
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-            valueAxis.renderer.minWidth = 100;
+            valueAxis.renderer.minWidth = 50;
             valueAxis.title.text = "Jumlah Radio Islam";
             valueAxis.title.fontWeight = 800;
             var series = chart.series.push(new am4charts.ColumnSeries());
+            series.sequencedInterpolation = true;
             series.dataFields.valueY = "jum_radio";
             series.dataFields.categoryX = "city_title";
-            series.clustered = false;
-            series.tooltipText = "Jumlah Radio Islam di {categoryX}: [bold]{valueY}[/]";
+            series.tooltipText = "Jumlah Data {city_title}: [bold]{valueY}[/]";
+            series.columns.template.strokeWidth = 0;
+            series.tooltip.pointerOrientation = "vertical";
+            series.columns.template.column.cornerRadiusTopLeft = 10;
+            series.columns.template.column.cornerRadiusTopRight = 10;
+            series.columns.template.column.fillOpacity = 0.8;
             var hoverState = series.columns.template.column.states.create("hover");
             hoverState.properties.cornerRadiusTopLeft = 0;
             hoverState.properties.cornerRadiusTopRight = 0;
@@ -152,50 +219,53 @@
             });
             chart.cursor = new am4charts.XYCursor();
         });
-        var jumlah_radio = document.getElementsByClassName('sum_rad')[2].innerText;
-        $('input[name=jumtxt]').val(jumlah_radio);
-        document.getElementById('jumlah_radio').innerHTML = "<b>Jumlah Radio Islam " + jumlah_radio + "</b>";
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
-            var chart = am4core.create("chartdiv_b", am4charts.XYChart);
-            chart.dataSource.url = url;
-            var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
-            categoryAxis.dataFields.category = "city_title";
-            categoryAxis.numberFormatter.numberFormat = "#";
-            categoryAxis.renderer.inversed = true;
-            categoryAxis.renderer.grid.template.location = 0;
-            categoryAxis.renderer.cellStartLocation = 0.1;
-            categoryAxis.renderer.cellEndLocation = 0.9;
-
-            var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
-            valueAxis.renderer.opposite = true;
-            function createSeries(field, name) {
-                var series = chart.series.push(new am4charts.ColumnSeries());
-                series.dataFields.valueX = field;
-                series.dataFields.categoryY = "city_title";
-                series.name = name;
-                series.columns.template.tooltipText = "{name}: [bold]{valueX}[/]";
-                series.columns.template.height = am4core.percent(100);
-                series.sequencedInterpolation = true;
-
-                var valueLabel = series.bullets.push(new am4charts.LabelBullet());
-                valueLabel.label.text = "{valueX}";
-                valueLabel.label.horizontalCenter = "left";
-                valueLabel.label.dx = 10;
-                valueLabel.label.hideOversized = false;
-                valueLabel.label.truncate = false;
-
-                var categoryLabel = series.bullets.push(new am4charts.LabelBullet());
-                categoryLabel.label.text = "{name}";
-                categoryLabel.label.horizontalCenter = "right";
-                categoryLabel.label.dx = -10;
-                categoryLabel.label.fill = am4core.color("#fff");
-                categoryLabel.label.hideOversized = false;
-                categoryLabel.label.truncate = false;
-            }
-
-            createSeries("luas_tanah", "Luas Tanah");
-            createSeries("luas_bangunan", "Luas Bangunan");
+            var b = am4core.create("chartdiv_a", am4charts.PieChart3D);
+            b.hiddenState.properties.opacity = 0;
+            b.legend = new am4charts.Legend();
+            b.data = [
+                {country: "Milik Sekolah", litres: b},
+                {country: "Milik Wakaf", litres: c},
+                {country: "Milik Yayasan", litres: d},
+                {country: "Milik Pemerintah", litres: e}
+            ];
+            var a = b.series.push(new am4charts.PieSeries3D());
+            a.dataFields.value = "litres";
+            a.dataFields.category = "country";
+        });
+        am4core.ready(function () {
+            am4core.useTheme(am4themes_animated);
+            var b = am4core.create("chartdiv_b", am4charts.PieChart3D);
+            b.hiddenState.properties.opacity = 0;
+            b.legend = new am4charts.Legend();
+            b.data = [
+                {country: "Pengurus Laki-Laki", litres: h},
+                {country: "Pengurus Perempuan", litres: i}
+            ];
+            var a = b.series.push(new am4charts.PieSeries3D());
+            a.dataFields.value = "litres";
+            a.dataFields.category = "country";
+        });
+        $("table").dataTable({
+            ServerSide: true,
+            order: [[0, "asc"]],
+            paging: false,
+            ordering: true,
+            info: true,
+            processing: false,
+            deferRender: true,
+            scrollCollapse: true,
+            scrollX: true,
+            scrollY: "400px",
+            dom: `<'row'<'col-sm-6 text-left'f><'col-sm-6 text-right'B>><'row'<'col-sm-12'tr>><'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
+            buttons: [
+                {extend: "print", footer: true},
+                {extend: "copyHtml5", footer: true},
+                {extend: "excelHtml5", footer: true},
+                {extend: "csvHtml5", footer: true},
+                {extend: "pdfHtml5", footer: true}
+            ]
         });
     };
 </script>

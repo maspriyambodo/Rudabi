@@ -172,7 +172,7 @@
             ];
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
-            categoryAxis.title.text = 'Daerah Tingkat Provinsi';
+            categoryAxis.title.text = 'Daerah Tingkat Kota/Kabupaten';
             categoryAxis.dataFields.category = "pendidikan";
             categoryAxis.renderer.grid.template.location = 0;
             categoryAxis.renderer.minGridDistance = 30;
@@ -189,7 +189,7 @@
             series.dataFields.valueY = "jumlah";
             series.dataFields.categoryX = "pendidikan";
             series.clustered = false;
-            series.tooltipText = "Jumlah Penulis di {categoryX}: [bold]{valueY}[/]";
+            series.tooltipText = "Jumlah Penulis {categoryX}: [bold]{valueY}[/]";
             var hoverState = series.columns.template.column.states.create("hover");
             hoverState.properties.cornerRadiusTopLeft = 0;
             hoverState.properties.cornerRadiusTopRight = 0;
