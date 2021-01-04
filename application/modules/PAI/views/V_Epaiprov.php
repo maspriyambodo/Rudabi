@@ -1,20 +1,19 @@
 <?php
 $a = json_decode($data);
-$c = 0; // jumlah_kabkot
+$c = 0; // jumlah_penyuluh_online
 $d = 0; // jumlah_penyuluh
-$e = 0; // jumlah_penyuluh_online
 ?>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">Data Penyuluh Agama Islam</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">Data Penyuluh Agama Islam <?php echo $param[1]; ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            Penyuluh per Provinsi
+            <a href="<?= base_url('PAI/Epai/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -23,9 +22,6 @@ $e = 0; // jumlah_penyuluh_online
         </div>
     </div>
     <div class="card-body">
-        <div class="text-center">
-            <b><u id="title_chartdiv"></u></b>
-        </div>
         <div id="chartdiv" class="chartdivs"></div>
     </div>
 </div>
@@ -33,7 +29,7 @@ $e = 0; // jumlah_penyuluh_online
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            Penyuluh Agama Islam
+            Jumlah Penyuluh Agama Islam
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -42,9 +38,6 @@ $e = 0; // jumlah_penyuluh_online
         </div>
     </div>
     <div class="card-body">
-        <div class="text-center">
-            <b><u id="title_chartdiv_a"></u></b>
-        </div>
         <div id="chartdiv_a" class="chartdivs"></div>
     </div>
 </div>
@@ -65,67 +58,48 @@ $e = 0; // jumlah_penyuluh_online
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
                     <tr>
-                        <th rowspan="2">
-                            no
-                        </th>
-                        <th rowspan="2">
-                            provinsi
-                        </th>
-                        <th colspan="2">
-                            penyuluh agama islam
-                        </th>
+                        <th colspan="2">kota / kabupaten</th>
+                        <th colspan="2">penyuluh</th>
                     </tr>
                     <tr>
-                        <th>
-                            non-online
-                        </th>
-                        <th>
-                            online
-                        </th>
+                        <th>kode</th>
+                        <th>nama</th>
+                        <th>non-online</th>
+                        <th>online</th>
                     </tr>
                 </thead>
                 <tbody class="text-center">
                     <?php
                     foreach ($a as $b) {
-                        $c += $b->jumlah_kabkot; // jumlah_kabkot
+                        $c += $b->jumlah_penyuluh_online; // jumlah_penyuluh_online
                         $d += $b->jumlah_penyuluh; // jumlah_penyuluh
-                        $e += $b->jumlah_penyuluh_online; // jumlah_penyuluh_online
                         ?>
                         <tr>
-                            <td>
-                                <?php
-                                static $id = 1;
-                                echo $id++;
-                                ?>
-                            </td>
-                            <td style="text-align: left !important;">
-                                <?php echo '<a href="' . base_url('PAI/Epai/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->provinsi_kode .'&b=' . $b->provinsi_nama))) . '" title="Detail Provinsi ' . $b->provinsi_nama . '">' . $b->provinsi_nama . '</a>'; ?>
-                            </td>
-                            <td>
-                                <?php echo number_format($b->jumlah_penyuluh); ?>
-                            </td>
-                            <td><?php echo number_format($b->jumlah_penyuluh_online); ?></td>
+                            <td><?php echo '<a href="' . base_url('PAI/Epai/Detail?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $b->penyuluh_KabKota_Kode . '&d=' . $b->kabkota_nama))) . '" title="Detail Data ' . $b->kabkota_nama . '">' . $b->penyuluh_KabKota_Kode . '</a>'; ?></td>
+                            <td style="text-align: left !important;"><?php echo $b->kabkota_nama; ?></td>
+                            <td><?php echo $b->jumlah_penyuluh; ?></td>
+                            <td><?php echo $b->jumlah_penyuluh_online; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
-                <tfoot>
-                    <tr class="text-center text-uppercase">
+                <tfoot class="text-center text-uppercase">
+                    <tr>
                         <th colspan="2">total</th>
                         <th><?php echo number_format($d); ?></th>
-                        <th><?php echo number_format($e); ?></th>
+                        <th><?php echo number_format($c); ?></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
+<input type="hidden" name="jumlah_penyuluh_online" readonly="" value="<?php echo $c; ?>"/>
 <input type="hidden" name="jumlah_penyuluh" readonly="" value="<?php echo $d; ?>"/>
-<input type="hidden" name="jumlah_penyuluh_online" readonly="" value="<?php echo $e; ?>"/>
 <script>
     window.onload = function () {
         var aa, bb;
-        aa = $('input[name="jumlah_penyuluh"]').val();
-        bb = $('input[name="jumlah_penyuluh_online"]').val();
+        aa = $('input[name="jumlah_penyuluh_online"]').val();
+        bb = $('input[name="jumlah_penyuluh"]').val();
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
@@ -135,7 +109,7 @@ $e = 0; // jumlah_penyuluh_online
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
             categoryAxis.title.text = 'Daerah Tingkat Provinsi';
-            categoryAxis.dataFields.category = "provinsi_nama";
+            categoryAxis.dataFields.category = "kabkota_nama";
             categoryAxis.renderer.grid.template.location = 0;
             categoryAxis.renderer.minGridDistance = 30;
             categoryAxis.renderer.labels.template.horizontalCenter = "right";
@@ -150,8 +124,8 @@ $e = 0; // jumlah_penyuluh_online
             var series = chart.series.push(new am4charts.ColumnSeries());
             series.sequencedInterpolation = true;
             series.dataFields.valueY = "jumlah_penyuluh";
-            series.dataFields.categoryX = "provinsi_nama";
-            series.tooltipText = "Jumlah Penyuluh non-online {provinsi_nama}: [bold]{valueY}[/]";
+            series.dataFields.categoryX = "kabkota_nama";
+            series.tooltipText = "Jumlah Penyuluh non-online {kabkota_nama}: [bold]{valueY}[/]";
             series.columns.template.strokeWidth = 0;
             series.tooltip.pointerOrientation = "vertical";
             series.columns.template.column.cornerRadiusTopLeft = 10;
@@ -161,8 +135,8 @@ $e = 0; // jumlah_penyuluh_online
             var series2 = chart.series.push(new am4charts.ColumnSeries());
             series2.sequencedInterpolation = true;
             series2.dataFields.valueY = "jumlah_penyuluh_online";
-            series2.dataFields.categoryX = "provinsi_nama";
-            series2.tooltipText = "Jumlah Penyuluh Online {provinsi_nama}: [bold]{valueY}[/]";
+            series2.dataFields.categoryX = "kabkota_nama";
+            series2.tooltipText = "Jumlah Penyuluh Online {kabkota_nama}: [bold]{valueY}[/]";
             series2.columns.template.strokeWidth = 0;
             series2.tooltip.pointerOrientation = "vertical";
             series2.columns.template.column.cornerRadiusTopLeft = 10;
@@ -183,8 +157,8 @@ $e = 0; // jumlah_penyuluh_online
             b.hiddenState.properties.opacity = 0;
             b.legend = new am4charts.Legend();
             b.data = [
-                {country: "Penyuluh non-online", litres: aa},
-                {country: "Penyuluh Online", litres: bb}
+                {country: "Penyuluh non-online", litres: bb},
+                {country: "Penyuluh Online", litres: aa}
             ];
             var a = b.series.push(new am4charts.PieSeries3D());
             a.dataFields.value = "litres";
