@@ -67,7 +67,7 @@ class M_Auth extends CI_Model {
     }
 
     function Subdit() {
-        $exec = $this->db->select('subdit.id, subdit.nama, subdit.keterangan')
+        $exec = $this->db->select('subdit.id, subdit.nama, subdit.keterangan, subdit.stat')
                 ->from('subdit')
                 ->where([
                     '`subdit`.`stat`' => 1 + false,
@@ -91,11 +91,10 @@ class M_Auth extends CI_Model {
     }
 
     function Management() {
-        $exec = $this->db->select('auth.id,auth.uname,subdit.nama')
+        $exec = $this->db->select('auth.id,auth.uname,subdit.nama, auth.stat')
                 ->from('auth')
                 ->join('subdit', 'auth.hak_akses = subdit.id', 'LEFT')
                 ->where([
-                    '`auth`.`stat`' => 1 + false,
                     '`auth`.`hak_akses` <>' => 1 + false
                 ])
                 ->get()
@@ -118,7 +117,7 @@ class M_Auth extends CI_Model {
     function Management_Update($id, $data) {
         $this->db->trans_begin();
         $this->db->set($data)
-                ->where('auth.id', $id)
+                ->where('`auth`.`id`', $id, false)
                 ->update('auth');
         if ($this->db->trans_status() === false) {
             $this->db->trans_rollback();

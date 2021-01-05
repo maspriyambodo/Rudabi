@@ -41,8 +41,8 @@ class Auth extends CI_Controller {
         switch ($this->session->userdata('lvl')) {
             case 1://super admin
                 return redirect(base_url('Dashboard/index'), 'refresh');
-            case 2://Sub Direktorat Sekertariat
-                return redirect(base_url('Users/Sekertariat/Dashboard/index/'), 'refresh');
+            case 2://Sub Direktorat Sekretariat
+                return redirect(base_url('Users/Sekretariat/Dashboard/index/'), 'refresh');
             case 3://DIREKTORAT URUSAN AGAMA ISLAM DAN PEMBINAAN SYARIAH
                 return redirect(base_url('Users/Binsyar/Dashboard/index/'), 'refresh');
             case 4://DIREKTORAT BINA KUA DAN KELUARGA SAKINAH
@@ -94,6 +94,21 @@ class Auth extends CI_Controller {
         ];
         $data['content'] = $this->parser->parse('V_management', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
+    }
+
+    public function Management_aktif() {
+        $param = $this->bodo->Url($this->input->post_get('key')); //
+        $data = [
+            'auth.stat' => 1,
+            'auth.sysupduser' => $this->session->userdata('id', true),
+            'auth.sysupddate' => date('Y-m-d H:i:s')
+        ];
+        $exec = $this->M_Auth->Management_Update($param[0], $data);
+        if ($exec == true) {
+            return redirect(base_url('Auth/Management/'), $this->session->set_flashdata('message', 'Akun berhasil diaktifkan !'));
+        } else {
+            return redirect(base_url('Auth/Management/'), $this->session->set_flashdata('error', 'User gagal diaktifkan !'));
+        }
     }
 
     public function Management_save() {

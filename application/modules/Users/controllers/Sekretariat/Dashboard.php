@@ -27,11 +27,11 @@ class Dashboard extends CI_Controller {
 
     public function index() {
         $data = [
-            'title' => 'Dashboard | RUDABI SYSTEM OF KEMENAG RI',
-            'username' => $this->session->userdata('username'),
+            'title' => 'Dashboard Sekretariat | RUDABI SYSTEM OF KEMENAG RI',
+            'username' => $this->session->userdata('username')
         ];
-        $data['content'] = $this->parser->parse('Sek/Dashboard', [], true);
-        return $this->parser->parse('Sek/Template', $data);
+        $data['content'] = $this->parser->parse('Users/u_sekretariat/Dashboard', $data, true);
+        return $this->parser->parse('Users/u_sekretariat/Template', $data);
     }
 
 }

@@ -7,6 +7,7 @@
                         <tr>
                             <th>username</th>
                             <th>subdit</th>
+                            <th>status</th>
                             <th>action</th>
                         </tr>
                     </thead>
@@ -27,6 +28,9 @@
                                 </select>
                             </td>
                             <td class="text-center">
+                                new
+                            </td>
+                            <td class="text-center">
                                 <input type="hidden" name="<?= $csrf['name'] ?>" value="<?= $csrf['hash'] ?>"/>
                                 <button type="submit" class="btn btn-icon btn-success btn-xs"><i class="fas fa-save"></i></button>
                             </td>
@@ -40,11 +44,26 @@
                                     <?= $user_data->nama; ?>
                                 </td>
                                 <td class="text-center">
+                                    <?php
+                                    if ($user_data->stat == 1) {
+                                        echo '<button type="button" title="Aktif" class="btn btn-icon btn-success btn-xs"><i class="fas fa-lock-open"></i></button>';
+                                    } else {
+                                        echo '<a href="' . base_url('Auth/Management_aktif?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $user_data->id))) . '" title="Aktifkan Akun" class="btn btn-icon btn-danger btn-xs"><i class="fas fa-lock"></i></a>';
+                                    }
+                                    ?>
+                                </td>
+                                <td class="text-center">
                                     <div class="btn-group">
                                         <?php $id_user = str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt($user_data->id)); ?>
                                         <button type="button" class="btn btn-icon btn-default btn-xs" title="Reset password to default" data-toggle="modal" data-target="#rstpwdmodal" onclick="Resetpwd('<?= $id_user ?>')"><i class="fas fa-key"></i></button>
                                         <button type="button" class="btn btn-icon btn-warning btn-xs" title="Edit data" data-toggle="modal" data-target="#Editmodal" onclick="Edit('<?= $id_user ?>')"><i class="fas fa-pencil-alt"></i></button>
-                                        <button type="button" class="btn btn-icon btn-danger btn-xs" title="Hapus data" data-toggle="modal" data-target="#Hapusmodal" onclick="Hapus('<?= $id_user ?>')"><i class="fas fa-trash"></i></button>
+                                        <?php
+                                        if ($user_data->stat == 1) {
+                                            echo '<button type="button" class="btn btn-icon btn-danger btn-xs" title="Hapus data" data-toggle="modal" data-target="#Hapusmodal" onclick="Hapus(&apos;'. $id_user .'&apos;)"><i class="fas fa-trash"></i></button>';
+                                        } else {
+                                            echo '<button type="button" class="btn btn-icon btn-danger btn-xs" disabled><i class="fas fa-trash"></i></button>';
+                                        }
+                                        ?>
                                     </div>
                                 </td>
                             </tr>
@@ -150,7 +169,7 @@
         if (a !== '') {
             toastr.success(a);
         } else if (b !== '') {
-            toastr.success(b);
+            toastr.error(b);
         } else {
             return false;
         }
