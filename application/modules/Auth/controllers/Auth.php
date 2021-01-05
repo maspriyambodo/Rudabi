@@ -238,15 +238,18 @@ class Auth extends CI_Controller {
             'auth.uname' => $this->input->post('username', true),
             'auth.pwd' => sha1($this->input->post('password', true))
         ];
-        $result = $this->M_Auth->Process($data);
-        if ($result == false) {
-            return redirect(base_url('Auth/index'), $this->session->set_flashdata('gagal', 'Maaf, username dan password Anda salah. Harap periksa kembali username dan password Anda.'));
+        $result = $this->M_Auth->Process($data); // Array ( [0] => stdClass Object ( [id] => 1 [uname] => admin [hak_akses] => 1 [stat] => 1 ) )
+        if (empty($result)) {
+            return redirect(base_url('Auth/index/'), $this->session->set_flashdata('gagal', 'Maaf, username dan password Anda salah. Harap periksa kembali username dan password Anda.'));
+        } elseif ($result[0]->stat == 2) {
+            return redirect(base_url('Auth/index/'), $this->session->set_flashdata('gagal', 'Maaf, Akun anda sudah tidak aktif, hubungi admin untuk aktifkan.'));
         } else {
             $session = [
                 'login_stat' => 1,
                 'id' => $result[0]->id,
                 'username' => $result[0]->uname,
-                'lvl' => $result[0]->hak_akses
+                'lvl' => $result[0]->hak_akses,
+                'stat' => $result[0]->stat
             ];
             $this->session->set_userdata($session);
             return $this->Role_users();

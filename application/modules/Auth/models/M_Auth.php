@@ -33,7 +33,7 @@ class M_Auth extends CI_Model {
     }
 
     function Process($data) {
-        $exec = $this->db->select('auth.id, auth.uname, auth.hak_akses')
+        $exec = $this->db->select('auth.id, auth.uname, auth.hak_akses, auth.stat')
                 ->from('auth')
                 ->where($data)
                 ->limit(1)
