@@ -22,28 +22,28 @@
                 <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
                     <i class="flaticon-map" style="font-size: 48px;"></i>
                 </span>
-                <a href="<?php echo base_url('Users/Sekertariat/Satker/index/'); ?>" class="text-warning font-weight-bold font-size-h6">Satker</a>
+                <a href="<?php echo base_url('Users/Sekretariat/Satker/index/'); ?>" class="text-warning font-weight-bold font-size-h6">Satker</a>
             </div>
 
             <div class="col bg-light-warning px-6 py-8 rounded-xl mr-7 mb-7">
                 <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
                     <i class="fas fa-chart-line" style="font-size: 48px;"></i>
                 </span>
-                <a href="<?php echo base_url('Users/Sekertariat/Usulan/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="text-warning font-weight-bold font-size-h6">Usulan Triwulan</a>
+                <a href="<?php echo base_url('Users/Sekretariat/Usulan/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="text-warning font-weight-bold font-size-h6">Usulan Triwulan</a>
             </div>
 
             <div class="col bg-light-success px-6 py-8 rounded-xl mr-7 mb-7">
                 <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
                     <i class="fas fa-pencil-alt" style="font-size: 48px;"></i>
                 </span>
-                <a href="<?php echo base_url('Users/Sekertariat/Input/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="text-warning font-weight-bold font-size-h6">Input Triwulan</a>
+                <a href="<?php echo base_url('Users/Sekretariat/Input/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="text-warning font-weight-bold font-size-h6">Input Triwulan</a>
             </div>
 
             <div class="col bg-light-danger px-6 py-8 rounded-xl mr-7 mb-7">
                 <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
                     <i class="far fa-thumbs-up" style="font-size: 48px;"></i>
                 </span>
-                <a href="<?php echo base_url('Users/Sekertariat/Approved/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="text-warning font-weight-bold font-size-h6">Approved Usulan</a>
+                <a href="<?php echo base_url('Users/Sekretariat/Approved/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="text-warning font-weight-bold font-size-h6">Approved Usulan</a>
             </div>
         </div>
     </div>
@@ -66,14 +66,14 @@
                 <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
                     <i class="fas fa-users" style="font-size: 48px;"></i>
                 </span>
-                <a href="<?php echo base_url('Users/Sekertariat/Sicakep/Pegawai/index'); ?>" class="text-warning font-weight-bold font-size-h6">Data Pegawai</a>
+                <a href="<?php echo base_url('Users/Sekretariat/Sicakep/Pegawai/index'); ?>" class="text-warning font-weight-bold font-size-h6">Data Pegawai</a>
             </div>
 
             <div class="col bg-light-warning px-6 py-8 rounded-xl mr-7 mb-7">
                 <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
                     <i class="fas fa-house-user" style="font-size: 48px;"></i>
                 </span>
-                <a href="<?php echo base_url('Users/Sekertariat/Pensiun/index'); ?>" class="text-warning font-weight-bold font-size-h6">Data Pensiun</a>
+                <a href="<?php echo base_url('Users/Sekretariat/Pensiun/index'); ?>" class="text-warning font-weight-bold font-size-h6">Data Pensiun</a>
             </div>
         </div>
     </div>

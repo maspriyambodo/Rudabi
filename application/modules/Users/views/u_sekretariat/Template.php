@@ -63,7 +63,7 @@
                                 </li>
                                 <div class="separator separator-dashed"></div>
                                 <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
-                                    <a href="<?php echo base_url('Users/Sekertariat/Satker/index/'); ?>" class="menu-link menu-toggle">
+                                    <a href="<?php echo base_url('Users/Sekretariat/Satker/index/'); ?>" class="menu-link menu-toggle">
                                         <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>
@@ -71,7 +71,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
-                                    <a href="<?php echo base_url('Users/Sekertariat/Usulan/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="menu-link menu-toggle">
+                                    <a href="<?php echo base_url('Users/Sekretariat/Usulan/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="menu-link menu-toggle">
                                         <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>
@@ -79,7 +79,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
-                                    <a href="<?php echo base_url('Users/Sekertariat/Input/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="menu-link menu-toggle">
+                                    <a href="<?php echo base_url('Users/Sekretariat/Input/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="menu-link menu-toggle">
                                         <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>
@@ -87,7 +87,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
-                                    <a href="<?php echo base_url('Users/Sekertariat/Approved/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="menu-link menu-toggle">
+                                    <a href="<?php echo base_url('Users/Sekretariat/Approved/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="menu-link menu-toggle">
                                         <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>
@@ -100,7 +100,7 @@
                                 </li>
                                 <div class="separator separator-dashed"></div>
                                 <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
-                                    <a href="<?php echo base_url('Users/Sekertariat/Sicakep/Pegawai/index'); ?>" class="menu-link menu-toggle">
+                                    <a href="<?php echo base_url('Users/Sekretariat/Sicakep/Pegawai/index'); ?>" class="menu-link menu-toggle">
                                         <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>
@@ -108,7 +108,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
-                                    <a href="<?php echo base_url('Users/Sekertariat/Pensiun/index'); ?>" class="menu-link menu-toggle">
+                                    <a href="<?php echo base_url('Users/Sekretariat/Pensiun/index'); ?>" class="menu-link menu-toggle">
                                         <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>

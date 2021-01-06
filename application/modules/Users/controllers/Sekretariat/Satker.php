@@ -21,7 +21,7 @@ class Satker extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('M_Sekertariat');
+        $this->load->model('Sekertariat/M_Sekertariat');
         $this->Authentication = $this->M_Sekertariat->Auth();
     }
 
@@ -31,8 +31,8 @@ class Satker extends CI_Controller {
             'username' => $this->Authentication[0]->uname,
             'data' => file_get_contents("https://simas.kemenag.go.id/rudabi/datapi/esbsnn?KEY=boba")
         ];
-        $data['content'] = $this->parser->parse('Sekertariat/Satker/V_index', $data, true);
-        return $this->parser->parse('Dashboard/Template', $data);
+        $data['content'] = $this->parser->parse('Users/u_sekretariat/satker_index', $data, true);
+        return $this->parser->parse('Users/u_sekretariat/Template', $data);
     }
 
     public function Provinsi() {
@@ -43,8 +43,8 @@ class Satker extends CI_Controller {
             'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn?KEY=BOBA&kab_propinsi_id=' . $param[0]),
             'param' => $param
         ];
-        $data['content'] = $this->parser->parse('Sekertariat/Satker/V_Provinsi', $data, true);
-        return $this->parser->parse('Dashboard/Template', $data);
+        $data['content'] = $this->parser->parse('Users/u_sekretariat/satker_provinsi', $data, true);
+        return $this->parser->parse('Users/u_sekretariat/Template', $data);
     }
 
 }
