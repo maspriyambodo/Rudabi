@@ -49,16 +49,13 @@ class Usulan extends CI_Controller {
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
-    public function Provinsi($param) {
-        $dec = $this->Dec($param);
-        $value = explode('/', $dec);
+    public function Provinsi() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // Array ( [0] => 2021 as usul_tahun [1] => 18 as usul_propinsi[2] => Bali as propinsi_nama)
         $data = [
-            'title' => 'Data Usulan Triwulan  Provinsi ' . $value[2] . ' | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Data Usulan Triwulan  Provinsi ' . $param[2] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'id' => $value[1],
-            'tahun' => $value[0],
-            'provinsi' => str_replace(['_', '%20'], ' ', $value[2]),
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/usulantriwulan?KEY=BOBA&usul_tahun=' . $value[0] . '&usul_propinsi=' . $value[1] . '', true)
+            'param' => $param,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/usulantriwulan?KEY=BOBA&usul_tahun=' . $param[0] . '&usul_propinsi=' . $param[1] . '', true)
         ];
         if ($data['data'] == false) {
             $data['msg'] = "Data Usulan Triwulan Tahun " . $data['tahun'] . " Tidak tersedia!";

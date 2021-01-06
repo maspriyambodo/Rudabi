@@ -79,8 +79,7 @@
                         <tr>
                             <td>
                                 <?php
-                                $url = str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt($param[0] . '/' . $value->usul_propinsi . '/' . $value->propinsi_nama));
-                                echo '<a href=' . base_url('Sekertariat/Usulan/Provinsi/' . $url . '') . '>' . $value->propinsi_nama . '</a>';
+                                echo '<a href=' . base_url('Sekertariat/Usulan/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $value->usul_propinsi . '&c=' . $value->propinsi_nama))) . '>' . $value->propinsi_nama . '</a>';
                                 ?>
                             </td>
                             <td class="text-center jum_data">

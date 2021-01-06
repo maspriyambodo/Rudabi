@@ -1,7 +1,7 @@
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">Data Usulan provinsi {provinsi} Tahun {tahun}</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase"><?php echo 'data usulan provinsi ' . $param[2] . ' tahun ' . $param[0]; ?></h5>
         </div>
     </div>
 </div>
