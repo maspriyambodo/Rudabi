@@ -1,7 +1,7 @@
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Usulan Triwulan Tahun {tahun}</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Usulan Triwulan Tahun <?php echo $param[0]; ?></h5>
         </div>
     </div>
 </div>
@@ -14,12 +14,12 @@
                     <?php
                     $usul_tahun = json_decode($pertahun);
                     foreach ($usul_tahun as $usul_tahun) {
-                        if ($usul_tahun->usul_tahun == $tahun) {
+                        if ($usul_tahun->usul_tahun == $param[0]) {
                             $selected = 'selected=""';
                         } else {
                             $selected = null;
                         }
-                        echo '<option value="' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt($usul_tahun->usul_tahun)) . '" ' . $selected . '>' . $usul_tahun->usul_tahun . '</option>';
+                        echo '<option value="' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $usul_tahun->usul_tahun)) . '" ' . $selected . '>' . $usul_tahun->usul_tahun . '</option>';
                     }
                     ?>
                 </select>
@@ -79,7 +79,7 @@
                         <tr>
                             <td>
                                 <?php
-                                $url = str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt($tahun . '/' . $value->usul_propinsi . '/' . $value->propinsi_nama));
+                                $url = str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt($param[0] . '/' . $value->usul_propinsi . '/' . $value->propinsi_nama));
                                 echo '<a href=' . base_url('Sekertariat/Usulan/Provinsi/' . $url . '') . '>' . $value->propinsi_nama . '</a>';
                                 ?>
                             </td>
@@ -163,7 +163,7 @@
 <script>
     function Tahun() {
         var a = $('select[name=tahun]').val();
-        return window.location.href = "Sekertariat/Usulan/index/" + a;
+        return window.location.href = "Sekertariat/Usulan/index?key=" + a;
     }
     window.onload = function () {
         var a = $('input[name=totjum_data]').val();

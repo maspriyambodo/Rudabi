@@ -8,8 +8,7 @@
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <?php $url = str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt($tahun)); ?>
-            <a href="<?= base_url('Sekertariat/Usulan/index/' . $url . ''); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?= base_url('Sekertariat/Usulan/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $tahun))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
@@ -112,7 +111,7 @@
                             </td>
                             <td class="text-center">
                                 <?php
-                                $nilai_dipa= str_replace(',', '', $usulan->nilai_dipa);
+                                $nilai_dipa = str_replace(',', '', $usulan->nilai_dipa);
                                 $totnilai_dipa += $nilai_dipa;
                                 echo number_format($nilai_dipa);
                                 ?>

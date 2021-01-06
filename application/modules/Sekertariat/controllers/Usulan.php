@@ -31,17 +31,17 @@ class Usulan extends CI_Controller {
         return $dec;
     }
 
-    public function index($year) {
-        $tahun = $this->Dec($year);
+    public function index() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // Array ( [0] => 2021 )
         $data = [
             'title' => 'Data Usulan Triwulan | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'tahun' => $tahun,
+            'param' => $param,
             'pertahun' => read_file("https://simas.kemenag.go.id/rudabi/datapi/esbsnn/pertahun?KEY=BOBA", true),
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/usulantriwulan?KEY=BOBA&usul_tahun=' . $tahun . '', true)
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/usulantriwulan?KEY=BOBA&usul_tahun=' . $param[0] . '', true)
         ];
         if ($data['data'] == false) {
-            $data['msg'] = "Data Usulan Triwulan Tahun " . $tahun . " Tidak tersedia!";
+            $data['msg'] = "Data Usulan Triwulan Tahun " . $param[0] . " Tidak tersedia!";
         } else {
             $data['msg'] = "";
         }
