@@ -598,7 +598,7 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <li class="menu-item" aria-haspopup="true" title="e-penyuluh agama islam">
+                                <li class="menu-item" aria-haspopup="true">
                                     <a href="<?= base_url('PAI/Epai/index/'); ?>" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-bullhorn"></i>
@@ -611,7 +611,7 @@
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                 </li>
                                 <div class="separator separator-dashed"></div>
-                                <li class="menu-item" aria-haspopup="true" title="sistem informasi wakaf">
+                                <li class="menu-item" aria-haspopup="true">
                                     <a href="<?= base_url('Siwak/index/'); ?>" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-hand-holding-heart"></i>
@@ -624,7 +624,7 @@
                                     <h4 class="menu-text text-white user-select-none">SYSTEM</h4>
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                 </li>
-                                <li class="menu-item" aria-haspopup="true" title="sistem informasi wakaf">
+                                <li class="menu-item" aria-haspopup="true">
                                     <a href="<?= base_url('Auth/Management/'); ?>" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-users-cog"></i>
@@ -632,7 +632,7 @@
                                         <span class="menu-text">User Management</span>
                                     </a>
                                 </li>
-                                <li class="menu-item" aria-haspopup="true" title="sistem informasi wakaf">
+                                <li class="menu-item" aria-haspopup="true">
                                     <a href="<?= base_url('Auth/Subdit/'); ?>" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-code-branch"></i>

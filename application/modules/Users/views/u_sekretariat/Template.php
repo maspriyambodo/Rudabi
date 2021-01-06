@@ -57,30 +57,74 @@
                                         <span class="menu-text">Dashboard</span>
                                     </a>
                                 </li>
-
                                 <li class="menu-section">
                                     <h4 class="menu-text text-white user-select-none">e-SBSN</h4>
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                 </li>
                                 <div class="separator separator-dashed"></div>
+                                <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                    <a href="<?php echo base_url('Users/Sekertariat/Satker/index/'); ?>" class="menu-link menu-toggle">
+                                        <i class="menu-bullet menu-bullet-dot">
+                                            <span></span>
+                                        </i>
+                                        <span class="menu-text">SATKER</span><span class="menu-label"></span>
+                                    </a>
+                                </li>
+                                <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                    <a href="<?php echo base_url('Users/Sekertariat/Usulan/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="menu-link menu-toggle">
+                                        <i class="menu-bullet menu-bullet-dot">
+                                            <span></span>
+                                        </i>
+                                        <span class="menu-text">Usulan Triwulan</span><span class="menu-label"></span>
+                                    </a>
+                                </li>
+                                <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                    <a href="<?php echo base_url('Users/Sekertariat/Input/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="menu-link menu-toggle">
+                                        <i class="menu-bullet menu-bullet-dot">
+                                            <span></span>
+                                        </i>
+                                        <span class="menu-text">Input Triwulan</span><span class="menu-label"></span>
+                                    </a>
+                                </li>
+                                <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                    <a href="<?php echo base_url('Users/Sekertariat/Approved/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="menu-link menu-toggle">
+                                        <i class="menu-bullet menu-bullet-dot">
+                                            <span></span>
+                                        </i>
+                                        <span class="menu-text">Approved Usulan</span><span class="menu-label"></span>
+                                    </a>
+                                </li>
+                                <li class="menu-section">
+                                    <h4 class="menu-text text-white user-select-none">SICAKEP</h4>
+                                    <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
+                                </li>
+                                <div class="separator separator-dashed"></div>
+                                <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                    <a href="<?php echo base_url('Users/Sekertariat/Sicakep/Pegawai/index'); ?>" class="menu-link menu-toggle">
+                                        <i class="menu-bullet menu-bullet-dot">
+                                            <span></span>
+                                        </i>
+                                        <span class="menu-text">SATKER</span><span class="menu-label"></span>
+                                    </a>
+                                </li>
+                                <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
+                                    <a href="<?php echo base_url('Users/Sekertariat/Pensiun/index'); ?>" class="menu-link menu-toggle">
+                                        <i class="menu-bullet menu-bullet-dot">
+                                            <span></span>
+                                        </i>
+                                        <span class="menu-text">Usulan Triwulan</span><span class="menu-label"></span>
+                                    </a>
+                                </li>
                                 <li class="menu-section">
                                     <h4 class="menu-text text-white user-select-none">SYSTEM</h4>
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                 </li>
-                                <li class="menu-item" aria-haspopup="true" title="sistem informasi wakaf">
-                                    <a href="<?= base_url('Auth/Management/'); ?>" class="menu-link">
+                                <li class="menu-item" aria-haspopup="true">
+                                    <a href="#" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-users-cog"></i>
                                         </span>
                                         <span class="menu-text">User Management</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item" aria-haspopup="true" title="sistem informasi wakaf">
-                                    <a href="<?= base_url('Auth/Subdit/'); ?>" class="menu-link">
-                                        <span class="svg-icon menu-icon">
-                                            <i class="fas fa-code-branch"></i>
-                                        </span>
-                                        <span class="menu-text">Sub Direktorat</span>
                                     </a>
                                 </li>
                             </ul>
@@ -268,7 +312,9 @@
                                         <path d="M4.85714286,1 L11.7364114,1 C12.0910962,1 12.4343066,1.12568431 12.7051108,1.35473959 L17.4686994,5.3839416 C17.8056532,5.66894833 18,6.08787823 18,6.52920201 L18,19.0833333 C18,20.8738751 17.9795521,21 16.1428571,21 L4.85714286,21 C3.02044787,21 3,20.8738751 3,19.0833333 L3,2.91666667 C3,1.12612489 3.02044787,1 4.85714286,1 Z M8,12 C7.44771525,12 7,12.4477153 7,13 C7,13.5522847 7.44771525,14 8,14 L15,14 C15.5522847,14 16,13.5522847 16,13 C16,12.4477153 15.5522847,12 15,12 L8,12 Z M8,16 C7.44771525,16 7,16.4477153 7,17 C7,17.5522847 7.44771525,18 8,18 L11,18 C11.5522847,18 12,17.5522847 12,17 C12,16.4477153 11.5522847,16 11,16 L8,16 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
                                         <path d="M6.85714286,3 L14.7364114,3 C15.0910962,3 15.4343066,3.12568431 15.7051108,3.35473959 L20.4686994,7.3839416 C20.8056532,7.66894833 21,8.08787823 21,8.52920201 L21,21.0833333 C21,22.8738751 20.9795521,23 19.1428571,23 L6.85714286,23 C5.02044787,23 5,22.8738751 5,21.0833333 L5,4.91666667 C5,3.12612489 5.02044787,3 6.85714286,3 Z M8,12 C7.44771525,12 7,12.4477153 7,13 C7,13.5522847 7.44771525,14 8,14 L15,14 C15.5522847,14 16,13.5522847 16,13 C16,12.4477153 15.5522847,12 15,12 L8,12 Z M8,16 C7.44771525,16 7,16.4477153 7,17 C7,17.5522847 7.44771525,18 8,18 L11,18 C11.5522847,18 12,17.5522847 12,17 C12,16.4477153 11.5522847,16 11,16 L8,16 Z" fill="#000000" fill-rule="nonzero"/>
                                         </g>
-                                        </svg><!--end::Svg Icon--></span>						</div>
+                                        </svg>
+                                    </span>
+                                </div>
                             </div>
                             <div class="navi-text">
                                 <div class="font-weight-bold">
@@ -280,9 +326,6 @@
                             </div>
                         </div>
                     </a>
-                    <!--end:Item-->
-
-                    <!--begin::Item-->
                     <a href="custom/apps/userprofile-1/overview.html" class="navi-item">
                         <div class="navi-link">
                             <div class="symbol symbol-40 bg-light mr-3">
@@ -405,29 +448,6 @@
             </div>
             <!--end::Content-->
         </div>
-        <!--        <div id="kt_quick_user" class="offcanvas offcanvas-right p-10">
-                    <div class="offcanvas-header d-flex align-items-center justify-content-between pb-5">
-                        <a href="#" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="kt_quick_user_close"><i class="ki ki-close icon-xs text-muted"></i></a>
-                    </div>
-                    <div class="offcanvas-content pr-5 mr-n5">
-                        <div class="d-flex align-items-center mt-5">
-                            <div class="symbol symbol-100 mr-5">
-                                <i class="fas fa-user" style="font-size: 5.25rem;"></i>
-                            </div>
-                            <div class="d-flex flex-column">
-                                <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{username}</a>
-                                <div class="text-muted mt-1"></div>
-                                <div class="navi mt-2">
-                                    <a href="#" class="navi-item"></a>
-                                    <a href="<?= base_url('Auth/Logout/'); ?>" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">
-                                        Sign Out
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="separator separator-dashed mt-8 mb-5"></div>
-                    </div>
-                </div>-->
         <div id="kt_scrolltop" class="scrolltop"><span class="svg-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><polygon points="0 0 24 0 24 24 0 24" /><rect fill="#000000" opacity="0.3" x="11" y="10" width="2" height="10" rx="1" /><path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z" fill="#000000" fill-rule="nonzero" /></g></svg></span></div>
         <script>
             var pageUrl = window.location.origin + window.location.pathname;
