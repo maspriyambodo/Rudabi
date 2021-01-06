@@ -41,15 +41,13 @@ class Satker extends CI_Controller {
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
-    public function Provinsi($param) {
-        $dec = $this->Dec($param);
-        $value = explode('/', $dec);
+    public function Provinsi() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // Array ( [0] => 18 [1] => Bali )
         $data = [
             'title' => 'Data SATKER | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'id' => $value[0],
-            'provinsi' => str_replace(['_', '%20'], ' ', $value[1]),
-            'data' => json_decode(file_get_contents("https://simas.kemenag.go.id/rudabi/datapi/esbsnn?KEY=BOBA&kab_propinsi_id=" . $value[0] . ""))
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn?KEY=BOBA&kab_propinsi_id=' . $param[0]),
+            'param' => $param
         ];
         $data['content'] = $this->parser->parse('Sekertariat/Satker/V_Provinsi', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);

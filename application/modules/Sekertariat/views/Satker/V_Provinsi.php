@@ -1,7 +1,8 @@
+<?php $a = json_decode($data); ?>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">Satker provinsi {provinsi}</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">Satker provinsi <?php echo $param[1]; ?></h5>
         </div>
     </div>
 </div>
@@ -25,29 +26,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($data as $value) { ?>
+                    <?php foreach ($a as $b) { ?>
                         <tr>
                             <td class="text-uppercase">
                                 <?php
-                                $kab = str_replace("Kab.", "Kabupaten", $value->kab_nama);
+                                $kab = str_replace("Kab.", "Kabupaten", $b->kab_nama);
                                 echo $kab;
                                 ?>
                             </td>
                             <td class="text-center">
                                 <?php
-                                if ($value->kab_kode_satker == '') {
+                                if ($b->kab_kode_satker == '') {
                                     echo 'TIDAK ADA DATA';
                                 } else {
-                                    echo $value->kab_kode_satker;
+                                    echo $b->kab_kode_satker;
                                 }
                                 ?>
                             </td>
                             <td>
                                 <?php
-                                if ($value->kab_nama_satker == '') {
+                                if ($b->kab_nama_satker == '') {
                                     echo 'TIDAK ADA DATA';
                                 } else {
-                                    echo $value->kab_nama_satker;
+                                    echo $b->kab_nama_satker;
                                 }
                                 ?>
                             </td>

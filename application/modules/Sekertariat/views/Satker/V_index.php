@@ -80,8 +80,7 @@
                         ?>
                         <tr>
                             <td>
-                                <?php $url = str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt($value->kab_propinsi_id . '/' . $value->propinsi_nama)); ?>
-                                <a href="<?= base_url('Sekertariat/Satker/Provinsi/' . $url . ''); ?>"><?= $value->propinsi_nama ?></a>
+                                <a href="<?php echo base_url('Sekertariat/Satker/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $value->kab_propinsi_id . '&b=' . $value->propinsi_nama)) . ''); ?>"><?= $value->propinsi_nama ?></a>
                             </td>
                             <td class="text-center">
                                 <?php
