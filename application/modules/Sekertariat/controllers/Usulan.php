@@ -25,12 +25,6 @@ class Usulan extends CI_Controller {
         $this->Authentication = $this->M_Sekertariat->Auth();
     }
 
-    private function Dec($enc) {
-        $encrypt = str_replace(['-', '_', '~'], ['+', '/', '='], $enc);
-        $dec = $this->encryption->decrypt($encrypt);
-        return $dec;
-    }
-
     public function index() {
         $param = $this->bodo->Url($this->input->post_get('key')); // Array ( [0] => 2021 )
         $data = [

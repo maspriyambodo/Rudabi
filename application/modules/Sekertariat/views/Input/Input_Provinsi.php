@@ -1,15 +1,14 @@
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">Input Triwulan provinsi {provinsi} Tahun {tahun}</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase"><?php echo 'Input Triwulan provinsi ' . $param[2] . ' Tahun ' . $param[0]; ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <?php $url = str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt($tahun)); ?>
-            <a href="<?= base_url('Sekertariat/Input/index/' . $url . ''); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?= base_url('Sekertariat/Input/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt($param[0]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
@@ -84,8 +83,7 @@
                         ?>
                         <tr>
                             <td>
-                                <?php $kab_nama = str_replace(['.', 'Kab'], ['', 'Kabupaten'], $input_provinsi->kab_nama); ?>
-                                <a href="<?= base_url('Sekertariat/Input/Kabupaten?param=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('kab_nama=' . $input_provinsi->kab_nama . '&usul_tahun=' . $tahun . '&usul_propinsi=' . $id . '&usul_kabupaten=' . $input_provinsi->usul_kabupaten . '&provinsi=' . $provinsi . '')) . ''); ?>"><?= $kab_nama; ?></a>
+                                <a href="<?= base_url('Sekertariat/Input/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $input_provinsi->kab_nama . '&b=' . $param[0] . '&c=' . $param[1] . '&d=' . $input_provinsi->usul_kabupaten . '&e=' . $param[2] . '')) . ''); ?>"><?php echo $input_provinsi->kab_nama; ?></a>
                             </td>
                             <td class="text-center">
                                 <?php
@@ -223,7 +221,7 @@
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
-            categoryAxis.title.text = 'KOTA / KABUPATEN';
+            categoryAxis.title.text = 'Daerah Kota / Kabupaten';
             categoryAxis.dataFields.category = "kab_nama";
             categoryAxis.renderer.grid.template.location = 0;
             categoryAxis.renderer.minGridDistance = 30;
@@ -233,26 +231,30 @@
             categoryAxis.tooltip.disabled = true;
             categoryAxis.renderer.minHeight = 110;
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-            valueAxis.renderer.minWidth = 100;
+            valueAxis.renderer.minWidth = 50;
             valueAxis.title.text = "Jumlah Data Input Triwulan";
             valueAxis.title.fontWeight = 800;
             var series = chart.series.push(new am4charts.ColumnSeries());
+            series.sequencedInterpolation = true;
             series.dataFields.valueY = "data_kabkot";
             series.dataFields.categoryX = "kab_nama";
-            series.clustered = false;
             series.tooltipText = "Jumlah Input Triwulan {categoryX}: [bold]{valueY}[/]";
+            series.columns.template.strokeWidth = 0;
+            series.tooltip.pointerOrientation = "vertical";
+            series.columns.template.column.cornerRadiusTopLeft = 10;
+            series.columns.template.column.cornerRadiusTopRight = 10;
+            series.columns.template.column.fillOpacity = 0.8;
+
             var series2 = chart.series.push(new am4charts.ColumnSeries());
+            series2.sequencedInterpolation = true;
             series2.dataFields.valueY = "status_pending";
             series2.dataFields.categoryX = "kab_nama";
-            series2.clustered = false;
-            series2.columns.template.width = am4core.percent(50);
             series2.tooltipText = "Status Pending {categoryX} : [bold]{valueY}[/]";
-            var series3 = chart.series.push(new am4charts.ColumnSeries());
-            series3.dataFields.valueY = "status_req_approve";
-            series3.dataFields.categoryX = "kab_nama";
-            series3.clustered = false;
-            series3.columns.template.width = am4core.percent(50);
-            series3.tooltipText = "Status Approved {categoryX} : [bold]{valueY}[/]";
+            series2.columns.template.strokeWidth = 0;
+            series2.tooltip.pointerOrientation = "vertical";
+            series2.columns.template.column.cornerRadiusTopLeft = 10;
+            series2.columns.template.column.cornerRadiusTopRight = 10;
+            series2.columns.template.column.fillOpacity = 0.8;
             var hoverState = series.columns.template.column.states.create("hover");
             hoverState.properties.cornerRadiusTopLeft = 0;
             hoverState.properties.cornerRadiusTopRight = 0;
@@ -261,7 +263,6 @@
                 return chart.colors.getIndex(target.dataItem.index);
             });
             chart.cursor = new am4charts.XYCursor();
-            categoryAxis.sortBySeries = series;
         });
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);

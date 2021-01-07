@@ -1,7 +1,7 @@
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Input Triwulan Tahun {tahun}</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Input Triwulan Tahun <?php echo $param[0]; ?></h5>
         </div>
     </div>
 </div>
@@ -14,7 +14,7 @@
                     <?php
                     $usul_tahun = json_decode($pertahun);
                     foreach ($usul_tahun as $usul_tahun) {
-                        if ($usul_tahun->usul_tahun == $tahun) {
+                        if ($usul_tahun->usul_tahun == $param[0]) {
                             $selected = 'selected=""';
                         } else {
                             $selected = null;
@@ -97,8 +97,7 @@
                         <tr>
                             <td>
                                 <?php
-                                $url = str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt($tahun . '/' . $input->usul_propinsi . '/' . $input->propinsi_nama));
-                                echo '<a href=' . base_url('Sekertariat/Input/Provinsi/' . $url . '') . '>' . $input->propinsi_nama . '</a>';
+                                echo '<a href=' . base_url('Sekertariat/Input/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $input->usul_propinsi . '&c=' . $input->propinsi_nama))) . '>' . $input->propinsi_nama . '</a>';
                                 ?>
                             </td>
                             <td class="text-center">
@@ -234,26 +233,30 @@
             categoryAxis.tooltip.disabled = true;
             categoryAxis.renderer.minHeight = 110;
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-            valueAxis.renderer.minWidth = 100;
+            valueAxis.renderer.minWidth = 50;
             valueAxis.title.text = "Jumlah Data Input Triwulan";
             valueAxis.title.fontWeight = 800;
             var series = chart.series.push(new am4charts.ColumnSeries());
+            series.sequencedInterpolation = true;
             series.dataFields.valueY = "jum_kabkot";
             series.dataFields.categoryX = "propinsi_nama";
-            series.clustered = false;
             series.tooltipText = "Jumlah Input Triwulan {categoryX}: [bold]{valueY}[/]";
+            series.columns.template.strokeWidth = 0;
+            series.tooltip.pointerOrientation = "vertical";
+            series.columns.template.column.cornerRadiusTopLeft = 10;
+            series.columns.template.column.cornerRadiusTopRight = 10;
+            series.columns.template.column.fillOpacity = 0.8;
+
             var series2 = chart.series.push(new am4charts.ColumnSeries());
+            series2.sequencedInterpolation = true;
             series2.dataFields.valueY = "status_pending";
             series2.dataFields.categoryX = "propinsi_nama";
-            series2.clustered = false;
-            series2.columns.template.width = am4core.percent(50);
             series2.tooltipText = "Status Pending {categoryX} : [bold]{valueY}[/]";
-            var series3 = chart.series.push(new am4charts.ColumnSeries());
-            series3.dataFields.valueY = "status_req_approve";
-            series3.dataFields.categoryX = "propinsi_nama";
-            series3.clustered = false;
-            series3.columns.template.width = am4core.percent(50);
-            series3.tooltipText = "Status Approved {categoryX} : [bold]{valueY}[/]";
+            series2.columns.template.strokeWidth = 0;
+            series2.tooltip.pointerOrientation = "vertical";
+            series2.columns.template.column.cornerRadiusTopLeft = 10;
+            series2.columns.template.column.cornerRadiusTopRight = 10;
+            series2.columns.template.column.fillOpacity = 0.8;
             var hoverState = series.columns.template.column.states.create("hover");
             hoverState.properties.cornerRadiusTopLeft = 0;
             hoverState.properties.cornerRadiusTopRight = 0;
@@ -262,7 +265,6 @@
                 return chart.colors.getIndex(target.dataItem.index);
             });
             chart.cursor = new am4charts.XYCursor();
-            categoryAxis.sortBySeries = series;
         });
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);

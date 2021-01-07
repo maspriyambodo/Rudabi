@@ -31,17 +31,17 @@ class Input extends CI_Controller {
         return $dec;
     }
 
-    public function index($year) {
-        $tahun = $this->Dec($year);
+    public function index() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // Array ( [0] => 2021 )
         $data = [
             'title' => 'Data Input Triwulan | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'tahun' => $tahun,
+            'param' => $param,
             'pertahun' => read_file("https://simas.kemenag.go.id/rudabi/datapi/esbsnn/pertahun?KEY=BOBA", true),
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/inputusulan?KEY=BOBA&usul_tahun=' . $tahun . '', true)
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/inputusulan?KEY=BOBA&usul_tahun=' . $param[0] . '', true)
         ];
         if ($data['data'] == false) {
-            $data['msg'] = "Data Input Triwulan Tahun " . $tahun . " Tidak tersedia!";
+            $data['msg'] = "Data Input Triwulan Tahun " . $param[0] . " Tidak tersedia!";
         } else {
             $data['msg'] = "";
         }
@@ -49,16 +49,13 @@ class Input extends CI_Controller {
         return $this->parser->parse('Dashboard/Template', $data);
     }
 
-    public function Provinsi($param) {
-        $dec = $this->Dec($param);
-        $value = explode('/', $dec);
+    public function Provinsi() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // Array ( [0] => as year [1] => 17 as usul_propinsi [2] => Banten as propinsi_nama)
         $data = [
-            'title' => 'Data Input Triwulan  Provinsi ' . $value[2] . ' | RUDABI SYSTEM OF KEMENAG RI',
+            'title' => 'Data Input Triwulan  Provinsi ' . $param[2] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'id' => $value[1],
-            'tahun' => $value[0],
-            'provinsi' => $value[2],
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/inputusulan?KEY=BOBA&usul_tahun=' . $value[0] . '&usul_propinsi=' . $value[1] . '', true)
+            'param' => $param,
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/inputusulan?KEY=BOBA&usul_tahun=' . $param[0] . '&usul_propinsi=' . $param[1] . '', true)
         ];
         if ($data['data'] == false) {
             $data['msg'] = "Data Input Triwulan Tahun " . $data['tahun'] . " Tidak tersedia!";
@@ -72,17 +69,11 @@ class Input extends CI_Controller {
     }
 
     public function Kabupaten() {
-        $dec = $this->Dec($this->input->post_get('param', true));
-        $value = str_replace(['kab_nama=', '&usul_tahun=', '&usul_propinsi=', '&usul_kabupaten=', '&provinsi='], ['', ',', ',', ',', ','], $dec);
-        $param = explode(',', $value);
+        $param = $this->bodo->Url($this->input->post_get('key'));// Array ( [0] => Kab. Pandeglang [1] => 2021 as year [2] => 17 as usul_propinsi [3] => 232 as usul_kabupaten [4] => Banten as propinsi_nama)
         $data = [
             'title' => 'Data Input Triwulan ' . $param[0] . ' Tahun ' . $param[1] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'id_provinsi' => $param[2],
-            'kab_nama' => $param[0],
-            'provinsi' => $param[4],
-            'tahun' => $param[1],
-            'kabupaten' => str_replace(['Kab.', 'kabupaten'], ' ', $param[0]),
+            'param' => $param,
             'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/inputusulan?KEY=BOBA&usul_tahun=' . $param[1] . '&usul_propinsi=' . $param[2] . '&usul_kabupaten=' . $param[3], true)
         ];
         $data['content'] = $this->parser->parse('Sekertariat/Input/Input_Kabupaten', $data, true);
