@@ -36,7 +36,7 @@
                 <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
                     <i class="fas fa-pencil-alt" style="font-size: 48px;"></i>
                 </span>
-                <a href="<?php echo base_url('Users/Sekretariat/Input/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="text-warning font-weight-bold font-size-h6">Input Triwulan</a>
+                <a href="<?php echo base_url('Users/Sekretariat/Input/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . date("Y"))) . ''); ?>" class="text-warning font-weight-bold font-size-h6">Input Triwulan</a>
             </div>
 
             <div class="col bg-light-danger px-6 py-8 rounded-xl mr-7 mb-7">

@@ -21,7 +21,7 @@ class Input extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('M_Sekertariat');
+        $this->load->model('Sekertariat/M_Sekertariat');
         $this->Authentication = $this->M_Sekertariat->Auth();
     }
 
@@ -39,8 +39,8 @@ class Input extends CI_Controller {
         } else {
             $data['msg'] = "";
         }
-        $data['content'] = $this->parser->parse('Sekertariat/Input/Input_index', $data, true);
-        return $this->parser->parse('Dashboard/Template', $data);
+        $data['content'] = $this->parser->parse('Users/u_sekretariat/Input_index', $data, true);
+        return $this->parser->parse('Users/u_sekretariat/Template', $data);
     }
 
     public function Provinsi() {
@@ -58,8 +58,8 @@ class Input extends CI_Controller {
             $data['msg'] = null;
             $data['hide'] = null;
         }
-        $data['content'] = $this->parser->parse('Sekertariat/Input/Input_Provinsi', $data, true);
-        return $this->parser->parse('Dashboard/Template', $data);
+        $data['content'] = $this->parser->parse('Users/u_sekretariat/Input_Provinsi', $data, true);
+        return $this->parser->parse('Users/u_sekretariat/Template', $data);
     }
 
     public function Kabupaten() {
@@ -70,8 +70,8 @@ class Input extends CI_Controller {
             'param' => $param,
             'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/inputusulan?KEY=BOBA&usul_tahun=' . $param[1] . '&usul_propinsi=' . $param[2] . '&usul_kabupaten=' . $param[3], true)
         ];
-        $data['content'] = $this->parser->parse('Sekertariat/Input/Input_Kabupaten', $data, true);
-        return $this->parser->parse('Dashboard/Template', $data);
+        $data['content'] = $this->parser->parse('Users/u_sekretariat/Input_Kabupaten', $data, true);
+        return $this->parser->parse('Users/u_sekretariat/Template', $data);
     }
 
 }
