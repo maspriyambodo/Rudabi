@@ -120,7 +120,7 @@
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                 </li>
                                 <li class="menu-item" aria-haspopup="true">
-                                    <a href="#" class="menu-link">
+                                    <a href="<?php echo base_url('Users/Manage/index/'); ?>" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-users-cog"></i>
                                         </span>
