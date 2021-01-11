@@ -12,7 +12,7 @@ $approved = json_decode($data);
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Sekertariat/Approved/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $approved[0]->propinsi_nama . '&b=' . $param[0] . '&c=' . $param[1]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?= base_url('Users/Sekretariat/Approved/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $approved[0]->propinsi_nama . '&b=' . $param[0] . '&c=' . $param[1]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">

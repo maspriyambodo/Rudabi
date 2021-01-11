@@ -1,53 +1,83 @@
-<?php $approved = json_decode($data); ?>
+<?php
+if ($msg == false) {
+    $hide = "hidden";
+    $msgs = null;
+} else {
+    $hide = null;
+    $msgs = "hidden";
+}
+?>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Approved Provinsi {provinsi} Tahun {tahun}</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5"><?php echo 'Data Approved Usulan Tahun ' . $param[0]; ?></h5>
         </div>
     </div>
 </div>
-<div class="card card-custom">
+<div class="card card-custom" data-card="true" id="kt_card_1" <?= $msgs; ?>>
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Sekertariat/Approved/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $tahun))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            Data Approved per Provinsi
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
         </div>
     </div>
     <div class="card-body">
         <div class="text-center">
-            <b><u id="title_chartdiv"></u></b>
+            <b id="title_chartdiv"></b>
         </div>
         <div id="chartdiv" class="chartdivs"></div>
     </div>
 </div>
-<div class="clear" style="margin:5% 0px;"></div>
-<div class="card card-custom">
+<div class="clear" style="margin:5% 0px;" <?= $msgs; ?>></div>
+<div class="card card-custom" data-card="true" id="kt_card_1" <?= $msgs; ?>>
     <div class="card-header">
         <div class="card-title">
-            Kategori Data Approved
+            Data Status Bangunan
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
         </div>
     </div>
     <div class="card-body">
-        <div class="text-center">
-            <b><u id="title_chartdiv_a"></u></b>
-        </div>
         <div id="chartdiv_a" class="chartdivs"></div>
     </div>
 </div>
-<div class="clear" style="margin:5% 0px;"></div>
+<div class="clear" style="margin:5% 0px;" <?= $msgs; ?>></div>
 <div class="card card-custom">
-    <div class="card-header">
-        <div class="card-title">
-            Detail Data Approved Usulan
-        </div>
-    </div>
     <div class="card-body">
-        <div class="table-responsive">
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Pilih Tahun</label>
+            <div class="col-4">
+                <select name="tahun" class="form-control form-control-solid" onchange="Tahun()">
+                    <?php
+                    $usul_tahun = json_decode($pertahun);
+                    foreach ($usul_tahun as $usul_tahun) {
+                        if ($usul_tahun->usul_tahun == $param[0]) {
+                            $selected = 'selected=""';
+                        } else {
+                            $selected = null;
+                        }
+                        echo '<option value="' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $usul_tahun->usul_tahun)) . '" ' . $selected . '>' . $usul_tahun->usul_tahun . '</option>';
+                    }
+                    ?>
+                </select>
+            </div>
+        </div>
+        <hr>
+        <p>{msg}</p>
+        <div class="table-responsive" <?= $msgs; ?>>
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
                     <tr>
-                        <th>kota/kabupaten</th>
+                        <th>provinsi</th>
                         <th>jumlah<br>data</th>
-                        <th>luas<br>tanah</th>
+                        <th>luas tanah</th>
                         <th>penghapusan<br>gedung</th>
                         <th>tanah<br>kosong</th>
                         <th>perluasan<br>bangunan</th>
@@ -56,6 +86,7 @@
                 </thead>
                 <tbody>
                     <?php
+                    $approved = json_decode($data);
                     $totjum_kabkot = 0;
                     $totluas_tanah = 0;
                     $totpenghapusan_gedung = 0;
@@ -66,7 +97,10 @@
                         ?>
                         <tr>
                             <td>
-                                <?= '<a href="' . base_url('Sekertariat/Approved/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $tahun . '&b=' . $id_provinsi . '&c=' . $approved->usul_kabupaten . '&d=' . $approved->kab_nama . ''))) . '">' . $approved->kab_nama . '</a>'; ?>
+                                <?php
+                                $url = str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $approved->propinsi_nama . '&b=' . $param[0] . '&c=' . $approved->usul_propinsi));
+                                echo '<a href=' . base_url('Users/Sekretariat/Approved/Provinsi?key=' . $url) . '>' . $approved->propinsi_nama . '</a>';
+                                ?>
                             </td>
                             <td class="text-center">
                                 <?php
@@ -76,35 +110,35 @@
                             </td>
                             <td class="text-center">
                                 <?php
-                                $luas_tanah = str_replace([',', '.'], ['', ''], $approved->luas_tanah);
+                                $luas_tanah = str_replace(',', '', $approved->luas_tanah);
                                 $totluas_tanah += $luas_tanah;
                                 echo $approved->luas_tanah;
                                 ?>
                             </td>
                             <td class="text-center">
                                 <?php
-                                $penghapusan_gedung = str_replace([',', '.'], ['', ''], $approved->penghapusan_gedung);
+                                $penghapusan_gedung = str_replace(',', '', $approved->penghapusan_gedung);
                                 $totpenghapusan_gedung += $penghapusan_gedung;
                                 echo $approved->penghapusan_gedung;
                                 ?>
                             </td>
                             <td class="text-center">
                                 <?php
-                                $tanah_kosong = str_replace([',', '.'], ['', ''], $approved->tanah_kosong);
+                                $tanah_kosong = str_replace(',', '', $approved->tanah_kosong);
                                 $tottanah_kosong += $tanah_kosong;
                                 echo $approved->tanah_kosong;
                                 ?>
                             </td>
                             <td class="text-center">
                                 <?php
-                                $perluasan_bangunan = str_replace([',', '.'], ['', ''], $approved->perluasan_bangunan);
+                                $perluasan_bangunan = str_replace(',', '', $approved->perluasan_bangunan);
                                 $totperluasan_bangunan += $perluasan_bangunan;
                                 echo $approved->perluasan_bangunan;
                                 ?>
                             </td>
                             <td class="text-center">
                                 <?php
-                                $nilai_dipa = str_replace([',', '.'], ['', ''], $approved->nilai_dipa);
+                                $nilai_dipa = str_replace(',', '', $approved->nilai_dipa);
                                 $totnilai_dipa += $nilai_dipa;
                                 echo $approved->nilai_dipa;
                                 ?>
@@ -114,7 +148,9 @@
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th>total</th>
+                        <th>
+                            jumlah
+                        </th>
                         <th><?= number_format($totjum_kabkot); ?></th>
                         <th><?= number_format($totluas_tanah); ?></th>
                         <th><?= number_format($totpenghapusan_gedung); ?></th>
@@ -124,31 +160,23 @@
                     </tr>
                 </tfoot>
             </table>
-        </div> 
+        </div>
     </div>
 </div>
-<input type="hidden" name="totjum_kabkot" readonly="" value="<?php echo $totjum_kabkot; ?>"/>
-<input type="hidden" name="penghapusan_gedung" readonly="" value="<?php echo $totpenghapusan_gedung; ?>"/>
-<input type="hidden" name="tanah_kosong" readonly="" value="<?php echo $tottanah_kosong; ?>"/>
-<input type="hidden" name="perluasan_bangunan" readonly="" value="<?php echo $totperluasan_bangunan; ?>"/>
-<input type="hidden" name="kategori" readonly="" value="<?php echo $totperluasan_bangunan + $totpenghapusan_gedung + $tottanah_kosong; ?>"/>
 <script>
+    function Tahun() {
+        var a = $('select[name=tahun]').val();
+        return window.location.href = "Users/Sekretariat/Approved/index?key=" + a;
+    }
     window.onload = function () {
-        var a, b, c, d, e;
-        a = $('input[name=totjum_kabkot]').val();
-        b = $('input[name=penghapusan_gedung]').val();
-        c = $('input[name=tanah_kosong]').val();
-        d = $('input[name=perluasan_bangunan]').val();
-        e = $('input[name=kategori]').val();
-        document.getElementById('title_chartdiv').innerText = "Total Data Approved: " + numeral(a).format('0,0');
-        document.getElementById('title_chartdiv_a').innerText = "Total Data Kategori: " + numeral(e).format('0,0');
+        document.getElementById('title_chartdiv').innerText = "Total Data Approved " + <?= $totjum_kabkot; ?>;
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],
             "paging": false,
             "ordering": true,
             "info": true,
-            "processing": false,
+            "processing": true,
             "deferRender": true,
             "scrollCollapse": true,
             "scrollX": true,
@@ -172,8 +200,8 @@
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
-            categoryAxis.title.text = 'Daerah Tingkat Kota / Kabupaten';
-            categoryAxis.dataFields.category = "kab_nama";
+            categoryAxis.title.text = 'Daerah Tingkat Provinsi';
+            categoryAxis.dataFields.category = "propinsi_nama";
             categoryAxis.renderer.grid.template.location = 0;
             categoryAxis.renderer.minGridDistance = 30;
             categoryAxis.renderer.labels.template.horizontalCenter = "right";
@@ -182,19 +210,14 @@
             categoryAxis.tooltip.disabled = true;
             categoryAxis.renderer.minHeight = 110;
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-            valueAxis.renderer.minWidth = 50;
-            valueAxis.title.text = "Jumlah Data Input Triwulan";
+            valueAxis.renderer.minWidth = 100;
+            valueAxis.title.text = "Jumlah Data Approved Usulan";
             valueAxis.title.fontWeight = 800;
             var series = chart.series.push(new am4charts.ColumnSeries());
-            series.sequencedInterpolation = true;
             series.dataFields.valueY = "jum_kabkot";
-            series.dataFields.categoryX = "kab_nama";
-            series.tooltipText = "Jumlah Data Approved {categoryX}: [bold]{valueY}[/]";
-            series.columns.template.strokeWidth = 0;
-            series.tooltip.pointerOrientation = "vertical";
-            series.columns.template.column.cornerRadiusTopLeft = 10;
-            series.columns.template.column.cornerRadiusTopRight = 10;
-            series.columns.template.column.fillOpacity = 0.8;
+            series.dataFields.categoryX = "propinsi_nama";
+            series.clustered = false;
+            series.tooltipText = "Jumlah Approved Usulan {categoryX}: [bold]{valueY}[/]";
             var hoverState = series.columns.template.column.states.create("hover");
             hoverState.properties.cornerRadiusTopLeft = 0;
             hoverState.properties.cornerRadiusTopRight = 0;
@@ -207,20 +230,36 @@
             valueLabel.label.fontSize = 10;
             valueLabel.label.verticalCenter = "top";
             chart.cursor = new am4charts.XYCursor();
+            categoryAxis.sortBySeries = series;
         });
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv_a", am4charts.PieChart3D);
             chart.hiddenState.properties.opacity = 0;
+
             chart.legend = new am4charts.Legend();
+
             chart.data = [
-                {country: "Penghapusan Gedung", litres: b},
-                {country: "Tanah Kosong", litres: c},
-                {country: "Perluasan Bangunan", litres: d}
+                {
+                    "country": "Penghapusan Gedung",
+                    "litres": <?= $totpenghapusan_gedung; ?>
+                },
+                {
+                    "country": "Tanah Kosong",
+                    "litres": <?= $tottanah_kosong; ?>
+                },
+                {
+                    "country": "Perluasan Bangunan",
+                    "litres": <?= $totperluasan_bangunan; ?>
+                }
             ];
+
+            chart.innerRadius = 100;
+
             var series = chart.series.push(new am4charts.PieSeries3D());
             series.dataFields.value = "litres";
             series.dataFields.category = "country";
+
         });
     };
 </script>

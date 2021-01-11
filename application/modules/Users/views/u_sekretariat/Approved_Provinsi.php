@@ -9,7 +9,7 @@
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Sekertariat/Approved/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $tahun))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?= base_url('Users/Sekretariat/Approved/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $tahun))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
@@ -66,7 +66,7 @@
                         ?>
                         <tr>
                             <td>
-                                <?= '<a href="' . base_url('Sekertariat/Approved/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $tahun . '&b=' . $id_provinsi . '&c=' . $approved->usul_kabupaten . '&d=' . $approved->kab_nama . ''))) . '">' . $approved->kab_nama . '</a>'; ?>
+                                <?= '<a href="' . base_url('Users/Sekretariat/Approved/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $tahun . '&b=' . $id_provinsi . '&c=' . $approved->usul_kabupaten . '&d=' . $approved->kab_nama . ''))) . '">' . $approved->kab_nama . '</a>'; ?>
                             </td>
                             <td class="text-center">
                                 <?php

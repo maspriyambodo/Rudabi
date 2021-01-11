@@ -43,7 +43,7 @@
                 <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
                     <i class="far fa-thumbs-up" style="font-size: 48px;"></i>
                 </span>
-                <a href="<?php echo base_url('Users/Sekretariat/Approved/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y"))) . ''); ?>" class="text-warning font-weight-bold font-size-h6">Approved Usulan</a>
+                <a href="<?php echo base_url('Users/Sekretariat/Approved/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . date("Y"))) . ''); ?>" class="text-warning font-weight-bold font-size-h6">Approved Usulan</a>
             </div>
         </div>
     </div>
