@@ -100,11 +100,11 @@
                                 </li>
                                 <div class="separator separator-dashed"></div>
                                 <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
-                                    <a href="<?php echo base_url('Users/Sekretariat/Sicakep/Pegawai/index'); ?>" class="menu-link menu-toggle">
+                                    <a href="<?php echo base_url('Users/Sekretariat/Pegawai/index'); ?>" class="menu-link menu-toggle">
                                         <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>
-                                        <span class="menu-text">SATKER</span><span class="menu-label"></span>
+                                        <span class="menu-text">Data Pegawai</span><span class="menu-label"></span>
                                     </a>
                                 </li>
                                 <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
@@ -112,7 +112,7 @@
                                         <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>
-                                        <span class="menu-text">Usulan Triwulan</span><span class="menu-label"></span>
+                                        <span class="menu-text">Data Pensiun</span><span class="menu-label"></span>
                                     </a>
                                 </li>
                                 <li class="menu-section">

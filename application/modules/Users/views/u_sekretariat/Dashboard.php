@@ -66,7 +66,7 @@
                 <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
                     <i class="fas fa-users" style="font-size: 48px;"></i>
                 </span>
-                <a href="<?php echo base_url('Users/Sekretariat/Sicakep/Pegawai/index'); ?>" class="text-warning font-weight-bold font-size-h6">Data Pegawai</a>
+                <a href="<?php echo base_url('Users/Sekretariat/Pegawai/index'); ?>" class="text-warning font-weight-bold font-size-h6">Data Pegawai</a>
             </div>
 
             <div class="col bg-light-warning px-6 py-8 rounded-xl mr-7 mb-7">
