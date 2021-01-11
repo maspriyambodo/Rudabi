@@ -49,8 +49,8 @@ class Approved extends CI_Controller {
             'pertahun' => read_file("https://simas.kemenag.go.id/rudabi/datapi/esbsnn/pertahun?KEY=BOBA", true),
             'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/approveusulan?KEY=BOBA&usul_tahun=' . $param[1] . '&usul_propinsi=' . $param[2] . '', true)
         ];
-        $data['content'] = $this->parser->parse('Sekertariat/Approved/Approved_Provinsi', $data, true);
-        return $this->parser->parse('Dashboard/Template', $data);
+        $data['content'] = $this->parser->parse('Users/u_sekretariat/Approved_Provinsi', $data, true);
+        return $this->parser->parse('Users/u_sekretariat/Template', $data);
     }
 
     public function Kabupaten() {
@@ -62,8 +62,8 @@ class Approved extends CI_Controller {
             'pertahun' => read_file("https://simas.kemenag.go.id/rudabi/datapi/esbsnn/pertahun?KEY=BOBA", true),
             'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/approveusulan?KEY=BOBA&usul_tahun=' . $kabupaten[0] . '&usul_propinsi=' . $kabupaten[1] . '&usul_kabupaten=' . $kabupaten[2] . '', true)
         ];
-        $data['content'] = $this->parser->parse('Sekertariat/Approved/Approved_Kabupaten', $data, true);
-        return $this->parser->parse('Dashboard/Template', $data);
+        $data['content'] = $this->parser->parse('Users/u_sekretariat/Approved_Kabupaten', $data, true);
+        return $this->parser->parse('Users/u_sekretariat/Template', $data);
     }
 
 }
