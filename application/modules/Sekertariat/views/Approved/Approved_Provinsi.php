@@ -15,9 +15,23 @@
     </div>
     <div class="card-body">
         <div class="text-center">
-            <b>Jumlah Data Menurut Kota/Kabupaten</b>
+            <b><u id="title_chartdiv"></u></b>
         </div>
         <div id="chartdiv" class="chartdivs"></div>
+    </div>
+</div>
+<div class="clear" style="margin:5% 0px;"></div>
+<div class="card card-custom">
+    <div class="card-header">
+        <div class="card-title">
+            Kategori Data Approved
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="text-center">
+            <b><u id="title_chartdiv_a"></u></b>
+        </div>
+        <div id="chartdiv_a" class="chartdivs"></div>
     </div>
 </div>
 <div class="clear" style="margin:5% 0px;"></div>
@@ -101,7 +115,7 @@
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th>jumlah</th>
+                        <th>total</th>
                         <th><?= number_format($totjum_kabkot); ?></th>
                         <th><?= number_format($totluas_tanah); ?></th>
                         <th><?= number_format($totpenghapusan_gedung); ?></th>
@@ -114,15 +128,28 @@
         </div> 
     </div>
 </div>
+<input type="hidden" name="totjum_kabkot" readonly="" value="<?php echo $totjum_kabkot; ?>"/>
+<input type="hidden" name="penghapusan_gedung" readonly="" value="<?php echo $totpenghapusan_gedung; ?>"/>
+<input type="hidden" name="tanah_kosong" readonly="" value="<?php echo $tottanah_kosong; ?>"/>
+<input type="hidden" name="perluasan_bangunan" readonly="" value="<?php echo $totperluasan_bangunan; ?>"/>
+<input type="hidden" name="kategori" readonly="" value="<?php echo $totperluasan_bangunan + $totpenghapusan_gedung + $tottanah_kosong; ?>"/>
 <script>
     window.onload = function () {
+        var a, b, c, d, e;
+        a = $('input[name=totjum_kabkot]').val();
+        b = $('input[name=penghapusan_gedung]').val();
+        c = $('input[name=tanah_kosong]').val();
+        d = $('input[name=perluasan_bangunan]').val();
+        e = $('input[name=kategori]').val();
+        document.getElementById('title_chartdiv').innerText = "Total Data Approved: " + numeral(a).format('0,0');
+        document.getElementById('title_chartdiv_a').innerText = "Total Data Kategori: " + numeral(e).format('0,0');
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],
             "paging": false,
             "ordering": true,
             "info": true,
-            "processing": true,
+            "processing": false,
             "deferRender": true,
             "scrollCollapse": true,
             "scrollX": true,
@@ -140,19 +167,61 @@
         });
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
-            var chart = am4core.create("chartdiv", am4charts.PieChart3D);
-            chart.hiddenState.properties.opacity = 0;
-
-            chart.legend = new am4charts.Legend();
-
+            var chart = am4core.create("chartdiv", am4charts.XYChart);
+            chart.scrollbarX = new am4core.Scrollbar();
             chart.data = <?= $data; ?>;
-
-            chart.innerRadius = 100;
-
+            chart.exporting.menu = new am4core.ExportMenu();
+            var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+            categoryAxis.title.fontWeight = 800;
+            categoryAxis.title.text = 'Daerah Tingkat Kota / Kabupaten';
+            categoryAxis.dataFields.category = "kab_nama";
+            categoryAxis.renderer.grid.template.location = 0;
+            categoryAxis.renderer.minGridDistance = 30;
+            categoryAxis.renderer.labels.template.horizontalCenter = "right";
+            categoryAxis.renderer.labels.template.verticalCenter = "middle";
+            categoryAxis.renderer.labels.template.rotation = 270;
+            categoryAxis.tooltip.disabled = true;
+            categoryAxis.renderer.minHeight = 110;
+            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            valueAxis.renderer.minWidth = 50;
+            valueAxis.title.text = "Jumlah Data Input Triwulan";
+            valueAxis.title.fontWeight = 800;
+            var series = chart.series.push(new am4charts.ColumnSeries());
+            series.sequencedInterpolation = true;
+            series.dataFields.valueY = "jum_kabkot";
+            series.dataFields.categoryX = "kab_nama";
+            series.tooltipText = "Jumlah Data Approved {categoryX}: [bold]{valueY}[/]";
+            series.columns.template.strokeWidth = 0;
+            series.tooltip.pointerOrientation = "vertical";
+            series.columns.template.column.cornerRadiusTopLeft = 10;
+            series.columns.template.column.cornerRadiusTopRight = 10;
+            series.columns.template.column.fillOpacity = 0.8;
+            var hoverState = series.columns.template.column.states.create("hover");
+            hoverState.properties.cornerRadiusTopLeft = 0;
+            hoverState.properties.cornerRadiusTopRight = 0;
+            hoverState.properties.fillOpacity = 1;
+            series.columns.template.adapter.add("fill", function (fill, target) {
+                return chart.colors.getIndex(target.dataItem.index);
+            });
+            var valueLabel = series.bullets.push(new am4charts.LabelBullet());
+            valueLabel.label.text = "{valueY}";
+            valueLabel.label.fontSize = 10;
+            valueLabel.label.verticalCenter = "top";
+            chart.cursor = new am4charts.XYCursor();
+        });
+        am4core.ready(function () {
+            am4core.useTheme(am4themes_animated);
+            var chart = am4core.create("chartdiv_a", am4charts.PieChart3D);
+            chart.hiddenState.properties.opacity = 0;
+            chart.legend = new am4charts.Legend();
+            chart.data = [
+                {country: "Penghapusan Gedung", litres: b},
+                {country: "Tanah Kosong", litres: c},
+                {country: "Perluasan Bangunan", litres: d}
+            ];
             var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "jum_kabkot";
-            series.dataFields.category = "kab_nama";
-
+            series.dataFields.value = "litres";
+            series.dataFields.category = "country";
         });
     };
 </script>

@@ -20,16 +20,17 @@ class Approved extends CI_Controller {
         $this->Authentication = $this->M_Sekertariat->Auth();
     }
 
-    public function index($year) {
+    public function index() {
+        $param = $this->bodo->Url($this->input->post_get('key')); // Array ( [0] => 2021 as year)
         $data = [
             'title' => 'Data Approved Usulan | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'tahun' => $this->bodo->Dec($year),
+            'param' => $param,
             'pertahun' => read_file("https://simas.kemenag.go.id/rudabi/datapi/esbsnn/pertahun?KEY=BOBA", true),
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/approveusulan?KEY=BOBA&usul_tahun=' . $this->bodo->Dec($year), true)
+            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/approveusulan?KEY=BOBA&usul_tahun=' . $param[0], true)
         ];
         if ($data['data'] == false) {
-            $data['msg'] = "Data Approved Usulan Tahun " . $this->bodo->Dec($year) . " Tidak tersedia!";
+            $data['msg'] = "Data Approved Usulan Tahun " . $param[0] . " Tidak tersedia!";
         } else {
             $data['msg'] = false;
         }

@@ -23,7 +23,7 @@
                                 </a>
                             </div>
                             <div class="col-6 shortcut-item">
-                                <a href="<?php echo base_url('Sekertariat/Usulan/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y")))); ?>">
+                                <a href="<?php echo base_url('Sekertariat/Usulan/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . date("Y")))); ?>">
                                     <i class="icon-2x flaticon-statistics"></i>
                                     Usulan Triwulan
                                 </a>
@@ -33,13 +33,13 @@
                         <!--begin::Row-->
                         <div class="row m-0">
                             <div class="col-6 shortcut-item">
-                                <a href="<?php echo base_url('Sekertariat/Input/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y")))); ?>">
+                                <a href="<?php echo base_url('Sekertariat/Input/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' .date("Y")))); ?>">
                                     <i class="icon-2x flaticon-edit"></i>
                                     Input Triwulan
                                 </a>
                             </div>
                             <div class="col-6 shortcut-item">
-                                <a href="<?php echo base_url('Sekertariat/Approved/index/' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt(date("Y")))); ?>">
+                                <a href="<?php echo base_url('Sekertariat/Approved/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . date("Y")))); ?>">
                                     <i class="icon-2x flaticon-like"></i>
                                     Usulan Disetujui
                                 </a>

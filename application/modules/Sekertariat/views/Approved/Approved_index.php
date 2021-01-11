@@ -10,7 +10,7 @@ if ($msg == false) {
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Approved Usulan Tahun {tahun}</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5"><?php echo 'Data Approved Usulan Tahun ' . $param[0]; ?></h5>
         </div>
     </div>
 </div>
@@ -58,12 +58,12 @@ if ($msg == false) {
                     <?php
                     $usul_tahun = json_decode($pertahun);
                     foreach ($usul_tahun as $usul_tahun) {
-                        if ($usul_tahun->usul_tahun == $tahun) {
+                        if ($usul_tahun->usul_tahun == $param[0]) {
                             $selected = 'selected=""';
                         } else {
                             $selected = null;
                         }
-                        echo '<option value="' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt($usul_tahun->usul_tahun)) . '" ' . $selected . '>' . $usul_tahun->usul_tahun . '</option>';
+                        echo '<option value="' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $usul_tahun->usul_tahun)) . '" ' . $selected . '>' . $usul_tahun->usul_tahun . '</option>';
                     }
                     ?>
                 </select>
@@ -98,7 +98,7 @@ if ($msg == false) {
                         <tr>
                             <td>
                                 <?php
-                                $url = str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $approved->propinsi_nama . '&b=' . $tahun . '&c=' . $approved->usul_propinsi));
+                                $url = str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $approved->propinsi_nama . '&b=' . $param[0] . '&c=' . $approved->usul_propinsi));
                                 echo '<a href=' . base_url('Sekertariat/Approved/Provinsi?key=' . $url) . '>' . $approved->propinsi_nama . '</a>';
                                 ?>
                             </td>
@@ -166,7 +166,7 @@ if ($msg == false) {
 <script>
     function Tahun() {
         var a = $('select[name=tahun]').val();
-        return window.location.href = "Sekertariat/Approved/index/" + a;
+        return window.location.href = "Sekertariat/Approved/index?key=" + a;
     }
     window.onload = function () {
         document.getElementById('title_chartdiv').innerText = "Total Data Approved " + <?= $totjum_kabkot; ?>;
