@@ -19,14 +19,14 @@ $y = 0; //dt_hibah
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Masjid Provinsi <?= $param[1]; ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Sistem Informasi Masjid</h5>
         </div>
     </div>
 </div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Binsyar/Simas/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            Data Masjid per Provinsi
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -91,7 +91,7 @@ $y = 0; //dt_hibah
                         ?>
                         <tr>
                             <td style="text-align:left !important;">
-                                <?= '<a href="' . base_url('Binsyar/Simas/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $b->kabupaten_id . '&d=' . $b->kabupaten_name))) . '" title="Detail ' . $b->kabupaten_name . '">' . $b->kabupaten_name . '</a>'; ?>
+                                <?= '<a href="' . base_url('Users/Binsyar/Simas/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->provinsi_id . '&b=' . $b->provinsi_name))) . '" title="Detail Provinsi ' . $b->provinsi_name . '">' . $b->provinsi_name . '</a>'; ?>
                             </td>
                             <td><?= number_format($b->dt_masjid); ?></td>
                             <td><?= number_format($b->dt_tanah); ?></td>
@@ -136,8 +136,8 @@ $y = 0; //dt_hibah
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
-            categoryAxis.title.text = 'Daerah Tingkat Kota/Kabupaten';
-            categoryAxis.dataFields.category = "kabupaten_name";
+            categoryAxis.title.text = 'Daerah Tingkat Provinsi';
+            categoryAxis.dataFields.category = "provinsi_name";
             categoryAxis.renderer.grid.template.location = 0;
             categoryAxis.renderer.minGridDistance = 30;
             categoryAxis.renderer.labels.template.horizontalCenter = "right";
@@ -152,8 +152,8 @@ $y = 0; //dt_hibah
             var series = chart.series.push(new am4charts.ColumnSeries());
             series.sequencedInterpolation = true;
             series.dataFields.valueY = "dt_masjid";
-            series.dataFields.categoryX = "kabupaten_name";
-            series.tooltipText = "Jumlah Masjid Provinsi {kabupaten_name}: [bold]{valueY}[/]";
+            series.dataFields.categoryX = "provinsi_name";
+            series.tooltipText = "Jumlah Masjid Provinsi {provinsi_name}: [bold]{valueY}[/]";
             series.columns.template.strokeWidth = 0;
             series.tooltip.pointerOrientation = "vertical";
             series.columns.template.column.cornerRadiusTopLeft = 10;

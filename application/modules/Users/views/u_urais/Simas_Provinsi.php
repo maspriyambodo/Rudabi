@@ -26,7 +26,7 @@ $y = 0; //dt_hibah
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Binsyar/Simas/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?= base_url('Users/Binsyar/Simas/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -91,7 +91,7 @@ $y = 0; //dt_hibah
                         ?>
                         <tr>
                             <td style="text-align:left !important;">
-                                <?= '<a href="' . base_url('Binsyar/Simas/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $b->kabupaten_id . '&d=' . $b->kabupaten_name))) . '" title="Detail ' . $b->kabupaten_name . '">' . $b->kabupaten_name . '</a>'; ?>
+                                <?= '<a href="' . base_url('Users/Binsyar/Simas/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $b->kabupaten_id . '&d=' . $b->kabupaten_name))) . '" title="Detail ' . $b->kabupaten_name . '">' . $b->kabupaten_name . '</a>'; ?>
                             </td>
                             <td><?= number_format($b->dt_masjid); ?></td>
                             <td><?= number_format($b->dt_tanah); ?></td>
