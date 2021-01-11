@@ -13,14 +13,14 @@ $k = 0; //dt_remaja
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Mushalla</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Mushalla Provinsi <?= $param[1]; ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            Data Mushalla per Provinsi
+            <a href="<?= base_url('Users/Binsyar/Mushalla/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -52,7 +52,7 @@ $k = 0; //dt_remaja
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
                     <tr>
-                        <th>provinsi</th>
+                        <th>kota/kabupaten</th>
                         <th>jumlah mushalla</th>
                         <th>luas tanah</th>
                         <th>luas bangunan</th>
@@ -79,7 +79,7 @@ $k = 0; //dt_remaja
                         ?>
                         <tr>
                             <td style="text-align:left !important;">
-                                <?= '<a href="' . base_url('Binsyar/Mushalla/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->provinsi_id . '&b=' . $b->provinsi_name))) . '" title="Detail Provinsi ' . $b->provinsi_name . '">' . $b->provinsi_name . '</a>' ?>
+                                <?= '<a href="' . base_url('Users/Binsyar/Mushalla/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $b->kabupaten_id . '&d=' . $b->kabupaten_name))) . '" title="Detail ' . $b->kabupaten_name . '">' . $b->kabupaten_name . '</a>' ?>
                             </td>
                             <td><?= $b->dt_mushalla; ?></td>
                             <td><?= $b->dt_tanah; ?></td>
@@ -141,8 +141,8 @@ $k = 0; //dt_remaja
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
-            categoryAxis.title.text = 'Daerah Tingkat Provinsi';
-            categoryAxis.dataFields.category = "provinsi_name";
+            categoryAxis.title.text = 'Daerah Tingkat Kota/Kabupaten';
+            categoryAxis.dataFields.category = "kabupaten_name";
             categoryAxis.renderer.grid.template.location = 0;
             categoryAxis.renderer.minGridDistance = 30;
             categoryAxis.renderer.labels.template.horizontalCenter = "right";
@@ -157,8 +157,8 @@ $k = 0; //dt_remaja
             var series = chart.series.push(new am4charts.ColumnSeries());
             series.sequencedInterpolation = true;
             series.dataFields.valueY = "dt_mushalla";
-            series.dataFields.categoryX = "provinsi_name";
-            series.tooltipText = "Jumlah Mushalla Provinsi {provinsi_name}: [bold]{valueY}[/]";
+            series.dataFields.categoryX = "kabupaten_name";
+            series.tooltipText = "Jumlah Mushalla {kabupaten_name}: [bold]{valueY}[/]";
             series.columns.template.strokeWidth = 0;
             series.tooltip.pointerOrientation = "vertical";
             series.columns.template.column.cornerRadiusTopLeft = 10;
