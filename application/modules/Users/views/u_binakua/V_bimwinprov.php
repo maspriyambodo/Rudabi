@@ -69,7 +69,7 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('KUA/Bimwin/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?= base_url('Users/BKKS/Bimwin/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -143,7 +143,7 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
 </div>
 <script>
     window.onload = function () {
-        var url = "<?= base_url('KUA/Bimwin/Targetcatin/' . $url . '') ?>";
+        var url = "<?= base_url('Users/BKKS/Bimwin/Targetcatin/' . $url . '') ?>";
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],

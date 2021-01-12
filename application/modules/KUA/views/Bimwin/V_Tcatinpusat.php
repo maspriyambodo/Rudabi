@@ -68,7 +68,7 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            Data Tahun Target Catin
+            Jumlah Target &amp; Realisasi Catin
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -95,12 +95,6 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
         </div>
     </div>
     <div class="card-body">
-        <div class="text-center">
-            <b>Target CATIN Perwilayah</b>
-        </div>
-        <div class="text-center">
-            <b>Jumlah Target dan Realisasi</b>
-        </div>
         <div id="chartdiv_a" class="chartdivs"></div>
     </div>
 </div>

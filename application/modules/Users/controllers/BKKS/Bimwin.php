@@ -21,7 +21,7 @@ class Bimwin extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('M_Bimwin');
+        $this->load->model('KUA/M_Bimwin');
         $this->Authentication = $this->M_Bimwin->Auth();
     }
 
@@ -37,8 +37,8 @@ class Bimwin extends CI_Controller {
             'username' => $this->Authentication[0]->uname,
             'data' => json_decode(file_get_contents("https://simas.kemenag.go.id/rudabi/datapi/embimwin/targetcatin2020?KEY=BOBA"))
         ];
-        $data['content'] = $this->parser->parse('KUA/Bimwin/V_Tcatinpusat', $data, true);
-        return $this->parser->parse('Dashboard/Template', $data);
+        $data['content'] = $this->parser->parse('Users/u_binakua/V_Tcatinpusat', $data, true);
+        return $this->parser->parse('Users/u_binakua/Template', $data);
     }
 
     public function Provinsi($id, $prov) {
@@ -49,8 +49,8 @@ class Bimwin extends CI_Controller {
             'provinsi' => str_replace(['_', '%20'], ' ', $prov),
             'data' => file_get_contents("https://simas.kemenag.go.id/rudabi/datapi/embimwin/targetcatin2020?KEY=BOBA&id_prop=" . $id . "")
         ];
-        $data['content'] = $this->parser->parse('KUA/Bimwin/V_bimwinprov', $data, true);
-        return $this->parser->parse('Dashboard/Template', $data);
+        $data['content'] = $this->parser->parse('Users/u_binakua/V_bimwinprov', $data, true);
+        return $this->parser->parse('Users/u_binakua/Template', $data);
     }
 
     public function Targetcatin($id) {

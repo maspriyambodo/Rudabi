@@ -1,20 +1,19 @@
 <?php
-$url = str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt($id));
 $sum_anggaran = 0;
 $sum_realisasi = 0;
 $target_wilayah = 0;
 $realisasi_wilayah = 0;
-$dt = json_decode($data);
-foreach ($dt as $value) {
+foreach ($data as $value) {
     $anggaran = str_replace(',', '', $value->total_anggaran);
     $realisasi = str_replace(',', '', $value->total_realisasi);
-    $wilayah = str_replace(',', '', $value->target_kabkot);
-    $r_wilayah = str_replace(',', '', $value->realisasi_kabupaten);
+    $wilayah = str_replace(',', '', $value->target_wilayah);
+    $r_wilayah = str_replace(',', '', $value->realisasi_wilayah);
     $sum_anggaran += $anggaran;
     $sum_realisasi += $realisasi;
     $target_wilayah += $wilayah;
     $realisasi_wilayah += $r_wilayah;
 }
+
 if ($sum_anggaran > 0 && $sum_anggaran < 1000) {
     // 1 - 999
     $sum_anggaran_format = floor($sum_anggaran);
@@ -62,14 +61,14 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">data target catin provinsi {provinsi}</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Target Catin</h5>
         </div>
     </div>
 </div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('KUA/Bimwin/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            Jumlah Target &amp; Realisasi Catin
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -78,17 +77,16 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
         </div>
     </div>
     <div class="card-body">
-        <div class="text-center">
-            <b><u id="title_chartdiv"></u></b>
-        </div>
         <div id="chartdiv" class="chartdivs"></div>
     </div>
 </div>
-<div class="clearfix" style="margin:5%;"></div>
+<div class="clearfix" style="margin: 5%;"></div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            Jumlah Target &amp; Realisasi
+            <div class="text-uppercase">
+                data target catin
+            </div>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -104,7 +102,7 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            Detail Data Catin
+            Detail Data Target Catin
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -143,7 +141,7 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
 </div>
 <script>
     window.onload = function () {
-        var url = "<?= base_url('KUA/Bimwin/Targetcatin/' . $url . '') ?>";
+        var url = "https://simas.kemenag.go.id/rudabi/datapi/embimwin/targetcatin2020?KEY=boba";
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],
@@ -173,11 +171,28 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
                 url: url
             },
             columns: [
-                {data: "nama_lokasi"},
-                {data: "target_kabkot", className: "text-center"},
-                {data: "realisasi_kabupaten", className: "text-center"},
-                {data: "total_anggaran", className: "text-center"},
-                {data: "total_realisasi", className: "text-center"}
+                {
+                    data: null,
+                    render: function (data) {
+                        var a, b, c;
+                        a = data.id_prop;
+                        b = data.nama_lokasi;
+                        c = b.replace(' ', '_');
+                        return '<a href="<?= base_url('Users/BKKS/Bimwin/Provinsi/'); ?>' + a + "/" + c + '">' + b + '</a>';
+                    }
+                },
+                {
+                    data: "target_wilayah", className: "text-center sum_wil"
+                },
+                {
+                    data: "realisasi_wilayah", className: "text-center realisasi_wilayah"
+                },
+                {
+                    data: "total_anggaran", className: "text-center total_anggaran"
+                },
+                {
+                    data: "total_realisasi", className: "text-center total_realisasi"
+                }
             ]
         });
         am4core.ready(function () {
@@ -185,9 +200,10 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
             chart.dataSource.url = url;
+            chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
-            categoryAxis.title.text = 'Kota / Kabupaten';
+            categoryAxis.title.text = 'Daerah Tingkat Provinsi';
             categoryAxis.dataFields.category = "nama_lokasi";
             categoryAxis.renderer.grid.template.location = 0;
             categoryAxis.renderer.minGridDistance = 30;
@@ -198,15 +214,15 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
             categoryAxis.renderer.minHeight = 110;
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
             valueAxis.renderer.minWidth = 100;
-            valueAxis.title.text = "Target Wilayah";
+            valueAxis.title.text = "Target & Realisasi Wilayah";
             valueAxis.title.fontWeight = 800;
             var series = chart.series.push(new am4charts.ColumnSeries());
-            series.dataFields.valueY = "target_kabkot";
+            series.dataFields.valueY = "target_wilayah";
             series.dataFields.categoryX = "nama_lokasi";
             series.clustered = false;
-            series.tooltipText = "Target Wilayah {categoryX}: [bold]{valueY}[/]";
+            series.tooltipText = "Target Wilayah di {categoryX}: [bold]{valueY}[/]";
             var series2 = chart.series.push(new am4charts.ColumnSeries());
-            series2.dataFields.valueY = "realisasi_kabupaten";
+            series2.dataFields.valueY = "realisasi_wilayah";
             series2.dataFields.categoryX = "nama_lokasi";
             series2.clustered = false;
             series2.columns.template.width = am4core.percent(50);
@@ -219,7 +235,6 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
                 return chart.colors.getIndex(target.dataItem.index);
             });
             chart.cursor = new am4charts.XYCursor();
-            categoryAxis.sortBySeries = series;
         });
         am4core.ready(function () {
 
