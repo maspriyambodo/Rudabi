@@ -86,7 +86,7 @@ $totregkua = 0;
                                 ?>
                             </td>
                             <td class="text-center">
-                                <a href="<?= base_url('Emonev/Registrasi/Status?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $value->status . '&b=' . $value->kategori))); ?>" class="btn btn-icon btn-success btn-xs" title="Detail <?= $value->kategori ?>"><i class="fas fa-eye"></i></a>
+                                <a href="<?= base_url('Users/BKKS/Registrasi/Status?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $value->status . '&b=' . $value->kategori))); ?>" class="btn btn-icon btn-success btn-xs" title="Detail <?= $value->kategori ?>"><i class="fas fa-eye"></i></a>
                             </td>
                         </tr>
                     <?php } ?>
