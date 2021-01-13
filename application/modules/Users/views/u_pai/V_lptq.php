@@ -11,14 +11,14 @@ $i = 0; //geo_pelosok_terisolir
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data LPTQ Provinsi <?php echo $param[1]; ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data LPTQ tahun <?= date('Y'); ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('PAI/LPTQ/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            Data LPTQ per Provinsi
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -88,7 +88,7 @@ $i = 0; //geo_pelosok_terisolir
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
                     <tr>
-                        <th rowspan="2">Kota/Kabupaten</th>
+                        <th rowspan="2">provinsi</th>
                         <th rowspan="2">jumlah</th>
                         <th colspan="2">tipologi</th>
                         <th colspan="4">geografi</th>
@@ -116,7 +116,7 @@ $i = 0; //geo_pelosok_terisolir
                         <tr>
                             <td style="text-align:left !important;">
                                 <?php
-                                echo '<a href="' . base_url('PAI/LPTQ/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $b->lsm_city . '&d=' . $b->city_title))) . '" title="Detail ' . $b->city_title . '">' . $b->city_title . '</a>';
+                                echo '<a href="' . base_url('Users/PAI/LPTQ/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->province_id . '&b=' . $b->province_title))) . '" title="Detail Provinsi ' . $b->province_title . '">' . $b->province_title . '</a>';
                                 ?>
                             </td>
                             <td><?php echo number_format($b->jum_lsm); ?></td>
@@ -176,8 +176,8 @@ $i = 0; //geo_pelosok_terisolir
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
-            categoryAxis.title.text = 'Daerah Tingkat Kota/Kabupaten';
-            categoryAxis.dataFields.category = "city_title";
+            categoryAxis.title.text = 'Daerah Tingkat Provinsi';
+            categoryAxis.dataFields.category = "province_title";
             categoryAxis.renderer.grid.template.location = 0;
             categoryAxis.renderer.minGridDistance = 30;
             categoryAxis.renderer.labels.template.horizontalCenter = "right";
@@ -192,8 +192,8 @@ $i = 0; //geo_pelosok_terisolir
             var series = chart.series.push(new am4charts.ColumnSeries());
             series.sequencedInterpolation = true;
             series.dataFields.valueY = "jum_lsm";
-            series.dataFields.categoryX = "city_title";
-            series.tooltipText = "Jumlah LPTQ {city_title}: [bold]{valueY}[/]";
+            series.dataFields.categoryX = "province_title";
+            series.tooltipText = "Jumlah LPTQ Provinsi {province_title}: [bold]{valueY}[/]";
             series.columns.template.strokeWidth = 0;
             series.tooltip.pointerOrientation = "vertical";
             series.columns.template.column.cornerRadiusTopLeft = 10;
