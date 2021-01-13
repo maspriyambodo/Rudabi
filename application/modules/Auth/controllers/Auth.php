@@ -50,7 +50,7 @@ class Auth extends CI_Controller {
             case 5://DIREKTORAT PENERANGAN AGAMA ISLAM
                 return redirect(base_url('Users/PAI/Dashboard/index/'), 'refresh');
             case 6://DIREKTORAT PEMBERDAYAAN ZAKAT DAN WAKAF
-                return redirect(base_url('Siwak/index/'), 'refresh');
+                return redirect(base_url('Users/Siwak/index/'), 'refresh');
             default ://Login
                 $this->session->sess_destroy();
                 return $this->parser->parse('V_Auth', ['csrf' => $this->Csrf()]);

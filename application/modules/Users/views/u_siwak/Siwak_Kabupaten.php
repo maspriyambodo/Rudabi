@@ -16,14 +16,14 @@ $n = 0; //pengguna_sosial
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Sistem Informasi Wakaf</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Wakaf <?php echo $param[3]; ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            Data Tanah Wakaf
+            <a href="<?= base_url('Users/Siwak/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -74,18 +74,16 @@ $n = 0; //pengguna_sosial
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
                     <tr>
-                        <th rowspan="2">provinsi</th>
+                        <th rowspan="2">kecamatan</th>
                         <th rowspan="2">jumlah<br>data</th>
-                        <th rowspan="2">luas (Ha)</th>
-                        <th colspan="2">Sudah Sertifikat</th>
-                        <th colspan="2">Belum Sertifikat</th>
+                        <th rowspan="2">luas</th>
+                        <th rowspan="2">sertifikat</th>
+                        <th rowspan="2">luas<br>sertifikat</th>
+                        <th rowspan="2">non<br>sertifikat</th>
+                        <th rowspan="2">luas<br>non-sertifikat</th>
                         <th colspan="6">data penggunaan tanah wakaf</th>
                     </tr>
                     <tr>
-                        <th>Jumlah</th>
-                        <th>luas (Ha)</th>
-                        <th>Jumlah</th>
-                        <th>luas (Ha)</th>
                         <th>masjid</th>
                         <th>mushalla</th>
                         <th>sekolah</th>
@@ -111,7 +109,7 @@ $n = 0; //pengguna_sosial
                         $n += str_replace(',', '', $b->pengguna_sosial); //pengguna_sosial
                         ?>
                         <tr>
-                            <td style="text-align:left !important;"><?= '<a href="' . base_url('Siwak/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->Lokasi_Prop . '&b=' . $b->lokasi_nama))) . '" title="Detail Provinsi ' . $b->lokasi_nama . '">' . $b->lokasi_nama . '</a>' ?></td>
+                            <td style="text-align:left !important;"><?= '<a href="' . base_url('Siwak/Kecamatan?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $param[2] . '&d=' . $param[3] . '&e=' . $b->lokasi_ID . '&f=' . $b->lokasi_nama))) . '" title="Detail Kecamatan ' . $b->lokasi_nama . '">' . $b->lokasi_nama . '</a>' ?></td>
                             <td><?= $b->dt_wakaf; ?></td>
                             <td><?php echo number_format($b->dt_luas / 10000, 2, ',', '.'); ?></td>
                             <td><?= str_replace(',', '.', number_format($b->dt_sertifikat)); ?></td>
@@ -161,9 +159,10 @@ $n = 0; //pengguna_sosial
 <input type="hidden" name="pengguna_makam" readonly="" value="<?php echo number_format($m); ?>"/>
 <input type="hidden" name="pengguna_sosial" readonly="" value="<?php echo number_format($n); ?>"/>
 <input type="hidden" name="pengguna_tot" readonly="" value="<?php echo $i + $j + $k + $l + $m + $n; ?>"/>
+
 <script>
     window.onload = function () {
-        var a, b, c, d, e, f, g, h, i, j, k, l, m;
+        var a, b, c, d, e, f, g, h, i, j, k, l,m;
         a = $('input[name="dt_wakaf"]').val();
         b = $('input[name="dt_luas"]').val();
         c = $('input[name="dt_sertifikat"]').val();
@@ -187,7 +186,7 @@ $n = 0; //pengguna_sosial
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
-            categoryAxis.title.text = 'Daerah Tingkat Provinsi';
+            categoryAxis.title.text = 'Wilayah Kecamatan';
             categoryAxis.dataFields.category = "lokasi_nama";
             categoryAxis.renderer.grid.template.location = 0;
             categoryAxis.renderer.minGridDistance = 30;
@@ -204,7 +203,7 @@ $n = 0; //pengguna_sosial
             series.sequencedInterpolation = true;
             series.dataFields.valueY = "dt_wakaf";
             series.dataFields.categoryX = "lokasi_nama";
-            series.tooltipText = "Jumlah Data Provinsi {lokasi_nama}: [bold]{valueY}[/]";
+            series.tooltipText = "Jumlah Data {lokasi_nama}: [bold]{valueY}[/]";
             series.columns.template.strokeWidth = 0;
             series.tooltip.pointerOrientation = "vertical";
             series.columns.template.column.cornerRadiusTopLeft = 10;

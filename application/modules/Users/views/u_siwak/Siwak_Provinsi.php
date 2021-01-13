@@ -16,14 +16,14 @@ $n = 0; //pengguna_sosial
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Sistem Informasi Wakaf</h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Wakaf Provinsi <?php echo $param[1]; ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            Data Tanah Wakaf
+            <a href="<?= base_url('Users/Siwak/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -111,13 +111,13 @@ $n = 0; //pengguna_sosial
                         $n += str_replace(',', '', $b->pengguna_sosial); //pengguna_sosial
                         ?>
                         <tr>
-                            <td style="text-align:left !important;"><?= '<a href="' . base_url('Siwak/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->Lokasi_Prop . '&b=' . $b->lokasi_nama))) . '" title="Detail Provinsi ' . $b->lokasi_nama . '">' . $b->lokasi_nama . '</a>' ?></td>
+                            <td style="text-align:left !important;"><?= '<a href="' . base_url('Users/Siwak/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $b->lokasi_kode . '&d=' . $b->lokasi_nama))) . '" title="Detail ' . $b->lokasi_nama . '">' . $b->lokasi_nama . '</a>' ?></td>
                             <td><?= $b->dt_wakaf; ?></td>
                             <td><?php echo number_format($b->dt_luas / 10000, 2, ',', '.'); ?></td>
-                            <td><?= str_replace(',', '.', number_format($b->dt_sertifikat)); ?></td>
+                            <td><?= $b->dt_sertifikat; ?></td>
                             <td><?php echo number_format($b->dt_luas_sertifikat / 10000, 2, ',', '.'); ?></td>
                             <td><?= $b->dt_nonsertifikat; ?></td>
-                            <td><?= number_format($b->dt_luas_nonsertifikat / 10000, 2, ',', '.'); ?></td>
+                            <td><?php echo number_format($b->dt_luas_nonsertifikat / 10000, 2, ',', '.'); ?></td>
                             <td><?= $b->pengguna_masjid; ?></td>
                             <td><?= $b->pengguna_musholla; ?></td>
                             <td><?= $b->pengguna_sekolah; ?></td>
@@ -149,7 +149,7 @@ $n = 0; //pengguna_sosial
     </div>
 </div>
 <input type="hidden" name="dt_wakaf" readonly="" value="<?php echo number_format($c); ?>"/>
-<input type="hidden" name="dt_luas" readonly="" value="<?= number_format($d / 10000, 2, ',', '.'); ?>"/>
+<input type="hidden" name="dt_luas" readonly="" value="<?php echo number_format($d / 10000, 2, ',', '.'); ?>"/>
 <input type="hidden" name="dt_sertifikat" readonly="" value="<?php echo number_format($e); ?>"/>
 <input type="hidden" name="dt_luas_sertifikat" readonly="" value="<?php echo number_format($f); ?>"/>
 <input type="hidden" name="dt_nonsertifikat" readonly="" value="<?php echo number_format($g); ?>"/>
@@ -187,7 +187,7 @@ $n = 0; //pengguna_sosial
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
-            categoryAxis.title.text = 'Daerah Tingkat Provinsi';
+            categoryAxis.title.text = 'Daerah Tingkat Kota/Kabupaten';
             categoryAxis.dataFields.category = "lokasi_nama";
             categoryAxis.renderer.grid.template.location = 0;
             categoryAxis.renderer.minGridDistance = 30;
@@ -204,7 +204,7 @@ $n = 0; //pengguna_sosial
             series.sequencedInterpolation = true;
             series.dataFields.valueY = "dt_wakaf";
             series.dataFields.categoryX = "lokasi_nama";
-            series.tooltipText = "Jumlah Data Provinsi {lokasi_nama}: [bold]{valueY}[/]";
+            series.tooltipText = "Jumlah Data {lokasi_nama}: [bold]{valueY}[/]";
             series.columns.template.strokeWidth = 0;
             series.tooltip.pointerOrientation = "vertical";
             series.columns.template.column.cornerRadiusTopLeft = 10;
