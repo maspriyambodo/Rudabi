@@ -114,7 +114,7 @@ $i = 0; // geo_pelosok_terisolir
                         $i += $b->geo_pelosok_terisolir; // geo_pelosok_terisolir
                         ?>
                         <tr>
-                            <td style="text-align: left !important;"><?php echo '<a href="' . base_url('PAI/Ormas/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->province_id . '&b=' . $b->province_title))) . '" title="Detail Data ' . $b->province_title . '">' . $b->province_title . '</a>'; ?></td>
+                            <td style="text-align: left !important;"><?php echo '<a href="' . base_url('Users/PAI/Ormas/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->province_id . '&b=' . $b->province_title))) . '" title="Detail Data ' . $b->province_title . '">' . $b->province_title . '</a>'; ?></td>
                             <td><?php echo number_format($b->jum_ormas); ?></td>
                             <td><?php echo number_format($b->topo_darat); ?></td>
                             <td><?php echo number_format($b->topo_lautan); ?></td>
