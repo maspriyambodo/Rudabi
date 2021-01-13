@@ -17,14 +17,41 @@ $p = 0; // dt_pddk_s1_wanita
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Rekapitulasi Nikah &amp; Rujuk <?= $param[2]; ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Rekapitulasi Nikah &amp; Rujuk</h5>
         </div>
     </div>
 </div>
-<div class="card card-custom" data-card="true" id="kt_card_1">
+<div class="card card-custom">
+    <div class="card-body">
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Pilih Tahun</label>
+            <div class="col-4">
+                <select name="tahun" class="form-control form-control-solid" onchange="Tahun()">
+                    <?php
+                    foreach ($rekap_tahun as $value) {
+                        if ($param[0] == $value->rekap_tahun) {
+                            $selected = 'selected=""';
+                        } else {
+                            $selected = null;
+                        }
+                        echo '<option value="' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $value->rekap_tahun)) . '" ' . $selected . '>' . $value->rekap_tahun . '</option>';
+                    }
+                    ?>
+                </select>
+            </div>
+        </div>
+        <hr>
+        <div class="text-center">
+            <b><u id="title_chartdiv"></u></b>
+        </div>
+        <div id="chartdiv" class="chartdivs"></div>
+    </div>
+</div>
+<div class="clearfix" style="margin:5%;"></div>
+<div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Simpenghulu/Nikah_Rujuk/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            Data Usia Pernikahan
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -33,13 +60,10 @@ $p = 0; // dt_pddk_s1_wanita
         </div>
     </div>
     <div class="card-body">
-        <div class="text-center">
-            <b><u id="title_chartdiv"></u></b>
-        </div>
-        <div id="chartdiv" class="chartdivs"></div>
+        <div id="chartdiv_a" class="chartdivs"></div>
     </div>
 </div>
-<div class="clearfix" style="margin:5% 0px;"></div>
+<div class="clearfix" style="margin:5%;"></div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
@@ -79,7 +103,7 @@ $p = 0; // dt_pddk_s1_wanita
                 </thead>
                 <tbody class="text-center">
                     <?php
-                    foreach ($b as $c) {
+                    foreach ($b as $key => $c) {
                         $d += $c->dt_nikah; // dt_nikah
                         $e += $c->dt_rujuk; // dt_rujuk
                         $f += $c->dt_bawahumur_pria; // dt_bawahumur_pria
@@ -97,7 +121,12 @@ $p = 0; // dt_pddk_s1_wanita
                         <tr>
                             <td style="text-align:left !important;">
                                 <?php
-                                echo '<a href="' . base_url('Simpenghulu/Nikah_Rujuk/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $param[2] . '&d=' . $c->city_id . '&e=' . $c->city_title))) . '" title="Detail ' . $c->city_title . '">' . $c->city_title . '</a>';
+                                if ($c->rekap_tahun == "semua tahun") {
+                                    $q = '?a=' . date("Y") . '&b=' . $c->rekap_province . '&c=' . $c->province_title;
+                                } else {
+                                    $q = '?a=' . $c->rekap_tahun . '&b=' . $c->rekap_province . '&c=' . $c->province_title;
+                                }
+                                echo '<a href="' . base_url('Users/BKKS/Nikah_Rujuk/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt($q))) . '" title="Detail Provinsi ' . $c->province_title . '">' . $c->province_title . '</a>';
                                 ?>
                             </td>
                             <td><?= number_format($c->dt_nikah); ?></td>
@@ -138,21 +167,34 @@ $p = 0; // dt_pddk_s1_wanita
         </div>
     </div>
 </div>
-<input type="hidden" name="dt_nikah" readonly="" value="<?= number_format($d); ?>"/>
+<input type="hidden" name="dt_nikah" value="<?= number_format($d); ?>" readonly=""/>
+<input type="hidden" name="dt_rujuk" value="<?= $e; ?>" readonly=""/>
+<input type="hidden" name="dt_bawahumur_pria" value="<?= $f; ?>" readonly=""/>
+<input type="hidden" name="dt_bawahumur_wanita" value="<?= $g; ?>" readonly=""/>
+<input type="hidden" name="dt_nikahkantor" value="<?= $h; ?>" readonly=""/>
+<input type="hidden" name="dt_nonkantor" value="<?= $i; ?>" readonly=""/>
+<input type="hidden" name="dt_pddk_sd_pria" value="<?= $j; ?>" readonly=""/>
+<input type="hidden" name="dt_pddk_smp_pria" value="<?= $k; ?>" readonly=""/>
+<input type="hidden" name="dt_pddk_sma_pria" value="<?= $l; ?>" readonly=""/>
+<input type="hidden" name="dt_pddk_s1_pria" value="<?= $m; ?>" readonly=""/>
+<input type="hidden" name="dt_pddk_smp_wanita" value="<?= $n; ?>" readonly=""/>
+<input type="hidden" name="dt_pddk_sma_wanita" value="<?= $o; ?>" readonly=""/>
+<input type="hidden" name="dt_pddk_s1_wanita" value="<?= $p; ?>" readonly=""/>
 <script>
+    function Tahun() {
+        var a = $('select[name=tahun]').val();
+        return window.location.href = "Users/BKKS/Nikah_Rujuk/index?key=" + a;
+    }
     window.onload = function () {
-        var a;
-        a = $('input[name="dt_nikah"]').val();
-        document.getElementById('title_chartdiv').innerText = "Total Data: " + a;
+        document.getElementById('title_chartdiv').innerText = "Total Data: " + $('input[name="dt_nikah"]').val();
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
             chart.data = <?= $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
-
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-            categoryAxis.dataFields.category = "city_title";
+            categoryAxis.dataFields.category = "province_title";
             categoryAxis.renderer.grid.template.location = 0;
             categoryAxis.renderer.minGridDistance = 30;
             categoryAxis.renderer.labels.template.horizontalCenter = "right";
@@ -167,8 +209,8 @@ $p = 0; // dt_pddk_s1_wanita
             var series = chart.series.push(new am4charts.ColumnSeries());
             series.sequencedInterpolation = true;
             series.dataFields.valueY = "dt_nikah";
-            series.dataFields.categoryX = "city_title";
-            series.tooltipText = "{city_title} [bold]{valueY}[/]";
+            series.dataFields.categoryX = "province_title";
+            series.tooltipText = "Provinsi {province_title} [bold]{valueY}[/]";
             series.columns.template.strokeWidth = 0;
 
             series.tooltip.pointerOrientation = "vertical";
@@ -187,6 +229,29 @@ $p = 0; // dt_pddk_s1_wanita
             });
             chart.cursor = new am4charts.XYCursor();
             categoryAxis.sortBySeries = series;
+        });
+        am4core.ready(function () {
+            am4core.useTheme(am4themes_animated);
+            var chart = am4core.create("chartdiv_a", am4charts.PieChart);
+            chart.data = [
+                {
+                    "country": "Pria dibawah umur",
+                    "litres": $('input[name="dt_bawahumur_pria"]').val()
+                },
+                {
+                    "country": "Wanita dibawah umur",
+                    "litres": $('input[name="dt_bawahumur_wanita"]').val()
+                }
+            ];
+            var pieSeries = chart.series.push(new am4charts.PieSeries());
+            pieSeries.dataFields.value = "litres";
+            pieSeries.dataFields.category = "country";
+            pieSeries.slices.template.stroke = am4core.color("#fff");
+            pieSeries.slices.template.strokeOpacity = 1;
+            pieSeries.hiddenState.properties.opacity = 1;
+            pieSeries.hiddenState.properties.endAngle = -90;
+            pieSeries.hiddenState.properties.startAngle = -90;
+            chart.hiddenState.properties.radius = am4core.percent(0);
         });
         $('table').dataTable({
             "ServerSide": true,
