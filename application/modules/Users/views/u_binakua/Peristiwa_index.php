@@ -13,18 +13,22 @@ $l = 0; // pddk_sma_wanita
 $m = 0; // pddk_s1_wanita
 $n = 0; // pddk_s2_wanita
 $o = 0; // pddk_s3_wanita
+$p = 0; // nikah_kantor
+$q = 0; // nikah_nonkantor
+$r = 0; // nikah_terlaksana
+$s = 0; // nikah_nonterlaksana
 ?>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Peristiwa Nikah Provinsi <?= $param[1]; ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Rekapitulasi Data Peristiwa Nikah</h5>
         </div>
     </div>
 </div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Simpenghulu/Peristiwa/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            Data Peristiwa Nikah Per provinsi
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -118,6 +122,10 @@ $o = 0; // pddk_s3_wanita
                         $m += $b->pddk_s1_wanita; // pddk_s1_wanita
                         $n += $b->pddk_s2_wanita; // pddk_s2_wanita
                         $o += $b->pddk_s3_wanita; // pddk_s3_wanita
+                        $p += $b->nikah_kantor; // nikah_kantor
+                        $q += $b->nikah_nonkantor; // nikah_nonkantor
+                        $r += $b->nikah_terlaksana; // nikah_terlaksana
+                        $s += $b->nikah_nonterlaksana; // nikah_nonterlaksana
                         ?>
                         <tr>
                             <td>
@@ -127,7 +135,7 @@ $o = 0; // pddk_s3_wanita
                                 ?>
                             </td>
                             <td style="text-align:left;">
-                                <?= '<a href="' . base_url('Simpenghulu/Peristiwa/Detail?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->nikah_city_id . '&b=' . $b->city_title . '&c=' . $param[0] . '&d=' . $param[1]))) . '" title="Detail Peristiwa ' . $b->city_title . '">' . $b->city_title . '</a>'; ?>
+                                <?= '<a href="' . base_url('Users/BKKS/Peristiwa/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->city_province . '&b=' . $b->province_title))) . '" title="Detail Provinsi ' . $b->province_title . '">' . $b->province_title . '</a>'; ?>
                             </td>
                             <td><?= number_format($b->dt_nikah); ?></td>
                             <td><?= $b->rt_usia_pria; ?></td>
@@ -151,6 +159,29 @@ $o = 0; // pddk_s3_wanita
                         </tr>
                     <?php } ?>
                 </tbody>
+                <tfoot class="text-center text-uppercase">
+                    <tr>
+                        <th colspan="2">Total</th>
+                        <th><?= number_format($c); ?></th>
+                        <th colspan="2">rata-rata usia</th>
+                        <th><?= number_format($d); ?></th>
+                        <th><?= number_format($e); ?></th>
+                        <th><?= number_format($f); ?></th>
+                        <th><?= number_format($g); ?></th>
+                        <th><?= number_format($h); ?></th>
+                        <th><?= number_format($i); ?></th>
+                        <th><?= number_format($j); ?></th>
+                        <th><?= number_format($k); ?></th>
+                        <th><?= number_format($l); ?></th>
+                        <th><?= number_format($m); ?></th>
+                        <th><?= number_format($n); ?></th>
+                        <th><?= number_format($o); ?></th>
+                        <th><?= number_format($p); ?></th>
+                        <th><?= number_format($q); ?></th>
+                        <th><?= number_format($r); ?></th>
+                        <th><?= number_format($s); ?></th>
+                    </tr>
+                </tfoot>
             </table>
         </div>
     </div>
@@ -168,9 +199,13 @@ $o = 0; // pddk_s3_wanita
 <input type="hidden" name="pddk_s1_wanita" readonly="" value="<?php echo $m; ?>"/>
 <input type="hidden" name="pddk_s2_wanita" readonly="" value="<?php echo $n; ?>"/>
 <input type="hidden" name="pddk_s3_wanita" readonly="" value="<?php echo $o; ?>"/>
+<input type="hidden" name="nikah_kantor" readonly="" value="<?php echo $p; ?>"/>
+<input type="hidden" name="nikah_nonkantor" readonly="" value="<?php echo $q; ?>"/>
+<input type="hidden" name="nikah_terlaksana" readonly="" value="<?php echo $r; ?>"/>
+<input type="hidden" name="nikah_nonterlaksana" readonly="" value="<?php echo $s; ?>"/>
 <script>
     window.onload = function () {
-        var a, b, c, d, e, f, g, h, i, j, k, l, m;
+        var a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q;
         a = $('input[name="dt_nikah"]').val();
         b = $('input[name="pddk_sd_pria"]').val();
         c = $('input[name="pddk_smp_pria"]').val();
@@ -178,12 +213,16 @@ $o = 0; // pddk_s3_wanita
         e = $('input[name="pddk_s1_pria"]').val();
         f = $('input[name="pddk_s2_pria"]').val();
         g = $('input[name="pddk_s3_pria"]').val();
-        h = $('input[name="pddk_sd_wanita"]').val();
-        i = $('input[name="pddk_smp_wanita"]').val();
-        j = $('input[name="pddk_sma_wanita"]').val();
-        k = $('input[name="pddk_s1_wanita"]').val();
-        l = $('input[name="pddk_s2_wanita"]').val();
-        m = $('input[name="pddk_s3_wanita"]').val();
+        h = $('input[name="nikah_kantor"]').val();
+        i = $('input[name="nikah_nonkantor"]').val();
+        j = $('input[name="nikah_terlaksana"]').val();
+        k = $('input[name="nikah_nonterlaksana"]').val();
+        l = $('input[name="pddk_sd_wanita"]').val();
+        m = $('input[name="pddk_smp_wanita"]').val();
+        n = $('input[name="pddk_sma_wanita"]').val();
+        o = $('input[name="pddk_s1_wanita"]').val();
+        p = $('input[name="pddk_s2_wanita"]').val();
+        q = $('input[name="pddk_s3_wanita"]').val();
         document.getElementById('title_chartdiv').innerText = "Total Data Peristiwa Nikah: " + numeral(a).format('0,0');
         am4core.ready(function () {
             am4core.useTheme(am4themes_frozen);
@@ -195,7 +234,7 @@ $o = 0; // pddk_s3_wanita
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
             categoryAxis.title.text = 'Daerah Tingkat Provinsi';
-            categoryAxis.dataFields.category = "city_title";
+            categoryAxis.dataFields.category = "province_title";
             categoryAxis.renderer.grid.template.location = 0;
             categoryAxis.renderer.minGridDistance = 30;
             categoryAxis.renderer.labels.template.horizontalCenter = "right";
@@ -210,7 +249,7 @@ $o = 0; // pddk_s3_wanita
             var series = chart.series.push(new am4charts.ColumnSeries());
             series.sequencedInterpolation = true;
             series.dataFields.valueY = "dt_nikah";
-            series.dataFields.categoryX = "city_title";
+            series.dataFields.categoryX = "province_title";
             series.tooltipText = "Jumlah Peristiwa Nikah Provinsi {province_title}: [bold]{valueY}[/]";
             series.columns.template.strokeWidth = 0;
             series.tooltip.pointerOrientation = "vertical";
@@ -231,12 +270,12 @@ $o = 0; // pddk_s3_wanita
             var chart = am4core.create("chartdiv_a", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
             chart.data = [
-                {"pendidikan": "SD", pria: b, wanita: h},
-                {"pendidikan": "SMP", pria: c, wanita: i},
-                {"pendidikan": "SMA", pria: d, wanita: j},
-                {"pendidikan": "S1", pria: e, wanita: k},
-                {"pendidikan": "S2", pria: f, wanita: l},
-                {"pendidikan": "S3", pria: g, wanita: m}
+                {"pendidikan": "SD", pria: b, wanita: l},
+                {"pendidikan": "SMP", pria: c, wanita: m},
+                {"pendidikan": "SMA", pria: d, wanita: n},
+                {"pendidikan": "S1", pria: e, wanita: o},
+                {"pendidikan": "S2", pria: f, wanita: p},
+                {"pendidikan": "S3", pria: g, wanita: q}
             ];
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
@@ -284,43 +323,6 @@ $o = 0; // pddk_s3_wanita
             });
             chart.cursor = new am4charts.XYCursor();
         });
-        am4core.ready(function () {
-            am4core.useTheme(am4themes_frozen);
-            am4core.useTheme(am4themes_animated);
-            var chart = am4core.create("chartdiv_b", am4charts.PieChart3D);
-            chart.hiddenState.properties.opacity = 0;
-            chart.legend = new am4charts.Legend();
-            chart.data = [
-                {
-                    country: "S D",
-                    litres: g
-                },
-                {
-                    country: "S M P",
-                    litres: h
-                },
-                {
-                    country: "S M A",
-                    litres: i
-                },
-                {
-                    country: "S1",
-                    litres: j
-                },
-                {
-                    country: "S2",
-                    litres: k
-                },
-                {
-                    country: "S3",
-                    litres: l
-                }
-            ];
-            chart.innerRadius = 100;
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "litres";
-            series.dataFields.category = "country";
-        });
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],
@@ -332,9 +334,6 @@ $o = 0; // pddk_s3_wanita
             "scrollCollapse": true,
             "scrollX": true,
             "scrollY": "400px",
-            fixedColumns: {
-                leftColumns: 2
-            },
             dom: `<'row'<'col-sm-6 text-left'f><'col-sm-6 text-right'B>>
                 <'row'<'col-sm-12'tr>>
                 <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,

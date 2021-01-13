@@ -24,7 +24,7 @@ $o = 0; // pddk_s3_wanita
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Simpenghulu/Peristiwa/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?= base_url('Users/BKKS/Peristiwa/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -127,7 +127,7 @@ $o = 0; // pddk_s3_wanita
                                 ?>
                             </td>
                             <td style="text-align:left;">
-                                <?= '<a href="' . base_url('Simpenghulu/Peristiwa/Detail?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->nikah_city_id . '&b=' . $b->city_title . '&c=' . $param[0] . '&d=' . $param[1]))) . '" title="Detail Peristiwa ' . $b->city_title . '">' . $b->city_title . '</a>'; ?>
+                                <?= '<a href="' . base_url('Users/BKKS/Peristiwa/Detail?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->nikah_city_id . '&b=' . $b->city_title . '&c=' . $param[0] . '&d=' . $param[1]))) . '" title="Detail Peristiwa ' . $b->city_title . '">' . $b->city_title . '</a>'; ?>
                             </td>
                             <td><?= number_format($b->dt_nikah); ?></td>
                             <td><?= $b->rt_usia_pria; ?></td>

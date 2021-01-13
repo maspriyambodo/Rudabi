@@ -56,20 +56,7 @@ $s = 0; // nikah_nonterlaksana
         </div>
     </div>
     <div class="card-body">
-        <div class="row">
-            <div class="col">
-                <div class="text-center">
-                    <b><u>Data pendidikan pria</u></b>
-                </div>
-                <div id="chartdiv_a" class="chartdivs"></div>
-            </div>
-            <div class="col">
-                <div class="text-center">
-                    <b><u>Data pendidikan wanita</u></b>
-                </div>
-                <div id="chartdiv_b" class="chartdivs"></div>
-            </div>
-        </div>
+        <div id="chartdiv_a" class="chartdivs"></div>
     </div>
 </div>
 <div class="clearfix" style="margin:5%;"></div>
@@ -199,23 +186,44 @@ $s = 0; // nikah_nonterlaksana
         </div>
     </div>
 </div>
+<input type="hidden" name="dt_nikah" readonly="" value="<?php echo $c; ?>"/>
+<input type="hidden" name="pddk_sd_pria" readonly="" value="<?php echo $d; ?>"/>
+<input type="hidden" name="pddk_smp_pria" readonly="" value="<?php echo $e; ?>"/>
+<input type="hidden" name="pddk_sma_pria" readonly="" value="<?php echo $f; ?>"/>
+<input type="hidden" name="pddk_s1_pria" readonly="" value="<?php echo $g; ?>"/>
+<input type="hidden" name="pddk_s2_pria" readonly="" value="<?php echo $h; ?>"/>
+<input type="hidden" name="pddk_s3_pria" readonly="" value="<?php echo $i; ?>"/>
+<input type="hidden" name="pddk_sd_wanita" readonly="" value="<?php echo $j; ?>"/>
+<input type="hidden" name="pddk_smp_wanita" readonly="" value="<?php echo $k; ?>"/>
+<input type="hidden" name="pddk_sma_wanita" readonly="" value="<?php echo $l; ?>"/>
+<input type="hidden" name="pddk_s1_wanita" readonly="" value="<?php echo $m; ?>"/>
+<input type="hidden" name="pddk_s2_wanita" readonly="" value="<?php echo $n; ?>"/>
+<input type="hidden" name="pddk_s3_wanita" readonly="" value="<?php echo $o; ?>"/>
+<input type="hidden" name="nikah_kantor" readonly="" value="<?php echo $p; ?>"/>
+<input type="hidden" name="nikah_nonkantor" readonly="" value="<?php echo $q; ?>"/>
+<input type="hidden" name="nikah_terlaksana" readonly="" value="<?php echo $r; ?>"/>
+<input type="hidden" name="nikah_nonterlaksana" readonly="" value="<?php echo $s; ?>"/>
 <script>
     window.onload = function () {
-        var a, b, c, d, e, f, g, h, i, j, k, l, m;
-        a =<?= $d; ?>;
-        b =<?= $e; ?>;
-        c =<?= $f; ?>;
-        d =<?= $g; ?>;
-        e =<?= $h; ?>;
-        f =<?= $i; ?>;
-        g =<?= $j; ?>;
-        h =<?= $k; ?>;
-        i =<?= $l; ?>;
-        j =<?= $m; ?>;
-        k =<?= $n; ?>;
-        l =<?= $o; ?>;
-        m =<?= $c; ?>;
-        document.getElementById('title_chartdiv').innerText = "Total Data Peristiwa Nikah: " + m;
+        var a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q;
+        a = $('input[name="dt_nikah"]').val();
+        b = $('input[name="pddk_sd_pria"]').val();
+        c = $('input[name="pddk_smp_pria"]').val();
+        d = $('input[name="pddk_sma_pria"]').val();
+        e = $('input[name="pddk_s1_pria"]').val();
+        f = $('input[name="pddk_s2_pria"]').val();
+        g = $('input[name="pddk_s3_pria"]').val();
+        h = $('input[name="nikah_kantor"]').val();
+        i = $('input[name="nikah_nonkantor"]').val();
+        j = $('input[name="nikah_terlaksana"]').val();
+        k = $('input[name="nikah_nonterlaksana"]').val();
+        l = $('input[name="pddk_sd_wanita"]').val();
+        m = $('input[name="pddk_smp_wanita"]').val();
+        n = $('input[name="pddk_sma_wanita"]').val();
+        o = $('input[name="pddk_s1_wanita"]').val();
+        p = $('input[name="pddk_s2_wanita"]').val();
+        q = $('input[name="pddk_s3_wanita"]').val();
+        document.getElementById('title_chartdiv').innerText = "Total Data Peristiwa Nikah: " + numeral(a).format('0,0');
         am4core.ready(function () {
             am4core.useTheme(am4themes_frozen);
             am4core.useTheme(am4themes_animated);
@@ -258,78 +266,62 @@ $s = 0; // nikah_nonterlaksana
             chart.cursor = new am4charts.XYCursor();
         });
         am4core.ready(function () {
-            am4core.useTheme(am4themes_frozen);
             am4core.useTheme(am4themes_animated);
-            var chart = am4core.create("chartdiv_a", am4charts.PieChart3D);
-            chart.hiddenState.properties.opacity = 0;
-            chart.legend = new am4charts.Legend();
+            var chart = am4core.create("chartdiv_a", am4charts.XYChart);
+            chart.scrollbarX = new am4core.Scrollbar();
             chart.data = [
-                {
-                    country: "S D",
-                    litres: a
-                },
-                {
-                    country: "S M P",
-                    litres: b
-                },
-                {
-                    country: "S M A",
-                    litres: c
-                },
-                {
-                    country: "S1",
-                    litres: d
-                },
-                {
-                    country: "S2",
-                    litres: e
-                },
-                {
-                    country: "S3",
-                    litres: f
-                }
+                {"pendidikan": "SD", pria: b, wanita: l},
+                {"pendidikan": "SMP", pria: c, wanita: m},
+                {"pendidikan": "SMA", pria: d, wanita: n},
+                {"pendidikan": "S1", pria: e, wanita: o},
+                {"pendidikan": "S2", pria: f, wanita: p},
+                {"pendidikan": "S3", pria: g, wanita: q}
             ];
-            chart.innerRadius = 100;
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "litres";
-            series.dataFields.category = "country";
-        });
-        am4core.ready(function () {
-            am4core.useTheme(am4themes_frozen);
-            am4core.useTheme(am4themes_animated);
-            var chart = am4core.create("chartdiv_b", am4charts.PieChart3D);
-            chart.hiddenState.properties.opacity = 0;
-            chart.legend = new am4charts.Legend();
-            chart.data = [
-                {
-                    country: "S D",
-                    litres: g
-                },
-                {
-                    country: "S M P",
-                    litres: h
-                },
-                {
-                    country: "S M A",
-                    litres: i
-                },
-                {
-                    country: "S1",
-                    litres: j
-                },
-                {
-                    country: "S2",
-                    litres: k
-                },
-                {
-                    country: "S3",
-                    litres: l
-                }
-            ];
-            chart.innerRadius = 100;
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "litres";
-            series.dataFields.category = "country";
+            chart.exporting.menu = new am4core.ExportMenu();
+            var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+            categoryAxis.title.fontWeight = 800;
+            categoryAxis.title.text = 'Jenjang Pendidikan';
+            categoryAxis.dataFields.category = "pendidikan";
+            categoryAxis.renderer.grid.template.location = 0;
+            categoryAxis.renderer.minGridDistance = 30;
+            categoryAxis.renderer.labels.template.horizontalCenter = "right";
+            categoryAxis.renderer.labels.template.verticalCenter = "middle";
+            categoryAxis.renderer.labels.template.rotation = 270;
+            categoryAxis.tooltip.disabled = true;
+            categoryAxis.renderer.minHeight = 110;
+            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            valueAxis.renderer.minWidth = 50;
+            valueAxis.title.text = "Jumlah Data Pendidikan";
+            valueAxis.title.fontWeight = 800;
+            var series = chart.series.push(new am4charts.ColumnSeries());
+            series.sequencedInterpolation = true;
+            series.dataFields.valueY = "pria";
+            series.dataFields.categoryX = "pendidikan";
+            series.tooltipText = "Jumlah Tingkat Pendidikan Pria {pendidikan}: [bold]{valueY}[/]";
+            series.columns.template.strokeWidth = 0;
+            series.tooltip.pointerOrientation = "vertical";
+            series.columns.template.column.cornerRadiusTopLeft = 10;
+            series.columns.template.column.cornerRadiusTopRight = 10;
+            series.columns.template.column.fillOpacity = 0.8;
+
+            var series2 = chart.series.push(new am4charts.ColumnSeries());
+            series2.sequencedInterpolation = true;
+            series2.dataFields.valueY = "wanita";
+            series2.dataFields.categoryX = "pendidikan";
+            series2.tooltipText = "Jumlah Tingkat Pendidikan Wanita {pendidikan}: [bold]{valueY}[/]";
+            series2.columns.template.strokeWidth = 0;
+            series2.tooltip.pointerOrientation = "vertical";
+            series2.columns.template.column.cornerRadiusTopLeft = 10;
+            series2.columns.template.column.cornerRadiusTopRight = 10;
+            series2.columns.template.column.fillOpacity = 0.8;
+            var hoverState = series.columns.template.column.states.create("hover");
+            hoverState.properties.cornerRadiusTopLeft = 0;
+            hoverState.properties.cornerRadiusTopRight = 0;
+            hoverState.properties.fillOpacity = 1;
+            series.columns.template.adapter.add("fill", function (fill, target) {
+                return chart.colors.getIndex(target.dataItem.index);
+            });
+            chart.cursor = new am4charts.XYCursor();
         });
         $('table').dataTable({
             "ServerSide": true,
@@ -342,9 +334,6 @@ $s = 0; // nikah_nonterlaksana
             "scrollCollapse": true,
             "scrollX": true,
             "scrollY": "400px",
-            fixedColumns: {
-                leftColumns: 2
-            },
             dom: `<'row'<'col-sm-6 text-left'f><'col-sm-6 text-right'B>>
                 <'row'<'col-sm-12'tr>>
                 <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
