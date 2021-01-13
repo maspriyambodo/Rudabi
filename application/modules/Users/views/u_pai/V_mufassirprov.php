@@ -1,24 +1,27 @@
 <?php
 $a = json_decode($data);
-$c = 0; //jum_majelis
-$d = 0; //jum_papan
-$e = 0; //jum_lemari
-$f = 0; //jum_meja
-$g = 0; //jum_alas
-$h = 0; //jum_komputer
-$i = 0; //jum_plang
+$c = 0; // jum_mufassir
+$d = 0; // pend_smp
+$e = 0; // pend_sma
+$f = 0; // pend_pesantren
+$g = 0; // pend_diploma1
+$h = 0; // pend_diploma2
+$i = 0; // pend_diploma3
+$j = 0; // pend_s1
+$k = 0; // pend_s2
+$l = 0; // pend_s3
 ?>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5"> Data Majelis Taklim Provinsi <?php echo $param[1]; ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">Data Mufassir Provinsi <?php echo $param[1]; ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('PAI/Majelis/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?= base_url('Users/PAI/Mufassir/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -33,11 +36,11 @@ $i = 0; //jum_plang
         <div id="chartdiv" class="chartdivs"></div>
     </div>
 </div>
-<div class="clearfix" style="margin:5% 0px;"></div>
+<div class="clearfix" style="margin:5%;"></div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            Data Fasilitas Majelis Taklim
+            Pendidikan Mufassir
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -52,11 +55,11 @@ $i = 0; //jum_plang
         <div id="chartdiv_a" class="chartdivs"></div>
     </div>
 </div>
-<div class="clearfix" style="margin:5% 0px;"></div>
+<div class="clearfix" style="margin:5%;"></div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            Detail Data Majelis Taklim
+            Detail Data Mufassir
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -70,44 +73,53 @@ $i = 0; //jum_plang
                 <thead class="text-center text-uppercase">
                     <tr>
                         <th rowspan="2">kota/kabupaten</th>
-                        <th rowspan="2">majelis</th>
-                        <th colspan="6">fasilitas majelis taklim</th>
+                        <th rowspan="2">jumlah</th>
+                        <th colspan="9">pendidikan</th>
                     </tr>
                     <tr>
-                        <th>papan</th>
-                        <th>lemari</th>
-                        <th>meja</th>
-                        <th>alas</th>
-                        <th>komputer</th>
-                        <th>plang</th>
+                        <th>smp</th>
+                        <th>sma</th>
+                        <th>pesantren</th>
+                        <th>d i</th>
+                        <th>d ii</th>
+                        <th>d iii</th>
+                        <th>s1</th>
+                        <th>s2</th>
+                        <th>s3</th>
                     </tr>
                 </thead>
                 <tbody class="text-center">
                     <?php
                     foreach ($a as $b) {
-                        $c += $b->jum_majelis; //jum_majelis
-                        $d += $b->jum_papan; //jum_papan
-                        $e += $b->jum_lemari; //jum_lemari
-                        $f += $b->jum_meja; //jum_meja
-                        $g += $b->jum_alas; //jum_alas
-                        $h += $b->jum_komputer; //jum_komputer
-                        $i += $b->jum_plang; //jum_plang
+                        $c += $b->jum_mufassir; // jum_mufassir
+                        $d += $b->pend_smp; // pend_smp
+                        $e += $b->pend_sma; // pend_sma
+                        $f += $b->pend_pesantren; // pend_pesantren
+                        $g += $b->pend_diploma1; // pend_diploma1
+                        $h += $b->pend_diploma2; // pend_diploma2
+                        $i += $b->pend_diploma3; // pend_diploma3
+                        $j += $b->pend_s1; // pend_s1
+                        $k += $b->pend_s2; // pend_s2
+                        $l += $b->pend_s3; // pend_s3
                         ?>
                         <tr>
-                            <td style="text-align: left !important;"><?php echo '<a href="' . base_url('PAI/Majelis/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $b->city_id . '&d=' . $b->city_title))) . '">' . $b->city_title . '</a>'; ?></td>
-                            <td><?php echo number_format($b->jum_majelis); ?></td>
-                            <td><?php echo number_format($b->jum_papan); ?></td>
-                            <td><?php echo number_format($b->jum_lemari); ?></td>
-                            <td><?php echo number_format($b->jum_meja); ?></td>
-                            <td><?php echo number_format($b->jum_alas); ?></td>
-                            <td><?php echo number_format($b->jum_komputer); ?></td>
-                            <td><?php echo number_format($b->jum_plang); ?></td>
+                            <td style="text-align: left !important;"><?php echo '<a href="' . base_url('Users/PAI/Mufassir/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $b->city_id . '&d=' . $b->city_title))) . '" title="Detail Data ' . $b->city_title . '">' . $b->city_title . '</a>'; ?></td>
+                            <td><?php echo number_format($b->jum_mufassir); ?></td>
+                            <td><?php echo number_format($b->pend_smp); ?></td>
+                            <td><?php echo number_format($b->pend_sma); ?></td>
+                            <td><?php echo number_format($b->pend_pesantren); ?></td>
+                            <td><?php echo number_format($b->pend_diploma1); ?></td>
+                            <td><?php echo number_format($b->pend_diploma2); ?></td>
+                            <td><?php echo number_format($b->pend_diploma3); ?></td>
+                            <td><?php echo number_format($b->pend_s1); ?></td>
+                            <td><?php echo number_format($b->pend_s2); ?></td>
+                            <td><?php echo number_format($b->pend_s3); ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th>total</th>
+                        <th>jumlah</th>
                         <th><?php echo number_format($c); ?></th>
                         <th><?php echo number_format($d); ?></th>
                         <th><?php echo number_format($e); ?></th>
@@ -115,30 +127,42 @@ $i = 0; //jum_plang
                         <th><?php echo number_format($g); ?></th>
                         <th><?php echo number_format($h); ?></th>
                         <th><?php echo number_format($i); ?></th>
+                        <th><?php echo number_format($j); ?></th>
+                        <th><?php echo number_format($k); ?></th>
+                        <th><?php echo number_format($l); ?></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
-<input type="hidden" name="jum_majelis" readonly="" value="<?php echo $c; ?>"/>
-<input type="hidden" name="jum_papan" readonly="" value="<?php echo $d; ?>"/>
-<input type="hidden" name="jum_lemari" readonly="" value="<?php echo $e; ?>"/>
-<input type="hidden" name="jum_meja" readonly="" value="<?php echo $f; ?>"/>
-<input type="hidden" name="jum_alas" readonly="" value="<?php echo $g; ?>"/>
-<input type="hidden" name="jum_komputer" readonly="" value="<?php echo $h; ?>"/>
-<input type="hidden" name="jum_plang" readonly="" value="<?php echo $i; ?>"/>
+<input type="hidden" name="jum_mufassir" readonly="" value="<?php echo $c; ?>"/>
+<input type="hidden" name="pend_smp" readonly="" value="<?php echo $d; ?>"/>
+<input type="hidden" name="pend_sma" readonly="" value="<?php echo $e; ?>"/>
+<input type="hidden" name="pend_pesantren" readonly="" value="<?php echo $f; ?>"/>
+<input type="hidden" name="pend_diploma1" readonly="" value="<?php echo $g; ?>"/>
+<input type="hidden" name="pend_diploma2" readonly="" value="<?php echo $h; ?>"/>
+<input type="hidden" name="pend_diploma3" readonly="" value="<?php echo $i; ?>"/>
+<input type="hidden" name="pend_s1" readonly="" value="<?php echo $j; ?>"/>
+<input type="hidden" name="pend_s2" readonly="" value="<?php echo $k; ?>"/>
+<input type="hidden" name="pend_s3" readonly="" value="<?php echo $l; ?>"/>
+<input type="hidden" name="tot_pdd" readonly="" value="<?php echo $d + $e + $f + $g + $h + $i + $j + $k + $l; ?>"/>
 <script>
     window.onload = function () {
-        var a, b, c, d, e, f, g;
-        a = $('input[name="jum_majelis"]').val();
-        b = $('input[name="jum_papan"]').val();
-        c = $('input[name="jum_lemari"]').val();
-        d = $('input[name="jum_meja"]').val();
-        e = $('input[name="jum_alas"]').val();
-        f = $('input[name="jum_komputer"]').val();
-        g = $('input[name="jum_plang"]').val();
-        document.getElementById('title_chartdiv').innerText = "Total Majelim Taklim: " + numeral(a).format('0,0');
+        var a, b, c, d, e, f, g, h, i, j, k;
+        a = $('input[name="jum_mufassir"]').val();
+        b = $('input[name="pend_smp"]').val();
+        c = $('input[name="pend_sma"]').val();
+        d = $('input[name="pend_pesantren"]').val();
+        e = $('input[name="pend_diploma1"]').val();
+        f = $('input[name="pend_diploma2"]').val();
+        g = $('input[name="pend_diploma3"]').val();
+        h = $('input[name="pend_s1"]').val();
+        i = $('input[name="pend_s2"]').val();
+        j = $('input[name="pend_s3"]').val();
+        k = $('input[name="tot_pdd"]').val();
+        document.getElementById('title_chartdiv').innerText = "Total Data Mufassir: " + numeral(a).format('0,0');
+        document.getElementById('title_chartdiv_a').innerText = "Total Data Pendidikan: " + numeral(k).format('0,0');
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
@@ -158,11 +182,11 @@ $i = 0; //jum_plang
             categoryAxis.renderer.minHeight = 110;
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
             valueAxis.renderer.minWidth = 50;
-            valueAxis.title.text = "Jumlah Majelis Taklim";
+            valueAxis.title.text = "Jumlah Mufassir";
             valueAxis.title.fontWeight = 800;
             var series = chart.series.push(new am4charts.ColumnSeries());
             series.sequencedInterpolation = true;
-            series.dataFields.valueY = "jum_majelis";
+            series.dataFields.valueY = "jum_mufassir";
             series.dataFields.categoryX = "city_title";
             series.tooltipText = "Jumlah Data {city_title}: [bold]{valueY}[/]";
             series.columns.template.strokeWidth = 0;
@@ -184,18 +208,48 @@ $i = 0; //jum_plang
             var chart = am4core.create("chartdiv_a", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
             chart.data = [
-                {"kategori": "Papan", "jumlah": b},
-                {"kategori": "Lemari", "jumlah": c},
-                {"kategori": "Meja", "jumlah": d},
-                {"kategori": "Alas", "jumlah": e},
-                {"kategori": "Komputer", "jumlah": f},
-                {"kategori": "Plang", "jumlah": g}
+                {
+                    "pendidikan": "SMP",
+                    "jumlah": b
+                },
+                {
+                    "pendidikan": "SMA",
+                    "jumlah": c
+                },
+                {
+                    "pendidikan": "Pesantren",
+                    "jumlah": d
+                },
+                {
+                    "pendidikan": "DI",
+                    "jumlah": e
+                },
+                {
+                    "pendidikan": "DII",
+                    "jumlah": f
+                },
+                {
+                    "pendidikan": "DIII",
+                    "jumlah": g
+                },
+                {
+                    "pendidikan": "S1",
+                    "jumlah": h
+                },
+                {
+                    "pendidikan": "S2",
+                    "jumlah": i
+                },
+                {
+                    "pendidikan": "S3",
+                    "jumlah": j
+                }
             ];
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
-            categoryAxis.title.text = 'Fasilitas Majelis Taklim';
-            categoryAxis.dataFields.category = "kategori";
+            categoryAxis.title.text = 'Jenjang Pendidikan';
+            categoryAxis.dataFields.category = "pendidikan";
             categoryAxis.renderer.grid.template.location = 0;
             categoryAxis.renderer.minGridDistance = 30;
             categoryAxis.renderer.labels.template.horizontalCenter = "right";
@@ -205,13 +259,13 @@ $i = 0; //jum_plang
             categoryAxis.renderer.minHeight = 110;
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
             valueAxis.renderer.minWidth = 50;
-            valueAxis.title.text = "Jumlah Fasilitas";
+            valueAxis.title.text = "Jumlah Mufassir";
             valueAxis.title.fontWeight = 800;
             var series = chart.series.push(new am4charts.ColumnSeries());
             series.sequencedInterpolation = true;
             series.dataFields.valueY = "jumlah";
-            series.dataFields.categoryX = "kategori";
-            series.tooltipText = "Jumlah {kategori}: [bold]{valueY}[/]";
+            series.dataFields.categoryX = "pendidikan";
+            series.tooltipText = "Jumlah Data {pendidikan}: [bold]{valueY}[/]";
             series.columns.template.strokeWidth = 0;
             series.tooltip.pointerOrientation = "vertical";
             series.columns.template.column.cornerRadiusTopLeft = 10;

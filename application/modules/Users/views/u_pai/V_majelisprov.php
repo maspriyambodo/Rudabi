@@ -18,7 +18,7 @@ $i = 0; //jum_plang
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('PAI/Majelis/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?= base_url('Users/PAI/Majelis/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -94,7 +94,7 @@ $i = 0; //jum_plang
                         $i += $b->jum_plang; //jum_plang
                         ?>
                         <tr>
-                            <td style="text-align: left !important;"><?php echo '<a href="' . base_url('PAI/Majelis/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $b->city_id . '&d=' . $b->city_title))) . '">' . $b->city_title . '</a>'; ?></td>
+                            <td style="text-align: left !important;"><?php echo '<a href="' . base_url('Users/PAI/Majelis/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $b->city_id . '&d=' . $b->city_title))) . '">' . $b->city_title . '</a>'; ?></td>
                             <td><?php echo number_format($b->jum_majelis); ?></td>
                             <td><?php echo number_format($b->jum_papan); ?></td>
                             <td><?php echo number_format($b->jum_lemari); ?></td>
