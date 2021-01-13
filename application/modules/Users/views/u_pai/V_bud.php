@@ -108,7 +108,7 @@ $g = 0; // muslim_belum_kawin
                         $g += $b->muslim_belum_kawin; // muslim_belum_kawin
                         ?>
                         <tr>
-                            <td style="text-align: left !important;"><?php echo '<a href="' . base_url('PAI/Budayawan/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->province_id . '&b=' . $b->province_title))) . '" title="Data Provinsi ' . $b->province_title . '">' . $b->province_title . '</a>'; ?></td>
+                            <td style="text-align: left !important;"><?php echo '<a href="' . base_url('Users/PAI/Budayawan/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->province_id . '&b=' . $b->province_title))) . '" title="Data Provinsi ' . $b->province_title . '">' . $b->province_title . '</a>'; ?></td>
                             <td><?php echo number_format($b->jum_bdymuslim); ?></td>
                             <td><?php echo number_format($b->muslim_pria); ?></td>
                             <td><?php echo number_format($b->muslim_perempuan); ?></td>

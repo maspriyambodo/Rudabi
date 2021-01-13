@@ -48,7 +48,7 @@ class Auth extends CI_Controller {
             case 4://DIREKTORAT BINA KUA DAN KELUARGA SAKINAH
                 return redirect(base_url('Users/BKKS/Dashboard/index/'), 'refresh');
             case 5://DIREKTORAT PENERANGAN AGAMA ISLAM
-                return redirect(base_url('PAI/index/'), 'refresh');
+                return redirect(base_url('Users/PAI/Dashboard/index/'), 'refresh');
             case 6://DIREKTORAT PEMBERDAYAAN ZAKAT DAN WAKAF
                 return redirect(base_url('Siwak/index/'), 'refresh');
             default ://Login
