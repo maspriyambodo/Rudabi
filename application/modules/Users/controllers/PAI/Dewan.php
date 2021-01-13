@@ -31,8 +31,8 @@ class Dewan extends CI_Controller {
             'username' => $this->Authentication[0]->uname,
             'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/dewan?KEY=BOBA')
         ];
-        $data['content'] = $this->parser->parse('PAI/V_dewan', $data, true);
-        return $this->parser->parse('Dashboard/Template', $data);
+        $data['content'] = $this->parser->parse('Users/u_pai/V_dewan', $data, true);
+        return $this->parser->parse('Users/u_pai/Template', $data);
     }
 
     public function Provinsi() {
@@ -43,8 +43,8 @@ class Dewan extends CI_Controller {
             'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/dewan?KEY=BOBA&province_id=' . $param[0]),
             'param' => $param
         ];
-        $data['content'] = $this->parser->parse('PAI/V_dewanprov', $data, true);
-        return $this->parser->parse('Dashboard/Template', $data);
+        $data['content'] = $this->parser->parse('Users/u_pai/V_dewanprov', $data, true);
+        return $this->parser->parse('Users/u_pai/Template', $data);
     }
 
     public function Kabupaten() {
@@ -55,8 +55,8 @@ class Dewan extends CI_Controller {
             'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/dewan?KEY=BOBA&city_id=' . $param[2]),
             'param' => $param
         ];
-        $data['content'] = $this->parser->parse('PAI/V_dewankab', $data, true);
-        return $this->parser->parse('Dashboard/Template', $data);
+        $data['content'] = $this->parser->parse('Users/u_pai/V_dewankab', $data, true);
+        return $this->parser->parse('Users/u_pai/Template', $data);
     }
 
 }
