@@ -1,24 +1,19 @@
 <?php
 $a = json_decode($data);
 $c = 0; // jum_dewan
-$d = 0; // jum_perempuan
-$e = 0; // jum_pria
-$f = 0; // status_kawin
-$g = 0; // status_belum_kawin
-$h = 0; // pend_smp
-$i = 0; // pend_sma
-$j = 0; // pend_pesantren
-$k = 0; // pend_diploma1
-$l = 0; // pend_diploma2
-$m = 0; // pend_diploma3
-$n = 0; // pend_s1
-$o = 0; // pend_s2
-$p = 0; // pend_s3
+$d = 0; // jum_dewan_sunda
+$e = 0; // jum_dewan_jawa
+$f = 0; // jum_dewan_sumatera
+$g = 0; // jum_dewan_sulawesi
+$h = 0; // jum_dewan_lain
+$i = 0; // dewan_asing_inggris
+$j = 0; // dewan_asing_arab
+$k = 0; // dewan_asing_lain
 ?>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Dewan Hakim Provinsi <?php echo $param[1]; ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Dewan Hakim tahun <?= date('Y'); ?></h5>
         </div>
     </div>
 </div>
@@ -26,7 +21,7 @@ $p = 0; // pend_s3
     <div class="card-header">
         <div class="card-title">
             <div class="text-uppercase">
-                <a href="<?php echo base_url('Users/PAI/Dewan/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+                data dewan hakim per provinsi
             </div>
         </div>
         <div class="card-toolbar">
@@ -46,6 +41,27 @@ $p = 0; // pend_s3
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
+            <div class="text-uppercase">
+                Kategori dewan hakim
+            </div>
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
+                <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="text-center">
+            <b><u id="title_chartdiv_a"></u></b>
+        </div>
+        <div id="chartdiv_a" class="chartdivs"></div>
+    </div>
+</div>
+<div class="clearfix" style="margin:5%;"></div>
+<div class="card card-custom" data-card="true" id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
             Detail Data Dewan Hakim
         </div>
         <div class="card-toolbar">
@@ -57,64 +73,64 @@ $p = 0; // pend_s3
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
-                <thead class="text-center text-uppercase">
+                <thead class="text-uppercase text-center">
                     <tr>
-                        <th rowspan="2">kota/kabupaten</th>
+                        <th rowspan="2">provinsi</th>
                         <th rowspan="2">jumlah<br>dewan</th>
-                        <th colspan="2">jenis kelamin</th>
-                        <th colspan="2">status nikah</th>
-                        <th colspan="9">pendidikan</th>
+                        <th colspan="5">dewan indonesia</th>
+                        <th colspan="3">dewan asing</th>
                     </tr>
                     <tr>
-                        <th>laki-laki</th>
-                        <th>perempuan</th>
-                        <th>kawin</th>
-                        <th>belum</th>
-                        <th>smp</th>
-                        <th>sma</th>
-                        <th>pesantren</th>
-                        <th>DI</th>
-                        <th>dii</th>
-                        <th>diii</th>
-                        <th>s1</th>
-                        <th>s2</th>
-                        <th>s3</th>
+                        <th>
+                            sunda
+                        </th>
+                        <th>
+                            jawa
+                        </th>
+                        <th>
+                            sumatera
+                        </th>
+                        <th>
+                            sulawesi
+                        </th>
+                        <th>
+                            lain
+                        </th>
+                        <th>
+                            inggris
+                        </th>
+                        <th>
+                            arab
+                        </th>
+                        <th>
+                            lain
+                        </th>
                     </tr>
                 </thead>
                 <tbody class="text-center">
                     <?php
                     foreach ($a as $b) {
                         $c += $b->jum_dewan; // jum_dewan
-                        $d += $b->jum_perempuan; // jum_perempuan
-                        $e += $b->jum_pria; // jum_pria
-                        $f += $b->status_kawin; // status_kawin
-                        $g += $b->status_belum_kawin; // status_belum_kawin
-                        $h += $b->pend_smp; // pend_smp
-                        $i += $b->pend_sma; // pend_sma
-                        $j += $b->pend_pesantren; // pend_pesantren
-                        $k += $b->pend_diploma1; // pend_diploma1
-                        $l += $b->pend_diploma2; // pend_diploma2
-                        $m += $b->pend_diploma3; // pend_diploma3
-                        $n += $b->pend_s1; // pend_s1
-                        $o += $b->pend_s2; // pend_s2
-                        $p += $b->pend_s3; // pend_s3
+                        $d += $b->jum_dewan_sunda; // jum_dewan_sunda
+                        $e += $b->jum_dewan_jawa; // jum_dewan_jawa
+                        $f += $b->jum_dewan_sumatera; // jum_dewan_sumatera
+                        $g += $b->jum_dewan_sulawesi; // jum_dewan_sulawesi
+                        $h += $b->jum_dewan_lain; // jum_dewan_lain
+                        $i += $b->dewan_asing_inggris; // dewan_asing_inggris
+                        $j += $b->dewan_asing_arab; // dewan_asing_arab
+                        $k += $b->dewan_asing_lain; // dewan_asing_lain
                         ?>
                         <tr>
-                            <td style="text-align: left !important;"><?php echo '<a href="' . base_url('PAI/Dewan/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $b->city_id . '&d=' . $b->city_title))) . '" title="Detail ' . $b->city_title . '">' . $b->city_title . '</a>'; ?></td>
+                            <td style="text-align: left !important;"><?php echo '<a href="' . base_url('Users/PAI/Dewan/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->province_id . '&b=' . $b->province_title))) . '" title="Detail Data ' . $b->province_title . '">' . $b->province_title . '</a>'; ?></td>
                             <td><?php echo number_format($b->jum_dewan); ?></td>
-                            <td><?php echo number_format($b->jum_pria); ?></td>
-                            <td><?php echo number_format($b->jum_perempuan); ?></td>
-                            <td><?php echo number_format($b->status_kawin); ?></td>
-                            <td><?php echo number_format($b->status_belum_kawin); ?></td>
-                            <td><?php echo number_format($b->pend_smp); ?></td>
-                            <td><?php echo number_format($b->pend_sma); ?></td>
-                            <td><?php echo number_format($b->pend_pesantren); ?></td>
-                            <td><?php echo number_format($b->pend_diploma1); ?></td>
-                            <td><?php echo number_format($b->pend_diploma2); ?></td>
-                            <td><?php echo number_format($b->pend_diploma3); ?></td>
-                            <td><?php echo number_format($b->pend_s1); ?></td>
-                            <td><?php echo number_format($b->pend_s2); ?></td>
-                            <td><?php echo number_format($b->pend_s3); ?></td>
+                            <td><?php echo number_format($b->jum_dewan_sunda); ?></td>
+                            <td><?php echo number_format($b->jum_dewan_jawa); ?></td>
+                            <td><?php echo number_format($b->jum_dewan_sumatera); ?></td>
+                            <td><?php echo number_format($b->jum_dewan_sulawesi); ?></td>
+                            <td><?php echo number_format($b->jum_dewan_lain); ?></td>
+                            <td><?php echo number_format($b->dewan_asing_inggris); ?></td>
+                            <td><?php echo number_format($b->dewan_asing_arab); ?></td>
+                            <td><?php echo number_format($b->dewan_asing_lain); ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -130,11 +146,6 @@ $p = 0; // pend_s3
                         <th><?php echo number_format($i); ?></th>
                         <th><?php echo number_format($j); ?></th>
                         <th><?php echo number_format($k); ?></th>
-                        <th><?php echo number_format($l); ?></th>
-                        <th><?php echo number_format($m); ?></th>
-                        <th><?php echo number_format($n); ?></th>
-                        <th><?php echo number_format($o); ?></th>
-                        <th><?php echo number_format($p); ?></th>
                     </tr>
                 </tfoot>
             </table>
@@ -142,10 +153,30 @@ $p = 0; // pend_s3
     </div>
 </div>
 <input type="hidden" name="jum_dewan" readonly="" value="<?php echo $c; ?>"/>
+<input type="hidden" name="jum_dewan_sunda" readonly="" value="<?php echo $d; ?>"/>
+<input type="hidden" name="jum_dewan_jawa" readonly="" value="<?php echo $e; ?>"/>
+<input type="hidden" name="jum_dewan_sumatera" readonly="" value="<?php echo $f; ?>"/>
+<input type="hidden" name="jum_dewan_sulawesi" readonly="" value="<?php echo $g; ?>"/>
+<input type="hidden" name="jum_dewan_lain" readonly="" value="<?php echo $h; ?>"/>
+<input type="hidden" name="dewan_asing_inggris" readonly="" value="<?php echo $i; ?>"/>
+<input type="hidden" name="dewan_asing_arab" readonly="" value="<?php echo $j; ?>"/>
+<input type="hidden" name="dewan_asing_lain" readonly="" value="<?php echo $k; ?>"/>
+<input type="hidden" name="dewan_indo" readonly="" value="<?php echo $d + $e + $f + $g + $h; ?>"/>
+<input type="hidden" name="dewan_asing" readonly="" value="<?php echo $i + $j + $k; ?>"/>
 <script>
     window.onload = function () {
-        var a;
+        var a, b, c, d, e, f, g, h, i, j, k;
         a = $('input[name="jum_dewan"]').val();
+        b = $('input[name="jum_dewan_sunda"]').val();
+        c = $('input[name="jum_dewan_jawa"]').val();
+        d = $('input[name="jum_dewan_sumatera"]').val();
+        e = $('input[name="jum_dewan_sulawesi"]').val();
+        f = $('input[name="jum_dewan_lain"]').val();
+        g = $('input[name="dewan_asing_inggris"]').val();
+        h = $('input[name="dewan_asing_arab"]').val();
+        i = $('input[name="dewan_asing_lain"]').val();
+        j = $('input[name="dewan_indo"]').val();
+        k = $('input[name="dewan_asing"]').val();
         document.getElementById('title_chartdiv').innerText = "Total Dewan Hakim: " + numeral(a).format('0,0');
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
@@ -155,8 +186,8 @@ $p = 0; // pend_s3
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
-            categoryAxis.title.text = 'Daerah Tingkat Kota/Kabupaten';
-            categoryAxis.dataFields.category = "city_title";
+            categoryAxis.title.text = 'Daerah Tingkat Provinsi';
+            categoryAxis.dataFields.category = "province_title";
             categoryAxis.renderer.grid.template.location = 0;
             categoryAxis.renderer.minGridDistance = 30;
             categoryAxis.renderer.labels.template.horizontalCenter = "right";
@@ -171,8 +202,8 @@ $p = 0; // pend_s3
             var series = chart.series.push(new am4charts.ColumnSeries());
             series.sequencedInterpolation = true;
             series.dataFields.valueY = "jum_dewan";
-            series.dataFields.categoryX = "city_title";
-            series.tooltipText = "Jumlah Dewan Hakim {city_title}: [bold]{valueY}[/]";
+            series.dataFields.categoryX = "province_title";
+            series.tooltipText = "Jumlah Dewan Hakim Provinsi {province_title}: [bold]{valueY}[/]";
             series.columns.template.strokeWidth = 0;
             series.tooltip.pointerOrientation = "vertical";
             series.columns.template.column.cornerRadiusTopLeft = 10;
@@ -186,6 +217,25 @@ $p = 0; // pend_s3
                 return chart.colors.getIndex(target.dataItem.index);
             });
             chart.cursor = new am4charts.XYCursor();
+        });
+        am4core.ready(function () {
+            am4core.useTheme(am4themes_animated);
+            var chart = am4core.create("chartdiv_a", am4charts.PieChart3D);
+            chart.hiddenState.properties.opacity = 0;
+            chart.legend = new am4charts.Legend();
+            chart.data = [
+                {
+                    country: "Dewan Hakim Indonesia",
+                    litres: j
+                },
+                {
+                    country: "Dewan Hakim Asing",
+                    litres: k
+                }
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "litres";
+            series.dataFields.category = "country";
         });
         $('table').dataTable({
             "ServerSide": true,

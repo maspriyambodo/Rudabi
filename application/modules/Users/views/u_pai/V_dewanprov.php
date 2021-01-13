@@ -100,7 +100,7 @@ $p = 0; // pend_s3
                         $p += $b->pend_s3; // pend_s3
                         ?>
                         <tr>
-                            <td style="text-align: left !important;"><?php echo '<a href="' . base_url('PAI/Dewan/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $b->city_id . '&d=' . $b->city_title))) . '" title="Detail ' . $b->city_title . '">' . $b->city_title . '</a>'; ?></td>
+                            <td style="text-align: left !important;"><?php echo '<a href="' . base_url('Users/PAI/Dewan/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $b->city_id . '&d=' . $b->city_title))) . '" title="Detail ' . $b->city_title . '">' . $b->city_title . '</a>'; ?></td>
                             <td><?php echo number_format($b->jum_dewan); ?></td>
                             <td><?php echo number_format($b->jum_pria); ?></td>
                             <td><?php echo number_format($b->jum_perempuan); ?></td>
