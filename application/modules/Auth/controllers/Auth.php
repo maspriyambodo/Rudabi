@@ -180,7 +180,8 @@ class Auth extends CI_Controller {
         $data = [
             'title' => 'Data Sub Direktorat | RUDABI SYSTEM OF KEMENAG RI',
             'subdit' => $this->M_Auth->Subdit(),
-            'csrf' => $this->Csrf()
+            'csrf' => $this->Csrf(),
+            'username' => $this->session->userdata('username')
         ];
         $data['content'] = $this->parser->parse('V_subdit', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
