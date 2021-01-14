@@ -14,18 +14,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
         <link rel="shortcut icon" href="https://simas.kemenag.go.id/assets/img/rudabilogo.png"/>
-        <link href="https://cdn.maspriyambodo.com/Metronic/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
-        <link href="https://cdn.maspriyambodo.com/Metronic/assets/plugins/custom/datatables/datatables.bundle.css?v=7.0.6" rel="stylesheet" type="text/css"/>
-        <link href="https://cdn.maspriyambodo.com/Metronic/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-        <link href="https://cdn.maspriyambodo.com/Metronic/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
-        <link href="https://cdn.maspriyambodo.com/Metronic/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
-        <link href="https://cdn.maspriyambodo.com/Metronic/assets/css/themes/layout/header/base/light.css" rel="stylesheet" type="text/css" />
-        <link href="https://cdn.maspriyambodo.com/Metronic/assets/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css" />
-        <link href="https://cdn.maspriyambodo.com/Metronic/assets/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
-        <link href="https://cdn.maspriyambodo.com/Metronic/assets/css/themes/layout/aside/light.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url('assets/plugins/custom/fullcalendar/fullcalendar.bundle.css'); ?>" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url('assets/plugins/custom/datatables/datatables.bundle.css?v=7.0.6'); ?>" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url('assets/plugins/global/plugins.bundle.css'); ?>" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url('assets/plugins/custom/prismjs/prismjs.bundle.css'); ?>" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url('assets/css/style.bundle.css'); ?>" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url('assets/css/themes/layout/header/base/light.css'); ?>" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url('assets/css/themes/layout/header/menu/light.css'); ?>" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url('assets/css/themes/layout/brand/dark.css'); ?>" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url('assets/css/themes/layout/aside/light.css'); ?>" rel="stylesheet" type="text/css" />
         <link href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.22/af-2.3.5/b-1.6.5/b-colvis-1.6.5/b-flash-1.6.5/b-html5-1.6.5/b-print-1.6.5/cr-1.5.2/fc-3.3.1/fh-3.1.7/kt-2.5.3/r-2.2.6/rg-1.1.2/rr-1.2.7/sc-2.0.3/sb-1.0.0/sp-1.2.1/sl-1.3.1/datatables.min.css" rel="stylesheet" type="text/css"/>
-        <link href="https://cdn.maspriyambodo.com/css/custom.kemenag.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url('assets/css/custom.kemenag.css'); ?>" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="https://simas.kemenag.go.id/assets/img/rudabilogo.png" />
         <title>{title}</title>
     </head>
@@ -57,7 +57,7 @@
                                         <span class="menu-text">Dashboard</span>
                                     </a>
                                 </li>
-                                
+
                                 <li class="menu-section">
                                     <h4 class="menu-text text-white user-select-none">SYSTEM</h4>
                                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
@@ -110,11 +110,11 @@
                         </div>
                     </div>
                     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-                        <script src="https://cdn.maspriyambodo.com/Metronic/assets/plugins/global/plugins.bundle.js?v=7.0.6"></script>
-                        <script src="https://cdn.maspriyambodo.com/Metronic/assets/plugins/custom/prismjs/prismjs.bundle.js?v=7.0.6"></script>
-                        <script src="https://cdn.maspriyambodo.com/Metronic/assets/js/scripts.bundle.js?v=7.0.6"></script>
-                        <script src="https://cdn.maspriyambodo.com/Metronic/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
-                        <script src="https://cdn.maspriyambodo.com/Metronic/assets/js/pages/widgets.js"></script>
+                        <script src="<?php echo base_url('assets/plugins/global/plugins.bundle.js?v=7.0.6'); ?>"></script>
+                        <script src="<?php echo base_url('assets/plugins/custom/prismjs/prismjs.bundle.js?v=7.0.6'); ?>"></script>
+                        <script src="<?php echo base_url('assets/js/scripts.bundle.js?v=7.0.6'); ?>"></script>
+                        <script src="<?php echo base_url('assets/plugins/custom/fullcalendar/fullcalendar.bundle.js'); ?>"></script>
+                        <script src="<?php echo base_url('assets/js/pages/widgets.js'); ?>"></script>
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script>
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script>
                         <script src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.22/af-2.3.5/b-1.6.5/b-colvis-1.6.5/b-flash-1.6.5/b-html5-1.6.5/b-print-1.6.5/cr-1.5.2/fc-3.3.1/fh-3.1.7/kt-2.5.3/r-2.2.6/rg-1.1.2/rr-1.2.7/sc-2.0.3/sb-1.0.0/sp-1.2.1/sl-1.3.1/datatables.min.js" type="text/javascript"></script>
@@ -152,7 +152,7 @@
                 <!--begin::Header-->
                 <div class="d-flex align-items-center mt-5">
                     <div class="symbol symbol-100 mr-5">
-                        <div class="symbol-label" style="background-image:url('https://cdn.maspriyambodo.com/Metronic/assets/media/misc/bg-1.jpg')"></div>
+                        <div class="symbol-label" style="background-image:url('<?php echo base_url('assets/media/misc/bg-1.jpg'); ?>')"></div>
                         <i class="symbol-badge bg-success"></i>
                     </div>
                     <div class="d-flex flex-column">
