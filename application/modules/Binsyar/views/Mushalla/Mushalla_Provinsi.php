@@ -81,15 +81,15 @@ $k = 0; //dt_remaja
                             <td style="text-align:left !important;">
                                 <?= '<a href="' . base_url('Binsyar/Mushalla/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $b->kabupaten_id . '&d=' . $b->kabupaten_name))) . '" title="Detail ' . $b->kabupaten_name . '">' . $b->kabupaten_name . '</a>' ?>
                             </td>
-                            <td><?= $b->dt_mushalla; ?></td>
+                            <td><?= number_format($b->dt_mushalla); ?></td>
                             <td><?= $b->dt_tanah; ?></td>
                             <td><?= $b->dt_bangunan; ?></td>
-                            <td><?= $b->dt_jamaah; ?></td>
-                            <td><?= $b->dt_pengurus; ?></td>
-                            <td><?= $b->dt_imam; ?></td>
-                            <td><?= $b->dt_khatib; ?></td>
-                            <td><?= $b->dt_muazin; ?></td>
-                            <td><?= $b->dt_remaja; ?></td>
+                            <td><?= number_format($b->dt_jamaah); ?></td>
+                            <td><?= number_format($b->dt_pengurus); ?></td>
+                            <td><?= number_format($b->dt_imam); ?></td>
+                            <td><?= number_format($b->dt_khatib); ?></td>
+                            <td><?= number_format($b->dt_muazin); ?></td>
+                            <td><?= number_format($b->dt_remaja); ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -132,6 +132,7 @@ $k = 0; //dt_remaja
         g = $('input[name="dt_khatib"]').val();
         h = $('input[name="dt_muazin"]').val();
         i = $('input[name="dt_remaja"]').val();
+        document.getElementById('title_chartdiv').innerText = "Total Data Mushalla: " + numeral(a).format('0,0');
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);

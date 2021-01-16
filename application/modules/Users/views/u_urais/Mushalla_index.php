@@ -81,15 +81,15 @@ $k = 0; //dt_remaja
                             <td style="text-align:left !important;">
                                 <?= '<a href="' . base_url('Users/Binsyar/Mushalla/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->provinsi_id . '&b=' . $b->provinsi_name))) . '" title="Detail Provinsi ' . $b->provinsi_name . '">' . $b->provinsi_name . '</a>' ?>
                             </td>
-                            <td><?= $b->dt_mushalla; ?></td>
+                            <td><?= number_format($b->dt_mushalla); ?></td>
                             <td><?= $b->dt_tanah; ?></td>
                             <td><?= $b->dt_bangunan; ?></td>
-                            <td><?= $b->dt_jamaah; ?></td>
-                            <td><?= $b->dt_pengurus; ?></td>
-                            <td><?= $b->dt_imam; ?></td>
-                            <td><?= $b->dt_khatib; ?></td>
-                            <td><?= $b->dt_muazin; ?></td>
-                            <td><?= $b->dt_remaja; ?></td>
+                            <td><?= number_format($b->dt_jamaah); ?></td>
+                            <td><?= number_format($b->dt_pengurus); ?></td>
+                            <td><?= number_format($b->dt_imam); ?></td>
+                            <td><?= number_format($b->dt_khatib); ?></td>
+                            <td><?= number_format($b->dt_muazin); ?></td>
+                            <td><?= number_format($b->dt_remaja); ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
