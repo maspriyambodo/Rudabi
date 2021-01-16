@@ -25,6 +25,19 @@ class Bodo {
         $this->CI = &get_instance();
     }
 
+    public function Curel($url) {
+        $ch = curl_init();
+        // set url 
+        curl_setopt($ch, CURLOPT_URL, $url);
+        // return the transfer as a string 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, ["Accept: application/json"]);
+        // $output contains the output string 
+        $output = curl_exec($ch);
+        // tutup curl 
+        curl_close($ch);
+        return $output;
+    }
+
     public function Dec($enc) {
         $encrypt = str_replace(['-', '_', '~'], ['+', '/', '='], $enc);
         $dec = $this->CI->encryption->decrypt($encrypt);
