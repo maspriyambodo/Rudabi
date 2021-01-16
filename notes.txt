@@ -1,3 +1,6 @@
+ip local gitlab.alfabet.io
+10.1.99.91
+
 <?php
 static $id = 1;
 echo $id++;
