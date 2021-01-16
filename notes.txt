@@ -1,6 +1,9 @@
 ip local gitlab.alfabet.io
 10.1.99.91
-
+ip publik gitlab.alfabet.io
+117.102.89.227
+ip public rudabi
+117.102.89.230
 <?php
 static $id = 1;
 echo $id++;
