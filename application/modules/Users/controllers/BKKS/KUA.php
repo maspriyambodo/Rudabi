@@ -29,7 +29,7 @@ class KUA extends CI_Controller {
         $data = [
             'title' => 'Sistem Informasi Kepenghuluan | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/kua?KEY=boba')
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/kua?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Kua_index', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);
@@ -41,7 +41,7 @@ class KUA extends CI_Controller {
             'title' => 'Detail Data KUA Provinsi ' . $param[1] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'param' => $param,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/kua?KEY=boba&kua_province_id=' . $param[0])
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/kua?KEY=boba&kua_province_id=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Kua_Prov', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);
@@ -53,7 +53,7 @@ class KUA extends CI_Controller {
             'title' => 'Detail Data KUA ' . $param[1] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'param' => $param,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/kua?KEY=boba&kua_city_id=' . $param[0])
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/kua?KEY=boba&kua_city_id=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Kua_Detail', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);

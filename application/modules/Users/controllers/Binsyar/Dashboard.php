@@ -36,7 +36,7 @@ class Dashboard extends CI_Controller {
 
     public function Sihat() {
 //        $data = [
-//            'sihat' => read_file('https://simas.kemenag.go.id/rudabi/datapi/siihat/alat2020?KEY=BOBA', true),
+//            'sihat' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/siihat/alat2020?KEY=BOBA', true),
 //            'tenaga',
 //            'pengukuran',
 //            'lokasi',

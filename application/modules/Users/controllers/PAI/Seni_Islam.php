@@ -29,7 +29,7 @@ class Seni_Islam extends CI_Controller {
         $data = [
             'title' => 'Lembaga Seni Islam | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lembagaseni?KEY=BOBA')
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lembagaseni?KEY=BOBA')
         ];
         $data['content'] = $this->parser->parse('Users/u_pai/V_seni', $data, true);
         return $this->parser->parse('Users/u_pai/Template', $data);
@@ -40,7 +40,7 @@ class Seni_Islam extends CI_Controller {
         $data = [
             'title' => 'Lembaga Seni Islam Provinsi' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lembagaseni?KEY=BOBA&lembaga_seni_provinsi=' . $param[0]),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lembagaseni?KEY=BOBA&lembaga_seni_provinsi=' . $param[0]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Users/u_pai/V_seniprov', $data, true);
@@ -52,7 +52,7 @@ class Seni_Islam extends CI_Controller {
         $data = [
             'title' => 'Lembaga Seni Islam' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lembagaseni?KEY=BOBA&city_id=' . $param[2]),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lembagaseni?KEY=BOBA&city_id=' . $param[2]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Users/u_pai/V_senikab', $data, true);

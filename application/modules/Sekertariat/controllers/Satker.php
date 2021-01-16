@@ -40,7 +40,7 @@ class Satker extends CI_Controller {
         $data = [
             'title' => 'Data SATKER | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn?KEY=BOBA&kab_propinsi_id=' . $param[0]),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/esbsnn?KEY=BOBA&kab_propinsi_id=' . $param[0]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Sekertariat/Satker/V_Provinsi', $data, true);

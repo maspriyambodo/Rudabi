@@ -29,7 +29,7 @@ class Ahli extends CI_Controller {
         $data = [
             'title' => 'Tenaga Ahli | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/siihat/tenagaahli?KEY=boba')
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/siihat/tenagaahli?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Users/u_urais/V_tenaga', $data, true);
         return $this->parser->parse('Users/u_urais/Template', $data);
@@ -40,7 +40,7 @@ class Ahli extends CI_Controller {
         $data = [
             'title' => 'Tenaga Ahli Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/siihat/tenagaahli?KEY=boba&tenaga_provinsi=' . $param[0]),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/siihat/tenagaahli?KEY=boba&tenaga_provinsi=' . $param[0]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Users/u_urais/V_tenagaprov', $data, true);

@@ -57,7 +57,7 @@ class Catin extends CI_Controller {
             log_message('error', '===================================================================================');
             $data = '[{"tahun_target_pusat":0,"target_pusat":0,"jumlah_catin":0,"hadir_suami":0,"nonhadir_istri":0,"hadir_suami_bimwin":0,"hadir_istri_bimwin":0}]';
         } else {
-            $data = file_get_contents("https://simas.kemenag.go.id/rudabi/datapi/embimwin/targetcatin2020?KEY=BOBA&id_prop=" . $dec . "");
+            $data = $this->bodo->Curel("https://simas.kemenag.go.id/rudabi/datapi/embimwin/targetcatin2020?KEY=BOBA&id_prop=" . $dec . "");
         }
         $this->output
                 ->set_status_header(200)

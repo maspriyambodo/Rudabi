@@ -29,7 +29,7 @@ class Tanah extends CI_Controller {
         $data = [
             'title' => 'E-Monev Status Tanah KUA | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/statustanah?KEY=boba')
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev/statustanah?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Tanah_index', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -41,7 +41,7 @@ class Tanah extends CI_Controller {
             'title' => 'Status Tanah KUA ' . $param[1] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/monev/Stattanah?KEY=boba&statustanah=' . $param[0])
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev/Stattanah?KEY=boba&statustanah=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Tanah_Status', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);

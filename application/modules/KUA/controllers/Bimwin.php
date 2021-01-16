@@ -47,7 +47,7 @@ class Bimwin extends CI_Controller {
             'username' => $this->Authentication[0]->uname,
             'id' => $id,
             'provinsi' => str_replace(['_', '%20'], ' ', $prov),
-            'data' => file_get_contents("https://simas.kemenag.go.id/rudabi/datapi/embimwin/targetcatin2020?KEY=BOBA&id_prop=" . $id . "")
+            'data' => $this->bodo->Curel("https://simas.kemenag.go.id/rudabi/datapi/embimwin/targetcatin2020?KEY=BOBA&id_prop=" . $id . "")
         ];
         $data['content'] = $this->parser->parse('KUA/Bimwin/V_bimwinprov', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -58,7 +58,7 @@ class Bimwin extends CI_Controller {
         if (strlen($id) <= 99) {
             $data = '[{"kabkot":0,"nama_lokasi":"","target_kabkot":"","anggaran":0,"total_anggaran":0,"realisasi_kabupaten":0,"total_realisasi":0,"persentase_realisasi":0}]';
         } else {
-            $data = file_get_contents("https://simas.kemenag.go.id/rudabi/datapi/embimwin/targetcatin2020?KEY=BOBA&id_prop=" . $dec . "");
+            $data = $this->bodo->Curel("https://simas.kemenag.go.id/rudabi/datapi/embimwin/targetcatin2020?KEY=BOBA&id_prop=" . $dec . "");
         }
         $this->output
                 ->set_status_header(200)

@@ -29,7 +29,7 @@ class Dakwah extends CI_Controller {
         $data = [
             'title' => 'Lembaga Dakwah | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/dakwah?KEY=BOBA')
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/dakwah?KEY=BOBA')
         ];
         $data['content'] = $this->parser->parse('PAI/V_dakwah', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -40,7 +40,7 @@ class Dakwah extends CI_Controller {
         $data = [
             'title' => 'Lembaga Dakwah Provinsi' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/dakwah?KEY=BOBA&province_id=' . $param[0]),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/dakwah?KEY=BOBA&province_id=' . $param[0]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('PAI/V_dakwahprov', $data, true);
@@ -52,7 +52,7 @@ class Dakwah extends CI_Controller {
         $data = [
             'title' => 'Lembaga Dakwah ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/dakwah?KEY=BOBA&city_id=' . $param[2]),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/dakwah?KEY=BOBA&city_id=' . $param[2]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('PAI/V_dakwahkab', $data, true);

@@ -29,7 +29,7 @@ class Peristiwa extends CI_Controller {
         $data = [
             'title' => 'Sistem Informasi Kepenghuluan | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/nikah?KEY=boba')
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/nikah?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Peristiwa_index', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);
@@ -41,7 +41,7 @@ class Peristiwa extends CI_Controller {
             'title' => 'Sistem Informasi Kepenghuluan | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/nikah?KEY=boba&city_province=' . $param[0])
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/nikah?KEY=boba&city_province=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Peristiwa_Provinsi', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);
@@ -53,7 +53,7 @@ class Peristiwa extends CI_Controller {
             'title' => 'Sistem Informasi Kepenghuluan | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/nikah?KEY=boba&nikah_city_id=' . $param[0])
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/nikah?KEY=boba&nikah_city_id=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Peristiwa_Detail', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);

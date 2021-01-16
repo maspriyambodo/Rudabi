@@ -29,7 +29,7 @@ class Lokasi extends CI_Controller {
         $data = [
             'title' => 'Hisab Lokasi | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/siihat/hisablokasi?KEY=boba')
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/siihat/hisablokasi?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Users/u_urais/V_Lokasi', $data, true);
         return $this->parser->parse('Users/u_urais/Template', $data);
@@ -41,7 +41,7 @@ class Lokasi extends CI_Controller {
             'title' => 'Hisab Pengukuran | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'param' => $param,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/siihat/hisablokasi?KEY=boba&lokasi_provinsi=' . $param[0])
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/siihat/hisablokasi?KEY=boba&lokasi_provinsi=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Users/u_urais/V_Lokasiprov', $data, true);
         return $this->parser->parse('Users/u_urais/Template', $data);

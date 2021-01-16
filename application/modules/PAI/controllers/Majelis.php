@@ -29,7 +29,7 @@ class Majelis extends CI_Controller {
         $data = [
             'title' => 'Majelis Taklim | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/majelistaklim?KEY=BOBA')
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/majelistaklim?KEY=BOBA')
         ];
         $data['content'] = $this->parser->parse('PAI/V_majelis', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -40,7 +40,7 @@ class Majelis extends CI_Controller {
         $data = [
             'title' => 'Data Majelis Taklim Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/majelistaklim?KEY=BOBA&province_id=' . $param[0]),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/majelistaklim?KEY=BOBA&province_id=' . $param[0]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('PAI/V_majelisprov', $data, true);
@@ -52,7 +52,7 @@ class Majelis extends CI_Controller {
         $data = [
             'title' => 'Data Majelis Taklim Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/majelistaklim?KEY=BOBA&city_id=' . $param[2]),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/majelistaklim?KEY=BOBA&city_id=' . $param[2]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('PAI/V_majeliskab', $data, true);

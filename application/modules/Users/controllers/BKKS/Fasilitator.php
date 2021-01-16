@@ -29,7 +29,7 @@ class Fasilitator extends CI_Controller {
         $data = [
             'title' => 'Data Fasilitator | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/embimwin/fasilitator?KEY=boba')
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/embimwin/fasilitator?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Fasilitator_index', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);
@@ -40,7 +40,7 @@ class Fasilitator extends CI_Controller {
         $data = [
             'title' => 'Kegiatan - ' . $param[1] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/embimwin/fasilitator?KEY=boba&id_j_kegiatan=' . $param[0]),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/embimwin/fasilitator?KEY=boba&id_j_kegiatan=' . $param[0]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Fasilitator_Provinsi', $data, true);

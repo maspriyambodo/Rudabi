@@ -29,7 +29,7 @@ class Mushalla extends CI_Controller {
         $data = [
             'title' => 'Data Mushalla | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/eimas/datamushalla?KEY=boba')
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/eimas/datamushalla?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Users/u_urais/Mushalla_index', $data, true);
         return $this->parser->parse('Users/u_urais/Template', $data);
@@ -40,7 +40,7 @@ class Mushalla extends CI_Controller {
         $data = [
             'title' => 'Data Mushalla Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/eimas/datamushalla?KEY=boba&provinsi_id=' . $param[0]),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/eimas/datamushalla?KEY=boba&provinsi_id=' . $param[0]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Users/u_urais/Mushalla_Provinsi', $data, true);
@@ -52,7 +52,7 @@ class Mushalla extends CI_Controller {
         $data = [
             'title' => 'Data Mushalla ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/eimas/datamushalla?KEY=boba&kabupaten_id=' . $param[2]),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/eimas/datamushalla?KEY=boba&kabupaten_id=' . $param[2]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Users/u_urais/Mushalla_Kabupaten', $data, true);
@@ -64,7 +64,7 @@ class Mushalla extends CI_Controller {
         $data = [
             'title' => 'Data Mushalla ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/eimas/datamushalla?KEY=boba&kecamatan_id=' . $param[4]),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/eimas/datamushalla?KEY=boba&kecamatan_id=' . $param[4]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Users/u_urais/Mushalla_Detail', $data, true);

@@ -31,8 +31,8 @@ class Usulan extends CI_Controller {
             'title' => 'Data Usulan Triwulan | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'param' => $param,
-            'pertahun' => read_file("https://simas.kemenag.go.id/rudabi/datapi/esbsnn/pertahun?KEY=BOBA", true),
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/usulantriwulan?KEY=BOBA&usul_tahun=' . $param[0] . '', true)
+            'pertahun' => $this->bodo->Curel("https://simas.kemenag.go.id/rudabi/datapi/esbsnn/pertahun?KEY=BOBA"),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/usulantriwulan?KEY=BOBA&usul_tahun=' . $param[0] . '')
         ];
         if ($data['data'] == false) {
             $data['msg'] = "Data Usulan Triwulan Tahun " . $param[0] . " Tidak tersedia!";
@@ -49,7 +49,7 @@ class Usulan extends CI_Controller {
             'title' => 'Data Usulan Triwulan  Provinsi ' . $param[2] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'param' => $param,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/usulantriwulan?KEY=BOBA&usul_tahun=' . $param[0] . '&usul_propinsi=' . $param[1] . '', true)
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/usulantriwulan?KEY=BOBA&usul_tahun=' . $param[0] . '&usul_propinsi=' . $param[1] . '')
         ];
         if ($data['data'] == false) {
             $data['msg'] = "Data Usulan Triwulan Tahun " . $data['tahun'] . " Tidak tersedia!";

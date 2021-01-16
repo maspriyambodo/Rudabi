@@ -29,7 +29,7 @@ class Radio_Islam extends CI_Controller {
         $data = [
             'title' => 'Radio Islam | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/radio?KEY=BOBA')
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/radio?KEY=BOBA')
         ];
         $data['content'] = $this->parser->parse('Users/u_pai/V_radio', $data, true);
         return $this->parser->parse('Users/u_pai/Template', $data);
@@ -40,7 +40,7 @@ class Radio_Islam extends CI_Controller {
         $data = [
             'title' => 'Data Radio Islam ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/radio?KEY=BOBA&province_id=' . $param[0]),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/radio?KEY=BOBA&province_id=' . $param[0]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Users/u_pai/V_radioprov', $data, true);
@@ -52,7 +52,7 @@ class Radio_Islam extends CI_Controller {
         $data = [
             'title' => 'Data Radio Islam ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/radio?KEY=BOBA&city_id=' . $param[2]),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/radio?KEY=BOBA&city_id=' . $param[2]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Users/u_pai/V_radiokab', $data, true);

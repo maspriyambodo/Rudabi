@@ -29,7 +29,7 @@ class Epai extends CI_Controller {
         $data = [
             'title' => 'E-PAI | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/epay?KEY=BOBA')
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/epay?KEY=BOBA')
         ];
         $data['content'] = $this->parser->parse('PAI/V_Epai', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -40,7 +40,7 @@ class Epai extends CI_Controller {
         $data = [
             'title' => 'Data PAI Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/epay?KEY=BOBA&provinsi_kode=%27' . $param[0] . '%27'),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/epay?KEY=BOBA&provinsi_kode=%27' . $param[0] . '%27'),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('PAI/V_Epaiprov', $data, true);
@@ -52,7 +52,7 @@ class Epai extends CI_Controller {
         $data = [
             'title' => 'Data PAI ' . $param[3] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/epay/penyuluh?KEY=BOBA&penyuluh_KabKota_Kode=%27' . $param[2] . '%27'),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/epay/penyuluh?KEY=BOBA&penyuluh_KabKota_Kode=%27' . $param[2] . '%27'),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('PAI/V_Epaidetail', $data, true);

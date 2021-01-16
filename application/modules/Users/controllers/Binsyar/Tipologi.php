@@ -29,7 +29,7 @@ class Tipologi extends CI_Controller {
         $data = [
             'title' => 'Masjid Tipologi | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/eimas/tipologimasjid?KEY=boba')
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/eimas/tipologimasjid?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Users/u_urais/Tipologi_masjid', $data, true);
         return $this->parser->parse('Users/u_urais/Template', $data);
@@ -39,7 +39,7 @@ class Tipologi extends CI_Controller {
         $data = [
             'title' => 'Mushalla Tipologi | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/eimas/tipologimushalla?KEY=boba')
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/eimas/tipologimushalla?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Users/u_urais/Tipologi_mushalla', $data, true);
         return $this->parser->parse('Users/u_urais/Template', $data);

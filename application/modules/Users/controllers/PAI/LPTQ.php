@@ -29,7 +29,7 @@ class LPTQ extends CI_Controller {
         $data = [
             'title' => 'LPTQ | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lsm?KEY=BOBA')
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lsm?KEY=BOBA')
         ];
         $data['content'] = $this->parser->parse('Users/u_pai/V_lptq', $data, true);
         return $this->parser->parse('Users/u_pai/Template', $data);
@@ -40,7 +40,7 @@ class LPTQ extends CI_Controller {
         $data = [
             'title' => 'Data LPTQ Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lsm?KEY=BOBA&province_id=' . $param[0]),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lsm?KEY=BOBA&province_id=' . $param[0]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Users/u_pai/V_lptqprov', $data, true);
@@ -52,7 +52,7 @@ class LPTQ extends CI_Controller {
         $data = [
             'title' => 'Data LPTQ Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lsm?KEY=BOBA&lsm_city=' . $param[2]),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/lsm?KEY=BOBA&lsm_city=' . $param[2]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Users/u_pai/V_lptqkab', $data, true);
