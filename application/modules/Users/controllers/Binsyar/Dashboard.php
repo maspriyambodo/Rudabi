@@ -34,4 +34,31 @@ class Dashboard extends CI_Controller {
         return $this->parser->parse('Users/u_urais/Template', $data);
     }
 
+    public function Sihat() {
+//        $data = [
+//            'sihat' => read_file('https://simas.kemenag.go.id/rudabi/datapi/siihat/alat2020?KEY=BOBA', true),
+//            'tenaga',
+//            'pengukuran',
+//            'lokasi',
+//            'laporan',
+//            'lintang'
+//        ];
+        $ch = curl_init();
+
+        // set url 
+        curl_setopt($ch, CURLOPT_URL, "https://simas.kemenag.go.id/rudabi/datapi/siihat/alat2020?KEY=BOBA");
+
+        // return the transfer as a string 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        // $output contains the output string 
+        $output = curl_exec($ch);
+
+        // tutup curl 
+        curl_close($ch);
+
+        // menampilkan hasil curl
+        echo json_encode(json_decode($output, true));
+    }
+
 }

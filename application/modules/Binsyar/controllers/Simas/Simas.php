@@ -29,7 +29,7 @@ class Simas extends CI_Controller {
         $data = [
             'title' => 'Sistem Informasi Masjid | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/eimas/datamasjid?KEY=boba')
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/eimas/datamasjid?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Binsyar/Simas/Simas_index', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -40,7 +40,7 @@ class Simas extends CI_Controller {
         $data = [
             'title' => 'Data Masjid Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/eimas/datamasjid?KEY=boba&provinsi_id=' . $param[0]),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/eimas/datamasjid?KEY=boba&provinsi_id=' . $param[0]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Binsyar/Simas/Simas_Provinsi', $data, true);
@@ -52,7 +52,7 @@ class Simas extends CI_Controller {
         $data = [
             'title' => 'Data Masjid Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/eimas/datamasjid?KEY=boba&kabupaten_id=' . $param[2]),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/eimas/datamasjid?KEY=boba&kabupaten_id=' . $param[2]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Binsyar/Simas/Simas_Kabupaten', $data, true);
@@ -64,7 +64,7 @@ class Simas extends CI_Controller {
         $data = [
             'title' => 'Data Masjid Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => read_file('https://simas.kemenag.go.id/rudabi/datapi/eimas/datamasjid?KEY=boba&kecamatan_id=' . $param[4]),
+            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/eimas/datamasjid?KEY=boba&kecamatan_id=' . $param[4]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Binsyar/Simas/Simas_Kecamatan', $data, true);
