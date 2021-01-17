@@ -26,11 +26,19 @@ RewriteRule ^(.*)$ index.php/$1 [NC,L,QSA]
     </IfModule>
 
     <IfModule mod_headers.c>
-        # Make sure proxies don't deliver the wrong content
-        Header append Vary User-Agent env=!dont-vary
-	Header set X-Content-Type-Options nosniff
-	Header set Access-Control-Allow-Origin: "null"
-        Header add Access-Control-Allow-Methods: "*"
-        Header add Access-Control-Allow-Headers: "*"
-    </IfModule>
+  	<FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2|font.css|css|js)$">
+    		Header set Access-Control-Allow-Origin "*"
+		Header set X-Content-Type-Options "nosniff"
+		Header set Cache-Control "max-age=2678400, public"
+  	</FilesMatch>
+  	<filesmatch "\.(ico|flv|jpg|jpeg|png|gif|swf)$">
+  		Header set Cache-Control "max-age=2678400, public"
+  	</filesmatch>
+  	<filesmatch "\.(html|htm)$">
+  		Header set Cache-Control "max-age=7200, private, must-revalidate"
+  	</filesmatch>
+  	<filesmatch "\.(pdf)$">
+  		Header set Cache-Control "max-age=86400, public"
+  	</filesmatch>
+	</IfModule>
 </IfModule>
