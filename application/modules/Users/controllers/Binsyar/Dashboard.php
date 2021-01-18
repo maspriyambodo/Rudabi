@@ -28,37 +28,27 @@ class Dashboard extends CI_Controller {
     public function index() {
         $data = [
             'title' => 'Dashboard Urusan Agama Islam & Binsyar | RUDABI SYSTEM OF KEMENAG RI',
-            'username' => $this->session->userdata('username')
+            'username' => $this->session->userdata('username'),
+            'total' => $this->Total()
         ];
         $data['content'] = $this->parser->parse('Users/u_urais/V_Dashboard', $data, true);
         return $this->parser->parse('Users/u_urais/Template', $data);
     }
 
-    public function Sihat() {
-//        $data = [
-//            'sihat' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/siihat/alat2020?KEY=BOBA', true),
-//            'tenaga',
-//            'pengukuran',
-//            'lokasi',
-//            'laporan',
-//            'lintang'
-//        ];
-        $ch = curl_init();
-
-        // set url 
-        curl_setopt($ch, CURLOPT_URL, "https://simas.kemenag.go.id/rudabi/datapi/siihat/alat2020?KEY=BOBA");
-
-        // return the transfer as a string 
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-        // $output contains the output string 
-        $output = curl_exec($ch);
-
-        // tutup curl 
-        curl_close($ch);
-
-        // menampilkan hasil curl
-        echo json_encode(json_decode($output, true));
+    private function Total() {
+        $data = [
+            'sihat' => $this->bodo->Curel(''),
+            'tenaga' => $this->bodo->Curel(''),
+            'pengukuran' => $this->bodo->Curel(''),
+            'lokasi' => $this->bodo->Curel(''),
+            'laporan' => $this->bodo->Curel(''),
+            'lintang' => $this->bodo->Curel(''),
+            'masjid' => $this->bodo->Curel(''),
+            'mushalla' => $this->bodo->Curel(''),
+            'tipo_masjid' => $this->bodo->Curel(''),
+            'tipo_mushalla' => $this->bodo->Curel('')
+        ];
+        return $data;
     }
 
 }

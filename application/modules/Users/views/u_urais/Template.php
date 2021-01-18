@@ -29,7 +29,7 @@
         <link rel="shortcut icon" href="https://simas.kemenag.go.id/assets/img/rudabilogo.png" />
         <title>{title}</title>
     </head>
-    <body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+    <body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading<?php if ($this->uri->segment(3) != "Dashboard") {echo '';} else {echo ' aside-minimize';}?>">
         <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed"><a href="index.html"><img alt="Logo" src="https://simas.kemenag.go.id/assets/img/rudabilogo.png" style="width:35%;"/></a>
             <div class="d-flex align-items-center">
                 <button class="btn p-0 burger-icon burger-icon-left" id="kt_aside_mobile_toggle"><span></span></button>
@@ -115,7 +115,7 @@
                                 </li>
                                 <div class="separator separator-dashed"></div>
                                 <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
-                                    <a href="<?php echo base_url('Users/Binsyar/Simas/index'); ?>" class="menu-link menu-toggle">
+                                    <a href="<?php echo base_url('Users/Binsyar/Simas/index/'); ?>" class="menu-link menu-toggle">
                                         <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>
@@ -123,7 +123,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
-                                    <a href="<?php echo base_url('Users/Binsyar/Mushalla/index'); ?>" class="menu-link menu-toggle">
+                                    <a href="<?php echo base_url('Users/Binsyar/Mushalla/index/'); ?>" class="menu-link menu-toggle">
                                         <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>
@@ -131,7 +131,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
-                                    <a href="<?php echo base_url('Users/Binsyar/Tipologi/index'); ?>" class="menu-link menu-toggle">
+                                    <a href="<?php echo base_url('Users/Binsyar/Tipologi/index/'); ?>" class="menu-link menu-toggle">
                                         <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>
@@ -139,7 +139,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item menu-item" aria-haspopup="true" data-menu-toggle="hover">
-                                    <a href="<?php echo base_url('Users/Binsyar/Tipologi/Mushalla'); ?>" class="menu-link menu-toggle">
+                                    <a href="<?php echo base_url('Users/Binsyar/Tipologi/Mushalla/'); ?>" class="menu-link menu-toggle">
                                         <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>
