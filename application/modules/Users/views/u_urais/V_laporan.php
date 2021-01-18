@@ -316,10 +316,7 @@ $q = 0; //bln_zulhijjah
                 {extend: 'excelHtml5', footer: true},
                 {extend: 'csvHtml5', footer: true},
                 {extend: 'pdfHtml5', footer: true}
-            ],
-            "fixedColumns": {
-                leftColumns: 1
-            }
+            ]
         });
     };
 </script>
