@@ -30,6 +30,11 @@ class Bodo {
         return $output;
     }
 
+    public function Url_API() {
+        $url = 'http://10.1.99.90/rudabi_api/datapi/';
+        return $url;
+    }
+
     public function Dec($enc) {
         $encrypt = str_replace(['-', '_', '~'], ['+', '/', '='], $enc);
         $dec = $this->CI->encryption->decrypt($encrypt);

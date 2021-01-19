@@ -47,7 +47,7 @@ class Dashboard extends CI_Controller {
             'mushalla' => $this->bodo->Curel(''),
             'tipo_masjid' => $this->bodo->Curel(''),
             'tipo_mushalla' => $this->bodo->Curel('')
-        ];
+        ]; //Array ( [sihat] => Array ( [jumlah] => 23212 ) [tenaga] => [pengukuran] => [lokasi] => [laporan] => [lintang] => [masjid] => [mushalla] => [tipo_masjid] => [tipo_mushalla] => )
         return $data;
     }
 

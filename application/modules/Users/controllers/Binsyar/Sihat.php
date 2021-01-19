@@ -23,13 +23,14 @@ class Sihat extends CI_Controller {
         parent::__construct();
         $this->load->model('Binsyar/M_Binsyar');
         $this->Authentication = $this->M_Binsyar->Auth();
+        $this->API = $this->bodo->Url_API();
     }
 
     public function index() {
         $data = [
             'title' => 'Data Hisab Rukyat | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/siihat/alat2020?KEY=BOBA')
+            'data' => $this->bodo->Curel($this->API . 'siihat/alat2020?KEY=BOBA')
         ];
         $data['content'] = $this->parser->parse('Users/u_urais/Sihat_index', $data, true);
         return $this->parser->parse('Users/u_urais/Template', $data);
