@@ -39,9 +39,6 @@
                                 <div class="form-group">
                                     <div class="d-flex justify-content-between mt-n5">
                                         <label class="font-size-h6 font-weight-bolder text-dark pt-5">Password</label>
-                                        <a href="javascript:" class="text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5" id="kt_login_forgot">
-                                            Forgot Password ?
-                                        </a>
                                     </div>
                                     <input class="form-control form-control-solid h-auto rounded-md" type="password" name="password" autocomplete="off" required="" />
                                 </div>
@@ -52,19 +49,6 @@
                                 </div>
                             </form>
                             <div class="login-footer"><?= $this->bodo->Since(); ?> &copy; RUDABI | Ditjen Bimas Islam</div>
-                        </div>
-                        <div class="login-form login-forgot">
-                            <form class="form" novalidate="novalidate" id="kt_login_forgot_form">
-                                <div class="text-center pt-lg-40 mt-lg-20 pb-15">
-                                    <h3 class="font-weight-bolder text-dark display5">Forgotten Password ?</h3>
-                                    <p class="text-muted font-weight-bold font-size-h4">Enter your email to reset your password</p>
-                                </div>
-                                <div class="form-group"> <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="email" placeholder="Email" name="email" autocomplete="off" /> </div>
-                                <div class="form-group d-flex flex-wrap flex-center pb-lg-0">
-                                    <button type="button" id="kt_login_forgot_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Submit</button> 
-                                    <button type="button" id="kt_login_forgot_cancel" class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Cancel</button>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
