@@ -28,10 +28,18 @@ class Dashboard extends CI_Controller {
     public function index() {
         $data = [
             'title' => 'Dashboard Sekretariat | RUDABI SYSTEM OF KEMENAG RI',
-            'username' => $this->session->userdata('username')
+            'username' => $this->session->userdata('username'),
+            'data' => $this->Total()
         ];
-        $data['content'] = $this->parser->parse('Users/u_sekretariat/Dashboard', $data, true);
+        $data['content'] = $this->parser->parse('Users/u_sekretariat/V_Dashboard', $data, true);
         return $this->parser->parse('Users/u_sekretariat/Template', $data);
+    }
+
+    private function Total() {
+        $data = [
+            'satker' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/sekretariat?KEY=BOBA'))
+        ];
+        return $data;
     }
 
 }
