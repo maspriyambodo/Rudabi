@@ -31,8 +31,8 @@ class Input extends CI_Controller {
             'title' => 'Data Input Triwulan | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'param' => $param,
-            'pertahun' => $this->bodo->Curel("https://simas.kemenag.go.id/rudabi/datapi/esbsnn/pertahun?KEY=BOBA"),
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/inputusulan?KEY=BOBA&usul_tahun=' . $param[0] . '')
+            'pertahun' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/pertahun?KEY=BOBA'),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/inputusulan?KEY=BOBA&usul_tahun=' . $param[0] . '')
         ];
         if ($data['data'] == false) {
             $data['msg'] = "Data Input Triwulan Tahun " . $param[0] . " Tidak tersedia!";
@@ -49,7 +49,7 @@ class Input extends CI_Controller {
             'title' => 'Data Input Triwulan  Provinsi ' . $param[2] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'param' => $param,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/inputusulan?KEY=BOBA&usul_tahun=' . $param[0] . '&usul_propinsi=' . $param[1] . '')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/inputusulan?KEY=BOBA&usul_tahun=' . $param[0] . '&usul_propinsi=' . $param[1] . '')
         ];
         if ($data['data'] == false) {
             $data['msg'] = "Data Input Triwulan Tahun " . $data['tahun'] . " Tidak tersedia!";
@@ -68,7 +68,7 @@ class Input extends CI_Controller {
             'title' => 'Data Input Triwulan ' . $param[0] . ' Tahun ' . $param[1] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'param' => $param,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/inputusulan?KEY=BOBA&usul_tahun=' . $param[1] . '&usul_propinsi=' . $param[2] . '&usul_kabupaten=' . $param[3])
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/inputusulan?KEY=BOBA&usul_tahun=' . $param[1] . '&usul_propinsi=' . $param[2] . '&usul_kabupaten=' . $param[3])
         ];
         $data['content'] = $this->parser->parse('Sekertariat/Input/Input_Kabupaten', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);

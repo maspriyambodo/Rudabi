@@ -29,7 +29,7 @@ class Budayawan extends CI_Controller {
         $data = [
             'title' => 'Budayawan | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/budayawan?KEY=BOBA')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/budayawan?KEY=BOBA')
         ];
         $data['content'] = $this->parser->parse('PAI/V_bud', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -40,7 +40,7 @@ class Budayawan extends CI_Controller {
         $data = [
             'title' => 'Data Budayawan Islam ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/budayawan?KEY=BOBA&province_id=' . $param[0]),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/budayawan?KEY=BOBA&province_id=' . $param[0]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('PAI/V_budprov', $data, true);
@@ -52,7 +52,7 @@ class Budayawan extends CI_Controller {
         $data = [
             'title' => 'Data Budayawan Islam ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/budayawan?KEY=BOBA&city_id=' . $param[2]),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/budayawan?KEY=BOBA&city_id=' . $param[2]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('PAI/V_budkab', $data, true);

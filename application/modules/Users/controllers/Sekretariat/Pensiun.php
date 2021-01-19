@@ -24,8 +24,8 @@ class Pensiun extends CI_Controller {
         $data = [
             'title' => 'Data Mutasi Pensiun Pegawai | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/sicakepp/pensiun?KEY=BOBA'),
-            'gol' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/sicakepp/golongan?KEY=BOBA')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'sicakepp/pensiun?KEY=BOBA'),
+            'gol' => $this->bodo->Curel($this->bodo->Url_API() . 'sicakepp/golongan?KEY=BOBA')
         ];
         $data['content'] = $this->parser->parse('Users/u_sekretariat/Pensiun_index', $data, true);
         return $this->parser->parse('Users/u_sekretariat/Template', $data);
@@ -37,8 +37,8 @@ class Pensiun extends CI_Controller {
             'title' => 'Data Pensiun Provinsi ' . $param[1] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/sicakepp/pensiun?KEY=BOBA&peg_provinsi=' . $param[0]),
-            'gol' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/sicakepp/golongan?KEY=BOBA')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'sicakepp/pensiun?KEY=BOBA&peg_provinsi=' . $param[0]),
+            'gol' => $this->bodo->Curel($this->bodo->Url_API() . 'sicakepp/golongan?KEY=BOBA')
         ];
         $data['content'] = $this->parser->parse('Users/u_sekretariat/Pensiun_Provinsi', $data, true);
         return $this->parser->parse('Users/u_sekretariat/Template', $data);
@@ -50,7 +50,7 @@ class Pensiun extends CI_Controller {
             'title' => 'Data Pensiun Kabupaten ' . $param[1] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/sicakepp/pensiun?KEY=boba&kab_id=' . $param[0])
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'sicakepp/pensiun?KEY=boba&kab_id=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Users/u_sekretariat/Pensiun_Kabupaten', $data, true);
         return $this->parser->parse('Users/u_sekretariat/Template', $data);
@@ -62,7 +62,7 @@ class Pensiun extends CI_Controller {
             'title' => 'Detail Pegawai Golongan ' . $param[3] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/sicakepp/pensiun?KEY=boba&kab_id=' . $param[0] . '&item_id=' . $param[2] . '')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'sicakepp/pensiun?KEY=boba&kab_id=' . $param[0] . '&item_id=' . $param[2] . '')
         ];
         $data['content'] = $this->parser->parse('Users/u_sekretariat/Pensiun_Golongan', $data, true);
         return $this->parser->parse('Users/u_sekretariat/Template', $data);

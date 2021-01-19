@@ -29,7 +29,7 @@ class Laporan extends CI_Controller {
         $data = [
             'title' => 'Hisab Laporan| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/siihat/hisablaporan?KEY=BOBA')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siihat/hisablaporan?KEY=BOBA')
         ];
         $data['content'] = $this->parser->parse('Binsyar/V_laporan', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -40,7 +40,7 @@ class Laporan extends CI_Controller {
         $data = [
             'title' => 'Data Hisab Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/siihat/hisablaporan?KEY=BOBA&ukur_provinsi=' . $param[0]),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siihat/hisablaporan?KEY=BOBA&ukur_provinsi=' . $param[0]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Binsyar/Laporan_Provinsi', $data, true);

@@ -26,8 +26,8 @@ class Approved extends CI_Controller {
             'title' => 'Data Approved Usulan | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'param' => $param,
-            'pertahun' => $this->bodo->Curel("https://simas.kemenag.go.id/rudabi/datapi/esbsnn/pertahun?KEY=BOBA"),
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/approveusulan?KEY=BOBA&usul_tahun=' . $param[0])
+            'pertahun' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/pertahun?KEY=BOBA'),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/approveusulan?KEY=BOBA&usul_tahun=' . $param[0])
         ];
         if ($data['data'] == false) {
             $data['msg'] = "Data Approved Usulan Tahun " . $param[0] . " Tidak tersedia!";
@@ -46,8 +46,8 @@ class Approved extends CI_Controller {
             'provinsi' => $param[0],
             'tahun' => $param[1],
             'id_provinsi' => $param[2],
-            'pertahun' => $this->bodo->Curel("https://simas.kemenag.go.id/rudabi/datapi/esbsnn/pertahun?KEY=BOBA"),
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/approveusulan?KEY=BOBA&usul_tahun=' . $param[1] . '&usul_propinsi=' . $param[2] . '')
+            'pertahun' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/pertahun?KEY=BOBA'),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/approveusulan?KEY=BOBA&usul_tahun=' . $param[1] . '&usul_propinsi=' . $param[2] . '')
         ];
         $data['content'] = $this->parser->parse('Users/u_sekretariat/Approved_Provinsi', $data, true);
         return $this->parser->parse('Users/u_sekretariat/Template', $data);
@@ -59,8 +59,8 @@ class Approved extends CI_Controller {
             'title' => 'Data Approved Usulan ' . $kabupaten[3] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'param' => $kabupaten,
-            'pertahun' => $this->bodo->Curel("https://simas.kemenag.go.id/rudabi/datapi/esbsnn/pertahun?KEY=BOBA"),
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/esbsnn/approveusulan?KEY=BOBA&usul_tahun=' . $kabupaten[0] . '&usul_propinsi=' . $kabupaten[1] . '&usul_kabupaten=' . $kabupaten[2] . '')
+            'pertahun' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/pertahun?KEY=BOBA'),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/approveusulan?KEY=BOBA&usul_tahun=' . $kabupaten[0] . '&usul_propinsi=' . $kabupaten[1] . '&usul_kabupaten=' . $kabupaten[2] . '')
         ];
         $data['content'] = $this->parser->parse('Users/u_sekretariat/Approved_Kabupaten', $data, true);
         return $this->parser->parse('Users/u_sekretariat/Template', $data);

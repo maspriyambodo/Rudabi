@@ -29,7 +29,7 @@ class Siwak extends CI_Controller {
         $data = [
             'title' => 'Sistem Informasi Wakaf | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/siwaks/tanahwakaf?KEY=boba')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siwaks/tanahwakaf?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Siwak/Siwak_index', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -40,7 +40,7 @@ class Siwak extends CI_Controller {
         $data = [
             'title' => 'Data Wakaf Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/siwaks/tanahwakaf?KEY=boba&Lokasi_Prop=' . $param[0]),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siwaks/tanahwakaf?KEY=boba&Lokasi_Prop=' . $param[0]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Siwak/Siwak_Provinsi', $data, true);
@@ -52,7 +52,7 @@ class Siwak extends CI_Controller {
         $data = [
             'title' => 'Data Wakaf Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/siwaks/tanahwakaf?KEY=boba&lokasi_kode=' . $param[2]),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siwaks/tanahwakaf?KEY=boba&lokasi_kode=' . $param[2]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Siwak/Siwak_Kabupaten', $data, true);
@@ -64,7 +64,7 @@ class Siwak extends CI_Controller {
         $data = [
             'title' => 'Data Wakaf Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/siwaks/tanahwakaf?KEY=boba&lokasi_ID=' . $param[4]),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siwaks/tanahwakaf?KEY=boba&lokasi_ID=' . $param[4]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Siwak/Siwak_Kecamatan', $data, true);

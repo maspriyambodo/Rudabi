@@ -29,7 +29,7 @@ class Lintang extends CI_Controller {
         $data = [
             'title' => 'Data Lintang Kota | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/siihat/datalintang?KEY=BOBA')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siihat/datalintang?KEY=BOBA')
         ];
         $data['content'] = $this->parser->parse('Users/u_urais/V_lintang', $data, true);
         return $this->parser->parse('Users/u_urais/Template', $data);
@@ -40,7 +40,7 @@ class Lintang extends CI_Controller {
         $data = [
             'title' => 'Data Lintang Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/siihat/datalintang?KEY=BOBA&nama_propinsi=1'),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siihat/datalintang?KEY=BOBA&nama_propinsi=1'),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Users/u_urais/V_lintangprov', $data, true);

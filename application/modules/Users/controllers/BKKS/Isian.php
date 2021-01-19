@@ -29,8 +29,8 @@ class Isian extends CI_Controller {
         $data = [
             'title' => 'Rekapitulasi Isian KUA | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
-            'urung_input' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev/Rekap?KEY=boba'),
-            'rekap' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev/Isian?KEY=boba')
+            'urung_input' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/Rekap?KEY=boba'),
+            'rekap' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/Isian?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Isian_index', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);

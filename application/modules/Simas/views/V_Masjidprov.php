@@ -67,7 +67,7 @@
                 dataSrc: '',
                 method: "GET",
                 async: false,
-                url: "https://simas.kemenag.go.id/rudabi/datapi/eimas/provtipol?KEY=BOBA&provinsi_id=<?= $id ?>"
+                url: <?php echo $this->bodo->Url_API(); ?> + 'eimas/provtipol?KEY=BOBA&provinsi_id=<?php echo $id; ?>'
             },
             columns: [
                 {

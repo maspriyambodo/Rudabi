@@ -29,8 +29,8 @@ class Registrasi extends CI_Controller {
         $data = [
             'title' => 'Rekapitulasi Registrasi KANKEMENAG | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev/regmenag?KEY=boba'),
-            'regkua' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev/regkua?KEY=boba')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/regmenag?KEY=boba'),
+            'regkua' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/regkua?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Regis_index', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);
@@ -42,7 +42,7 @@ class Registrasi extends CI_Controller {
             'title' => 'Registrasi Kankemenag ' . $param[1] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev/regmenag?KEY=boba&status=' . $param[0])
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/regmenag?KEY=boba&status=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Regis_Status', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);
@@ -54,7 +54,7 @@ class Registrasi extends CI_Controller {
             'title' => 'Registrasi KUA ' . $param[1] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev/regkua?KEY=boba&status=' . $param[0])
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/regkua?KEY=boba&status=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Regis_Statuskua', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);

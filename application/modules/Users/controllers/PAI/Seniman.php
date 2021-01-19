@@ -29,7 +29,7 @@ class Seniman extends CI_Controller {
         $data = [
             'title' => 'Data Seniman | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/seniman?KEY=BOBA')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/seniman?KEY=BOBA')
         ];
         $data['content'] = $this->parser->parse('Users/u_pai/V_Seniman', $data, true);
         return $this->parser->parse('Users/u_pai/Template', $data);
@@ -40,7 +40,7 @@ class Seniman extends CI_Controller {
         $data = [
             'title' => 'Data Seniman Islam ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/seniman?KEY=BOBA&province_id=' . $param[0]),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/seniman?KEY=BOBA&province_id=' . $param[0]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Users/u_pai/V_Senimanprov', $data, true);
@@ -52,7 +52,7 @@ class Seniman extends CI_Controller {
         $data = [
             'title' => 'Data Seniman Islam ' . $param[3] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/seniman?KEY=BOBA&city_id=' . $param[2]),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/seniman?KEY=BOBA&city_id=' . $param[2]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Users/u_pai/V_Senimankab', $data, true);

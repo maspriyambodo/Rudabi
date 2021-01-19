@@ -29,7 +29,7 @@ class Pengukuran extends CI_Controller {
         $data = [
             'title' => 'Hisab Pengukuran | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/siihat/hisabpengukuran?KEY=boba')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siihat/hisabpengukuran?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Binsyar/V_Pengukuran', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -41,7 +41,7 @@ class Pengukuran extends CI_Controller {
             'title' => 'Hisab Pengukuran | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'param' => $param,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/siihat/hisabpengukuran?KEY=boba&ukur_provinsi=' . $param[0])
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siihat/hisabpengukuran?KEY=boba&ukur_provinsi=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Binsyar/V_Pengukuranprov', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);

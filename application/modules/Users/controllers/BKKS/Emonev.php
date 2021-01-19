@@ -29,8 +29,8 @@ class Emonev extends CI_Controller {
         $data = [
             'title' => 'E-Monev | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev?KEY=boba'),
-            'kankemenag' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev/propinsi?KEY=boba')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev?KEY=boba'),
+            'kankemenag' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/propinsi?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Emonev_index', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);
@@ -42,7 +42,7 @@ class Emonev extends CI_Controller {
             'title' => 'Kantor Kemenag Provinsi ' . $param[1] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev/propinsi?KEY=boba&kodekab=' . $param[0])
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/propinsi?KEY=boba&kodekab=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Emonev_Kankemenag', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);
@@ -54,7 +54,7 @@ class Emonev extends CI_Controller {
             'title' => 'E-Monev | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev?KEY=boba&kodekua=' . $param[0])
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev?KEY=boba&kodekua=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Emonev_Provinsi', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);

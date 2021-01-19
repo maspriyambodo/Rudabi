@@ -29,7 +29,7 @@ class Kaligrafer extends CI_Controller {
         $data = [
             'title' => 'Data Kaligrafer | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/kaligrafer?KEY=BOBA')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/kaligrafer?KEY=BOBA')
         ];
         $data['content'] = $this->parser->parse('Users/u_pai/V_Kaligrafer', $data, true);
         return $this->parser->parse('Users/u_pai/Template', $data);
@@ -40,7 +40,7 @@ class Kaligrafer extends CI_Controller {
         $data = [
             'title' => 'Data Kaligrafer Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/kaligrafer?KEY=BOBA&province_id=' . $param[0]),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/kaligrafer?KEY=BOBA&province_id=' . $param[0]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Users/u_pai/V_Kaligraferprov', $data, true);
@@ -52,7 +52,7 @@ class Kaligrafer extends CI_Controller {
         $data = [
             'title' => 'Data Kaligrafer ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/kaligrafer?KEY=BOBA&city_id=' . $param[2]),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/kaligrafer?KEY=BOBA&city_id=' . $param[2]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Users/u_pai/V_Kaligraferkab', $data, true);

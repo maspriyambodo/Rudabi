@@ -29,7 +29,7 @@ class Rekap extends CI_Controller {
         $data = [
             'title' => 'Rekapitulasi Data KUA | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev/Rekap?KEY=boba')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/Rekap?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Rekap_index', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);

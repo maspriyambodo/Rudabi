@@ -29,7 +29,7 @@ class Instruktur extends CI_Controller {
         $data = [
             'title' => 'Data Instruktur | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/embimwin/instruktur?KEY=boba')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'embimwin/instruktur?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Instruktur/index', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);

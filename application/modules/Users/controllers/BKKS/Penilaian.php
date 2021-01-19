@@ -29,7 +29,7 @@ class Penilaian extends CI_Controller {
         $data = [
             'title' => 'Rekapitulasi Penilaian KUA | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev/Penilaian?KEY=boba')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/Penilaian?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Penilaian_index', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);
@@ -41,7 +41,7 @@ class Penilaian extends CI_Controller {
             'title' => 'Detail Penilaian KUA Tahun ' . $param[0] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev/Penilaian?KEY=boba&tahun=' . $param[0])
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/Penilaian?KEY=boba&tahun=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Penilaian_Tahun', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);
@@ -53,7 +53,7 @@ class Penilaian extends CI_Controller {
             'title' => 'Detail Penilaian KUA Provinsi ' . $param[0] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev/Penilaian?KEY=boba&tahun=2017&kodekua=01')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/Penilaian?KEY=boba&tahun=2017&kodekua=01')
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Penilaian_Kabupaten', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);
@@ -65,7 +65,7 @@ class Penilaian extends CI_Controller {
             'title' => 'Detail Penilaian KUA Kabupaten ' . $param[4] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev/Penilaian?KEY=boba&tahun=' . $param[0] . '&kodekab=' . $param[3] . '')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/Penilaian?KEY=boba&tahun=' . $param[0] . '&kodekab=' . $param[3] . '')
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Penilaian_Detail', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);

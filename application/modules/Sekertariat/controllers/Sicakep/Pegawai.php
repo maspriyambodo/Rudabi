@@ -29,7 +29,7 @@ class Pegawai extends CI_Controller {
         $data = [
             'title' => 'Data Pegawai | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/sicakepp?KEY=BOBA')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'sicakepp?KEY=BOBA')
         ];
         $data['content'] = $this->parser->parse('Sekertariat/Sicakep/Pegawai/Pegawai_index', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -41,7 +41,7 @@ class Pegawai extends CI_Controller {
             'title' => 'Data Pegawai ' . $param[0] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'param' => $param,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/sicakepp?KEY=BOBA&peg_provinsi=' . $param[1])
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'sicakepp?KEY=BOBA&peg_provinsi=' . $param[1])
         ];
         $data['content'] = $this->parser->parse('Sekertariat/Sicakep/Pegawai/Pegawai_provinsi', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -53,7 +53,7 @@ class Pegawai extends CI_Controller {
             'title' => 'Data Pegawai ' . $param[0] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'param' => $param,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/sicakepp?KEY=BOBA&peg_kabupaten=' . $param[1])
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'sicakepp?KEY=BOBA&peg_kabupaten=' . $param[1])
         ];
         $data['content'] = $this->parser->parse('Sekertariat/Sicakep/Pegawai/Pegawai_Kabupaten', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -65,7 +65,7 @@ class Pegawai extends CI_Controller {
             'title' => 'Detail ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'param' => $param,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/sicakepp?KEY=BOBA&peg_id=' . $param[0])
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'sicakepp?KEY=BOBA&peg_id=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Sekertariat/Sicakep/Pegawai/Pegawai_Detail', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);

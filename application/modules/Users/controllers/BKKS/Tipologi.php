@@ -29,7 +29,7 @@ class Tipologi extends CI_Controller {
         $data = [
             'title' => 'e-monev Tipologi KUA | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev/tipologi?KEY=boba')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/tipologi?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Tipologi_index', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);
@@ -41,7 +41,7 @@ class Tipologi extends CI_Controller {
             'title' => 'Tipologi KUA ' . $param[0] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev/Tipokua?KEY=boba&tipokua=' . $param[0])
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/Tipokua?KEY=boba&tipokua=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Tipologi_Tipokua', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);

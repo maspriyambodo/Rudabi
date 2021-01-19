@@ -29,7 +29,7 @@ class Simkah extends CI_Controller {
         $data = [
             'title' => 'Rekap Penggunaan SIMKAH | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev/simkah?KEY=boba')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/simkah?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Simkah_index', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);
@@ -41,7 +41,7 @@ class Simkah extends CI_Controller {
             'title' => 'Penggunaan SIMKAH ' . $param[1] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/monev/simkah?KEY=boba&simkah=' . $param[0])
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/simkah?KEY=boba&simkah=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Simkah_Detail', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);

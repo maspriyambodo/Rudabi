@@ -29,7 +29,7 @@ class Satker extends CI_Controller {
         $data = [
             'title' => 'Data SATKER | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel("https://simas.kemenag.go.id/rudabi/datapi/esbsnn?KEY=boba")
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Users/u_sekretariat/satker_index', $data, true);
         return $this->parser->parse('Users/u_sekretariat/Template', $data);
@@ -40,7 +40,7 @@ class Satker extends CI_Controller {
         $data = [
             'title' => 'Data SATKER | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/esbsnn?KEY=BOBA&kab_propinsi_id=' . $param[0]),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn?KEY=BOBA&kab_propinsi_id=' . $param[0]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Users/u_sekretariat/satker_provinsi', $data, true);

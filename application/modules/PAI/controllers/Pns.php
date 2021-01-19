@@ -29,7 +29,7 @@ class Pns extends CI_Controller {
         $data = [
             'title' => 'Data Penyuluh Islam PNS | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/datapns?KEY=boba')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/datapns?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Penyuluh/Penyuluh_pns', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -40,7 +40,7 @@ class Pns extends CI_Controller {
         $data = [
             'title' => 'Data Penyuluh Provinsi ' . $param[1] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenaiss/datapns?KEY=boba&penyuluh_pns_provinsi=' . $param[0]),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/datapns?KEY=boba&penyuluh_pns_provinsi=' . $param[0]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Penyuluh/Penyuluh_provinsi', $data, true);

@@ -73,7 +73,7 @@
                 dataSrc: '',
                 method: "GET",
                 async: false,
-                url: "https://simas.kemenag.go.id/rudabi/datapi/eimas/provtipol?KEY=BOBA"
+                url: <?php echo $this->bodo->Url_API(); ?> + 'eimas/provtipol?KEY=BOBA'
             },
             columns: [
                 {
@@ -97,7 +97,7 @@
             ],
             "footerCallback": function () {
                 var api = this.api();
-                var numFormat = $.fn.dataTable.render.number( '\.', '', 0, '' ).display;
+                var numFormat = $.fn.dataTable.render.number('\.', '', 0, '').display;
                 api.columns('.sum_sum', {page: 'current'}).every(function () {
                     var sum = this
                             .data()

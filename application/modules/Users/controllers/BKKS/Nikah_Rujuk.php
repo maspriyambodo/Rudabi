@@ -28,13 +28,13 @@ class Nikah_Rujuk extends CI_Controller {
     public function index() {
         $param = $this->bodo->Url($this->input->post_get('key'));
         $a[0] = (object) ['rekap_tahun' => 'Semua Tahun'];
-        $b = json_decode($this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/kategoritahun?KEY=boba'));
+        $b = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/kategoritahun?KEY=boba'));
         if (!isset($param)) {
-            $url = $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/nikahrujuk?KEY=boba');
+            $url = $this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/nikahrujuk?KEY=boba');
         } elseif ($param[0] == "Semua Tahun") {
-            $url = $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/nikahrujuk?KEY=boba');
+            $url = $this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/nikahrujuk?KEY=boba');
         } else {
-            $url = $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/nikahrujuk?KEY=boba&rekap_tahun=' . $param[0]);
+            $url = $this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/nikahrujuk?KEY=boba&rekap_tahun=' . $param[0]);
         }
         $data = [
             'title' => 'Sistem Informasi Kepenghuluan | RUDABI SYSTEM OF KEMENAG RI',
@@ -53,7 +53,7 @@ class Nikah_Rujuk extends CI_Controller {
             'title' => 'Sistem Informasi Kepenghuluan | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
             'param' => $param,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/nikahrujuk?KEY=boba&rekap_province=' . $param[1] . '&rekap_tahun=' . $param[0])
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/nikahrujuk?KEY=boba&rekap_province=' . $param[1] . '&rekap_tahun=' . $param[0])
         ];
         if ($data['data'] == null) {
             $data['content'] = $this->parser->parse('Users/u_binakua/Rujuk_undifined', $data, true);
@@ -69,7 +69,7 @@ class Nikah_Rujuk extends CI_Controller {
             'title' => 'Rekap Data Nikah & Rujuk ' . $param[4] . ' | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
             'param' => $param,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/simpenghulu/nikahrujuk?KEY=boba&city_id=' . $param[3] . '&rekap_tahun=' . $param[0])
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/nikahrujuk?KEY=boba&city_id=' . $param[3] . '&rekap_tahun=' . $param[0])
         ];
         $data['content'] = $this->parser->parse('Users/u_binakua/Rujuk_Kabupaten', $data, true);
         return $this->parser->parse('Users/u_binakua/Template', $data);

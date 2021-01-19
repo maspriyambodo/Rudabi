@@ -29,7 +29,7 @@ class Catin extends CI_Controller {
         $data = [
             'title' => 'Data Catin | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/embimwin/datacatin?KEY=boba')
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'embimwin/datacatin?KEY=boba')
         ];
         $data['content'] = $this->parser->parse('Catin/index', $data, true);
         return $this->parser->parse('Dashboard/Template', $data);
@@ -40,7 +40,7 @@ class Catin extends CI_Controller {
         $data = [
             'title' => 'Data Catin Tahun ' . $param[0] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/embimwin/datacatin?KEY=boba&tahun_target_wilayah=' . $param[0]),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'embimwin/datacatin?KEY=boba&tahun_target_wilayah=' . $param[0]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('BKKS/Catin/Provinsi', $data, true);
@@ -52,7 +52,7 @@ class Catin extends CI_Controller {
         $data = [
             'title' => 'Data Catin Tahun ' . $param[0] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/embimwin/datacatin?KEY=boba&tahun_target_wilayah=' . $param[0] . '&id_prop=' . $param[1]),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'embimwin/datacatin?KEY=boba&tahun_target_wilayah=' . $param[0] . '&id_prop=' . $param[1]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('BKKS/Catin/Kabupaten', $data, true);
@@ -64,7 +64,7 @@ class Catin extends CI_Controller {
         $data = [
             'title' => 'Data Catin Provinsi ' . $param[2] . '| RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->Authentication[0]->uname,
-            'data' => $this->bodo->Curel('https://simas.kemenag.go.id/rudabi/datapi/embimwin/datacatin?KEY=boba&tahun_target_kua=' . $param[0] . '&kabkot=' . $param[3]),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'embimwin/datacatin?KEY=boba&tahun_target_kua=' . $param[0] . '&kabkot=' . $param[3]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('BKKS/Catin/Detail', $data, true);
