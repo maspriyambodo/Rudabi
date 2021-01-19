@@ -49,16 +49,18 @@
 
             <div class="col bg-light-primary px-6 py-8 rounded-xl mr-7 mb-7">
                 <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
-                    <i class="fas fa-users" style="font-size: 48px;"></i>
+                    <i class="fas fa-users" style="font-size: 48px;"></i><b style="font-size: 35px;margin-left: 10px;"><?php echo number_format($data['sicakep'][0]->data_pegawai); ?></b>
                 </span>
                 <a href="<?php echo base_url('Users/Sekretariat/Pegawai/index'); ?>" class="text-warning font-weight-bold font-size-h6">Data Pegawai</a>
             </div>
 
             <div class="col bg-light-warning px-6 py-8 rounded-xl mr-7 mb-7">
-                <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
-                    <i class="fas fa-house-user" style="font-size: 48px;"></i>
-                </span>
-                <a href="<?php echo base_url('Users/Sekretariat/Pensiun/index'); ?>" class="text-warning font-weight-bold font-size-h6">Data Pensiun</a>
+                <a href="<?php echo base_url('Users/Sekretariat/Pensiun/index'); ?>" class="text-warning font-weight-bold font-size-h6">
+                    <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
+                        <i class="fas fa-house-user" style="font-size: 48px;"></i><b style="font-size: 35px;margin-left: 10px;"><?php echo number_format($data['sicakep'][1]->data_pensiun); ?></b>
+                    </span>
+                    Data Pensiun
+                </a>
             </div>
         </div>
     </div>

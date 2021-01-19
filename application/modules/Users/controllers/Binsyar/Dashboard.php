@@ -37,17 +37,9 @@ class Dashboard extends CI_Controller {
 
     private function Total() {
         $data = [
-            'sihat' => $this->bodo->Curel(''),
-            'tenaga' => $this->bodo->Curel(''),
-            'pengukuran' => $this->bodo->Curel(''),
-            'lokasi' => $this->bodo->Curel(''),
-            'laporan' => $this->bodo->Curel(''),
-            'lintang' => $this->bodo->Curel(''),
-            'masjid' => $this->bodo->Curel(''),
-            'mushalla' => $this->bodo->Curel(''),
-            'tipo_masjid' => $this->bodo->Curel(''),
-            'tipo_mushalla' => $this->bodo->Curel('')
-        ]; //Array ( [sihat] => Array ( [jumlah] => 23212 ) [tenaga] => [pengukuran] => [lokasi] => [laporan] => [lintang] => [masjid] => [mushalla] => [tipo_masjid] => [tipo_mushalla] => )
+            'sihat' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'siihat/total?KEY=BOBA')),
+            'simas' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'eimas/total?KEY=BOBA'))
+        ];
         return $data;
     }
 

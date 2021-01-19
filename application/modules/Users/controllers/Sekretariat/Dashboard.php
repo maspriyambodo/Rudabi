@@ -37,7 +37,8 @@ class Dashboard extends CI_Controller {
 
     private function Total() {
         $data = [
-            'satker' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/sekretariat?KEY=BOBA'))
+            'satker' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/sekretariat?KEY=BOBA')),
+            'sicakep' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'sicakepp/total?KEY=BOBA'))
         ];
         return $data;
     }
