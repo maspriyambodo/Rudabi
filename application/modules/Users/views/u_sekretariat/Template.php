@@ -28,7 +28,7 @@
         <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="https://simas.kemenag.go.id/assets/img/rudabilogo.png" />
         <title>{title}</title>
-        <?php if ($this->uri->segment(3) != "Dashboard") {echo '';} else {echo '<meta http-equiv="refresh" content="30">';}?>
+        <!-- <?php if ($this->uri->segment(3) != "Dashboard") {echo '';} else {echo '<meta http-equiv="refresh" content="30">';}?> -->
     </head>
 
     <body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading<?php if ($this->uri->segment(3) != "Dashboard") {echo '';} else {echo ' aside-minimize';}?>">
