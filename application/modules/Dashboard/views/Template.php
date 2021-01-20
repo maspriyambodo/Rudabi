@@ -640,6 +640,14 @@
                                         <span class="menu-text">Sub Direktorat</span>
                                     </a>
                                 </li>
+                                <li class="menu-item" aria-haspopup="true">
+                                    <a href="<?= base_url('Auth/Security/index/'); ?>" class="menu-link">
+                                        <span class="svg-icon menu-icon">
+                                            <i class="fas fa-shield-alt"></i>
+                                        </span>
+                                        <span class="menu-text">Security</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
