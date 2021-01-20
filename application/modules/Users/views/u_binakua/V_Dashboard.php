@@ -1,100 +1,138 @@
-<div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
-    <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
-        <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-uppercase">Dashboard Bina KUA &amp; Keluarga Sakinah</h5>
-        </div>
-    </div>
-</div>
-<div class="card card-custom" data-card="true" id="kt_card_1">
-    <div class="card-body">
-        <div class="row">
-            <div class="col bg-light-primary px-6 py-8 rounded-xl mr-7 mb-7">
-                <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
-                    <i class="fas fa-poll" style="font-size: 48px;"></i> <b style="font-size: 35px;margin-left: 10px;"><?php echo number_format($total['target_catin']); ?></b>
-                </span>
-                <a href="<?php echo base_url('Users/BKKS/Bimwin/index/'); ?>" class="text-warning font-weight-bold font-size-h6">Target Catin</a>
+<div class="card" style="margin-top: -5%;">
+    <div class="position-absolute w-100 h-50 rounded-card-top bg-dark"></div>
+    <div class="card-body position-relative">
+        <h3 class="7 text-white text-center my-10 my-lg-15">DIREKTORAT<br>Bina KUA &amp; Keluarga Sakinah</h3>
+        <div class="card-body bg-white col-11 col-lg-12 col-xxl-10 mx-auto">
+            <div class="row">
+                <div class="col">
+                    <a href="<?php echo base_url('Users/BKKS/Bimwin/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
+                        <div class="card-body">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <i class="fas fa-poll" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['target_catin']); ?></b>
+                            </span>
+                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Target Catin</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="<?php echo base_url('Users/BKKS/Catin/index/'); ?>" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
+                        <div class="card-body">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <i class="fas fa-restroom" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['data_catin']); ?></b>
+                            </span>
+                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Data Catin</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="<?php echo base_url('Users/BKKS/Fasilitator/index/' . date("Y")); ?>" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
+                        <div class="card-body">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <i class="fas fa-shapes" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['fasilitator']); ?></b>
+                            </span>
+                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Fasilitator Bimwin</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="<?php echo base_url('Users/BKKS/Emonev/index/'); ?>" class="card card-custom bg-warning bg-hover-state-warning card-stretch gutter-b">
+                        <div class="card-body">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <i class="fas fa-archive" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['rekap_kua']); ?></b>
+                            </span>
+                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Rekap Data KUA</div>
+                        </div>
+                    </a>
+                </div>
+                
             </div>
-
-            <div class="col bg-light-danger px-6 py-8 rounded-xl mr-7 mb-7">
-                <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
-                    <i class="fas fa-restroom" style="font-size: 48px;"></i> <b style="font-size: 35px;margin-left: 10px;"><?php echo number_format($total['data_catin']); ?></b>
-                </span>
-                <a href="<?php echo base_url('Users/BKKS/Catin/index/'); ?>" class="text-warning font-weight-bold font-size-h6">Data Catin</a>
+            
+            <div class="row">
+                <div class="col">
+                    <a href="<?php echo base_url('Users/BKKS/Simkah/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
+                        <div class="card-body">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <i class="fas fa-chart-pie" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['penggunaan_simkah']); ?></b>
+                            </span>
+                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Penggunaan SIMKAH</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="<?php echo base_url('Users/BKKS/Penilaian/index/'); ?>" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
+                        <div class="card-body">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <i class="fas fa-archive" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['penilaian_kua']); ?></b>
+                            </span>
+                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Rekapitulasi Penilaian KUA</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="<?php echo base_url('Users/BKKS/KUA/index/'); ?>" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
+                        <div class="card-body">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <i class="fas fa-poll" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['data_kua']); ?></b>
+                            </span>
+                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Data KUA</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="<?php echo base_url('Users/BKKS/Penghulu/index/'); ?>" class="card card-custom bg-warning bg-hover-state-warning card-stretch gutter-b">
+                        <div class="card-body">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <i class="fas fa-user-tie" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['data_penghulu']); ?></b>
+                            </span>
+                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Data Penghulu</div>
+                        </div>
+                    </a>
+                </div>
+                
             </div>
-
-            <div class="col bg-light-primary px-6 py-8 rounded-xl mr-7 mb-7">
-                <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
-                    <i class="fas fa-shapes" style="font-size: 48px;"></i> <b style="font-size: 35px;margin-left: 10px;"><?php echo number_format($total['fasilitator']); ?></b>
-                </span>
-                <a href="<?php echo base_url('Users/BKKS/Fasilitator/index/' . date("Y")); ?>" class="text-warning font-weight-bold font-size-h6">Fasilitator Bimwin</a>
-            </div>
-
-            <div class="col bg-light-danger px-6 py-8 rounded-xl mr-7 mb-7">
-                <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
-                    <i class="fas fa-archive" style="font-size: 48px;"></i> <b style="font-size: 35px;margin-left: 10px;"><?php echo number_format($total['rekap_kua']); ?></b>
-                </span>
-                <a href="<?php echo base_url('Users/BKKS/Emonev/index/'); ?>" class="text-warning font-weight-bold font-size-h6">Rekap Data KUA</a>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col bg-light-primary px-6 py-8 rounded-xl mr-7 mb-7">
-                <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
-                    <i class="fas fa-building" style="font-size: 48px;"></i> <b style="font-size: 35px;margin-left: 10px;"><?php echo number_format($total['tipo_kua']); ?></b>
-                </span>
-                <a href="<?php echo base_url('Users/BKKS/Tipologi/index/'); ?>" class="text-warning font-weight-bold font-size-h6">Tipologi KUA</a>
-            </div>
-
-            <div class="col bg-light-danger px-6 py-8 rounded-xl mr-7 mb-7">
-                <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
-                    <i class="far fa-file-alt" style="font-size: 48px;"></i> <b style="font-size: 35px;margin-left: 10px;"><?php echo number_format($total['tanah_kua']); ?></b>
-                </span>
-                <a href="<?php echo base_url('Users/BKKS/Tanah/index/'); ?>" class="text-warning font-weight-bold font-size-h6">Status Tanah KUA</a>
-            </div>
-
-            <div class="col bg-light-primary px-6 py-8 rounded-xl mr-7 mb-7">
-                <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
-                    <i class="fas fa-building" style="font-size: 48px;"></i> <b style="font-size: 35px;margin-left: 10px;"><?php echo number_format($total['bangunan_kua']); ?></b>
-                </span>
-                <a href="<?php echo base_url('Users/BKKS/Bangunan/index/'); ?>" class="text-warning font-weight-bold font-size-h6">Status Bangunan KUA</a>
-            </div>
-
-            <div class="col bg-light-danger px-6 py-8 rounded-xl mr-7 mb-7">
-                <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
-                    <i class="fas fa-archive" style="font-size: 48px;"></i> <b style="font-size: 35px;margin-left: 10px;"><?php echo number_format($total['regis_kua']); ?></b>
-                </span>
-                <a href="<?php echo base_url('Users/BKKS/Registrasi/index/'); ?>" class="text-warning font-weight-bold font-size-h6">Rekapitulasi Registrasi</a>
-            </div>
-
-        </div>
-
-        <div class="row">
-            <div class="col bg-light-primary px-6 py-8 rounded-xl mr-7 mb-7">
-                <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
-                    <i class="fas fa-chart-pie" style="font-size: 48px;"></i> <b style="font-size: 35px;margin-left: 10px;"><?php echo number_format($total['penggunaan_simkah']); ?></b>
-                </span>
-                <a href="<?php echo base_url('Users/BKKS/Simkah/index/'); ?>" class="text-warning font-weight-bold font-size-h6">Penggunaan SIMKAH</a>
-            </div>
-
-            <div class="col bg-light-danger px-6 py-8 rounded-xl mr-7 mb-7">
-                <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
-                    <i class="fas fa-archive" style="font-size: 48px;"></i> <b style="font-size: 35px;margin-left: 10px;"><?php echo number_format($total['penilaian_kua']); ?></b>
-                </span>
-                <a href="<?php echo base_url('Users/BKKS/Penilaian/index/'); ?>" class="text-warning font-weight-bold font-size-h6">Rekapitulasi Penilaian KUA</a>
-            </div>
-
-            <div class="col bg-light-primary px-6 py-8 rounded-xl mr-7 mb-7">
-                <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
-                    <i class="fas fa-poll" style="font-size: 48px;"></i> <b style="font-size: 35px;margin-left: 10px;"><?php echo number_format($total['data_kua']); ?></b>
-                </span>
-                <a href="<?php echo base_url('Users/BKKS/KUA/index/'); ?>" class="text-warning font-weight-bold font-size-h6">Data KUA</a>
-            </div>
-
-            <div class="col bg-light-danger px-6 py-8 rounded-xl mr-7 mb-7">
-                <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
-                    <i class="fas fa-user-tie" style="font-size: 48px;"></i> <b style="font-size: 35px;margin-left: 10px;"><?php echo number_format($total['data_penghulu']); ?></b>
-                </span>
-                <a href="<?php echo base_url('Users/BKKS/Penghulu/index/'); ?>" class="text-warning font-weight-bold font-size-h6">Data Penghulu</a>
+            
+            <div class="row">
+                <div class="col">
+                    <a href="<?php echo base_url('Users/BKKS/Tipologi/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
+                        <div class="card-body">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <i class="fas fa-building" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['tipo_kua']); ?></b>
+                            </span>
+                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Tipologi KUA</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="<?php echo base_url('Users/BKKS/Tanah/index/'); ?>" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
+                        <div class="card-body">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <i class="far fa-file-alt" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['tanah_kua']); ?></b>
+                            </span>
+                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Status Tanah KUA</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="<?php echo base_url('Users/BKKS/Bangunan/index/'); ?>" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
+                        <div class="card-body">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <i class="fas fa-building" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['bangunan_kua']); ?></b>
+                            </span>
+                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Data Mushalla</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="<?php echo base_url('Users/BKKS/Registrasi/index/'); ?>" class="card card-custom bg-warning bg-hover-state-warning card-stretch gutter-b">
+                        <div class="card-body">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <i class="fas fa-archive" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['regis_kua']); ?></b>
+                            </span>
+                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Rekapitulasi Registrasi</div>
+                        </div>
+                    </a>
+                </div>
+                
             </div>
         </div>
     </div>
