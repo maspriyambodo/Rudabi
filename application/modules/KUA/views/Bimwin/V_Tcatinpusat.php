@@ -141,7 +141,7 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
 </div>
 <script>
     window.onload = function () {
-        var url = <?php echo $this->bodo->Url_API(); ?> + 'embimwin/targetcatin2020?KEY=boba';
+        var url = "<?php echo $this->bodo->Url_API(); ?>" + 'embimwin/targetcatin2020?KEY=boba';
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],

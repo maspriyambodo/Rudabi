@@ -28,10 +28,18 @@ class Dashboard extends CI_Controller {
     public function index() {
         $data = [
             'title' => 'Dashboard Bina KUA & Keluarga Sakinah | RUDABI SYSTEM OF KEMENAG RI',
-            'username' => $this->session->userdata('username')
+            'username' => $this->session->userdata('username'),
+            'total' => $this->Total()
         ];
         $data['content'] = $this->parser->parse('Users/u_pai/V_Dashboard', $data, true);
         return $this->parser->parse('Users/u_pai/Template', $data);
+    }
+
+    private function Total() {
+        $data = [
+            'simpenais' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/total?KEY=BOBA'))
+        ];
+        return $data;
     }
 
 }
