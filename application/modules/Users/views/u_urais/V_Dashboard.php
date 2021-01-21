@@ -16,9 +16,9 @@
                 </div>
                 <div class="col">
                     <a href="javascript:void(0)" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b">
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <i class="fas fa-mosque" style="font-size: 48px;color: white;"></i><b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['tipo_masjid'][2]->total); ?></b>
+                                <b style="font-size: 30px;color: white;"><?php echo number_format($total['tipo_masjid'][2]->total); ?></b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Masjid Jami</div>
                         </div>
@@ -26,9 +26,9 @@
                 </div>
                 <div class="col">
                     <a href="javascript:void(0)" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b">
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <i class="fas fa-mosque" style="font-size: 48px;color: white;"></i><b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['tipo_masjid'][1]->total); ?></b>
+                                <b style="font-size: 30px;color: white;"><?php echo number_format($total['tipo_masjid'][1]->total); ?></b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Masjid di Tempat Publik</div>
                         </div>
@@ -36,9 +36,9 @@
                 </div>
                 <div class="col">
                     <a href="javascript:void(0)" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b">
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <i class="fas fa-mosque" style="font-size: 48px;color: white;"></i><b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['tipo_masjid'][3]->total); ?></b>
+                                <b style="font-size: 30px;color: white;"><?php echo number_format($total['tipo_masjid'][3]->total); ?></b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Masjid Besar</div>
                         </div>
@@ -46,16 +46,16 @@
                 </div>
                 <div class="col">
                     <a href="javascript:void(0)" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b">
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <i class="fas fa-mosque" style="font-size: 48px;color: white;"></i><b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['tipo_masjid'][0]->total); ?></b>
+                                <b style="font-size: 30px;color: white;"><?php echo number_format($total['tipo_masjid'][0]->total); ?></b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Masjid Agung</div>
                         </div>
                     </a>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col">
                     <a href="javascript:void(0)" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
@@ -69,9 +69,9 @@
                 </div>
                 <div class="col">
                     <a href="javascript:void(0)" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <i class="fas fa-place-of-worship" style="font-size: 48px;color: white;"></i><b style="font-size: 30px;color: white;margin-left: 10px;"></b>
+                                <b style="font-size: 30px;color: white;"><?php echo number_format($total['tipo_mushalla'][0]->dt_mushalla); ?></b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Mushalla Perumahan</div>
                         </div>
@@ -79,9 +79,9 @@
                 </div>
                 <div class="col">
                     <a href="javascript:void(0)" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <i class="fas fa-place-of-worship" style="font-size: 48px;color: white;"></i><b style="font-size: 30px;color: white;margin-left: 10px;"></b>
+                                <b style="font-size: 30px;color: white;"><?php echo number_format($total['tipo_mushalla'][1]->dt_mushalla); ?></b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Mushalla di Tempat Publik</div>
                         </div>
@@ -91,7 +91,7 @@
                     <a href="javascript:void(0)" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <i class="fas fa-place-of-worship" style="font-size: 48px;color: white;"></i><b style="font-size: 30px;color: white;margin-left: 10px;"></b>
+                                <b style="font-size: 30px;color: white;"><?php echo number_format($total['tipo_mushalla'][3]->dt_mushalla); ?></b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Mushalla Pendidikan</div>
                         </div>
@@ -99,16 +99,16 @@
                 </div>
                 <div class="col">
                     <a href="javascript:void(0)" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <i class="fas fa-place-of-worship" style="font-size: 48px;color: white;"></i><b style="font-size: 30px;color: white;margin-left: 10px;"></b>
+                                <b style="font-size: 30px;color: white;"><?php echo number_format($total['tipo_mushalla'][2]->dt_mushalla); ?></b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Mushalla Perkantoran</div>
                         </div>
                     </a>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col">
                     <a href="<?php echo base_url('Users/Binsyar/Sihat/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
@@ -122,9 +122,9 @@
                 </div>
                 <div class="col">
                     <a href="javascript:void(0)" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <i class="fas fa-tools" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['alat'][0]->gps); ?></b>
+                                <b style="font-size: 30px;color: white;"><?php echo number_format($total['alat'][0]->gps); ?></b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Jumlah GPS</div>
                         </div>
@@ -132,9 +132,9 @@
                 </div>
                 <div class="col">
                     <a href="javascript:void(0)" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <i class="fas fa-tools" style="font-size: 48px;color: white;"></i><b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['alat'][0]->theodolit); ?></b>
+                                <b style="font-size: 30px;color: white;"><?php echo number_format($total['alat'][0]->theodolit); ?></b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Jumlah Theodolit</div>
                         </div>
@@ -142,9 +142,9 @@
                 </div>
                 <div class="col">
                     <a href="javascript:void(0)" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <i class="fas fa-tools" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['alat'][0]->teropong); ?></b>
+                                <b style="font-size: 30px;color: white;"><?php echo number_format($total['alat'][0]->teropong); ?></b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Jumlah Teropong</div>
                         </div>
@@ -152,64 +152,11 @@
                 </div>
                 <div class="col">
                     <a href="javascript:void(0)" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <i class="fas fa-tools" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['alat'][0]->binoculer); ?></b>
+                                <b style="font-size: 30px;color: white;"><?php echo number_format($total['alat'][0]->binoculer); ?></b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Jumlah Binoculer</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col">
-                    <a href="<?php echo base_url('Users/Binsyar/Lintang/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
-                        <div class="card-body">
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <i class="far fa-compass" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['sihat'][5]->lintang_kota); ?></b>
-                            </span>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Lintang Kota</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="#" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
-                        <div class="card-body">
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                
-                            </span>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;"></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="<?php echo base_url('Users/Binsyar/Mushalla/index/'); ?>" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
-                        <div class="card-body">
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <i class="fas fa-place-of-worship" style="font-size: 48px;color: white;"></i><b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['simas'][1]->data_mushalla); ?></b>
-                            </span>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Data Mushalla</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="<?php echo base_url('Users/Binsyar/Tipologi/index/'); ?>" class="card card-custom bg-warning bg-hover-state-warning card-stretch gutter-b">
-                        <div class="card-body">
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <i class="fas fa-building" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['simas'][2]->masjid_tipologi); ?></b>
-                            </span>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Masjid Tipologi</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="<?php echo base_url('Users/Binsyar/Tipologi/Mushalla/'); ?>" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b">
-                        <div class="card-body">
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <i class="far fa-building" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['simas'][3]->mushalla_tipologi); ?></b>
-                            </span>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Mushalla Tipologi</div>
                         </div>
                     </a>
                 </div>
