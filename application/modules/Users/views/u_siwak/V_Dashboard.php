@@ -62,6 +62,65 @@
                     </a>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col">
+                    <a href="javascript:void(0)" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b">
+                        <div class="card-body text-center">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <b style="font-size: 30px;color: white;margin-left: 10px;">
+                                    <?php echo number_format($total['pengguna'][0]->pengguna_masjid); ?>
+                                </b>
+                            </span>
+                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
+                                Penggunaan Untuk Masjid
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="javascript:void(0)" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b">
+                        <div class="card-body text-center">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <b style="font-size: 30px;color: white;">
+                                    <?php echo number_format($total['pengguna'][0]->pengguna_musholla); ?>
+                                </b>
+                            </span>
+                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
+                                Penggunaan Untuk Mushalla
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="javascript:void(0)" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b">
+                        <div class="card-body text-center">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <b style="font-size: 30px;color: white;">
+                                    <?php echo number_format($total['pengguna'][0]->pengguna_sekolah); ?>
+                                </b>
+                            </span>
+                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
+                                Penggunaan Untuk Sekolah
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="javascript:void(0)" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b">
+                        <div class="card-body text-center">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <b style="font-size: 30px;color: white;">
+                                    <?php echo number_format($total['pengguna'][0]->pengguna_sosial); ?>
+                                </b>
+                            </span>
+                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
+                                Penggunaan Untuk Sosial
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
