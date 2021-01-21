@@ -8,7 +8,7 @@
                     <a href="<?php echo base_url('Users/BKKS/Bimwin/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <i class="fas fa-poll" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['target_catin']); ?></b>
+                                <i class="fas fa-poll" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['bimwin'][1]->jumlah_peserta); ?></b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Target Catin</div>
                         </div>
@@ -18,7 +18,7 @@
                     <a href="<?php echo base_url('Users/BKKS/Catin/index/'); ?>" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <i class="fas fa-restroom" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['data_catin']); ?></b>
+                                <i class="fas fa-restroom" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['bimwin'][0]->realisasi_wilayah); ?></b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Data Catin</div>
                         </div>
@@ -28,7 +28,7 @@
                     <a href="<?php echo base_url('Users/BKKS/Fasilitator/index/' . date("Y")); ?>" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <i class="fas fa-shapes" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['fasilitator']); ?></b>
+                                <i class="fas fa-shapes" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($total['bimwin'][2]->fasilitator_bimwin); ?></b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Fasilitator Bimwin</div>
                         </div>

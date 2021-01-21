@@ -37,9 +37,9 @@ class Dashboard extends CI_Controller {
 
     private function Total() {
         $data = [
-            'monev' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'monev/total?KEY=BOBA')),
-            'simpenghulu' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/total?KEY=BOBA')),
-            'bimwin' => json_decode($this->bodo->Curel(''))
+            'monev' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'monev/total?KEY=boba')),
+            'simpenghulu' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/total?KEY=boba')),
+            'bimwin' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'embimwin/total?KEY=boba')),
         ];
         return $data;
     }
