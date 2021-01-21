@@ -23,7 +23,7 @@ $n = 0; //pengguna_sosial
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Users/Wakaf/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?= base_url('Users/Siwak/Wakaf/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -111,7 +111,7 @@ $n = 0; //pengguna_sosial
                         $n += str_replace(',', '', $b->pengguna_sosial); //pengguna_sosial
                         ?>
                         <tr>
-                            <td style="text-align:left !important;"><?= '<a href="' . base_url('Users/Wakaf/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $b->lokasi_kode . '&d=' . $b->lokasi_nama))) . '" title="Detail ' . $b->lokasi_nama . '">' . $b->lokasi_nama . '</a>' ?></td>
+                            <td style="text-align:left !important;"><?= '<a href="' . base_url('Users/Siwak/Wakaf/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $b->lokasi_kode . '&d=' . $b->lokasi_nama))) . '" title="Detail ' . $b->lokasi_nama . '">' . $b->lokasi_nama . '</a>' ?></td>
                             <td><?= $b->dt_wakaf; ?></td>
                             <td><?php echo number_format($b->dt_luas / 10000, 2, ',', '.'); ?></td>
                             <td><?= $b->dt_sertifikat; ?></td>

@@ -111,7 +111,7 @@ $n = 0; //pengguna_sosial
                         $n += str_replace(',', '', $b->pengguna_sosial); //pengguna_sosial
                         ?>
                         <tr>
-                            <td style="text-align:left !important;"><?= '<a href="' . base_url('Users/Wakaf/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->Lokasi_Prop . '&b=' . $b->lokasi_nama))) . '" title="Detail Provinsi ' . $b->lokasi_nama . '">' . $b->lokasi_nama . '</a>' ?></td>
+                            <td style="text-align:left !important;"><?= '<a href="' . base_url('Users/Siwak/Wakaf/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->Lokasi_Prop . '&b=' . $b->lokasi_nama))) . '" title="Detail Provinsi ' . $b->lokasi_nama . '">' . $b->lokasi_nama . '</a>' ?></td>
                             <td><?= $b->dt_wakaf; ?></td>
                             <td><?php echo number_format($b->dt_luas / 10000, 2, ',', '.'); ?></td>
                             <td><?= str_replace(',', '.', number_format($b->dt_sertifikat)); ?></td>
