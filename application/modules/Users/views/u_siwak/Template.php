@@ -27,6 +27,7 @@
         <link href="<?php echo base_url('assets/css/custom.kemenag.css'); ?>" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="https://simas.kemenag.go.id/assets/img/rudabilogo.png" />
+        <?php if ($this->uri->segment(3) != "Dashboard") {echo '';} else {echo '<meta http-equiv="refresh" content="30">';}?>
         <title>{title}</title>
     </head>
 
@@ -50,7 +51,7 @@
                         <div id="kt_aside_menu" class="aside-menu my-4" data-menu-vertical="1" data-menu-scroll="1" data-menu-dropdown-timeout="500">
                             <ul class="menu-nav">
                                 <li class="menu-item" aria-haspopup="true">
-                                    <a href="<?= base_url('Users/Siwak/index/'); ?>" class="menu-link">
+                                    <a href="<?= base_url('Users/Siwak/Dashboard/index/'); ?>" class="menu-link">
                                         <span class="svg-icon menu-icon">
                                             <i class="fas fa-tv"></i>
                                         </span>

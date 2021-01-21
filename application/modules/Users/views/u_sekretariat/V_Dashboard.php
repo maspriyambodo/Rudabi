@@ -1,7 +1,7 @@
 <div class="card" style="margin-top: -5%;">
     <div class="position-absolute w-100 h-50 rounded-card-top bg-dark"></div>
     <div class="card-body position-relative">
-        <h3 class="7 text-white text-center my-10 my-lg-15">SEKRETARIAT<br>Direktorat Jendral Bimas Islam</h3>
+        <h3 class="7 text-white text-center my-10"><b>SEKRETARIAT</b><br>Direktorat Jendral Bimas Islam</h3>
         <div class="card-body bg-white col-11 col-lg-12 col-xxl-10 mx-auto">
             <div class="row">
                 <div class="col">
