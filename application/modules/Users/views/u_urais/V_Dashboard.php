@@ -89,7 +89,7 @@
                 </div>
                 <div class="col">
                     <a href="javascript:void(0)" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <b style="font-size: 30px;color: white;"><?php echo number_format($total['tipo_mushalla'][3]->dt_mushalla); ?></b>
                             </span>
