@@ -1,7 +1,7 @@
 <div class="card" style="margin-top: -4%;">
     <div class="position-absolute w-100 h-50 rounded-card-top bg-dark"></div>
     <div class="card-body position-relative">
-        <h2 class="7 text-white text-center my-10 my-lg-15">DIREKTORAT<br>Urusan Agama Islam &amp; Pembinaan Syariah</h2>
+        <h2 class="7 text-white text-center my-10 my-lg-15"><b>DIREKTORAT</b><br>Urusan Agama Islam &amp; Pembinaan Syariah</h2>
         <div class="card-body bg-white col-11 col-lg-12 col-xxl-10 mx-auto">
             <div class="row">
                 <div class="col">
