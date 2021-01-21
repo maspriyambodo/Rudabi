@@ -161,6 +161,53 @@
                     </a>
                 </div>
             </div>
+            
+            <div class="row">
+                <div class="col"></div>
+                <div class="col">
+                    <a href="javascript:void(0)" class="card card-custom bg-warning bg-hover-state-warning card-stretch gutter-b">
+                        <div class="card-body text-center">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <b style="font-size: 30px;color: white;">
+                                    <?php echo number_format($total['alat'][0]->gps); ?>
+                                </b>
+                            </span>
+                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
+                                Jumlah Publisher
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="javascript:void(0)" class="card card-custom bg-warning bg-hover-state-warning card-stretch gutter-b">
+                        <div class="card-body text-center">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <b style="font-size: 30px;color: white;">
+                                    <?php echo number_format($total['alat'][0]->theodolit); ?>
+                                </b>
+                            </span>
+                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
+                                Jumlah Author
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="javascript:void(0)" class="card card-custom bg-warning bg-hover-state-warning card-stretch gutter-b">
+                        <div class="card-body text-center">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <b style="font-size: 30px;color: white;">
+                                    <?php echo number_format($total['alat'][0]->teropong); ?>
+                                </b>
+                            </span>
+                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
+                                Jumlah Buku
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col"></div>
+            </div>
         </div>
     </div>
 </div>
