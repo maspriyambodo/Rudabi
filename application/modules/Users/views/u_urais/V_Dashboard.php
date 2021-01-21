@@ -169,7 +169,7 @@
                         <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <b style="font-size: 30px;color: white;">
-                                    <?php echo number_format($total['pustaka'][0]->gps); ?>
+                                    <?php echo number_format($total['pustaka'][2]->jumlah_publisher); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -183,7 +183,7 @@
                         <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <b style="font-size: 30px;color: white;">
-                                    <?php echo number_format($total['pustaka'][0]->theodolit); ?>
+                                    <?php echo number_format($total['pustaka'][1]->jumlah_author); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -197,7 +197,7 @@
                         <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <b style="font-size: 30px;color: white;">
-                                    <?php echo number_format($total['pustaka'][0]->teropong); ?>
+                                    <?php echo number_format($total['pustaka'][0]->jumlah_buku); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">

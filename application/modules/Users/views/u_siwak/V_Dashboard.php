@@ -5,7 +5,7 @@
         <div class="card-body bg-white col-11 col-lg-12 col-xxl-10 mx-auto">
             <div class="row">
                 <div class="col">
-                    <a href="<?php echo base_url(); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
+                    <a href="<?php echo base_url('Users/Wakaf/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-hand-holding-heart" style="font-size: 48px;color: white;"></i>
