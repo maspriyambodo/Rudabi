@@ -47,6 +47,7 @@ class Dashboard extends CI_Controller {
             'monev' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'monev/total?KEY=boba')),
             'simpenghulu' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/total?KEY=boba')),
             'simpenais' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/total?KEY=BOBA')),
+            'penyuluh' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'epay/totalnew?KEY=BOBA')),
             'siwak' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'siwaks/wakaf?KEY=boba'))
         ];
         return $data;

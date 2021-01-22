@@ -248,12 +248,12 @@ $a = [
 
             <div class="row">
                 <div class="col">
-                    <a href="" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
+                    <a href="<?php echo site_url('PAI/Epai/index/');?>" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-user-tie" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total['simpenais']); ?>
+                                    <?php echo number_format($total['penyuluh'][0]->penyuluh); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
