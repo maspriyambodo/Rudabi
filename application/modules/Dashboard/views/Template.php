@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="rudabi">
     <head>
         <base href="<?= base_url(); ?>">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8;">
@@ -1151,26 +1151,20 @@
                                 </div>
                             </div>
                             <div class="topbar">
-                                <div class="dropdown" id="kt_quick_search_toggle">
-                                    <div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">
-                                        <div class="btn btn-icon btn-clean btn-lg btn-dropdown mr-1"><span class="svg-icon svg-icon-xl svg-icon-primary"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24" /><path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" /><path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fill-rule="nonzero" /></g></svg></span></div>
-                                    </div>
-                                    <div class="dropdown-menu p-0 m-0 dropdown-menu-right dropdown-menu-anim-up dropdown-menu-lg">
-                                        <div class="quick-search quick-search-dropdown" id="kt_quick_search_dropdown">
-                                            <form method="get" class="quick-search-form">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend"><span class="input-group-text"><span class="svg-icon svg-icon-lg"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24" /><path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" /><path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fill-rule="nonzero" /></g></svg></span></span>
-                                                    </div><input type="text" class="form-control" placeholder="Search..." />
-                                                    <div class="input-group-append"><span class="input-group-text"><i class="quick-search-close ki ki-close icon-sm text-muted"></i></span></div>
-                                                </div>
-                                            </form>
-                                            <div class="quick-search-wrapper scroll" data-scroll="true" data-height="325" data-mobile-height="200"></div>
-                                        </div>
+                                <div class="topbar-item">
+                                    <div class="btn btn-icon w-auto btn-clean d-flex align-items-center btn-lg px-2" title="Full Screen" onclick="openFullscreen()">
+                                        <i class="fas fa-expand"></i>
                                     </div>
                                 </div>
 
                                 <div class="topbar-item">
-                                    <div class="btn btn-icon w-auto btn-clean d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle"> <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span><span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{username}</span>
+                                    <div class="btn btn-icon w-auto btn-clean d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
+                                        <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">
+                                            Hi,
+                                        </span>
+                                        <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">
+                                            {username}
+                                        </span>
                                         <span class="symbol symbol-35 symbol-light-success">
                                             <i class="fas fa-user"></i>
                                         </span>
@@ -1340,6 +1334,16 @@
                 </div>-->
         <div id="kt_scrolltop" class="scrolltop"><span class="svg-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><polygon points="0 0 24 0 24 24 0 24" /><rect fill="#000000" opacity="0.3" x="11" y="10" width="2" height="10" rx="1" /><path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z" fill="#000000" fill-rule="nonzero" /></g></svg></span></div>
         <script>
+            var elem = document.getElementById("rudabi");
+            function openFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) { /* Safari */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE11 */
+                    elem.msRequestFullscreen();
+                }
+            }
             var pageUrl = window.location.origin + window.location.pathname;
             var menu = $('.aside-menu .menu-nav li a[href="' + pageUrl + '"]').parent('li');
             menu.addClass('menu-item-active');
