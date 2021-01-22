@@ -28,7 +28,7 @@
         <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="https://simas.kemenag.go.id/assets/img/rudabilogo.png" />
         <?php
-        if ($this->uri->segment(3) != "Dashboard") {
+        if ($this->uri->segment(1) != "Dashboard") {
             echo '';
         } else {
             echo '<meta http-equiv="refresh" content="30">';

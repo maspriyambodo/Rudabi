@@ -12,7 +12,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-sitemap" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total); ?>
+                                    <?php echo number_format($total['satker'][0]->satker); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -27,7 +27,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-chart-line" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total); ?>
+                                    <?php echo number_format($total['satker'][1]->usulan_triwulan); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -42,7 +42,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="far fa-thumbs-up" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total); ?>
+                                    <?php echo number_format($total['satker'][3]->approved_usulan); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -57,7 +57,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-users" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total); ?>
+                                    <?php echo number_format($total['sicakep'][0]->data_pegawai); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -72,7 +72,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-house-user" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total); ?>
+                                    <?php echo number_format($total['sicakep'][1]->data_pensiun); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -82,7 +82,7 @@
                     </a>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col">
                     <a href="<?php echo base_url('Binsyar/Sihat/index/'); ?>" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b">
@@ -90,7 +90,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-tools" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total); ?>
+                                    <?php echo number_format($total['sihat'][0]->alat_hisab_rukyat); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -105,7 +105,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-user-tie" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total); ?>
+                                    <?php echo number_format($total['sihat'][1]->tenaga_ahli); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -120,7 +120,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-ruler-combined" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total); ?>
+                                    <?php echo number_format($total['sihat'][2]->hisab_pengukuran); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -135,7 +135,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-mosque" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total); ?>
+                                    <?php echo number_format($total['simas'][0]->data_masjid); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -150,7 +150,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-place-of-worship" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total); ?>
+                                    <?php echo number_format($total['simas'][1]->data_mushalla); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -160,7 +160,7 @@
                     </a>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col">
                     <a href="<?php echo base_url('KUA/Bimwin/index/'); ?>" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
@@ -168,7 +168,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="far fa-list-alt" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total); ?>
+                                    <?php echo number_format($total['bimwin'][1]->jumlah_peserta); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -183,7 +183,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="far fa-chart-bar" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total); ?>
+                                    <?php echo number_format($total['monev'][0]->rekap_data_kua); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -198,7 +198,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-home" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total); ?>
+                                    <?php echo number_format($total['simpenghulu'][0]->data_kua); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -213,7 +213,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-user-tie" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total); ?>
+                                    <?php echo number_format($total['simpenghulu'][1]->data_penghulu); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -228,7 +228,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-restroom" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total); ?>
+                                    <?php echo number_format($total['simpenghulu'][2]->data_peristiwa_nikah); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -238,7 +238,7 @@
                     </a>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col">
                     <a href="" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
@@ -246,7 +246,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-user-tie" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total); ?>
+                                    <?php echo number_format($total['simpenais']); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -261,7 +261,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="far fa-flag" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total); ?>
+                                    <?php echo number_format($total['simpenais'][5]->ormas_islam); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -276,7 +276,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-quran" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total); ?>
+                                    <?php echo number_format($total['simpenais'][8]->lptq); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -291,7 +291,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-book-reader" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total); ?>
+                                    <?php echo number_format($total['pustaka'][3]->total); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
@@ -306,7 +306,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-hand-holding-heart" style="font-size: 48px;color: white;"></i>
                                 <b style="font-size: 30px;color: white;margin-left: 10px;">
-                                    <?php echo number_format($total); ?>
+                                    <?php echo number_format($total['siwak'][0]->tanah_wakaf); ?>
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
