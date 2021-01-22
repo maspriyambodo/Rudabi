@@ -1,7 +1,9 @@
 <div class="card" style="margin-top: -4%;">
     <div class="position-absolute w-100 h-50 rounded-card-top bg-dark"></div>
     <div class="card-body position-relative">
-        <h2 class="7 text-white text-center my-10"><b>DIREKTORAT</b><br>Pemberdayaan Zakat &amp; Wakaf</h2>
+        <div style="font-size:40px;" class="7 text-white text-center my-10">
+            <b>DIREKTORAT</b><br>Pemberdayaan Zakat &amp; Wakaf
+        </div>
         <div class="card-body bg-white col-11 col-lg-12 col-xxl-10 mx-auto">
             <div class="row">
                 <div class="col">
