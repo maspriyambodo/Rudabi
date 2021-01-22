@@ -128,7 +128,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-address-card" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php echo number_format($data['sicakep'][7]->IV); ?></b>
                             </span>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Data Pensiun IV</div>
+                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Pensiun Golongan IV</div>
                         </div>
                     </a>
                 </div>
