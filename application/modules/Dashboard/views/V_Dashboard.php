@@ -1,8 +1,8 @@
 <?php
-$a = [
-    'a' => $total['satker'][0]->satker,
-    's' => $total['siwak'][0]->tanah_wakaf
-];
+//$a = [
+//    'a' => $total['satker'][0]->satker,
+//    's' => $total['siwak'][0]->tanah_wakaf
+//];
 ?>
 <div class="card" style="margin-top: -4%;">
     <div class="position-absolute w-100 h-50 rounded-card-top bg-dark"></div>
@@ -24,7 +24,7 @@ $a = [
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
                                 Data Satker
                             </div>
-                            <span class="label label-light-success label-inline font-weight-bold">+ 1</span>
+                            <!--<span class="label label-light-success label-inline font-weight-bold">+1</span>-->
                         </div>
                     </a>
                 </div>
