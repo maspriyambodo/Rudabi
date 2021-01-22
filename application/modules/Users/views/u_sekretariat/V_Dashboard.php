@@ -7,10 +7,10 @@
         <div class="card-body bg-white col-11 col-lg-12 col-xxl-10 mx-auto">
             <div class="row">
                 <!-- <div class="col">
-                    <a href="<?php //echo base_url('Users/Sekretariat/Approved/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . date("Y"))) . ''); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
+                    <a href="<?php //echo base_url('Users/Sekretariat/Approved/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . date("Y"))) . '');  ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <i class="far fa-thumbs-up" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php //echo number_format($data['satker'][3]->approved_usulan); ?></b>
+                                <i class="far fa-thumbs-up" style="font-size: 48px;color: white;"></i> <b style="font-size: 30px;color: white;margin-left: 10px;"><?php //echo number_format($data['satker'][3]->approved_usulan);  ?></b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Approved Usulan</div>
                         </div>
