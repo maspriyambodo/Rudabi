@@ -1,9 +1,3 @@
-<?php
-//$a = [
-//    'a' => $total['satker'][0]->satker,
-//    's' => $total['siwak'][0]->tanah_wakaf
-//];
-?>
 <div class="card" style="margin-top: -4%;">
     <div class="position-absolute w-100 h-50 rounded-card-top bg-dark"></div>
     <div class="card-body position-relative">
@@ -24,7 +18,6 @@
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
                                 Data Satker
                             </div>
-                            <!--<span class="label label-light-success label-inline font-weight-bold">+1</span>-->
                         </div>
                     </a>
                 </div>
@@ -194,13 +187,13 @@
                                 </b>
                             </span>
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;">
-                                Rekap Data KUA
+                                Jumlah Data KUA
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col">
-                    <a href="" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
+                    <a href="<?php echo base_url('Simpenghulu/KUA/index/'); ?>" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-home" style="font-size: 48px;color: white;"></i>
