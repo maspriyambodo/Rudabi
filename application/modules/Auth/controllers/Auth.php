@@ -40,7 +40,7 @@ class Auth extends CI_Controller {
     private function Role_users() {
         switch ($this->session->userdata('lvl')) {
             case 1://super admin
-                return redirect(base_url('Dashboard/index'), 'refresh');
+                return redirect(base_url('Dashboard/index/'), 'refresh');
             case 2://Sub Direktorat Sekretariat
                 return redirect(base_url('Users/Sekretariat/Dashboard/index/'), 'refresh');
             case 3://DIREKTORAT URUSAN AGAMA ISLAM DAN PEMBINAAN SYARIAH
