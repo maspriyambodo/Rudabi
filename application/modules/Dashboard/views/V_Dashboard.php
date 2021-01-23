@@ -241,7 +241,7 @@
 
             <div class="row">
                 <div class="col">
-                    <a href="<?php echo site_url('PAI/Epai/index/');?>" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
+                    <a href="<?php echo site_url('PAI/Epai/index/'); ?>" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-user-tie" style="font-size: 48px;color: white;"></i>
@@ -319,3 +319,42 @@
         </div>
     </div>
 </div>
+<ul class="sticky-toolbar nav flex-column pl-2 pr-2 pt-3 pb-3 mt-4">
+    <!--begin::Item-->
+    <li class="nav-item mb-2" id="kt_demo_panel_toggle" data-toggle="tooltip" title="" data-placement="right" data-original-title="Dashboard Sekretariat">
+        <a class="btn btn-sm btn-icon btn-bg-light btn-icon-success btn-hover-success" href="<?php echo base_url('Users/Sekretariat/Dashboard/index/'); ?>" target="_blank">
+            <i class="fas fa-sitemap"></i>
+        </a>
+    </li>
+    <!--end::Item-->
+
+    <!--begin::Item-->
+    <li class="nav-item mb-2" data-toggle="tooltip" title="" data-placement="left" data-original-title="Dashboard URAIS & BINSYAR">
+        <a class="btn btn-sm btn-icon btn-bg-light btn-icon-primary btn-hover-primary" href="<?php echo base_url('Users/Binsyar/Dashboard/index/'); ?>" target="_blank">
+            <i class="fas fa-mosque"></i>
+        </a>
+    </li>
+    <!--end::Item-->
+
+    <!--begin::Item-->
+    <li class="nav-item mb-2" data-toggle="tooltip" title="" data-placement="left" data-original-title="Bina KUA & Keluarga Sakinah">
+        <a class="btn btn-sm btn-icon btn-bg-light btn-icon-warning btn-hover-warning" href="<?php echo base_url('Users/BKKS/Dashboard/index/'); ?>" target="_blank">
+            <i class="fas fa-restroom"></i>
+        </a>
+    </li>
+    <!--end::Item-->
+
+    <!--begin::Item-->
+    <li class="nav-item" id="kt_sticky_toolbar_chat_toggler" data-toggle="tooltip" title="" data-placement="left" data-original-title="Dashboard PENAIS">
+        <a class="btn btn-sm btn-icon btn-bg-light btn-icon-danger btn-hover-danger" href="<?php echo base_url('Users/PAI/Dashboard/index/'); ?>" data-target="_blank">
+            <i class=" far fa-lightbulb "></i>
+        </a>
+    </li>
+    
+    <li class="nav-item" id="kt_sticky_toolbar_chat_toggler" data-toggle="tooltip" title="" data-placement="left" data-original-title="Dashboard Wakaf">
+        <a class="btn btn-sm btn-icon btn-bg-light btn-icon-danger btn-hover-danger" href="<?php echo base_url('Users/Siwak/Dashboard/index/'); ?>" data-target="_blank">
+            <i class="fas fa-hand-holding-heart"></i>
+        </a>
+    </li>
+    <!--end::Item-->
+</ul>
