@@ -346,13 +346,13 @@
 
     <!--begin::Item-->
     <li class="nav-item" id="kt_sticky_toolbar_chat_toggler" data-toggle="tooltip" title="" data-placement="left" data-original-title="Dashboard PENAIS">
-        <a class="btn btn-sm btn-icon btn-bg-light btn-icon-danger btn-hover-danger" href="<?php echo base_url('Users/PAI/Dashboard/index/'); ?>" data-target="_blank">
+        <a class="btn btn-sm btn-icon btn-bg-light btn-icon-danger btn-hover-danger" href="<?php echo base_url('Users/PAI/Dashboard/index/'); ?>" target="_blank">
             <i class=" far fa-lightbulb "></i>
         </a>
     </li>
     
     <li class="nav-item" id="kt_sticky_toolbar_chat_toggler" data-toggle="tooltip" title="" data-placement="left" data-original-title="Dashboard Wakaf">
-        <a class="btn btn-sm btn-icon btn-bg-light btn-icon-danger btn-hover-danger" href="<?php echo base_url('Users/Siwak/Dashboard/index/'); ?>" data-target="_blank">
+        <a class="btn btn-sm btn-icon btn-bg-light btn-icon-danger btn-hover-danger" href="<?php echo base_url('Users/Siwak/Dashboard/index/'); ?>" target="_blank">
             <i class="fas fa-hand-holding-heart"></i>
         </a>
     </li>
