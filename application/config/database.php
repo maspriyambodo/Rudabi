@@ -1,7 +1,5 @@
 <?php
 
-//'username' => 'root',
-//'password' => 'Masdatin@2020!',
 defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = true;
